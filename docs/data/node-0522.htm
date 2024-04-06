@@ -1,0 +1,88 @@
+
+<div id='nodeSection1'>HTTP client (request module)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> request = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'request'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>must be installed separately</span><span class=rvts39> (&gt; npm install request)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> httpRequest = request(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'google.com.au'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// choose only one: </span><span class=rvts44>pass either a URL or an options object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'google.com.au'</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; method&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'{GET|POST|PUT|DELETE|HEAD}'</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; headers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : { </span><span class=rvts42>'Accept'</span><span class=rvts41> : </span><span class=rvts42>text/html'</span><span class=rvts41> },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>new</span><span class=rvts41> Buffer(</span><span class=rvts42>'data'</span><span class=rvts41>),</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : { </span><span class=rvts42>'userId'</span><span class=rvts41>: </span><span class=rvts42>'David'</span><span class=rvts41> },&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// query string to be appended to the URL</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : stringOrBuffer,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can be passed as string or buffer</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; form&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : { field1: </span><span class=rvts42>'value'</span><span class=rvts47>, ...</span><span class=rvts41>),&nbsp;&nbsp; </span><span class=rvts39>// automatically sets the content type</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : myObject,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// sets the content type and sends the jason object as body data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; followRedirect : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// automatically follow HTTP 3xx redirects</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maxRedirects&nbsp;&nbsp; : 10,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// limit the number of redirects</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onresponse&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// callback will be fired on the response event instead of on end</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onresponse&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>function</span><span class=rvts41>(???) { },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// will be called on response and not affect the regular semantics of the main callback on end</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encoding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'{utf8|ascii|base64}'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// deliver the response as a string with this encoding</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; </span><span class=rvts45>false</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// don't send cookies from the global cookie jar</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (error, response, body) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// is emitted once the whole response has been received</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (error) { </span><span class=rvts45>throw</span><span class=rvts41> error; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.{get|put|post|head|del|get}(</span><span class=rvts47>...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shortcut functions for the generic request(...)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.get(</span><span class=rvts42>'google.com.au'</span><span class=rvts41>).pipe(outputStream);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the response body can be piped into another output stream</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.defaults({ jar: </span><span class=rvts45>false</span><span class=rvts41> });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// disable the global cookie store</span></p>
+<p><span class=rvts42><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>HTTP client</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> http = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'http'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP library</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> request = http.request(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// there are also shortcuts: http.{get|post|...}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; host&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'www.google.com'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the host to connect to</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; port&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 80,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the port to connect to</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'/index.html'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the server path to request</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; method&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'{GET|POST|PUT|DELETE|HEAD}'</span><span class=rvts41>,&nbsp; </span><span class=rvts39>// the HTTP method</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; headers&nbsp;&nbsp;&nbsp; : { </span><span class=rvts42>'Accept'</span><span class=rvts41>: </span><span class=rvts42>'text/html'</span><span class=rvts41> },&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional HTTP headers</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; agent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable (true) or disable (false) connection pooling</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maxSockets : 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the connction pool size per host+port</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> onResponse(response) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called when the response has been received, can also be set via request.on('response')</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.statusCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP status code (e.g. 404)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.httpVersion</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.headers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP headers (convert to string: require('util').inspect(request.headers))</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.headers[</span><span class=rvts42>'content-type'</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the header names are always in lowercase</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.setEncoding(</span><span class=rvts42>'{utf8|ascii|base64}'</span><span class=rvts41>);</span><span class=rvts39>// set the default encoding for the onData event</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.on(</span><span class=rvts42>'data'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (data) { });&nbsp;&nbsp; </span><span class=rvts39>// emitted when the body data is received (passed as Buffer by default or as String after setEncoding())</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.write(</span><span class=rvts42>'data'</span><span class=rvts47>, '{utf8|ascii|base64}'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send string data (the default enocding is UTF-8)</span></p>
+<p><span class=rvts41>request.write(buffer);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send data from a Buffer object</span></p>
+<p><span class=rvts41>request.write(</span><span class=rvts47>...</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> onSent() { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called when all writes have been flushed (can be used for cleanup)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.end(</span><span class=rvts47>'Bye bye!'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// finalise the request (and optionally send last data beforehand)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'response'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (response) { });&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// emitted when the response has been received</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>HTTP client with TLS</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> https = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'https'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the HTTPs services</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> fs&nbsp;&nbsp;&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'fs'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access to the file system to load key and certificates</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> request = https.request(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>everyhing (else) works like with http.request (see above)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; host: </span><span class=rvts42>'127.0.0.1'</span><span class=rvts41>, port: 4001,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; method: </span><span class=rvts42>'GET'</span><span class=rvts41>, path: </span><span class=rvts42>'/'</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> onResponse(response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.socket.authorized&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// indicates if the server sent a trusted certificate</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.socket.getPeerCertificate()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inspect the server's certificate</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

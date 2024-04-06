@@ -1,0 +1,80 @@
+
+<div id='nodeSection1'>Beans</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyBean</span><span class=rvts113> </span><span class=rvts64>implements</span><span class=rvts113> </span><span class=rvts233>Serializable</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// beans must be serialisable if they might be persisted</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>final</span><span class=rvts113> </span><span class=rvts64>long</span><span class=rvts113> serialVersionUID = 1L;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts64>boolean</span><span class=rvts113> active;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> primeNumbers[] = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113>[10];</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> setActive(</span><span class=rvts64>boolean</span><span class=rvts113> active) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// public properties have a dedicated public setter</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.active = active;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>boolean</span><span class=rvts113> getActive() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... as well as a getter</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.active;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>boolean</span><span class=rvts113> isActive() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// for boolean values it can be named is... instead of get...</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.getActive();</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> setPrimeNumber(</span><span class=rvts64>int</span><span class=rvts113> index,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the setter for collections requires an index </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113> primeNumber) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.primeNumbers[index] = primeNumber;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> getPrimeNumber(</span><span class=rvts64>int</span><span class=rvts113> index) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... as does the getter</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.primeNumbers[index];</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113>[] getPrimeNumber() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... unless it is to return the whole collection</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.primeNumbers;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> addMyListener(</span><span class=rvts233>MyListener</span><span class=rvts113> l) {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// if the bean supports event, then an adder and remover must be</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> removeMyListener(</span><span class=rvts233>MyListener</span><span class=rvts113> l) {}&nbsp;&nbsp; </span><span class=rvts62>// supplied to add and remove listeners</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> doSomething() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// all public methods are automatically part of the public interface</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ...</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Descriptors</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyBeanBeanInfo</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>SimpleBeanInfo</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add a *BeanInfo class to explicitely declare the interface </span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts233>PropertyDescriptor</span><span class=rvts113>[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// override this method to explicitely select the exposed properties</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getPropertyDescriptors() { </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>try</span><span class=rvts113> {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>PropertyDescriptor</span><span class=rvts113> pd[] = {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>PropertyDescriptor</span><span class=rvts113>(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"doSomething"</span><span class=rvts113>, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>MyBean</span><span class=rvts113>.</span><span class=rvts64>class</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> pd;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts64>catch</span><span class=rvts113> (</span><span class=rvts233>Exception</span><span class=rvts113> exception) { }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>null</span><span class=rvts113>;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts233>EventSetDescriptor</span><span class=rvts113>[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// override any of these classes to customise the bean's interface </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getEventSetDescriptors() {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// for every method that is not overridden, the default method of</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts233>MethodDescriptor</span><span class=rvts113>[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// convention over configuration is applied</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getMethodDescriptors() {}</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts233>PropertyDescriptor</span><span class=rvts113>[] </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; getPropertyDescriptors() {}</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Introspection</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>Class</span><span class=rvts113>&lt;?&gt; beanClass =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain the bean's class </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Class</span><span class=rvts113>.forName(</span><span class=rvts217>"myPackage.MyBean"</span><span class=rvts113>);</span></p>
+<p><span class=rvts233>BeanInfo</span><span class=rvts113> beanInfo =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain the bean's descriptor</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Introspector</span><span class=rvts113>.getBeanInfo(beanClass);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>beanInfo.getPropertyDescriptors()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the bean's properties (returned as an array)</span></p>
+<p><span class=rvts113>beanInfo.getEventSetDescriptors()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the bean's events</span></p>
+<p><span class=rvts113>beanInfo.getMethodDescriptors()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the bean's descriptors</span></p>
+<p><span class=rvts233><br></span></p>
+<p><br></p>
+<p><br></p>
+

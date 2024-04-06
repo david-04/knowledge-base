@@ -1,0 +1,20 @@
+
+<div id='nodeSection1'>Extensions</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>Integer</span><span class=rvts262>                               </span><span class=rvts263># can extend existing classes by just redefining them</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>alias_method</span><span class=rvts262> :original_divide, :/         </span><span class=rvts263># create a backup of an existing method (+ operator)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> /(other_number)                       </span><span class=rvts263># redefined the method</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>if</span><span class=rvts262> 0 == other_number</span></p>
+<p class=rvps12><span class=rvts262>      0</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>else</span></p>
+<p class=rvps12><span class=rvts262>      original_divide(other_number)         </span><span class=rvts263># access the aliased method from the original class</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,41 @@
+
+<div id='nodeSection1'>Default databases</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts61>master&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- contains the metadata of all databases (should be backed up regularly)</span></p>
+<p><span class=rvts61>model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- template database that is used as copy-template when creating a new database (contains some system tables)</span></p>
+<p><span class=rvts61>tempdb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- used to store temporary tables and intermediate results</span></p>
+<p><span class=rvts61>msdb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- contains task scheduling, alerts and exception handling (SQL Server Agent)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Command line tools</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts63>&gt;</span><span class=rvts61> bcp david</span><span class=rvts63>.</span><span class=rvts61>dbo</span><span class=rvts63>.</span><span class=rvts61>customer </span><span class=rvts64>out</span><span class=rvts61> "customer.txt" </span><span class=rvts63>-</span><span class=rvts61>T </span><span class=rvts63>-</span><span class=rvts61>c&nbsp;&nbsp; </span><span class=rvts62>--Bulk copy: Import or export tables from/to flat text files</span></p>
+<p><span class=rvts63>&gt;</span><span class=rvts61> sqlcmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- run SQL commands from the command line (or input files)</span></p>
+<p><span class=rvts63>&gt;</span><span class=rvts61> sqlservr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- start a database server instance </span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Change tracking</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>EXECUTE</span><span class=rvts61> </span><span class=rvts62>sys</span><span class=rvts63>.</span><span class=rvts65>sp_cdc_enable_db</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- enable change tracking for the whole database</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>EXECUTE</span><span class=rvts61> </span><span class=rvts62>sys</span><span class=rvts63>.</span><span class=rvts65>sp_cdc_enable_table</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp; </span><span class=rvts61>@source_schema </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'my_schema'</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; @source_name </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'my_table'</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; @role_name </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'cdc_admin'</span></p>
+<p><span class=rvts66><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Backup and recovery</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>BACKUP</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database </span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp; TO</span><span class=rvts61> </span><span class=rvts66>'C:\backup.bak'</span><span class=rvts61> </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>COMPRESSION</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Normalisation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12>1st normal form =&gt; eliminate multivalued and composite attributes</span></p>
+<p><span class=rvts12>2nd normal form =&gt; each non-key field can be derived only, if ALL key fields are taken into account</span></p>
+<p><span class=rvts12>3rd normal form =&gt; no no-key field can be derived from another non-hey field</span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

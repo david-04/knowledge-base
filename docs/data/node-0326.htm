@@ -1,0 +1,56 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>WindowsBase.dll</span></p>
+<p><span class=rvts113>PresentationCore.dll, </span></p>
+<p><span class=rvts113>System.Xaml.dll</span></p>
+<p><span class=rvts113>PresentationFramework.dll</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>WPF without XAML</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>MainWindow</span><span class=rvts183> : </span><span class=rvts110>Window</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>private</span><span class=rvts183> </span><span class=rvts110>Button</span><span class=rvts183> button = </span><span class=rvts58>null</span><span class=rvts183>;</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> MainWindow(</span><span class=rvts58>string</span><span class=rvts183> windowTitle, </span><span class=rvts58>int</span><span class=rvts183> height, </span><span class=rvts58>int</span><span class=rvts183> width)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// construct the UIElements manually</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = windowTitle;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// configure the window</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.WindowStartupLocation = </span><span class=rvts110>WindowStartupLocation</span><span class=rvts183>.CenterScreen;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.Height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = height;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.Width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = width;</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.button&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Button</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// configure a button</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.button.Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts184>"Test button"</span><span class=rvts183>;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.button.Height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 25;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.button.Width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 100;</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = button;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// attach the button to the window</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>Program</span><span class=rvts183> : </span><span class=rvts110>Application</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; [</span><span class=rvts110>STAThread</span><span class=rvts183>]</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Main(</span><span class=rvts58>string</span><span class=rvts183>[] args)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Program</span><span class=rvts183> program&nbsp; = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Program</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a new application instance</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program.Startup += AppStartUp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// register startup and shutdown delegates</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program.Exit&nbsp;&nbsp;&nbsp; += AppExit;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; program.Run();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// fire a startup event</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> AppExit(</span><span class=rvts58>object</span><span class=rvts183> sender, </span><span class=rvts110>ExitEventArgs</span><span class=rvts183> e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// cleanup actions, save configuration, ...</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> AppStartUp(</span><span class=rvts58>object</span><span class=rvts183> sender, </span><span class=rvts110>StartupEventArgs</span><span class=rvts183> e)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MainWindow</span><span class=rvts183> main = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MainWindow</span><span class=rvts183>(</span><span class=rvts184>"My WPF App!"</span><span class=rvts183>, 200, 300);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// instantiate a new window</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; main.Show();</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

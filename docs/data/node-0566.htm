@@ -1,0 +1,22 @@
+
+<div id='nodeSection1'>UDP server</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'socket'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>socket = </span><span class=rvts267>UDPSocket</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>                      </span><span class=rvts263># create a server socket</span></p>
+<p class=rvps12><span class=rvts262>socket.bind(</span><span class=rvts265>nil</span><span class=rvts262>, 1234)                      </span><span class=rvts263># bind to all IP addresses on port 1234</span></p>
+<p class=rvps12><span class=rvts262>text, sender = socket.recvfrom(16)          </span><span class=rvts263># receive a message of up to 16 bytes</span></p>
+<p class=rvps12><span class=rvts262>socket.close                                </span><span class=rvts263># close the socket</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>UDP client</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'socket'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>socket = </span><span class=rvts267>UDPSocket</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>                      </span><span class=rvts263># create a client socket</span></p>
+<p class=rvps12><span class=rvts262>socket.send(</span><span class=rvts266>"hello"</span><span class=rvts262>, 0, </span><span class=rvts266>'localhost'</span><span class=rvts262>, 1234)  </span><span class=rvts263># send a message to a given host</span></p>
+<p class=rvps12><span class=rvts262>socket.close                                </span><span class=rvts263># close the socket</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

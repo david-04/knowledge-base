@@ -1,0 +1,229 @@
+
+<div id='nodeSection1'>Classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41> </span><span class=rvts45>implements</span><span class=rvts41> </span><span class=rvts110>IStringifyable</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// classes can implement interfaces</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// properties can be public/protected/private/static/readonly</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts48>#</span><span class=rvts41>password</span><span class=rvts45> = "123"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// # marks truly private properties - they are not accessible from outside (neither via myPerson["password"] nor in child classes)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>static</span><span class=rvts41>&nbsp; population: </span><span class=rvts45>number</span><span class=rvts41> = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// static properties must be initialised inline</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the constructor can just receive regular input parameters</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts50>protected</span><span class=rvts41> age : </span><span class=rvts45>number</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or implicitely defined additional properties</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.name = name;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instance properties must be accessed via the "this" keyword</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Person</span><span class=rvts41>.population++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// static properties must be accessed via the class name</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> toString(): </span><span class=rvts45>string</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.name + </span><span class=rvts42>" "</span><span class=rvts41> + </span><span class=rvts45>this</span><span class=rvts41>.age;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> myFunc(p1: </span><span class=rvts45>number</span><span class=rvts41>, p2?: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>string</span><span class=rvts41>; </span><span class=rvts39>// class methods can be overloaded just like regular functions</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> myFunc(p1: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> myFunc(p1: </span><span class=rvts45>any</span><span class=rvts41>, p2?: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>any</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts52>#</span><span class=rvts41>myOtherFunc(): </span><span class=rvts45>void { }</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// methods (and accessors) can also be made runtime-private - even static ones</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Modifiers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// public is the default</span></p>
+<p><span class=rvts45>protected</span></p>
+<p><span class=rvts45>private</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>static</span></p>
+<p><span class=rvts45>readonly</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the property value can be set only inline or in the constructor</span></p>
+<p><span class=rvts45>abstract</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// applied to classes and (optionally) functions (class must be inherited)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Static initialisers</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>MyClass</span><span class=rvts251> { </span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>private</span><span class=rvts251> </span><span class=rvts64>static</span><span class=rvts251> invocations = 0;</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>static</span><span class=rvts251> {                                    &nbsp;&nbsp;&nbsp; </span><span class=rvts252>// a static initializer</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>try</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>            </span><span class=rvts64>const</span><span class=rvts251> previous = loadCounterFromFile();     </span></p>
+<p class=rvps12><span class=rvts251>            </span><span class=rvts64>this</span><span class=rvts251>.invocations = previous;</span></p>
+<p class=rvps12><span class=rvts251>        } </span><span class=rvts64>catch</span><span class=rvts251> (_) { }</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p><span class=rvts45><br></span></p>
+<div id='nodeSection4'>Accessors</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> _id: </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// accessors must be backed by a regular property</span></p>
+<p><span class=rvts45>get</span><span class=rvts41> id() { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>._id; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// getter and setter must have the same visibibility</span></p>
+<p><span class=rvts45>set</span><span class=rvts41> id(value: </span><span class=rvts45>number</span><span class=rvts41>) { </span><span class=rvts45>this</span><span class=rvts41>._id = value; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// omit the setter to make the property read-only</span></p>
+<p><span class=rvts45>set</span><span class=rvts41> id(value: </span><span class=rvts45>number | string</span><span class=rvts41>) { ... }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// setters and getters can have different types</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>accessor</span><span class=rvts41> id: </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shortcut for the above: generates a private property with a public getter and setter</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>Inheritance</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// base class</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(</span><span class=rvts45>protected</span><span class=rvts41> name: </span><span class=rvts45>string</span><span class=rvts41>) { }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; toString(): </span><span class=rvts45>string</span><span class=rvts41> { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.name; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Employee</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inherited class</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(name: </span><span class=rvts45>string</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>protected</span><span class=rvts41> employeeId: </span><span class=rvts45>number</span><span class=rvts41>) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>super</span><span class=rvts41>(name);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// call the base class' constructor</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>override</span><span class=rvts41> toString(): </span><span class=rvts45>string</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mark overriden methods as "override"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts45>super</span><span class=rvts41>.toString()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// call a function of the base class</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts42>"("</span><span class=rvts41> + </span><span class=rvts45>this</span><span class=rvts41>.employeeId + </span><span class=rvts42>")"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts292>MyErr</span><span class=rvts251> </span><span class=rvts64>extends</span><span class=rvts251> </span><span class=rvts292>Error</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>constructor</span><span class=rvts251>(m: </span><span class=rvts64>string</span><span class=rvts251>) {</span></p>
+<p class=rvps12><span class=rvts251>      super(m);                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// </span><span class=rvts293>built-in standard classes override child classes' prototype</span></p>
+<p class=rvps12><span class=rvts251>      Object.setPrototypeOf(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// it needs to be restored right after the "super" call</span></p>
+<p class=rvps12><span class=rvts64>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this</span><span class=rvts251>, new.target.prototype&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// new.target is an alias for the class that has been intatiated (might be a child derived rrom MyErr)</span></p>
+<p class=rvps12><span class=rvts251>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ); </span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p><span class=rvts291><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts292>Searcher</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>constructor</span><span class=rvts251>( </span></p>
+<p class=rvps12><span class=rvts64>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected</span><span class=rvts251> pattern: </span><span class=rvts292>RegExp</span><span class=rvts251> | </span><span class=rvts64>string</span></p>
+<p class=rvps12><span class=rvts251>&nbsp;&nbsp;&nbsp; ) { }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts292>RegExpSearcher</span><span class=rvts251> </span><span class=rvts64>extends</span><span class=rvts251> </span><span class=rvts292>Searcher</span><span class=rvts251> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// this </span><span class=rvts293>does not create a class</span><span class=rvts252>, only a type for compile-time checks</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>declare</span><span class=rvts251> </span><span class=rvts64>protected</span><span class=rvts251> pattern: </span><span class=rvts292>RegExp</span><span class=rvts251>;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// re-declare base class properties with a narrower type</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>constructor</span><span class=rvts251>(pattern: </span><span class=rvts292>RegExp</span><span class=rvts251>) {</span></p>
+<p class=rvps12><span class=rvts251>      super(pattern);                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// pass-through constructor</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection6'>Constructors</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>User</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>implicit properties</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(</span><span class=rvts45>public</span><span class=rvts41>&nbsp; username: </span><span class=rvts45>string</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// marking constructor parameters as public/protected/private/readonly</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> password: </span><span class=rvts45>string</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// automatically creates and initialises the corresponding properties</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; toString(): </span><span class=rvts45>string</span><span class=rvts41> { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.username; }&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the implicit properties can be accessed just like regular properties</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>User</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>constructor overloading</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(name: </span><span class=rvts45>string</span><span class=rvts41>, password: </span><span class=rvts45>string</span><span class=rvts41>);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// works like regular function overloading</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(user: User);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... just define multiple signatures</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(p1: </span><span class=rvts45>any</span><span class=rvts41>, password?: </span><span class=rvts45>string</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and provide a generic implementation that matches all of them</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (p1 </span><span class=rvts45>instanceof</span><span class=rvts41> User) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy-constructor</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// regular constructor</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>User</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>initialising the base class</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> password: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(name: </span><span class=rvts45>string</span><span class=rvts41>, password: </span><span class=rvts45>string</span><span class=rvts41>) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>super</span><span class=rvts41>(name);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass the relevant data on to the base class' constructor</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.password = password;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// store all extended properties in the derived class</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts110><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>Encrypter</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>private</span><span class=rvts251> seed!: </span><span class=rvts64>number</span><span class=rvts251>;              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// use "!" to assert that a property will definitely be initialised</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>constructor</span><span class=rvts251>() {</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>this</span><span class=rvts251>.initialiseSeed();</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>private</span><span class=rvts251> initialiseSeed() { </span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>this</span><span class=rvts251>.seed = Math.random();      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// initialisation outside the constructor does not count (child classes might override this method)</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection7'>Constructors as parameters</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>interface</span><span class=rvts251> </span><span class=rvts288>DateConstructor</span><span class=rvts251> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// interface to describe a constructor (or factory methods)</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>new</span><span class=rvts251> (s: </span><span class=rvts64>string</span><span class=rvts251>): </span><span class=rvts288>Date</span><span class=rvts251>;              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// can be called with the "new" keyword: new Date()</span></p>
+<p class=rvps12><span class=rvts251>    (n?: </span><span class=rvts64>string</span><span class=rvts251>): </span><span class=rvts288>Date</span><span class=rvts251>;              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// can also be called as a function: Date()</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251>  </span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> myFunction(ctor: </span><span class=rvts288>DateConstructor</span><span class=rvts251>) {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>return</span><span class=rvts251> </span><span class=rvts64>new</span><span class=rvts251> ctor(</span><span class=rvts289>"2022-07-15"</span><span class=rvts251>);      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// can now call the constructor (with or without new)</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>myFunction(Date);                              &nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// pass the class name as parameter</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection8'>Fluent API functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyBaseClass</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> myBaseFunction(): </span><span class=rvts50>this</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the return type "this" will always return the actual class of the instance,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// even if it is a (yet unkown) derived class</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyDerivedClass</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts110>MyBaseClass</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> myDerivedFunction(): </span><span class=rvts45>this</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myDerivedObject = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>MyDerivedClass</span><span class=rvts41>();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myDerivedObject.myBaseFunction()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the "this" return type can be used for fluent APIs that allow</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .myDerivedFunction()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// jumping between base and derived classes</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .myBaseFunction()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .myDerivedFunction();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection9'>Type checking</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Dog</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Cat</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> allowed: </span><span class=rvts110>Dog</span><span class=rvts41> = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>Cat</span><span class=rvts41>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>this does not cause any validation error</span><span class=rvts39> (both classes are considered compatible)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Dog</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> dummy: </span><span class=rvts45>any</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// adding a protected or private property makes classes unique</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Cat</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> dummy: </span><span class=rvts45>any</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> forbidden: </span><span class=rvts110>Dog</span><span class=rvts41> = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>Cat</span><span class=rvts41>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this will cause an error since both class' dummy property has a different origin</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection10'>Nested classes</div>
+<p><span class=rvts61><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>Album</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    label = </span><span class=rvts64>new</span><span class=rvts251> Album.AlbumLabel();    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// access nested class</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts64>namespace</span><span class=rvts251> Album {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>export</span><span class=rvts251> </span><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>AlbumLabel</span><span class=rvts251> {}          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// define nested class (</span><span class=rvts293>must be exported</span><span class=rvts252>)</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection11'>Anonymous classes</div>
+<p><span class=rvts61><br></span></p>
+<p class=rvps12><span class=rvts295>const</span><span class=rvts296> instance = </span><span class=rvts295>new</span><span class=rvts296> (</span><span class=rvts295>class</span><span class=rvts296> { ... })()      </span><span class=rvts297>// anonymous class</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

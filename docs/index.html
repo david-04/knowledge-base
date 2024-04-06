@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David's Knowledge Base</title>
+    <link href="css/epim.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/awesomplete.css" rel="stylesheet" />
+    <script src="js/awesomplete.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+    <table style="border-collapse:collapse;width:99%;" aria-describedby="Knowledge base">
+        <tbody>
+            <th>
+            <td id="tree"></td>
+            <td id="divider">
+                <a href="javascript:showOrHideTree()">
+                    <div id="showOrHideTree">&#9668&nbsp;</div>
+                </a>
+            </td>
+            <td id="search">
+                <div style="width:100%">
+                    <form onsubmit="return search();">
+                        <input id="searchBox" type="text" onfocus="updateSuggestions()" onchange="updateSuggestions()"
+                            oninput="updateSuggestions()"
+                            placeholder="Search for tags (this is not a full-text search; start typing to see suggestions)" />
+                        <div style="width:0px;height:0px;float:right;" id="dummyFocus"></div>
+                    </form>
+                </div>
+                <div id="content" style="display:none;">
+                </div>
+            </td>
+            </th>
+        </tbody>
+    </table>
+
+    <div id="loadingIndicator" style="display:none;">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/metadata.js"></script>
+    <script>
+        initialiseTree();
+        document.getElementById('content').style.display = 'block';
+    </script>
+</body>
+
+</html>

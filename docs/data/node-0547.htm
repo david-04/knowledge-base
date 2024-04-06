@@ -1,0 +1,62 @@
+
+<div id='nodeSection1'>Variables</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>my_variable                                 </span><span class=rvts263># local variables are lowercase</span></p>
+<p class=rvps12><span class=rvts262>MyConstant                                  </span><span class=rvts263># constants are camelcase</span></p>
+<p class=rvps12><span class=rvts262>$my_global_variable                         </span><span class=rvts263># global variable</span></p>
+<p class=rvps12><span class=rvts262>$MyGlobalConstant                           </span><span class=rvts263># global constant</span></p>
+<p class=rvps12><span class=rvts262>@my_property                                </span><span class=rvts263># class (instance) attribute</span></p>
+<p class=rvps12><span class=rvts262>@@my_static_property                        </span><span class=rvts263># static class attribute</span></p>
+<p class=rvps12><span class=rvts262>:my_symbol                                  </span><span class=rvts263># symbol (singleton string)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Literals</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>nil</span><span class=rvts262>                                         </span><span class=rvts263># null</span></p>
+<p class=rvps12><span class=rvts265>true</span><span class=rvts262> / </span><span class=rvts265>false</span><span class=rvts262>                                </span><span class=rvts263># boolean</span></p>
+<p class=rvps12><span class=rvts262>1234                                        </span><span class=rvts263># integer</span></p>
+<p class=rvps12><span class=rvts262>1234.0                                      </span><span class=rvts263># float</span></p>
+<p class=rvps12><span class=rvts262>:my_symbol                                  </span><span class=rvts263># symbol (singleton string)</span></p>
+<p class=rvps12><span class=rvts262>(</span><span class=rvts266>'A'</span><span class=rvts262>..</span><span class=rvts266>'Z'</span><span class=rvts262>)                                  </span><span class=rvts263># range</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts266>'string'</span><span class=rvts262>                                    </span><span class=rvts263># string without interpolation</span></p>
+<p class=rvps12><span class=rvts266>"user=#{name}"</span><span class=rvts262>                              </span><span class=rvts263># string with interpolation</span></p>
+<p class=rvps12><span class=rvts266>%q{text}</span><span class=rvts262>                                    </span><span class=rvts263># non-quoted (multi-line) string</span></p>
+<p class=rvps12><span class=rvts266><br></span></p>
+<p class=rvps12><span class=rvts266>&lt;&lt;__DONE__                                  </span><span class=rvts263># the closing __DONE__ must be on it's own line (without comment)</span></p>
+<p class=rvps12><span class=rvts266>  text</span></p>
+<p class=rvps12><span class=rvts266>__DONE__</span></p>
+<p class=rvps12><span class=rvts266><br></span></p>
+<p class=rvps12><span class=rvts266>&lt;&lt;~__DONE__                                 </span><span class=rvts263># same as above, but the "~" strips leading and trailing whitespace</span></p>
+<p class=rvps12><span class=rvts266>  text</span></p>
+<p class=rvps12><span class=rvts266>__DONE__</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>[1, 2, 3]                                   </span><span class=rvts263># array</span></p>
+<p class=rvps12><span class=rvts266>%w{a e i o u}</span><span class=rvts262>                               </span><span class=rvts263># equivalent to ["a", "e", "i", "o", "u"]</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>{ key1: </span><span class=rvts266>"value"</span><span class=rvts262>, key2: </span><span class=rvts266>"value"</span><span class=rvts262> }            </span><span class=rvts263># hash (preferred)</span></p>
+<p class=rvps12><span class=rvts262>{ </span><span class=rvts266>"key1"</span><span class=rvts262> =&gt; </span><span class=rvts266>"value"</span><span class=rvts262>, </span><span class=rvts266>"key2"</span><span class=rvts262> =&gt; </span><span class=rvts266>"value"</span><span class=rvts262> }    </span><span class=rvts263># hash (legacy, discouraged)</span></p>
+<p class=rvps12><span class=rvts262>{ :key1 =&gt; </span><span class=rvts266>"value"</span><span class=rvts262>, :key2 =&gt; </span><span class=rvts266>"value"</span><span class=rvts262> }      </span><span class=rvts263># hash (legacy, discouraged)</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Type checks</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>defined?</span><span class=rvts262>(my_variable)                       </span><span class=rvts263># returns something like "local-variable" or "global-variable" or nil (if undefined)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>bird.is_a?(Animal)                          </span><span class=rvts263># true, Bird inherits from Ahimal</span></p>
+<p class=rvps12><span class=rvts262>bird.kind_of?(Animal)                       </span><span class=rvts263># true, same as above</span></p>
+<p class=rvps12><span class=rvts262>bird.instance_of?(Animal)                   </span><span class=rvts263># false, bird is of type Bird and not (only) of type Animal</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Type conversion</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>1.to_c                                      </span><span class=rvts263># complex number</span></p>
+<p class=rvps12><span class=rvts262>1.to_i                                      </span><span class=rvts263># integer</span></p>
+<p class=rvps12><span class=rvts262>1.to_int                                    </span><span class=rvts263># integer</span></p>
+<p class=rvps12><span class=rvts262>1.to_r                                      </span><span class=rvts263># rational value</span></p>
+<p class=rvps12><span class=rvts262>1.to_s                                      </span><span class=rvts263># string</span></p>
+<p class=rvps12><span class=rvts262>1.to_sym                                    </span><span class=rvts263># symbol</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

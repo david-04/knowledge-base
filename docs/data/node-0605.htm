@@ -1,0 +1,72 @@
+
+<p><span class=rvts269>val myGiven = summon[Foo] // obtain the "given"/implicit instance of Foo</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection1'>Implicit</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>greet(prefix: </span><span class=rvts277>String</span><span class=rvts262>)(</span><span class=rvts265>implicit </span><span class=rvts262>name: </span><span class=rvts277>String</span><span class=rvts262>, idx: Int) ={ // implicit is optional if the function only implicitly passes on the paramter (as yet another implict)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; println(</span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>prefix </span><span class=rvts276>$</span><span class=rvts262>name</span><span class=rvts266>!"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>implicit val </span><span class=rvts262>user = </span><span class=rvts266>"David" </span><span class=rvts263>// can have only one implicit per type</span></p>
+<p class=rvps12><span class=rvts265>implicit val </span><span class=rvts262>idx = 10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the variable name is optional</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>DavidsPreferences </span><span class=rvts262>{&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// or encapsulate the givens in a singleton</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>implicit val </span><span class=rvts275>user </span><span class=rvts262>= </span><span class=rvts266>"David" </span><span class=rvts262>* 2</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>implicit val </span><span class=rvts275>idx </span><span class=rvts262>= 10 * 2</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts274>DavidsPreferences</span><span class=rvts262>.</span><span class=rvts275>user </span><span class=rvts263>// ...and import them here</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts274>DavidsPreferences</span><span class=rvts262>.</span><span class=rvts275>idx</span></p>
+<p class=rvps12><span class=rvts275><br></span></p>
+<p class=rvps12><span class=rvts275><br></span></p>
+<p class=rvps12><span class=rvts262>greet(</span><span class=rvts266>"G'day"</span><span class=rvts262>);</span></p>
+<p class=rvps12><span class=rvts262>greet(</span><span class=rvts266>"G'Day"</span><span class=rvts262>)(</span><span class=rvts266>"David"</span><span class=rvts262>, 10) </span><span class=rvts263>// can also pass parameters explicitly</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts263><br></span></p>
+<p><span class=rvts263>trait MyComparator[T]</span></p>
+<p><span class=rvts263>&nbsp; compare(T, T) =&gt; boolean</span></p>
+<p><span class=rvts263><br></span></p>
+<p><span class=rvts269>def sort[T](array: List[T])(implict: compareFunction: MyComparator(T))</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>object MySort</span></p>
+<p><span class=rvts269>&nbsp;&nbsp; implict val : myCompartor[Int] = new MyComparator[Int] { def compare}</span></p>
+<p><span class=rvts269>&nbsp;&nbsp; implict val : myCompartor[Int] with { def compare} // short form of the above</span></p>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>sort(List(1,2,3))</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>for an implicit parameter </span><span class=rvts269>MyComparator[Int], the compiler would look for implicits</span></p>
+<p class=rvps12><span class=rvts269>- in the current scope</span></p>
+<p class=rvps12><span class=rvts269>- in MyComparator's companion object</span></p>
+<p class=rvps12><span class=rvts269>- in Int's companion object</span></p>
+<p class=rvps12><span class=rvts269>everything else requires an import</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts263><br></span></p>
+<p><span class=rvts263>place defaults in a companion object, name it as the class if they should apply by default, or give it another name to require client code to explicitly import</span></p>
+<p><span class=rvts263><br></span></p>
+<p><span class=rvts269>import TomsPrefs.* // does not import implicit vals</span></p>
+<p><span class=rvts269>import TomsPrefs.myImplicit // but can be imported manually</span></p>
+<p><span class=rvts269>import TomsPrefs.{implicit PreferredDrink} // can also import by type</span></p>
+<p><span class=rvts269>import TomsPrefs.{implicit Ordering[PreferredPrompt], implicit Ordering[PreferredPrompt2]} // can type some generics</span></p>
+<p><span class=rvts269>import TomsPrefs.{implicit Ordering[?]} // import all implementations</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Given - Scala 3</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>Greeter</span><span class=rvts262>:</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>greet(prefix: </span><span class=rvts277>String</span><span class=rvts262>)(using name: </span><span class=rvts277>String</span><span class=rvts262>) = </span><span class=rvts263>// scala 3: using</span></p>
+<p class=rvps12><span class=rvts262>println(</span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>prefix </span><span class=rvts276>$</span><span class=rvts262>name</span><span class=rvts266>!"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>given prompt: PreferredPrompt = PreferredPrompt(</span><span class=rvts266>"G'day"</span><span class=rvts262>) </span><span class=rvts263>// and given</span></p>
+<p class=rvps12><span class=rvts262>given prompt: PreferredPrompt = PreferredPrompt(</span><span class=rvts266>"G'day"</span><span class=rvts262>)(using </span><span class=rvts266>"David"</span><span class=rvts262>, 10) </span><span class=rvts263>// and given</span></p>
+<p><br></p>
+<p><br></p>
+

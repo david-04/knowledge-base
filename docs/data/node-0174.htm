@@ -1,0 +1,42 @@
+
+<div id='nodeSection1'>Create a "thunk" action creator</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>fetch </span><span class=rvts130>from </span><span class=rvts128>'isomorphic-fetch'</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// a polyfill until the browser support is better (probably requires an npm install)</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts130>function </span><span class=rvts124>fetchPosts(id) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// a "thunk" action creator returns not an action object but a function</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return function </span><span class=rvts124>(dispatch, getState) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// call getState() to retrieve the current state</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>dispatch(requestPosts(id));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// which can dispatch events synchronously</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>fetch(</span><span class=rvts128>'myFile.json'</span><span class=rvts124>).</span><span class=rvts127>then</span><span class=rvts124>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// can return a promise</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>response =&gt; response.json(),</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; error =&gt; console.</span><span class=rvts152>log</span><span class=rvts124>(error)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ).</span><span class=rvts127>then</span><span class=rvts124>(json =&gt; </span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispatch(receivePosts(id, json))</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Embed the middleware</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>thunkMiddleware </span><span class=rvts130>from </span><span class=rvts128>'redux-thunk'</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// npm install --save redux-thunk</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ createLogger } </span><span class=rvts130>from </span><span class=rvts128>'redux-logger'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ createStore } </span><span class=rvts130>from </span><span class=rvts128>'redux'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ applyMiddleware } </span><span class=rvts130>from </span><span class=rvts128>'redux'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>const </span><span class=rvts127>loggerMiddleware</span><span class=rvts151> </span><span class=rvts124>= createLogger();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>const </span><span class=rvts127>myStore</span><span class=rvts151> </span><span class=rvts124>= createStore(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// when creating the store ...</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>myReducer,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; applyMiddleware(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// add the middleware</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>thunkMiddleware,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// enabling the use of thunk action creators (dispatching functions)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts127>loggerMiddleware&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts127>&nbsp; </span><span class=rvts125>// can pass multiple middleware </span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts127>myStore</span><span class=rvts124>.dispatch(fetchPosts(23)).</span><span class=rvts127>then</span><span class=rvts124>(() =&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// dispatch the function returned by the thunk action creator</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>console.</span><span class=rvts127>log</span><span class=rvts124>(store.getState())</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

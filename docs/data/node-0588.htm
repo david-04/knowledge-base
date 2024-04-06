@@ -1,0 +1,76 @@
+
+<div id='nodeSection1'>Inheritance</div>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>abstract class </span><span class=rvts274>MyBaseClass</span><span class=rvts262>(param: Int) {&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// base class can be abstract</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>val </span><span class=rvts262>property : </span><span class=rvts277>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// abstract property (must be implemented as a function in the child)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>getter : </span><span class=rvts277>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// abstract getter (can be implemented as property or as as setter by the child)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>lazy val </span><span class=rvts275>nonAbstract </span><span class=rvts262>= property * param&nbsp;&nbsp; </span><span class=rvts263>// use "lazy" because the base class constructor runs before the child class is initialised</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>type </span><span class=rvts277>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can require the child class to override a type alias</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>abstractMethod() : </span><span class=rvts277>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// abstract function</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>regularMethod(x: Int) = x + 1</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyClass</span><span class=rvts262>(x: Int)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>extends </span><span class=rvts262>MyBaseClass(x) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// constructor must be called right in the extends method</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override val </span><span class=rvts275>property </span><span class=rvts262>= </span><span class=rvts266>"text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// base class' properties must be implemented as actual properties</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override val </span><span class=rvts275>getter&nbsp;&nbsp; </span><span class=rvts262>= </span><span class=rvts266>"text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// getters can be implemented as property</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>getter&nbsp;&nbsp; = </span><span class=rvts266>"text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ... or as parameterless function (without parentheses)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>type </span><span class=rvts277>T </span><span class=rvts262>= </span><span class=rvts277>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// set the type</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>abstractMethod() = </span><span class=rvts266>"text"&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// must override abstract functions</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>regularMethod(x: Int) = {&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can override regular functions</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>x + </span><span class=rvts265>super</span><span class=rvts262>.regularMethod(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...and delegate calls to the base class</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<div id='nodeSection2'>Traits</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>trait </span><span class=rvts274>MyTrait </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// traits can act as base class, abstract base class or interface</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>regularMethod: Int = 1</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>abstractMethod(): Int</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyClass </span><span class=rvts265>extends </span><span class=rvts274>MyTrait </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// class can directly extend the trait</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>abstractMethod() = 1</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyClass </span><span class=rvts265>extends </span><span class=rvts262>MyBaseClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// or extend a regular (or abstract) base class</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>with </span><span class=rvts274>MyTrait1 </span><span class=rvts265>with </span><span class=rvts274>MyTrait2 </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...and mix in traits</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>abstract class </span><span class=rvts274>Stack </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// interface for an integer queue</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>push(x: Int): Unit</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>StackImpl </span><span class=rvts265>extends </span><span class=rvts262>Stack {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// queue implementation</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>push(x: Int): Unit = ()</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>trait </span><span class=rvts274>Double </span><span class=rvts265>extends </span><span class=rvts274>Stack </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// a trait that doubles all values</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>abstract override def </span><span class=rvts262>push(x: Int) =&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// must be abstract so that the trait can only be mixed in when put() has been implemented</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>super</span><span class=rvts262>.push(2 * x)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>trait </span><span class=rvts274>Filter </span><span class=rvts265>extends </span><span class=rvts274>Stack </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// a trait that filters out all odd numbers</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>abstract override def </span><span class=rvts262>push(x: Int) =</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>if </span><span class=rvts262>(x % 2 == 0) </span><span class=rvts265>super</span><span class=rvts262>.push(x)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyQueue </span><span class=rvts265>extends </span><span class=rvts262>StackImpl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// multiple traits are applied left-to right, so the call&nbsp; hierarchy is</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>with </span><span class=rvts274>Double </span><span class=rvts265>with </span><span class=rvts274>Filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// myQueue.put() -&gt; filter.put() -&gt; double.put() -&gt; queueImpl.put()</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

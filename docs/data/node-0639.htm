@@ -1,0 +1,75 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts105><br></span></p>
+<p><span class=rvts105>System.Runtime.Serialization.dll</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts176><br></span></p>
+<div id='nodeSection2'>Declarations</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts188>&lt;</span><span class=rvts292>Serializable</span><span class=rvts188>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts259>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts188>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' mark the whole class a serialisable</span></p>
+<p><span class=rvts308>Public</span><span class=rvts188> </span><span class=rvts308>Class</span><span class=rvts188> </span><span class=rvts292>SomeClass</span></p>
+<p><span class=rvts188><br></span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts292>XmlAttribute</span><span class=rvts188>(AttributeName:=</span><span class=rvts309>"ID"</span><span class=rvts188>)&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts259>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts188>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' export this field as an attribute with the given name</span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; </span><span class=rvts308>Public</span><span class=rvts188> id </span><span class=rvts308>As</span><span class=rvts188> </span><span class=rvts308>Integer</span><span class=rvts188>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts259>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts188>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' all fields automatically inherit the class' [Serializable]</span></p>
+<p><span class=rvts188><br></span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts292>NonSerialized</span><span class=rvts188>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts259>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts188>&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' exclude selected fields from serialisation</span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts292>OptionalField</span><span class=rvts188>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts259>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts188>&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' optional fields are serialised but can be missing during deserialisation</span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; </span><span class=rvts308>Public</span><span class=rvts188> description </span><span class=rvts308>As</span><span class=rvts188> </span><span class=rvts308>String</span></p>
+<p><span class=rvts188><br></span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts292>XmlElement</span><span class=rvts188>(ElementName:=</span><span class=rvts309>"Debug"</span><span class=rvts188>)&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts259>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts188>&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' export this field as an element with the given name</span></p>
+<p><span class=rvts188>&nbsp;&nbsp;&nbsp; </span><span class=rvts308>Public</span><span class=rvts188> </span><span class=rvts308>Property</span><span class=rvts188> debugData </span><span class=rvts308>As</span><span class=rvts188> </span><span class=rvts308>String</span></p>
+<p><span class=rvts188><br></span></p>
+<p><span class=rvts308>End</span><span class=rvts188> </span><span class=rvts308>Class</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Formats</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>private fields</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>generic collections</span></p>
+<p><span class=rvts110>BinaryFormatter</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>yes</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>yes</span></p>
+<p><span class=rvts110>SoapFormatter</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>yes</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts12>no</span></p>
+<p><span class=rvts110>XmlSerializer</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts12>no</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>yes</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' requires a default constrcutor + public setters, does not call [OnSerializing]</span></p>
+<p><span class=rvts110> </span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Serialising and deserialising</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts308>Dim</span><span class=rvts188> formatter </span><span class=rvts308>As</span><span class=rvts188> </span><span class=rvts308>New</span><span class=rvts188> </span><span class=rvts292>BinaryFormatter</span><span class=rvts188>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' works the same for SoapFormatter and XmlSerializer</span></p>
+<p><span class=rvts188>formatter.Serialize(myStream, myObject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' serialise the given object into the specified stream</span></p>
+<p><span class=rvts188>myObject = </span><span class=rvts308>CType</span><span class=rvts188>(formatter.Deserialize(myStream), </span><span class=rvts292>SomeClass</span><span class=rvts188>)&nbsp; </span><span class=rvts201>' returns an untyped object that requires casting</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Serialisation hooks (not for&nbsp; XmlSerialiser)</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>OnSerializing</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' called before the serialisation starts</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> myMethod(context </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>StreamingContext</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' ...</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>OnSerialized</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' called after the serialisation has finished</span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>OnDeserializing</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' called before the deserialisation starts</span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>OnDeserialized</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' called after the deserialisation has finished</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Custom mapping (not for XmlSerializer)</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>Serializable</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>SomeClass</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>ISerializable</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' implement the interface ISerializable</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> Id </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> GetObjectData(info </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SerializationInfo</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' called by the serialiser to retrieve the object data</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>StreamingContext</span><span class=rvts183>) _</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>ISerializable</span><span class=rvts183>.GetObjectData</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; info.AddValue(</span><span class=rvts184>"MyIdField"</span><span class=rvts183>, </span><span class=rvts58>Me</span><span class=rvts183>.Id)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' only fields mapped here are serialised</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183>(info </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SerializationInfo</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' special construtor for deserialisation</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>StreamingContext</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Me</span><span class=rvts183>.Id = info.GetInt32(</span><span class=rvts184>"MyIdField"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' manually retrieve the values</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

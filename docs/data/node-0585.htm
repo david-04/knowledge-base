@@ -1,0 +1,171 @@
+
+<div id='nodeSection1'>Classes</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyClass</span><span class=rvts262>(x: Int, </span><span class=rvts265>var </span><span class=rvts262>y: Int) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// primary constructor</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>y = </span><span class=rvts274>Math</span><span class=rvts262>.max(0, y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// constructor body</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>val </span><span class=rvts275>sum </span><span class=rvts262>= x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can define additional properties</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def this</span><span class=rvts262>(x: Int) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// secondary (overloaded) constructor</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>this</span><span class=rvts262>(x, 0)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>dump(): Unit = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// methods with side effects have parentheses, must e called via myObject.dump()</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>println(</span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>x </span><span class=rvts276>$</span><span class=rvts262>y</span><span class=rvts266>"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>checksum = (x + y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// methods without side effects have no parentheses, can be called via myObject.checksum or myObject.checksum()</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>MyClass </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the companion object is a singleton class in the same file which shares access rights with the class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>apply(x: Int) = </span><span class=rvts265>new </span><span class=rvts262>MyClass(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the factory method to create new instances without "new" keyword</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>staticMethod() : Unit = {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// static methods</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Constructor</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>Person </span><span class=rvts265>protected </span><span class=rvts262>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the primary constructor (defaults to public)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>id: Int,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// treated like a local variable in the scope of the class (but can't be accessed by another instance of the same class)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>val </span><span class=rvts262>name: </span><span class=rvts277>String</span><span class=rvts262>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can also be declared as val or var (defaults to public)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>private var </span><span class=rvts262>city: </span><span class=rvts277>String</span></p>
+<p class=rvps12><span class=rvts262>) {</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&nbsp; city = </span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>city</span><span class=rvts266> (Australia)"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// all top-level code forms the primary constructor's body</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>require(0 &lt; id, </span><span class=rvts266>"id must be positive"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// parameter validation&nbsp; throw an IllegalArgumentException if the condition is not met</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>var </span><span class=rvts275>summary</span><span class=rvts262>: </span><span class=rvts277>String </span><span class=rvts262>= </span><span class=rvts266>"$id - $name"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can define further vars and vals (defaults to public)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def this</span><span class=rvts262>(name: </span><span class=rvts277>String</span><span class=rvts262>, city: </span><span class=rvts277>String</span><span class=rvts262>) = {&nbsp; </span><span class=rvts263>// secondary constructor(s)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>this</span><span class=rvts262>(999, name, city)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// must call primary constructor first</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts275>summary </span><span class=rvts262>= </span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>name</span><span class=rvts266> @ </span><span class=rvts276>$</span><span class=rvts262>city</span><span class=rvts266>"</span></p>
+<p class=rvps12><span class=rvts266>&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>Person </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// companion object can host factory methods for "new"-less instantiation</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>apply(name: </span><span class=rvts277>String</span><span class=rvts262>, city: </span><span class=rvts277>String</span><span class=rvts262>) =&nbsp;&nbsp; </span><span class=rvts263>// the factory method must be called "apply" to be invoked via Person(...)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>new </span><span class=rvts262>Person(name, city)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>leo = </span><span class=rvts265>new </span><span class=rvts262>Person(</span><span class=rvts266>"Leo"</span><span class=rvts262>, </span><span class=rvts266>"Perth"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// call the constructor</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>john = Person(</span><span class=rvts266>"John"</span><span class=rvts262>, </span><span class=rvts266>"Sydney"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// call the companion object's factory method</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<div id='nodeSection3'>Properties and accessors</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyClass</span><span class=rvts262>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the primary constructor can define</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>parameter: Int,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...parameters in the class' scope (accessible everywhere within the class, read-only) </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>val </span><span class=rvts262>val1 : Int,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...immutable values</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>protected var </span><span class=rvts262>var1: Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...mutable variables</span></p>
+<p class=rvps12><span class=rvts262>) {</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>lazy val </span><span class=rvts275>val2 </span><span class=rvts262>= </span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>val1 </span><span class=rvts276>$</span><span class=rvts262>parameter</span><span class=rvts266>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// constructor body can contain val and var; "lazy" vals are only initialised when first read</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def this</span><span class=rvts262>(val3: Int) = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// auxiliary constructors can't define vars or vals </span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>this</span><span class=rvts262>(0, 0, 0)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; var1 = val3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>virtualProp = var1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// getter</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>virtualProp_=(value: Int): Unit = {&nbsp;&nbsp; </span><span class=rvts263>// setter</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>var1 = value</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Case classes</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>Person</span><span class=rvts262>(name: </span><span class=rvts277>String</span><span class=rvts262>, age: Int) { </span><span class=rvts263>// generates an "apply() factory method in the companion object to instantiate without "new" keyword</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // implicitly treats all constructor parameters as (public) "val" by default</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // generates toString(), hashCode(), equals() [which is also applied when using ==)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // creates a copy method with all properties as optional/named parameters, e.g. person.copy(age = 99)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>hashCode(): Int = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can override auto-generated methods</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>name.hashCode()</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>Person</span><span class=rvts262>(name: </span><span class=rvts277>String</span><span class=rvts262>, age: Int)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>extends </span><span class=rvts277>Ordered</span><span class=rvts262>[</span><span class=rvts274>Person</span><span class=rvts262>] {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// mix-in the "Ordered" trait and implement the "compare" method to get &lt;, &lt;=, &gt;, &gt;= for free </span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>compare(other: </span><span class=rvts274>Person</span><span class=rvts262>) = {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>if </span><span class=rvts262>(0 != name.compareTo(other.name)) 0</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>else </span><span class=rvts262>age.compareTo(other.age)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Value classes</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>Temperature</span><span class=rvts262>(</span><span class=rvts265>val </span><span class=rvts262>value: Double)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// must have exactly one val parameter and can't have any additional properties</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>extends </span><span class=rvts262>AnyVal {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// compiles down to the primitive type in Java</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>toString = </span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>value</span><span class=rvts278>°</span><span class=rvts266>C"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can override/add methods, but can't modify equals() and hashCode()</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>temperature = </span><span class=rvts265>new </span><span class=rvts262>Temperature(25.8)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// is used like any other class</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>degrees : Double = temperature.value&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// must be unboxed manually</span></p>
+<p><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Static methods and properties</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>Person</span><span class=rvts262>(</span><span class=rvts265>val </span><span class=rvts262>name: </span><span class=rvts277>String</span><span class=rvts262>) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts274>Person</span><span class=rvts262>.</span><span class=rvts275>everyone </span><span class=rvts262>= name :: </span><span class=rvts274>Person</span><span class=rvts262>.</span><span class=rvts275>everyone </span><span class=rvts263>// can access private elements in the companion object</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>Person </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// companion object must have the same name and be in the same file as the class itself</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>private var </span><span class=rvts275>everyone </span><span class=rvts262>= </span><span class=rvts275>List</span><span class=rvts262>[</span><span class=rvts277>String</span><span class=rvts262>]()&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// static property</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>listPeople() = </span><span class=rvts275>everyone </span><span class=rvts263>// static method</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>new </span><span class=rvts262>Person(</span><span class=rvts266>"David"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts265>new </span><span class=rvts262>Person(</span><span class=rvts266>"David"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts274>Person</span><span class=rvts262>.listPeople().foreach(println)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>MyUtilities </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// singleton classes can be used without accompanying classes (to host utility functions)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>sayHello():Unit = println(</span><span class=rvts266>"Hello!"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>MyBaseClass</span><span class=rvts262>(x: Int) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>protected def </span><span class=rvts262>protectedMethod() = {}</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>MyUtilities </span><span class=rvts265>extends </span><span class=rvts262>MyBaseClass(5) { </span><span class=rvts263>// can extend a regular class</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>test(): Unit = {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; protectedMethod()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can access the base class' protected methods</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>println(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...as well as all data</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Modifiers</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>protected</span><span class=rvts279>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// no public keyword - everything is public by default</span></p>
+<p class=rvps12><span class=rvts265>private</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>private</span><span class=rvts262>[my_package]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// private in general, but publicly accessible within the enclosing my_package</span></p>
+<p class=rvps12><span class=rvts265>private</span><span class=rvts262>[</span><span class=rvts274>MyOuterClass</span><span class=rvts262>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// private in general, but publicly accessible within the enclosing MyOuterClass</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>sealed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the class can only be extended in the same source file</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Exports</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>MyClass</span><span class=rvts262>(value: Int):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// Scala 3 only</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>export</span><span class=rvts262> value.*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// mirror all public Int methods an delegate the calls to "value"</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>export</span><span class=rvts262> value.{to as rangeTo, toByte as asByte, *}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// rename some methods and export the rest with its original name</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>export</span><span class=rvts262> value.{to as _, *}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// exclude selected methods (and export the rest with its original name)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

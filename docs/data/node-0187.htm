@@ -1,0 +1,24 @@
+
+<div id='nodeSection1'>Unit testing</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@RunWith(</span><span class=rvts138>SpringRunner</span><span class=rvts124>.</span><span class=rvts130>class</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// JUnit will invoke this class to run the test (instead of running it itself)</span></p>
+<p class=rvps12><span class=rvts124>@SpringBootTest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// request the whole appliction context (use @WebMvcTest for web layers only)</span></p>
+<p class=rvps12><span class=rvts124>@AutoConfigureMockMvc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// enable auto-configuration (applicable to test classes only)</span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts138>HelloControllerTest </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Autowired&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// request dependency injection</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>private </span><span class=rvts138>MockMvc </span><span class=rvts124>mvc;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// mark it as a unit test method</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public void </span><span class=rvts124>getHello() </span><span class=rvts130>throws </span><span class=rvts138>Exception </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mvc.perform(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>MockMvcRequestBuilders</span><span class=rvts124>.</span><span class=rvts134>get</span><span class=rvts124>(</span><span class=rvts128>"/"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .accept(</span><span class=rvts138>MediaType</span><span class=rvts124>.</span><span class=rvts133>APPLICATION_JSON</span><span class=rvts124>))</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .andExpect(</span><span class=rvts134>status</span><span class=rvts124>().isOk())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .andExpect(</span><span class=rvts134>content</span><span class=rvts124>().string(</span><span class=rvts134>equalTo</span><span class=rvts124>(</span><span class=rvts128>"Greetings from Spring Boot!"</span><span class=rvts124>)));</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,118 @@
+
+<div id='nodeSection1'>Inline templates</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Component } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Component({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; selector: </span><span class=rvts42>"my-</span><span class=rvts46>component</span><span class=rvts42>"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// tag name (a CSS selector) as referenced in the main HTML file</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; template: </span><span class=rvts42>"&lt;p (click)='click()'&gt;{{title}}&lt;/p&gt;"</span><span class=rvts41>, </span><span class=rvts39>// short HTML code can be inlined here</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; styles&nbsp; : [</span><span class=rvts42>"p { color: blue; }"</span><span class=rvts41>],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// styles (inlined as well) are applied to this component's template only</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; viewProviders: [</span><span class=rvts110>MyService</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// injectable services (instances bound to this component; not shared)</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyComponent</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; title = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// data is stored right in the component itself (not in a separate scope)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; click(): </span><span class=rvts45>void</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// controller functions are implemented here as well</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>"clicked on the title"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>my-component</span><span class=rvts45>&gt;</span><span class=rvts41>Loading ...</span><span class=rvts45>&lt;/</span><span class=rvts46>my-component</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the component is insered wherever a &lt;my-component&gt; tag is found&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>External templates</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts41> (</span><span class=rvts90>click</span><span class=rvts41>)</span><span class=rvts45>="click()"&gt;</span><span class=rvts94>{{</span><span class=rvts95>title</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- my.component.html --&gt;</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts46>p</span><span class=rvts41> { </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>blue</span><span class=rvts41>; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>my.component.css</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts91><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Component } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Component({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; selector&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>"my-component"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; moduleId&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>module</span><span class=rvts41>.id,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this is required to load html+css files relative to the component's TS file</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; templateUrl&nbsp; : </span><span class=rvts42>"./my.component.html"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// load the template from the given HTML (fragment) file</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; stylesUrls&nbsp;&nbsp; : [</span><span class=rvts42>"./my.component.css"</span><span class=rvts41>],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// load the styles from the given CSS file(s)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; viewProviders: [</span><span class=rvts110>MyService</span><span class=rvts41>]</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyComponent</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; title = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// data is stored right in the component itself (not in a separate scope)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; click(): </span><span class=rvts45>void</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// controller functions are implemented here as well</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>"clicked on the title"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>my-component</span><span class=rvts45>&gt;</span><span class=rvts41>Loading ...</span><span class=rvts45>&lt;/</span><span class=rvts46>my-component</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the component is insered wherever a &lt;my-component&gt; tag is found&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Special pseudo-classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>use these pseudo-elements in styles+styleUrls</span><span class=rvts39> (not in the component's name)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts42>":host"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// refers to the immediate parent element of this component's instance</span></p>
+<p><span class=rvts42>":host(.myClass)"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// applies to the parent if (and only if) it has the myClass CSS class assigned</span></p>
+<p><span class=rvts42>":host-context(.myTheme) h1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// if any direct or indirect parent (all the way up to &lt;body&gt;) has the class</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // myTheme assigned, then style all &lt;h1&gt; elements </span><span class=rvts44>inside</span><span class=rvts39> the component</span></p>
+<p><span class=rvts42>":host /deep/ h1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// applies to all &lt;h1&gt; in this component and all of its children</span></p>
+<p><span class=rvts42>":host &gt;&gt;&gt; h1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// alternative syntax for /deep/</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Input parameters</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>@Component({ </span><span class=rvts47>...</span><span class=rvts41> })</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyComponent</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; @Input()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mark the relevant properties as input parameters (attribute name: title)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; title : </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; @Input(</span><span class=rvts42>"targetUrl"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// parameters can be aliased in their external interface to prevent</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; link : </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// name collissions with regular HTML attributes</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ngOnInit(): </span><span class=rvts45>void</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// controller functions are implemented here as well</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.title = </span><span class=rvts45>this</span><span class=rvts41>.title || </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// use a default if the user didn't pass any data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>my-component</span><span class=rvts41> </span><span class=rvts90>title</span><span class=rvts45>="Hello world!"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- pass the parameter as static text or as an evaluated expression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>my-component</span><span class=rvts41> [</span><span class=rvts90>title</span><span class=rvts41>]</span><span class=rvts45>="'Hi' + user.name"&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>Output events</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>@Component({ </span><span class=rvts47>...</span><span class=rvts41> })</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyComponent</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; @Output()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// declare a custom output event</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; deleteRequest = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>EventEmitter</span><span class=rvts41>&lt;</span><span class=rvts110>Person</span><span class=rvts41>&gt;();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts43>&nbsp;&nbsp;&nbsp; myEventHandler</span><span class=rvts41>() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.deleteRequest.emit(</span><span class=rvts45>this</span><span class=rvts41>.person);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// output an event (any data type can be passed)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>my-component</span><span class=rvts41> (</span><span class=rvts90>deleteRequest</span><span class=rvts41>)</span><span class=rvts45>="myHandler($event)"&gt;</span><span class=rvts41>&nbsp; </span><span class=rvts91>&lt;!-- catch and process the event in the client component&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

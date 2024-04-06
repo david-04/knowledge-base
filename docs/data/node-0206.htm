@@ -1,0 +1,16 @@
+
+<div id='nodeSection1'>Security</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>public </span><span class=rvts124>without sharing </span><span class=rvts130>class </span><span class=rvts124>AdminClass { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// a class that runs in the system context (full access to everything, this is the default)</span></p>
+<p class=rvps12><span class=rvts130>public </span><span class=rvts124>with sharing </span><span class=rvts130>class </span><span class=rvts124>RestrictedClass { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a class that runs in the user's context</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>Schema.sObjectType.Contact.isDeletable()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// check if the user has permission to access entities and fields</span></p>
+<p class=rvps12><span class=rvts124>Schema.sObjectType.Account.fields.Name.isUpdateable()</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Profile binding</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Apex classes can be restricted to selected Profiles</span></p>
+<p><br></p>
+<p><br></p>
+

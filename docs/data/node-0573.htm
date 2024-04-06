@@ -1,0 +1,53 @@
+
+<div id='nodeSection1'>RDoc</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts263># = H1 header                               # https://ruby.github.io/rdoc/RDoc/Markup.html</span></p>
+<p class=rvps12><span class=rvts263>#</span></p>
+<p class=rvps12><span class=rvts263># * list item 1</span></p>
+<p class=rvps12><span class=rvts263>#   * list item a</span></p>
+<p class=rvps12><span class=rvts263>#   * list item b</span></p>
+<p class=rvps12><span class=rvts263># * list item 2</span></p>
+<p class=rvps12><span class=rvts263>#</span></p>
+<p class=rvps12><span class=rvts263># == H2 header</span></p>
+<p class=rvps12><span class=rvts263>#</span></p>
+<p class=rvps12><span class=rvts263># *bold*</span></p>
+<p class=rvps12><span class=rvts263># _italic_</span></p>
+<p class=rvps12><span class=rvts263># +monospace+</span></p>
+<p class=rvps12><span class=rvts263>#</span></p>
+<p class=rvps12><span class=rvts263>#   def my_function                         # indent lines create a &lt;pre&gt; block</span></p>
+<p class=rvps12><span class=rvts263>#     puts "hello world!</span></p>
+<p class=rvps12><span class=rvts263>#   end</span></p>
+<p class=rvps12><span class=rvts263>#</span></p>
+<p class=rvps12><span class=rvts263>#--                                         # disable rdoc</span></p>
+<p class=rvps12><span class=rvts263># This section is hidden from RDoc</span></p>
+<p class=rvps12><span class=rvts263>#++                                         # re-enable rdoc</span></p>
+<p class=rvps12><span class=rvts263>#</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>Person</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts263># Initialise a new person obect</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize(name)</span></p>
+<p class=rvps12><span class=rvts262>    @name = name</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts263># Print this person's name</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> print_name</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> @name</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> secret_method </span><span class=rvts263>#:nodoc:                # do not include this method in the documentation at all</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>SET</span><span class=rvts262> PATH=%PATH%;C:\Portable\DevelopmentTools\Ruby\Application\ruby-3.0-devkit\bin</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>rdoc                                        </span><span class=rvts263># scan all files recursively</span></p>
+<p class=rvps12><span class=rvts262>rdoc file                                   </span><span class=rvts263># only document the given file</span></p>
+<p class=rvps12><span class=rvts262>rdoc --main MyModuleOrClass                 </span><span class=rvts263># display the given item on the start page</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

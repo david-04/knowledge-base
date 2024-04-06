@@ -1,0 +1,71 @@
+
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection1'>Data types</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>any</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// any type (can only be used for printing and casting)</span></p>
+<p class=rvps12><span class=rvts130>null</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// usually used as a member of the union type to mark optional values</span></p>
+<p class=rvps12><span class=rvts124>?</span><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// unknown type (no type checking will take place at all)</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p class=rvps12><span class=rvts130>bool</span></p>
+<p class=rvps12><span class=rvts130>int</span></p>
+<p class=rvps12><span class=rvts130>float</span></p>
+<p class=rvps12><span class=rvts130>number</span><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// alias for int|float</span></p>
+<p class=rvps12><span class=rvts130>string</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// sanitised (pre-escaped) content</span></p>
+<p class=rvps12><span class=rvts124>uri</span></p>
+<p class=rvps12><span class=rvts124>js</span></p>
+<p class=rvps12><span class=rvts124>css</span></p>
+<p class=rvps12><span class=rvts124>attributes</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>list&lt;</span><span class=rvts130>string</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// containers</span></p>
+<p class=rvps12><span class=rvts124>map&lt;</span><span class=rvts130>string</span><span class=rvts124>, </span><span class=rvts130>number</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>[name:</span><span class=rvts130>string</span><span class=rvts124>, age:</span><span class=rvts130>number</span><span class=rvts124>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// like a class (an object with the given properties)</span></p>
+<p class=rvps12><span class=rvts130><br></span></p>
+<p class=rvps12><span class=rvts130>int</span><span class=rvts124>|</span><span class=rvts130>float</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// union type</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection2'>Define literals</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts128>'string'</span><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// strings must be masked by </span><span class=rvts126>single quotes only</span></p>
+<p><span class=rvts124>[1, </span><span class=rvts128>'text'</span><span class=rvts124>, false]</span><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// list</span></p>
+<p><span class=rvts124>[</span><span class=rvts128>'name'</span><span class=rvts124>: </span><span class=rvts128>'David'</span><span class=rvts124>, id: 170]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// map/object</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection3'>Define variables</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>{</span><span class=rvts130>let </span><span class=rvts124>$show: $active </span><span class=rvts130>and not </span><span class=rvts124>$disabled /}&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// declare a local variable</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>let </span><span class=rvts124>$text}Hello world!{/</span><span class=rvts130>let</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection4'>Access variables</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>$variable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// reference a variable</span></p>
+<p><span class=rvts124><br></span></p>
+<p><span class=rvts124>$myVariable.0.myProperty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// access nested properties</span></p>
+<p><span class=rvts124>$myVariable[0]['name']</span></p>
+<p><span class=rvts124><br></span></p>
+<p><span class=rvts124>$myVariable?.myProperty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// null-safe access</span></p>
+<p><span class=rvts124><br></span></p>
+<p><span class=rvts124>myGlobalVariable</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// global variable (must be bound at compile)</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection5'>Injected data</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>SoyMapData ijData = </span><span class=rvts130>new </span><span class=rvts124>SoyMapData();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a container for the injected data</span></p>
+<p class=rvps12><span class=rvts124>ijData.put(</span><span class=rvts128>"message"</span><span class=rvts124>, </span><span class=rvts128>"injected foo"</span><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>tofu.newRenderer(</span><span class=rvts128>"my.namespace.myTemplate"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .setIjData(ijData)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// add the injected data before rendering the template</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>.render();</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>{$ij.message}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// access the injected data in the template via the predefined variable $ij</span></p>
+<p><span class=rvts75><br></span></p>
+<p><br></p>
+<p><br></p>
+

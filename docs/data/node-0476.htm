@@ -1,0 +1,56 @@
+
+<div id='nodeSection1'>Inheritance</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> Person(name) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// base class with a regular constructor and prototype-bound methods</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.name = name;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>Person.prototype.getName = </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.name;</span></p>
+<p><span class=rvts41>}; </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> inheritPrototype(baseType, derivedType) {&nbsp; </span><span class=rvts39>// helper method to establish the inheritance</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> F() { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone the object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; F.prototype = baseType.prototype;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> prototype = </span><span class=rvts45>new</span><span class=rvts41> F();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; prototype.constructor = derivedType;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// augment the object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; derivedType.prototype = prototype;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// assign the object</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> Employee(name, role) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the derive class' constructor applies "constructor strealing" to</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Person.call(</span><span class=rvts45>this</span><span class=rvts41>, name);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ensure that a Person's instance properties do not become static </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.role = role;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// in the derived class (like it would be with "prototype chaining")</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>inheritPrototype(Person, Employee);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// works without having to call the Person's constructor</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>Employee.prototype.getRole = </span><span class=rvts45>function</span><span class=rvts41> () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// additional methods can be added to the derived class' prototype</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.role;</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Constructor stealing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> Employee(name, role) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Employee inherits everyhting that the Person's constructor defines</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Person.call(</span><span class=rvts45>this</span><span class=rvts41>, name);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Anonymous extensions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> SortableArray() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// method looks like a regular constructor</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> array = </span><span class=rvts45>new</span><span class=rvts41> Array();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an instance of another object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; array.sortNumeric = </span><span class=rvts45>function</span><span class=rvts41> () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add additional properties and methods to the base object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; array.sort(</span><span class=rvts45>function</span><span class=rvts41> (x, y) { </span><span class=rvts39>/* ... */</span><span class=rvts41> });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> array;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return the extended base class (not a SortableArray)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> sortableArray = </span><span class=rvts45>new</span><span class=rvts41> SortableArray();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// is in fact an enhanced Array object (and not of type SortableArray)</span></p>
+<p><span class=rvts41>sortableArray.reverse();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the Array's base class properties are accessible</span></p>
+<p><span class=rvts41>sortableArray.sortNumeric();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... just like the add-on methods added by the constructor</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

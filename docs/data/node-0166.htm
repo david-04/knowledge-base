@@ -1,0 +1,80 @@
+
+<div id='nodeSection1'>Controlled components</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> MyComponent </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts47>React.</span><span class=rvts41>Component {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; constructor(props) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>super</span><span class=rvts41>(props);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.state = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// store and initialise the form data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textValue&nbsp; : props.initialValue,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; selectValue: </span><span class=rvts42>"2"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.onChange = </span><span class=rvts45>this</span><span class=rvts41>.onChange.bind(</span><span class=rvts45>this</span><span class=rvts41>);&nbsp;&nbsp; </span><span class=rvts39>// two-way data binding must be implemented manually through an event handler</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.onSubmit = </span><span class=rvts45>this</span><span class=rvts41>.onSubmit.bind(</span><span class=rvts45>this</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; onChange(event) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (event.target.name == </span><span class=rvts42>"mySelectBox"</span><span class=rvts41>) {&nbsp;&nbsp; </span><span class=rvts39>// identify the triggering form element through its name attribute</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.setState({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and store the current input in the state object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; selection: event.target.value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (could also manipulate, e.g. event.target.value.toUpperCase()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// alternative ES6 syntax if state name == HTML field name:</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.setState({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this.setState({[event.target.name] : event.target.value})</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value: event.target.value</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.props.onChange(event.target.value);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// propagate changes back to the parent component by invoking a callback</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// function that was passed in as a property</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; onSubmit(event) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts45>this</span><span class=rvts41>.state.textValue);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event.preventDefault();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; render() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> (</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;form onSubmit={</span><span class=rvts45>this</span><span class=rvts41>.onSubmit}&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input&nbsp;&nbsp;&nbsp; type&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"text"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"myTextbox"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value&nbsp;&nbsp;&nbsp; = {</span><span class=rvts45>this</span><span class=rvts41>.state.value}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onChange = {</span><span class=rvts45>this</span><span class=rvts41>.onChange} /&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;textarea value&nbsp;&nbsp;&nbsp; = {</span><span class=rvts45>this</span><span class=rvts41>.state.value} </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"myTextArea"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onChange = {</span><span class=rvts45>this</span><span class=rvts41>.onChange} /&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;select&nbsp;&nbsp; value&nbsp;&nbsp;&nbsp; = {</span><span class=rvts45>this</span><span class=rvts41>.state.selection} </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onChange = {</span><span class=rvts45>this</span><span class=rvts41>.onChange}&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value=</span><span class=rvts42>"1"</span><span class=rvts41>&gt;</span><span class=rvts43>A&lt;/option&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value=</span><span class=rvts42>"2"</span><span class=rvts43>&gt;B&lt;/option&gt;</span></p>
+<p><span class=rvts43>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/select&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input type=</span><span class=rvts42>"submit"</span><span class=rvts41> value=</span><span class=rvts42>"Submit"</span><span class=rvts41> /&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;</span><span class=rvts43>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/form&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Uncontrolled components</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> MyComponent </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts47>React.</span><span class=rvts41>Component {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; constructor(props) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>super</span><span class=rvts41>(props);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.onSubmit = </span><span class=rvts45>this</span><span class=rvts41>.onSubmit.bind(</span><span class=rvts45>this</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; render() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> value = </span><span class=rvts45>this</span><span class=rvts41>.props.value</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return</span><span class=rvts41> (</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input type=</span><span class=rvts42>"text"</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>ref={(i) =&gt; this.input = i}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// store the &lt;input&gt; DOM node in this.input (during initialisation),</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // so that it can be accessed later (e.g. call this.input.value when the</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the form is about to be submitted)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; defaultValue={</span><span class=rvts45>this</span><span class=rvts41>.props.iv}&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// initialise the field from a property, but don't update it later on</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt;</span><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // when the corresponding property might change</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

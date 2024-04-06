@@ -1,0 +1,72 @@
+
+<div id='nodeSection1'>Folder structure</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>components&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// self-contained custom AngularJS components</span></p>
+<p><span class=rvts41>controllers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the application</span><span class=rvts93>’</span><span class=rvts39>s controllers</span></p>
+<p><span class=rvts41>filters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom filters</span></p>
+<p><span class=rvts41>ngmodules&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional AngularJS modules (i.e. angular-routes.js, angular-resources.js, ...)</span></p>
+<p><span class=rvts41>views&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// partial views for the SportsStore application</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Exceptions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>$exceptionHandler(</span><span class=rvts45>new</span><span class=rvts41> Error(</span><span class=rvts42>"msg"</span><span class=rvts41>), </span><span class=rvts42>"description"</span><span class=rvts41>); </span><span class=rvts39>// instead of throw: pass exceptions with additional informatin into the $exception handler</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myModule.factory(</span><span class=rvts42>"$exceptionHandler"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// adding $exceptionHandler overrides AngularJS' default service</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> ($log) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> (exception, description) {&nbsp; </span><span class=rvts39>// implement custom logic to process the exception</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $log.error(exception.message);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $log.debug(description);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}); </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>URL</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts41>$location.absUrl()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the current URL with all components</span></p>
+<p><span class=rvts41>$location.hash(</span><span class=rvts47>"hash"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get or set the hash section (#...) of the URL</span></p>
+<p><span class=rvts41>$location.host()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the host name</span></p>
+<p><span class=rvts41>$location.path(</span><span class=rvts47>"/path"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get or set the path component of the URL</span></p>
+<p><span class=rvts41>$location.port()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the port number</span></p>
+<p><span class=rvts41>$location.protocol()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the protocol (http, https)</span></p>
+<p><span class=rvts41>$location.replace()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTML5: the change in the URL replaces the most recent history entry</span></p>
+<p><span class=rvts41>$location.search(</span><span class=rvts47>term, params</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get or set the search term</span><span class=rvts93>—</span><span class=rvts39>see earlier.</span></p>
+<p><span class=rvts41>$location.url(</span><span class=rvts47>"/home.html#..."</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get or set the path, query string and hash</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myModule.config(</span><span class=rvts45>function</span><span class=rvts41> ($locationProvider) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable HTML5 support for $location if supported by the browser</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (window.history &amp;&amp; history.pushState) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// note: can inject $window into .config and must therefore call window directly</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $locationProvider.html5Mode(</span><span class=rvts45>true</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// activate the HTML5 History API (allows changing the URL without reloading the page)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myModule.config(</span><span class=rvts45>function</span><span class=rvts41> (anchorScrollProvider) {&nbsp;&nbsp; </span><span class=rvts39>// optionally configure the anchorScroll[er]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $anchorScrollProvider.disableAutoScrolling();&nbsp;&nbsp; </span><span class=rvts39>// do not scroll automatically</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts41>.controller(</span><span class=rvts42>"myCtrl"</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> ($scope, $location,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $anchorScroll) {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inject the anchorScroll[er]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $location.hash(</span><span class=rvts42>"elementId"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this will trigger a scrolling unless .disableAutoScrolling() has been called</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $anchorScroll();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// manually request a scrolling to the hash value</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Timers</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts41>${interval|timeout} (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// define an interval or a timeout</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41>() { $scope.time = </span><span class=rvts45>new</span><span class=rvts41> Date(); }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the code to be executed</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; 1000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// delay in milliseconds</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; 5,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: maximum execution count (default is 0 which means unlimited)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>true</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: executed the code within scope.$apply (if set to true, which is also the default)</span></p>
+<p><span class=rvts41>); </span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Logging</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts41>$log.log&nbsp; (</span><span class=rvts42>"message"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// logging to the console object</span></p>
+<p><span class=rvts41>$log.error(</span><span class=rvts42>"message"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>$log.warn (</span><span class=rvts42>"message"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>$log.info (</span><span class=rvts42>"message"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>$log.debug(</span><span class=rvts42>"message"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

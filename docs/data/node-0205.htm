@@ -1,0 +1,102 @@
+
+<div id='nodeSection1'>REST services</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@RestResource(urlMapping=</span><span class=rvts128>'/Account/*'</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// reachable at https://</span><span class=rvts166>instance</span><span class=rvts125>.salesforce.com/services/apexrest/Account/* (runs with full</span></p>
+<p class=rvps12><span class=rvts124>global with sharing </span><span class=rvts130>class </span><span class=rvts124>MyRestResource {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// access to everything by default, use "with&nbsp; sharing" to restrict it to user-accessible records</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>@HttpGet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// @HttpDelete, @HttpGet, @HttpPatch, @HttpPost, @HttpPut</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>global </span><span class=rvts130>static </span><span class=rvts124>Account doGet() {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RestRequest request = RestContext.request;&nbsp; </span><span class=rvts125>// also: RestResponse res = RestContext.response</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>String id = request.requestURI.substring(&nbsp;&nbsp; </span><span class=rvts125>// must retrieve the the URL parameters manually</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>request.requestURI.lastIndexOf(</span><span class=rvts128>'/'</span><span class=rvts124>)+1);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// optional: permission checks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // verify that the user has permission to access the required fields (must be done manually)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>Account result = [SELECT Id, Name, Phone</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM Account</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE Id = :accountId];</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>result;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// can return sObjects</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @HttpPost</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; global </span><span class=rvts130>static </span><span class=rvts124>String doPost(String name,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// can have parameters that are extracted automatically from the JSON request</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>String phone, String website) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// (if no parameters are given, the payload is available as Blob in request.requestBody</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Account account = </span><span class=rvts130>new </span><span class=rvts124>Account();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>account.Name = name;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// {</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>account.phone = phone;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>//&nbsp;&nbsp;&nbsp;&nbsp; "name" : "Wingo Ducks",</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>account.website = website;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>//&nbsp;&nbsp;&nbsp;&nbsp; "phone" : "707-555-1234",</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>insert account;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>//&nbsp;&nbsp;&nbsp;&nbsp; "website" : "www.wingo.ca.us"</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>account.Id;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// }</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Invocation</div>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>prerequisite: Must add the Apex class to the user profile first (otherwise the user can't acces the service)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>create a new connected app: Setup =&gt; PLATFORM TOOLS =&gt; Apps =&gt; App Manager =&gt; New Connected App</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>after creating it, select "Manage" for the new app</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>it displays the consumer key (aka client_id) and the consumer secret (aka client_secret)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>it might be necessary to get an access token for the user (click on the user =&gt; Settings =&gt; My Personal Information =&gt; Reset My SecurityToken)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the security token is sent via email (and can't be retrieved through the SFDC frontend)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>perform a login call (might or might not need to append the security token to password</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts105>curl </span><a class=rvts167 href="https://login.salesforce.com/services/oauth2/token">https://login.salesforce.com/services/oauth2/token</a><span class=rvts105> </span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -d "grant_type=password" </span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -d "client_id=..." </span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -d "client_secret=..." </span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -d "</span><a class=rvts167 href="mailto:username=mylogin@salesforce.com">username=user</a><a class=rvts167 href="mailto:pc-internal@papercut.com">@papercut.com</a><span class=rvts105>" </span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -d "password=password</span><span class=rvts168>(ACCESS_TOKEN)</span><span class=rvts105>"</span></p>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the response contains the access token (aka bearer token or session_id)</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts104>{</span></p>
+<p><span class=rvts104>&nbsp;&nbsp;&nbsp; "access_token": "00D2800000149RM!ARgAQJ9DIE00HkoDdHvxz3iaNrJLxP6eMQw...",</span></p>
+<p><span class=rvts104>&nbsp;&nbsp;&nbsp; "instance_url": "</span><a class=rvts169 href="https://ap7.salesforce.com">https://ap7.salesforce.com</a><span class=rvts104>",</span></p>
+<p><span class=rvts104>&nbsp;&nbsp;&nbsp; "id": "</span><a class=rvts169 href="https://login.salesforce.com/id/00D2800000149RMEAY/0050I000007yn9kQAA">https://login.salesforce.com/id/00D2800000149RMEAY/0050I000007yn9kQAA</a><span class=rvts104>",</span></p>
+<p><span class=rvts104>&nbsp;&nbsp;&nbsp; "token_type": "Bearer",</span></p>
+<p><span class=rvts104>&nbsp;&nbsp;&nbsp; "issued_at": "1511323478873",</span></p>
+<p><span class=rvts104>&nbsp;&nbsp;&nbsp; "signature": "EX+DdZH/mSZUvxuxRALMQSQZPO2x59S9FRgwcNtSImE="</span></p>
+<p><span class=rvts104>}</span></p>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>use the token to perform a rest service call (make sure to point the domain to the right instance)</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts105>curl </span><a class=rvts167 href="https://ap7.salesforce.com/services/data/v20.0/">https://</a><a class=rvts170 href="https://ap7.salesforce.com/services/data/v20.0/">ap7</a><a class=rvts167 href="https://ap7.salesforce.com/services/data/v20.0/">.salesforce.com/services/data/v20.0/sobjects/Account</a></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -H 'Authorization: Bearer 00D2800000149RM!ARgAQJ9DIE00HkoDdHvxz3iaNrJLxP6eMQw...'</span></p>
+<p><span class=rvts105><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>or use an input file as the body</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts105>curl </span><a class=rvts167 href="https://ap7.salesforce.com/services/data/v20.0/">https://</a><a class=rvts170 href="https://ap7.salesforce.com/services/data/v20.0/">ap7</a><a class=rvts167 href="https://ap7.salesforce.com/services/data/v20.0/">.salesforce.com/services/data/v20.0/sobjects/Account</a></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -H 'Authorization: Bearer 00D2800000149RM!ARgAQJ9DIE00HkoDdHvxz3iaNrJLxP6eMQw...'</span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -X POST</span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -H "Content-Type: application/json"</span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp; -d @body-payload-data.json</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Callouts / outbound</div>
+<p><span class=rvts8><br></span></p>
+<p><a class=rvts164 href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts.htm">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts.htm</a></p>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>endpoints must be configured in "Remote Site Settings" first</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>... or create a named credential (an alias that bundles the URL and the authentication, e.g. OAuth)</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>HttpRequest req = </span><span class=rvts130>new </span><span class=rvts124>HttpRequest();</span></p>
+<p class=rvps12><span class=rvts124>req.setEndpoint(</span><span class=rvts128>'callout:***My_Named_Credential***/some_path'</span><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124>req.setMethod(</span><span class=rvts128>'GET'</span><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124>Http http = </span><span class=rvts130>new </span><span class=rvts124>Http();</span></p>
+<p class=rvps12><span class=rvts124>HTTPResponse res = http.send(req);</span></p>
+<p class=rvps12><span class=rvts124>System.debug(res.getBody());</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,127 @@
+
+<div id='nodeSection1'>Rendering methods</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Shapes</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>basic shapes like lines, rectangles and ellipses</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>represented as regular UIElements that integrated well with visual designer</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>can be easily nested with other elements and provide all infrastructure (onClick, onMouseOver, ...)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>cause overhead and increases resource consumption</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Drawings and geometry</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>lightweight interface to draw 2D vector images</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>are not UIElements and require a hosting container (DrawingImage or DrawingBrush)</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Visuals</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>most efficient and fastest way to render graphical data</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>only accessible through code (no XAML integration)</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Shapes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Ellipse</span></p>
+<p><span class=rvts110>Rectangle</span></p>
+<p><span class=rvts110>Line</span></p>
+<p><span class=rvts110>Polyline</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' several points connected by one line</span></p>
+<p><span class=rvts110>Polygon</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' like polyline but end points are connected as well</span></p>
+<p><span class=rvts110>Path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' contains a selection of the below objects</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Coding shapes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> shape </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Shape</span><span class=rvts183> = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Ellipse</span><span class=rvts183>() </span><span class=rvts58>With</span><span class=rvts183> {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Fill = </span><span class=rvts110>Brushes</span><span class=rvts183>.Green,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Height = 35,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Width = 35</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts110>Canvas</span><span class=rvts183>.SetLeft(shape, 300)</span></p>
+<p><span class=rvts110>Canvas</span><span class=rvts183>.SetTop(shape, 100)</span></p>
+<p><span class=rvts58>Me</span><span class=rvts183>.canvasDrawingArea.Children.Add(shape)</span></p>
+<p><span class=rvts58>Me</span><span class=rvts183>.canvasDrawingArea.Children.Remove(shape)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Applying transformations</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Me</span><span class=rvts183>.canvasDrawingArea.LayoutTransform = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>RotateTransform</span><span class=rvts183>(-180)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection5'>Geometries</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>LineGeometry</span></p>
+<p><span class=rvts110>RectangleGeometry</span></p>
+<p><span class=rvts110>EllipseGeometry</span></p>
+<p><span class=rvts110>GeometryGroup</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts176>' Allows you to group together several Geometry objects</span></p>
+<p><span class=rvts110>CombinedGeometry</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts176>' Allows you to merge two different Geometry objects into a single shape</span></p>
+<p><span class=rvts110>PathGeometry</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts176>' Represents a figure composed of lines and curves</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Constructing complex paths</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Path</span><span class=rvts185> Fill</span><span class=rvts58> = "Orange"</span><span class=rvts185> Stroke</span><span class=rvts58> = "Blue"</span><span class=rvts185> StrokeThickness</span><span class=rvts58> = "3"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Path.Data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>GeometryGroup</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>EllipseGeometry</span><span class=rvts185> Center</span><span class=rvts58> = "75,70"</span><span class=rvts185> RadiusX</span><span class=rvts58> = "30"</span><span class=rvts185> RadiusY</span><span class=rvts58> = "30" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>RectangleGeometry</span><span class=rvts185> Rect</span><span class=rvts58> = "25,55 100 30" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>LineGeometry</span><span class=rvts185> StartPoint</span><span class=rvts58>="0,0"</span><span class=rvts185> EndPoint</span><span class=rvts58>="70,30" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>LineGeometry</span><span class=rvts185> StartPoint</span><span class=rvts58>="70,30"</span><span class=rvts185> EndPoint</span><span class=rvts58>="0,30" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>GeometryGroup</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Path.Data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>Path</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Converting vector graphics to paths</div>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>load graphics file in Inkscape</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>print as XPS</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>rename *.xps to *.xps.zip</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>extract Documents/1/Pages/1.fpage</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection8'>Visual layer</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Image</span><span class=rvts185> Name</span><span class=rvts58>="myImage"</span><span class=rvts185> Height</span><span class=rvts58>="80"/&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> drawingVisual </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DrawingVisual</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create a drawable canvas In memory</span></p>
+<p><span class=rvts58>Using</span><span class=rvts183> drawingContext </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>DrawingContext</span><span class=rvts183> = drawingVisual.RenderOpen()&nbsp;&nbsp; </span><span class=rvts176>' open the canvas for drawing</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; drawingContext.DrawRoundedRectangle(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' add a round rectangle</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Brushes</span><span class=rvts183>.Yellow,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Pen</span><span class=rvts183>(</span><span class=rvts110>Brushes</span><span class=rvts183>.Black, 5),</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Rect</span><span class=rvts183>(5, 5, 450, 100),</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Dim</span><span class=rvts183> text </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>FormattedText</span><span class=rvts183>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create formatted text</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"Hello Visual Layer!"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>New</span><span class=rvts183> System.Globalization.</span><span class=rvts110>CultureInfo</span><span class=rvts183>(</span><span class=rvts184>"en-us"</span><span class=rvts183>),</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>FlowDirection</span><span class=rvts183>.LeftToRight,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Typeface</span><span class=rvts183>(</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Me</span><span class=rvts183>.FontFamily,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>FontStyles</span><span class=rvts183>.Italic,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>FontWeights</span><span class=rvts183>.DemiBold,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>FontStretches</span><span class=rvts183>.UltraExpanded</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ),</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Brushes</span><span class=rvts183>.Green</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; drawingContext.DrawText(text, </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Point</span><span class=rvts183>(20, 20))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' render the formatted text</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Using</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> bitmap </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>RenderTargetBitmap</span><span class=rvts183>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create an empty bitmap image in memory</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; 500, 100, 100, 90, </span><span class=rvts110>PixelFormats</span><span class=rvts183>.Pbgra32)</span></p>
+<p><span class=rvts183>bitmap.Render(drawingVisual)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' copy the previously populated memory canvas</span></p>
+<p><span class=rvts58>Me</span><span class=rvts183>.myImage.Source = bitmap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' assign the final result To the XAML container</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

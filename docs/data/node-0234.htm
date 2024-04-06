@@ -1,0 +1,48 @@
+
+<div id='nodeSection1'>Generating links</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ActionLink(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an application-internal link</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Click here"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// link text</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Index"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// name of the action method to target</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Home"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: name of the controller to target</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: segment variables (unknown variables become query strings)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; username = </span><span class=rvts42>"David"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: add HTML attributes to the generated &lt;a&gt; element</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"myLinkId"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @class&nbsp;&nbsp; = </span><span class=rvts42>"myCSSClass"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ActionLink(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a fully customised link </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Click here"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Index"</span><span class=rvts41>, </span><span class=rvts42>"Home"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// controller and action method</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"https"</span><span class=rvts41>, </span><span class=rvts42>"mydomain.com"</span><span class=rvts41>, </span><span class=rvts42>"myFragment"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// protocol, domain, fragment (...#myFragment)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> { username = </span><span class=rvts42>"David"</span><span class=rvts41> },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// route segment values (optional, can be set to null)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> { id = </span><span class=rvts42>"myLinkId"</span><span class=rvts41>&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTML attributes (optional)</span></p>
+<p><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ActionLink(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a link to another area</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Click here"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Index"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> { area = </span><span class=rvts42>"Admin"</span><span class=rvts41> }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// name of the area (set to "" in order to reference the global scope)</span></p>
+<p><span class=rvts41>) </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.RouteLink(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a link for a specified route name</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Click me"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"MyRouteName"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Index"</span><span class=rvts41>, </span><span class=rvts42>"Customer"</span></p>
+<p><span class=rvts41>) </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Generating URLs</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Url.Action(</span><span class=rvts42>"Index"</span><span class=rvts41>, </span><span class=rvts42>"Home"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// generate an URL for the selected action method of the specified controller</span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Url.Action(</span><span class=rvts42>"Index"</span><span class=rvts41>, </span><span class=rvts45>new</span><span class=rvts41> {username=</span><span class=rvts42>"David"</span><span class=rvts41>});&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// generate an URL for the selected action method</span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Url.Content(</span><span class=rvts42>"~/Content/Site.css"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// application-relative path to static content</span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Url.RouteUrl(</span><span class=rvts45>new</span><span class=rvts41>{controller=</span><span class=rvts42>"Home"</span><span class=rvts41>,action=</span><span class=rvts42>"List"</span><span class=rvts41>}); </span><span class=rvts39>// generate an URL for the selected controller and action method</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

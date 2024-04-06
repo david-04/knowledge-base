@@ -1,0 +1,18 @@
+
+<div id='nodeSection1'>Compression with zlib</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'zlib'</span><span class=rvts262>                              </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>comressed = </span><span class=rvts267>Zlib</span><span class=rvts262>::</span><span class=rvts267>Deflate</span><span class=rvts262>.deflate(</span><span class=rvts266>'text'</span><span class=rvts262>)   </span><span class=rvts263># compress and uncompress data in memory</span></p>
+<p class=rvps12><span class=rvts262>uncompressed = </span><span class=rvts267>Zlib</span><span class=rvts262>::</span><span class=rvts267>Inflate</span><span class=rvts262>.inflate(data)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Zlib</span><span class=rvts262>::</span><span class=rvts267>GzipWriter</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'abc.gz'</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |stream| </span><span class=rvts263># compress and uncompress files while reading/writing</span></p>
+<p class=rvps12><span class=rvts262>  stream.write </span><span class=rvts266>'data'</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts267>Zlib</span><span class=rvts262>::</span><span class=rvts267>GzipReader</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'abc.gz'</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |stream|</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> stream.read</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

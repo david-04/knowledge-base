@@ -1,0 +1,66 @@
+
+<div id='nodeSection1'>Unit tests (minitest)</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'minitest/autorun'</span><span class=rvts262>                  </span><span class=rvts263># gem install minitest</span></p>
+<p class=rvps12><span class=rvts265>require_relative</span><span class=rvts262> </span><span class=rvts266>'main.rb'</span><span class=rvts262>                  </span><span class=rvts263># import the file to be tested</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyTests &lt; Minitest::Test</span><span class=rvts262>              </span><span class=rvts263># must extend minitest base class</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> test_add_negative                     </span><span class=rvts263># test methods must be called test_</span></p>
+<p class=rvps12><span class=rvts262>    verify_add(2, -3, -1)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> verify_add(x, y, sum)                 </span><span class=rvts263># can have internal helper methods (that don't start with test_</span></p>
+<p class=rvps12><span class=rvts262>    assert_equal(sum, my_add(x, y))</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&gt; ruby tests.rb                             </span><span class=rvts263># can be run directly (no wrapper required)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>assert(</span><span class=rvts265>test</span><span class=rvts262>, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_empty(obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_equal(exp, act, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_in_delta(exp, act, delta = 0.001, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_includes(collection, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_instance_of(cls, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_kind_of(cls, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_match(matcher, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_nil(obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_operator(o1, op, o2 = UNDEFINED, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_output(stdout = </span><span class=rvts265>nil</span><span class=rvts262>, stderr = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_predicate(o1, op, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_raises(*exp)</span></p>
+<p class=rvps12><span class=rvts262>assert_respond_to(obj, meth, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_same(exp, act, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_send(send_ary, m = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>assert_silent()</span></p>
+<p class=rvps12><span class=rvts262>assert_throws(sym, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>refute(</span><span class=rvts265>test</span><span class=rvts262>, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_empty(obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_equal(exp, act, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_in_delta(exp, act, delta = 0.001, msg = </span><span class=rvts265>nil</span><span class=rvts262>)click t</span></p>
+<p class=rvps12><span class=rvts262>refute_includes(collection, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_instance_of(cls, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_kind_of(cls, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_match(matcher, obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_nil(obj, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_operator(o1, op, o2 = UNDEFINED, msg = </span><span class=rvts265>nil</span><span class=rvts262>)click to tog</span></p>
+<p class=rvps12><span class=rvts262>refute_predicate(o1, op, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_respond_to(obj, meth, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>refute_same(exp, act, msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>out, err = capture_io { ... }</span></p>
+<p class=rvps12><span class=rvts262>diff(exp, act)</span></p>
+<p class=rvps12><span class=rvts262>exception_details(e, msg)</span></p>
+<p class=rvps12><span class=rvts262>flunk(msg = </span><span class=rvts265>nil</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>skip(msg = </span><span class=rvts265>nil</span><span class=rvts262>, bt = </span><span class=rvts265>caller</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>skipped?()</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

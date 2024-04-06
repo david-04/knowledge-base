@@ -1,0 +1,135 @@
+
+<div id='nodeSection1'>Required modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts106>import</span><span class=rvts105> { HttpModule,</span></p>
+<p><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JsonpModule }</span><span class=rvts106> from</span><span class=rvts105> </span><span class=rvts107>"@angular/http"</span><span class=rvts105>;</span></p>
+<p><span class=rvts105><br></span></p>
+<p><span class=rvts105>@NgModule({ imports: [</span><span class=rvts108>HttpModule</span><span class=rvts105>, </span><span class=rvts108>JsonpModule</span><span class=rvts105>] })&nbsp;&nbsp; </span><span class=rvts109>// import the Ajax module into the root module</span></p>
+<p><span class=rvts106>export</span><span class=rvts105> </span><span class=rvts106>class</span><span class=rvts105> </span><span class=rvts108>AppModule</span><span class=rvts105> { }</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Observables (recommended)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Injectable&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Headers,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Http,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Response,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RequestOptions } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/http"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Observable&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"rxjs/Observable"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data-model"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> </span><span class=rvts42>"rxjs/add/operator/catch"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> </span><span class=rvts42>"rxjs/add/operator/map"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Injectable()</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>RestService</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(</span><span class=rvts45>private</span><span class=rvts41> http: </span><span class=rvts110>Http</span><span class=rvts41>) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inject the Ajax service</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; get(): </span><span class=rvts110>Observable</span><span class=rvts41>&lt;</span><span class=rvts110>Person</span><span class=rvts41>[]&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// service method to retrieve the result list</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .get(</span><span class=rvts42>"/app/rest.service.json"</span><span class=rvts41>)&nbsp;&nbsp; </span><span class=rvts39>// URL to fetch</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .map(</span><span class=rvts45>this</span><span class=rvts41>.extractData)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve the payload data from the reponse's body</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(</span><span class=rvts45>this</span><span class=rvts41>.handleError);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// error handling</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; add(name: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts110>Observable</span><span class=rvts41>&lt;</span><span class=rvts110>Person</span><span class=rvts41>&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// service method to add/create a new object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> headers = </span><span class=rvts45>new</span><span class=rvts41> Headers({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Content-Type"</span><span class=rvts41>: </span><span class=rvts42>"application/json"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mark the body data as JSON</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> options = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>RequestOptions</span><span class=rvts41>({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; headers: headers</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .post(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"/person/add"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send the request to this URL</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { name },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// JSON'fy his object (literal) as body</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use these options (HTTP headers in this case)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .map(</span><span class=rvts45>this</span><span class=rvts41>.extractData)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(</span><span class=rvts45>this</span><span class=rvts41>.handleError);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> extractData(res: </span><span class=rvts110>Response</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve the payload data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> body = res.json();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// parse the response into a JSON object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> body || {};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// unpack if necessary (e.g. return body.data || {})</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> handleError(error: </span><span class=rvts110>Response</span><span class=rvts41> | </span><span class=rvts45>any</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// error handling</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> errMsg: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (error </span><span class=rvts45>instanceof</span><span class=rvts41> </span><span class=rvts110>Response</span><span class=rvts41>) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>const</span><span class=rvts41> body = error.json() || </span><span class=rvts42>""</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>const</span><span class=rvts41> err = body.error || </span><span class=rvts110>JSON</span><span class=rvts41>.stringify(body);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; errMsg = </span><span class=rvts42>`${</span><span class=rvts41>error.status</span><span class=rvts42>} - ${</span><span class=rvts41>error.statusText || </span><span class=rvts42>""} ${</span><span class=rvts41>err</span><span class=rvts42>}`</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; errMsg = error.message ? error.message : error.toString();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.error(errMsg);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts110>Observable</span><span class=rvts41>.throw(errMsg);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>this</span><span class=rvts41>.restService.get().subscribe(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the rest service and subscribe to the observable's events</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; people =&gt; </span><span class=rvts45>this</span><span class=rvts41>.people = people,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; error&nbsp; =&gt; </span><span class=rvts45>this</span><span class=rvts41>.errorMessage = &lt;</span><span class=rvts45>any</span><span class=rvts41>&gt;error</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>this</span><span class=rvts41>.restService.add(name).subscribe(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; person =&gt; </span><span class=rvts45>this</span><span class=rvts41>.people.push(person),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// when successful: add the newly created object to the view</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; error&nbsp; =&gt; </span><span class=rvts45>this</span><span class=rvts41>.errorMessage = &lt;</span><span class=rvts45>any</span><span class=rvts41>&gt;error</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Promises</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> </span><span class=rvts42>"rxjs/add/operator/toPromise"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// convert observables (returned by http.get) into promises</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>RestService</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; get(): Promise&lt;</span><span class=rvts110>Person</span><span class=rvts41>[]&gt; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .get(</span><span class=rvts42>"/app/rest.service.json"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .toPromise()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .then(</span><span class=rvts45>this</span><span class=rvts41>.extractData)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(</span><span class=rvts45>this</span><span class=rvts41>.handleError);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; add(name: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts110>Promise</span><span class=rvts41>&lt;</span><span class=rvts110>Person</span><span class=rvts41>&gt; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> headers = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>Headers</span><span class=rvts41>({ </span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Content-Type"</span><span class=rvts41>: </span><span class=rvts42>"application/json'</span><span class=rvts41>"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> options = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>RequestOptions</span><span class=rvts41>({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; headers: headers </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .post(</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "/person/add"</span><span class=rvts41>, </span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>{ name },</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>options</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>.toPromise()</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>.then(</span><span class=rvts45>this</span><span class=rvts41>.extractData)</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>.catch(</span><span class=rvts45>this</span><span class=rvts41>.handleError);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>this</span><span class=rvts41>.restService.get().then(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; people =&gt; </span><span class=rvts45>this</span><span class=rvts41>.people = people,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; error =&gt; </span><span class=rvts45>this</span><span class=rvts41>.errorMessage = &lt;</span><span class=rvts45>any</span><span class=rvts41>&gt;error</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>this</span><span class=rvts41>.restService.add(name).then(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; person =&gt; </span><span class=rvts45>this</span><span class=rvts41>.people.push(person),</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; error&nbsp; =&gt; </span><span class=rvts45>this</span><span class=rvts41>.errorMessage = &lt;</span><span class=rvts45>any</span><span class=rvts41>&gt;error</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

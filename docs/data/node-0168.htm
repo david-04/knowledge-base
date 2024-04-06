@@ -1,0 +1,35 @@
+
+<div id='nodeSection1'>Lifecycle hooks</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> MyComponent </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts47>React.</span><span class=rvts41>Component {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; componentDidMount() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// onLoad lifecycle hook, initialisation that requires DOM nodes is placed here</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.timerID = setInterval(</span><span class=rvts47>...</span><span class=rvts41>, 1000);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; componentWillUnmount() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// onUnload lifecycle hook (unsubscribe, cancel timers, ...)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clearInterval(</span><span class=rvts45>this</span><span class=rvts41>.timerID);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; shouldComponentUpdate(nextProps, nextState) {&nbsp;&nbsp; </span><span class=rvts39>// prevent unnecessary DOM updates (compare this.props with nextProps)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return true</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// true .... let React decide, if the DOM must be updated</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// false ... do not update the DOM</span></p>
+<p><span class=rvts75><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; componentWillReceiveProps(nextProps) {</span><span class=rvts47>...</span><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called before a mounted component receives props; compare "this.props" with</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // "nextProps" and (if necessary) update the local state</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; componentWillUpdate() {</span><span class=rvts47>...</span><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called on when props are being updated (but not during the initialisation);</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // can be used to update the state</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; componentWillMount() {</span><span class=rvts47>...</span><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called before the component is mounted; however, initialisation should be</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // performed in the constructor instead of using this hook</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; componentDidUpdate(prevProps, prevState) {</span><span class=rvts47>...</span><span class=rvts41>}&nbsp; </span><span class=rvts39>// called after each update (but not during initialisation)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection2'>Update checker</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> MyComponent </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts47>React.</span><span class=rvts43>Pure</span><span class=rvts41>Component {</span><span class=rvts47>...</span><span class=rvts41>} </span><span class=rvts39>// inherit a generic shouldComponentUpdate method that performs a shallow</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // comparison of props and state (to prevent unnecessry re-renderings)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

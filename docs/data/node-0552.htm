@@ -1,0 +1,168 @@
+
+<div id='nodeSection1'>Mixins</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>module</span><span class=rvts262> </span><span class=rvts267>MyFeatures</span><span class=rvts262>                           </span><span class=rvts263># modules can be structured to be injected into classes</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>public</span><span class=rvts262>                                    </span><span class=rvts263># can set visibility (but it's public by default anyway)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> dump                                  </span><span class=rvts263># functions are not bound to "self"</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts265>self</span><span class=rvts262>.class.to_s                    </span><span class=rvts263># ...but needs to use "self" when calling other methods of the class</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>include</span><span class=rvts262> MyFeatures                        </span><span class=rvts263># inject the module into the class</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>myObject = </span><span class=rvts267>MyClass</span><span class=rvts262>.</span><span class=rvts265>new</span></p>
+<p class=rvps12><span class=rvts262>myObject.dump                               </span><span class=rvts263># the module's method can now be called</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Comparable</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize(property)</span></p>
+<p class=rvps12><span class=rvts262>    @property = property</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> &lt;=&gt;(other)                            </span><span class=rvts263># override the "compare" operator</span></p>
+<p class=rvps12><span class=rvts262>    @property &lt;=&gt; other.property</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>include</span><span class=rvts262> Comparable                        </span><span class=rvts263># include Comparable to automatically override &lt;, &lt;=, ==, &gt;=, &gt;, and between?</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Enumerable</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> each                                  </span><span class=rvts263># must define the "each" iterator function</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>%w{a e i o u}</span><span class=rvts262>.each { |v| </span><span class=rvts265>yield</span><span class=rvts262> v }</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>include</span><span class=rvts262> Enumerable                        </span><span class=rvts263># include Enumerable to inject all of its functions</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Enumerable - Asserting</div>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.all? { ... }                 &nbsp;&nbsp;&nbsp; </span><span class=rvts263># check if all match the given condition</span></p>
+<p class=rvps12><span class=rvts262>enumerable.any? { ... }                 &nbsp;&nbsp;&nbsp; </span><span class=rvts263># check if any matches the given condition</span></p>
+<p class=rvps12><span class=rvts262>enumerable.none? { ... }                &nbsp;&nbsp;&nbsp; </span><span class=rvts263># check if none matches the geiven condition</span></p>
+<p class=rvps12><span class=rvts262>enumerable.none?(</span><span class=rvts266>/[0-9]/</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.one? { ... }                 &nbsp;&nbsp;&nbsp; </span><span class=rvts263># check if exactly one matches</span></p>
+<p class=rvps12><span class=rvts262>enumerable.one?(</span><span class=rvts266>/[0-9]/</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.include?(</span><span class=rvts266>"value"</span><span class=rvts262>)                </span><span class=rvts263># check if the given value is contained</span></p>
+<p class=rvps12><span class=rvts262>enumerable.member?(</span><span class=rvts266>"value"</span><span class=rvts262>)                 </span><span class=rvts263># syonym for include?</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Enumerable - Mapping</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.map { |x| ... }                  </span><span class=rvts263># sames as map</span></p>
+<p class=rvps12><span class=rvts262>enumerable.flat_map { ... }              &nbsp;&nbsp; </span><span class=rvts263># map but flatten collections</span></p>
+<p class=rvps12><span class=rvts262>enumerable.collect { ... }               &nbsp;&nbsp; </span><span class=rvts263># synonym for map</span></p>
+<p class=rvps12><span class=rvts262>enumerable.collect_concat { ... }        &nbsp;&nbsp; </span><span class=rvts263># synonym for flat_map</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Enumerable - Sorting</div>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.sort                             </span><span class=rvts263># sort the elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.sort { |a, b| a &lt;=&gt; b }          </span><span class=rvts263># sort with custom comparator</span></p>
+<p class=rvps12><span class=rvts262>enumerable.sort_by { |x| x.id }             </span><span class=rvts263># sort based on the given field</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Enumerable - Reducing</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.reduce(0) { |sum, x| ... }       </span><span class=rvts263># reduce function with default</span></p>
+<p class=rvps12><span class=rvts262>enumerable.reduce(0, :+)                    </span><span class=rvts263># similar as above, but pass a symbol (function reference)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.inject(0) { |sum, x| ... }       </span><span class=rvts263># synonym for reduce</span></p>
+<p class=rvps12><span class=rvts262>enumerable.inject(0, :+)                    </span><span class=rvts263># synonym for reduce</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.count                            </span><span class=rvts263># count all elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.count(</span><span class=rvts266>"abc"</span><span class=rvts262>)                     </span><span class=rvts263># count how often the given element is contained</span></p>
+<p class=rvps12><span class=rvts262>enumerable.count { ... }                    </span><span class=rvts263># count all elements that match the given condition</span></p>
+<p class=rvps12><span class=rvts262>enumerable.sum                              </span><span class=rvts263># sum up all values</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.tally                            </span><span class=rvts263># counts each unique element, returns { Monday: 5, Tuesday: 17, ...}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Enumerable - Filtering</div>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.filter { ... }                   </span><span class=rvts263># filter for matching entries</span></p>
+<p class=rvps12><span class=rvts262>enumerable.filter_map { ... }               </span><span class=rvts263># like filter, but discard nils returned by the code block</span></p>
+<p class=rvps12><span class=rvts262>enumerable.find { ... }                     </span><span class=rvts263># find the first match (or return nil)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.find(</span><span class=rvts266>"default"</span><span class=rvts262>) { ... }          </span><span class=rvts263># find the first match (or return the default)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.find_all { ... }                 </span><span class=rvts263># find all matching entries</span></p>
+<p class=rvps12><span class=rvts262>enumerable.find_index { ... }               </span><span class=rvts263># get the index of the first matching entry</span></p>
+<p class=rvps12><span class=rvts262>enumerable.find_index(</span><span class=rvts266>"needle"</span><span class=rvts262>)             </span><span class=rvts263># same as above but search for a specific field</span></p>
+<p class=rvps12><span class=rvts262>enumerable.detect { ... }                   </span><span class=rvts263># synonym for find</span></p>
+<p class=rvps12><span class=rvts262>enumerable.detect(</span><span class=rvts266>"default"</span><span class=rvts262>) { ... }        </span><span class=rvts263># synonym for find</span></p>
+<p class=rvps12><span class=rvts262>enumerable.grep(</span><span class=rvts266>/[0-9]/</span><span class=rvts262>)                    </span><span class=rvts263># filter, can also pass a range (e.g. enumerable.grep 2..5)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.grep_v(</span><span class=rvts266>/[0-9]/</span><span class=rvts262>)                  </span><span class=rvts263># filter out (grep -v), removes all elements matching</span></p>
+<p class=rvps12><span class=rvts262>enumerable.select { ... }                   </span><span class=rvts263># synonym for filter</span></p>
+<p class=rvps12><span class=rvts262>enumerable.reject { ... }                   </span><span class=rvts263># filter-out, oposite to filter</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.uniq                             </span><span class=rvts263># remove duplicates</span></p>
+<p class=rvps12><span class=rvts262>enumerable.uniq { |x| x.id }                </span><span class=rvts263># remove duplicates based on a custom field</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.drop(5)                          </span><span class=rvts263># remove the first 5 elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.drop_while { ... }               </span><span class=rvts263># drop the first consecutive matching elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.first                            </span><span class=rvts263># get the first element</span></p>
+<p class=rvps12><span class=rvts262>enumerable.first(10)                        </span><span class=rvts263># get the first 10 elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.take(5)                          </span><span class=rvts263># get the first 5 elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.take_while { ... }               </span><span class=rvts263># get the first consecutive elements matching the condition</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.max                              </span><span class=rvts263># get the largest value</span></p>
+<p class=rvps12><span class=rvts262>enumerable.max { |a, b| a &lt;=&gt; b }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.max(2)                           </span><span class=rvts263># get the 2 largest elements (in decending order)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.max(2) { |a, b| a &lt;=&gt; b }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.max_by { |x| x.id }              </span><span class=rvts263># get the largest value based on a custom field</span></p>
+<p class=rvps12><span class=rvts262>enumerable.max_by(2) { |x| x.id }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min                              </span><span class=rvts263># get the smallest value</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min { |a, b| a &lt;=&gt; b }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min(2)                           </span><span class=rvts263># get the 2 smallest elements (in ascending order)</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min(2) { |a, b| a &lt;=&gt; b }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min_by { |x| x.id }              </span><span class=rvts263># get the smallest value based on a custom field</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min_by(2) { |x| x.id }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min_max                          </span><span class=rvts263># get an array with [minimum, maximum]</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min_max { |a, b| a &lt;=&gt; b }</span></p>
+<p class=rvps12><span class=rvts262>enumerable.min_max_by { |x| x.id }</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>Enumerable - Partitioning</div>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.chunk { |x| x % 2 }              </span><span class=rvts263># group consecutive elements with the same code block return value</span></p>
+<p class=rvps12><span class=rvts262>enumerable.chunk_while { |prev, cur| ... }  </span><span class=rvts263># same as above but can compare with previous value</span></p>
+<p class=rvps12><span class=rvts262>enumerable.group_by { ... }                 </span><span class=rvts263># create a hash, mapping the group identifier to an array of group elements</span></p>
+<p class=rvps12><span class=rvts262>enumerable.partition { ... }                </span><span class=rvts263># takes a predicate and prodcues: [[matches], [non-matches]]</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.slice_after(</span><span class=rvts266>/[a-z]/</span><span class=rvts262>)             </span><span class=rvts263># create a new chunk after each matching item</span></p>
+<p class=rvps12><span class=rvts262>enumerable.slice_after { ... }              </span></p>
+<p class=rvps12><span class=rvts262>enumerable.slice_before(</span><span class=rvts266>/[a-z]/</span><span class=rvts262>)            </span><span class=rvts263># create a new chunk for each matching item</span></p>
+<p class=rvps12><span class=rvts262>enumerable.slice_before { ... }             </span></p>
+<p class=rvps12><span class=rvts262>enumerable.slice_when { |before, after| }   </span><span class=rvts263># create chunks based on two neighbouring elements</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection10'>Enumerable - Iterating</div>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.each { ... }                     </span><span class=rvts263># run code block for each element</span></p>
+<p class=rvps12><span class=rvts262>enumerable.reverse_each { ... }             </span><span class=rvts263># like each but runs backwards</span></p>
+<p class=rvps12><span class=rvts262>enumerable.each_with_index { |x, i| ... }   </span><span class=rvts263># do for each but also pass the index</span></p>
+<p class=rvps12><span class=rvts262>enumerable.each_with_object([]) { |x, o|... } </span><span class=rvts263># do for each and pass along (and return) the given object</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.cycle { ... }                    </span><span class=rvts263># like each but repeats indefinitely</span></p>
+<p class=rvps12><span class=rvts262>enumerable.cycle(my_max) { ... }            </span><span class=rvts263># cycle only a limited number of times</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.each_cons(3) { ... }             </span><span class=rvts263># iterate over overlapping sub-array chunks [0..2], [1..3], [2..4], ...</span></p>
+<p class=rvps12><span class=rvts262>enumerable.each_slice(3) { ... }            </span><span class=rvts263># iterate over adjacent sub-array chunks [0..2], [3..5], [6..8], ...</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection11'>Enumerable - Other</div>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.chain([7, 8, 9])                 </span><span class=rvts263># create a new collection with additional elements</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.lazy                             </span><span class=rvts263># switch to lazy evaluation</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>enumerable.to_a                             </span><span class=rvts263># convert to array</span></p>
+<p class=rvps12><span class=rvts262>enumerable.entries                          </span><span class=rvts263># synonym for to_a</span></p>
+<p class=rvps12><span class=rvts262>enumerable.to_h { |x| [x, x*2] }            </span><span class=rvts263># convert to a hash with the given key-value pair</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

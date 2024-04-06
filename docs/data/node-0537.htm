@@ -1,0 +1,33 @@
+
+<div id='nodeSection1'>Threads</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>thread = </span><span class=rvts267>Thread</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262> </span><span class=rvts265>do</span><span class=rvts262>                      </span><span class=rvts263># create a thread and automatically start it</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts267>Thread</span><span class=rvts262>.pass                               </span><span class=rvts263># voluntarily pass control to the next thread (and wait for the next CPU slice)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts267>Thread</span><span class=rvts262>.stop                               </span><span class=rvts263># suspend the current thread (can be resumed with trhead.run</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>thread.alive?                               </span><span class=rvts263># check if thread is running</span></p>
+<p class=rvps12><span class=rvts262>thread.join                                 </span><span class=rvts263># wait until thread is finished</span></p>
+<p class=rvps12><span class=rvts262>thread.join(1)                              </span><span class=rvts263># wait until thread is finished but timeout after 5 seconds (returns nil in this case)</span></p>
+<p class=rvps12><span class=rvts262>thread.kill                                 </span><span class=rvts263># termintate thread</span></p>
+<p class=rvps12><span class=rvts262>thread.run                                  </span><span class=rvts263># resume a thread that called Thread.stop</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Thread</span><span class=rvts262>.list                                 </span><span class=rvts263># get a list of all threads</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Fibers</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>fiber = </span><span class=rvts267>Fiber</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(blocking: </span><span class=rvts265>false</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262>       </span><span class=rvts263># does not start to run until fiber.resume() is called</span></p>
+<p class=rvps12><span class=rvts262>  index = 0</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>while</span><span class=rvts262> index &lt; 10</span></p>
+<p class=rvps12><span class=rvts262>    index += 1</span></p>
+<p class=rvps12><span class=rvts262>    index = </span><span class=rvts267>Fiber</span><span class=rvts262>.yield(index) </span><span class=rvts265>||</span><span class=rvts262> index     </span><span class=rvts263># return the value and then pause execution</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> fiber.resume                           </span><span class=rvts263># run to the first yield (returns 1)</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> fiber.resume(5)                        </span><span class=rvts263># feed back the new index and run to the next yiel (returns 6)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

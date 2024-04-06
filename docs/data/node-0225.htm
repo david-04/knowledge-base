@@ -1,0 +1,191 @@
+
+<div id='nodeSection1'>Validation messages</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ValidationMessageFor(m =&gt; m.Password)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- single error message related to the selected property&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ValidationSummary()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- summary of all validation errors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ValidationSummary(</span><span class=rvts45>true</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- show only model-level (but not property-related) errors&nbsp; --&gt;</span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ValidationSummary(</span><span class=rvts42>"Please correct:"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- use the given text as headline for the summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts48>@</span><span class=rvts41>Html.ValidationSummary(</span><span class=rvts45>true</span><span class=rvts41>, </span><span class=rvts42>"Please correct:"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- combination of the two above versions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts46><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection2'>Razor CSS styling</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts46>.field-validation-error</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>error messages next (or related) to an &lt;input&gt; field</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts46>.input-validation-error</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>&lt;input&gt; fields with validation errors</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts46>input[type="checkbox"].input-validation-error</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>checkbox &lt;input&gt; fields with validation errors</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts46>.validation-summary-errors</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>summary of all errors created by Html.ValidationSummary()</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts46><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection3'>Controller validation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts171>HttpPost</span><span class=rvts41>]</span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>ActionResult</span><span class=rvts41> Index(</span><span class=rvts171>Appointment</span><span class=rvts41> appointment)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (&nbsp;&nbsp; ModelState.IsValidField(</span><span class=rvts42>"Date"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ensure that the model binder could retrieve a value</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; appointment.Date &lt; </span><span class=rvts171>DateTime</span><span class=rvts41>.Now)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// perform additional custom checks</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ModelState.AddModelError(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mark the ModelState as invalid</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Date"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... for the given property (set to "" for model-level errors)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Please enter a date in the future"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... with the givven error message (to show to the user)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (ModelState.IsValid) {</span><span class=rvts47>...</span><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// only process the data if the model is valid</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else return</span><span class=rvts41> View(appointment);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// and otherwise re-show the form with its validation errors</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection4'>Built-in property constraints</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Person</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>Required</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// configure validation rules via annotations</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Name { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts171>Required</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mandatory field</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>Required</span><span class=rvts41>(AllowEmptyStrings = </span><span class=rvts45>true</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mandatory field allowing non-empty strings consisting of empty space only</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>Range</span><span class=rvts41>(10, 20)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// value must be in the given range</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>Range</span><span class=rvts41>(</span><span class=rvts45>typeof</span><span class=rvts41>(</span><span class=rvts45>bool</span><span class=rvts41>), </span><span class=rvts42>"true"</span><span class=rvts41>, </span><span class=rvts42>"true"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... can be applied to non-numeric properties as well</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>Compare</span><span class=rvts41>(</span><span class=rvts42>"MyOtherProperty"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// property must match with the other one (e.g. repeat password)</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>RegularExpression</span><span class=rvts41>(</span><span class=rvts42>".*"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the value must match the regular expression</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>StringLength</span><span class=rvts41>(10, MinimumLength = 3)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// limit the string length (minimum is optional)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts171>Required</span><span class=rvts41>(ErrorMessage = </span><span class=rvts42>"Please enter your name"</span><span class=rvts41>)] </span><span class=rvts39>// every validation attribute supports the ErrorMessage parameter</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection5'>Custom property constraints</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyValidatorAttribute</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom validator</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts171>ValidationAttribute</span><span class=rvts41> </span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> IsValid(</span><span class=rvts45>object</span><span class=rvts41> value)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> value </span><span class=rvts45>is</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> &amp;&amp; (</span><span class=rvts45>bool</span><span class=rvts41>)value;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyValidatorAttribute</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// derived custom validator</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts171>RequiredAttribute</span><span class=rvts41> </span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> IsValid(</span><span class=rvts45>object</span><span class=rvts41> value)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>base</span><span class=rvts41>.IsValid(value) </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; </span><span class=rvts171>DateTime</span><span class=rvts41>.Now&lt;((</span><span class=rvts171>DateTime</span><span class=rvts41>)value);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts171>MyValidator</span><span class=rvts41>(ErrorMessage=</span><span class=rvts42>"That's not allowed"</span><span class=rvts41>)]&nbsp;&nbsp; </span><span class=rvts39>// apply a custom validator</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection6'>Model constraints</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Appointment</span><span class=rvts41> : </span><span class=rvts171>IValidatableObject</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>self-validating model class</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>Required</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// property related constraints can still be used</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Name { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>IEnumerable</span><span class=rvts41>&lt;</span><span class=rvts171>ValidationResult</span><span class=rvts41>&gt; Validate(&nbsp; </span><span class=rvts39>// this method is called by the model binder</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>ValidationContext</span><span class=rvts41> validationContext) </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>List</span><span class=rvts41>&lt;</span><span class=rvts171>ValidationResult</span><span class=rvts41>&gt; errors =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all validation errors are collected in a container</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>List</span><span class=rvts41>&lt;</span><span class=rvts171>ValidationResult</span><span class=rvts41>&gt;();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (</span><span class=rvts45>string</span><span class=rvts41>.IsNullOrEmpty(Name))</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; errors.Add(</span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>ValidationResult</span><span class=rvts41>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add the validation error to the list</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Please enter your name"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ));</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> errors;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return the collection (which is empty if no errors were found)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyModelValidatorAttribute</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>model validation via annotations</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts171>ValidationAttribute</span><span class=rvts41>&nbsp; </span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> MyModelValidatorAttribute()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the constructor to set the default error message (if required)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ErrorMessage = </span><span class=rvts42>"Default error message"</span><span class=rvts41>; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> IsValid(</span><span class=rvts45>object</span><span class=rvts41> value)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this method is called by the model binder to validate the model</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>Appointment</span><span class=rvts41> app = value </span><span class=rvts45>as</span><span class=rvts41> </span><span class=rvts171>Appointment</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the model is always passed in as object and needs to be cast</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (&nbsp;&nbsp; app == </span><span class=rvts45>null</span><span class=rvts41> </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || </span><span class=rvts45>string</span><span class=rvts41>.IsNullOrEmpty(app.ClientName) </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || app.Date == </span><span class=rvts45>null</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>true</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// don't report model errors if there are property-level errors</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> !(app.ClientName == </span><span class=rvts42>"Joe"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and otherwise perform the model validation logic</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp;&nbsp;&nbsp;&nbsp; app.Date.DayOfWeek </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; == </span><span class=rvts171>DayOfWeek</span><span class=rvts41>.Monday);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts171>MyModelValidator</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// apply the validator annotation to the whole class</span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Appointment</span><span class=rvts41>&nbsp;&nbsp; </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection7'>Client-side validation</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>PM&gt; Install-Package jQuery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!</span><span class=rvts39>-- install the required packages&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts113>PM&gt; Install-Package jQuery.Validation</span></p>
+<p><span class=rvts113>PM&gt; Install-Package Microsoft.jQuery.Unobtrusive.Validation </span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!</span><span class=rvts39>-- enable unobtrusive client-side form validation&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>appSettings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>key&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>UnobtrusiveJavaScriptEnabled</span><span class=rvts41>"</span><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>true</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>key&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>ClientValidationEnabled</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; value </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>true</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="~/Scripts/jquery-1.10.2.js"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include the relevant JavaScript libraries --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="~/Scripts/jquery.validate.js"&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="~/Scripts/jquery.validate.unobtrusive.js"&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection8'>Remove validation</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>HomeController</span><span class=rvts41> : </span><span class=rvts171>Controller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>remove validators are called after each and every keypress</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>JsonResult</span><span class=rvts41> ValidateDate(</span><span class=rvts45>string</span><span class=rvts41> Date)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove validators are action methods that receive the object to validate</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// as a simple string (to prevent model binder exceptions)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>DateTime</span><span class=rvts41> parsedDate;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (!</span><span class=rvts171>DateTime</span><span class=rvts41>.TryParse(Date, </span><span class=rvts45>out</span><span class=rvts41> parsedDate))</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> Json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// in case of a validation error: return an error message ass response</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Please enter a valid date."</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>JsonRequestBehavior</span><span class=rvts41>.AllowGet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// GET requests must always be allowed (otherwise the validation will</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// fail silently)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> Json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return a simple true if the validation was successful</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>true</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>JsonRequestBehavior</span><span class=rvts41>.AllowGet</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Appointment</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>Remote</span><span class=rvts41>(</span><span class=rvts42>"ValidateDate"</span><span class=rvts41>, </span><span class=rvts42>"Home"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// apply the action method via the Remote attribute to the model's property</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; public</span><span class=rvts41> </span><span class=rvts171>DateTime</span><span class=rvts41> Date { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

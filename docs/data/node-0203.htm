@@ -1,0 +1,61 @@
+
+<div id='nodeSection1'>Future methods</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>global </span><span class=rvts130>class </span><span class=rvts124>FutureClass {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_invoking_future_methods.htm</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @future&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// run this method asynchronously in the background</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public static void </span><span class=rvts124>myFutureMethod() { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// must be static, can't return anything, can't have sObject as input</span></p>
+<p class=rvps12><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// also useful when manipulating users (can't be done in one transaction with DML)</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Queueable</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts124>MyClass </span><span class=rvts130>implements </span><span class=rvts124>Queueable {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_queueing_jobs.htm</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public void </span><span class=rvts124>execute(QueueableContext context) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Account a = </span><span class=rvts130>new </span><span class=rvts124>Account(...);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// perform operatins (DML, web service calls)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>insert a;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>ID jobID = System.enqueueJob(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// queue the job</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>new </span><span class=rvts124>MyClass()</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124>AsyncApexJob jobInfo = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve job information</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>SELECT Status,NumberOfErrors</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM AsyncApexJob</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE Id=:jobID</span></p>
+<p class=rvps12><span class=rvts124>];</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Apex scheduler</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>global </span><span class=rvts130>class </span><span class=rvts124>MyClass </span><span class=rvts130>implements </span><span class=rvts124>Schedulable {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_scheduler.htm</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>global </span><span class=rvts130>void </span><span class=rvts124>execute(SchedulableContext SC) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ...</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>String jobID = system.schedule(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>'My job'</span><span class=rvts124>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the job title</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>'20 30 8 10 2 ?'</span><span class=rvts124>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// a cron time pattern</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>new </span><span class=rvts124>MyClass()</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>CronTrigger ct = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve trigger status information</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>SELECT TimesTriggered, NextFireTime</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; FROM CronTrigger WHERE Id = :jobID</span></p>
+<p class=rvps12><span class=rvts124>];</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Batch Apex</div>
+<p><span class=rvts8><br></span></p>
+<p><a class=rvts164 href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch_interface.htm">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch_interface.htm</a></p>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>process large amounts of records</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the system partions it into batches</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>can provide a finalise method to run at the end</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

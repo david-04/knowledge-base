@@ -1,0 +1,148 @@
+
+<div id='nodeSection1'>JDBC</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Class</span><span class=rvts113>.forName(</span><span class=rvts217>"com.mysql.jdbc.Driver"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// use any of these two commands to register the driver (it also seems to </span></p>
+<p><span class=rvts233>DriverManager</span><span class=rvts113>.registerDriver(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// work if this step is omitted)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> com.mysql.jdbc.</span><span class=rvts233>Driver</span><span class=rvts113>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// com.mysql.jdbc.Driver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; oracle.jdbc.driver.OracleDriver</span></p>
+<p><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// com.sybase.jdbc.SybDriver&nbsp; |&nbsp; COM.ibm.db2.jdbc.net.DB2Driver</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>Connection</span><span class=rvts113> conn = </span><span class=rvts233>DriverManager</span><span class=rvts113>.getConnection(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// open a database connection</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"jdbc:mysql://localhost/myDb"</span><span class=rvts113>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// jdbc:mysql://hostname/ databaseName</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"myUserName"</span><span class=rvts113>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// jdbc:oracle:thin:@hostname:port Number:databaseName</span></p>
+<p><span class=rvts217>&nbsp;&nbsp;&nbsp; "myPassword"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// jdbc:db2:hostname:port Number/databaseName</span></p>
+<p><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// jdbc:sybase:Tds:hostname: port Number/databaseName</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>conn.setAutoCommit(</span><span class=rvts64>false</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// optionally: deactivate auto-commit (is otherwise enabled by default)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>Statement</span><span class=rvts113> statement = conn.createStatement();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a statement</span></p>
+<p><span class=rvts233>ResultSet</span><span class=rvts113> resultSet = statement.executeQuery(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// execute a query and obtain a result set</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"SELECT name, age FROM customers"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>while</span><span class=rvts113> (resultSet.next()) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// iterate over all rows of the result set</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>String</span><span class=rvts113> name = resultSet.getString(</span><span class=rvts217>"name"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// retrieve cells via their column name</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113>&nbsp;&nbsp;&nbsp; age&nbsp; = resultSet.getInt(2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or access them with an index (starts at 1, not 0)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (resultSet.wasNull()) age = -1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// check if the preceding get() call accessed a database NULL value</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>conn.commit();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// commit all changes</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>resultSet.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// close the result set</span></p>
+<p><span class=rvts113>statement.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// close the statement</span></p>
+<p><span class=rvts113>conn.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// close the connection</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Statement types</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Statement</span><span class=rvts113> statement = conn.createStatement();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// simple statement without placeholders / input parameters</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>ResultSet</span><span class=rvts113> resultSet = statement.executeQuery(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// execute SELECT that returns result rows (or an empty set)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"SELECT name FROM customers"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>int</span><span class=rvts113> rowCount = statement.executeUpdate(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// execute an UPDATE/INSERT/DELETE that returns the number of affected rows</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"UPDATE customers SET age=38 WHERE id=9"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>PreparedStatement</span><span class=rvts113> statement = conn.prepareStatement(</span><span class=rvts62>// a prepared statement contains placeholders for input parameters</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"SELECT name, age FROM customers WHERE id=?"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>statement.setInt(1, 2513215);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set the input parameters (the index starts at 1, not at 0)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>ResultSet</span><span class=rvts113> resultSet = statement.executeQuery();&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// execute a SELECT statement and obtain the result set</span></p>
+<p><span class=rvts64>int</span><span class=rvts113> rowCount = statement.executeUpdate();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or run an INSERT/UPDATE/DELETE and obtain the number of affected rows</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Cursors</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Statement</span><span class=rvts113> statement = conn.createStatement(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a statement with specific cursor properties</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>ResultSet</span><span class=rvts113>.TYPE_FORWARD_ONLY,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// TYPE_FORWARD_ONLY ......... the cursor can only move forward</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// TYPE_SCROLL_INSENSITIVE ... bi-directional cursor using a cached version of the data set</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// TYPE_SCROLL_SENSITIVE ..... bi-directional cursor always reflecting the latest database updates</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>ResultSet</span><span class=rvts113>.CONCUR_READ_ONLY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// CONCUR_READ_ONLY .......... create a read-only result set (default)</span></p>
+<p><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// CONCUR_UPDATABLE .......... create a result-set that can be modified</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>PreparedStatement</span><span class=rvts113> statement = conn.prepareStatement(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"SELECT ..."</span><span class=rvts113>,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>ResultSet</span><span class=rvts113>.TYPE_FORWARD_ONLY,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the same settings can be applied to prepared statements</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>ResultSet</span><span class=rvts113>.CONCUR_READ_ONLY</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts233>ResultSet</span><span class=rvts113> resultSet = statement.executeQuery();</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>while</span><span class=rvts113> (resultSet.next()) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// iterate over all rows of the result set</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>String</span><span class=rvts113> name = resultSet.getString(</span><span class=rvts217>"name"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// retrieve cells via their column name</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113>&nbsp;&nbsp;&nbsp; age&nbsp; = resultSet.getInt(2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or access them with an index (starts at 1, not 0)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (resultSet.wasNull()) age = -1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// check if the preceding get() call accessed a database NULL value</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; resultSet.updateString(</span><span class=rvts217>"name"</span><span class=rvts113>, </span><span class=rvts217>"David"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// update cells of the current row based on the column name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; resultSet.updateString(2, </span><span class=rvts217>"David"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or specify them with an index (starts at 1, not 0)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; resultSet.{update|delete|insert|refresh}Row();&nbsp; </span><span class=rvts62>// send the modifications to the database</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; resultSet.cancelRowUpdates();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or cancel the pending changnes</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Stored procedures</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>CallableStatement</span><span class=rvts113> cs = connection.prepareCall(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// define the SQL statement using placeholders for the parameters</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"{call myProcedure(?, ?)}"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>cs.setString(1, </span><span class=rvts217>"David"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// configure the in- and output parameters (</span><span class=rvts70>the first index is 1, not 0</span><span class=rvts62>)</span></p>
+<p><span class=rvts113>cs.registerOutParameter(2, java.sql.</span><span class=rvts233>Types</span><span class=rvts113>.VARCHAR); </span></p>
+<p><span class=rvts113>cs.executeUpdate();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// call the stored procedure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts233>String</span><span class=rvts113> outputParameter = cs.getString(2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// retrieve outptu parameters</span></p>
+<p><span class=rvts61><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>CallableStatement</span><span class=rvts113> cs = connection.prepareCall(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// functions are called in the same manner that stored procedures are invoked</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"{? = call myFunction(?)}"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>cs.registerOutParameter(1, java.sql.</span><span class=rvts233>Types</span><span class=rvts113>.VARCHAR);</span></p>
+<p><span class=rvts113>cs.setString(2, </span><span class=rvts217>"David"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>cs.executeUpdate();</span></p>
+<p><span class=rvts233>String</span><span class=rvts113> functionResult = cs.getString(1);</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Transactions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>connection.setAutoCommit(</span><span class=rvts64>false</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// activate manual commit (otherwise auto-commit is enabled by default)</span></p>
+<p><span class=rvts62>// ....</span></p>
+<p><span class=rvts233>Savepoint</span><span class=rvts113> sp1 = connection.setSavepoint();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a restore point within the current transaction</span></p>
+<p><span class=rvts62>// ...</span></p>
+<p><span class=rvts113>connection.releaseSavepoint(sp1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// delete a previous restore point</span></p>
+<p><span class=rvts233>Savepoint</span><span class=rvts113> sp2 = connection.setSavepoint();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create </span></p>
+<p><span class=rvts62>// ...</span></p>
+<p><span class=rvts113>connection.rollback(sp1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// revert back to the previous restore point (but don't commit yet)</span></p>
+<p><span class=rvts62>// ...</span></p>
+<p><span class=rvts113>connection.commit();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// commit or rollback the whole transaction</span></p>
+<p><span class=rvts113>connection.rollback();</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Batch updates</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>if</span><span class=rvts113> (conn.getMetaData().supportsBatchUpdates()) {&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// not all databases support batch updates </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Statement</span><span class=rvts113> statement = conn.createStatement();</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; statement.addBatch(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add statements that can be executed in parallel</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"UPDATE customers SET age=38 "</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts217>"WHERE name='David'"</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; statement.addBatch(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"UPDATE customers SET age=73 "</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts217>"WHERE name='Edeltraud'"</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; conn.setAutoCommit(</span><span class=rvts64>false</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// execut all batch statements (possibly) in parallel </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113> results[] = statement.executeBatch();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the returned result is an array with the return value of each</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; conn.commit();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// statement's execute() call's return value</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

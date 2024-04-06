@@ -1,0 +1,70 @@
+
+<div id='nodeSection1'>Bind a component</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ connect } </span><span class=rvts130>from </span><span class=rvts128>'react-redux'</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// npm install --save react-redux</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>function </span><span class=rvts124>connectFunction(state, ownProps) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// receives the Redux state and the component's React properties</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... and re-creates the component's "props" property</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>data: state.data</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>function </span><span class=rvts124>dispatchFunction(dispatch) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// receives the store's dispatch function</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts127>onClick</span><span class=rvts124>: </span><span class=rvts130>function</span><span class=rvts124>(comment) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... and creates properties with event handlers</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>comment.id = </span><span class=rvts138>Date</span><span class=rvts124>.</span><span class=rvts127>now</span><span class=rvts124>();</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispatch({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... that dispatch actions</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>type: </span><span class=rvts128>'ON_CLICK'</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comment: comment,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; })</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts127>onLoad</span><span class=rvts124>: </span><span class=rvts130>function</span><span class=rvts124>(data) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispatch({</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type: </span><span class=rvts128>'ON_LOAD'</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data: data</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; })</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>var </span><span class=rvts127>myConnectedComponent</span><span class=rvts149> </span><span class=rvts124>= connect(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a new wrapped component</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>connectFunction,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... that is powered by the connect and dispatch functions</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>dispatchFunction</span></p>
+<p class=rvps12><span class=rvts124>)(myComponent);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... and wraps a regular React component</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Set up the store</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ Provider } </span><span class=rvts130>from </span><span class=rvts128>'react-redux'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>var </span><span class=rvts127>store</span><span class=rvts151> </span><span class=rvts124>= createStore(myReducer);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create the store</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>render(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts128>Provider</span><span class=rvts130> </span><span class=rvts153>store</span><span class=rvts128>=</span><span class=rvts124>{</span><span class=rvts151>store</span><span class=rvts124>}&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// wrap the root container into a &lt;Provider&gt; tag, the store is then accessible to all children</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts128>MyApp</span><span class=rvts130> </span><span class=rvts124>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// (implicitely via connect an maybe as a property as well)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts128>Provider</span><span class=rvts124>&gt;,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; document.getElementById(</span><span class=rvts128>'root'</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Run in parallel with separate stores</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>class </span><span class=rvts138>MyWrapperApplication </span><span class=rvts130>extends </span><span class=rvts124>Component {</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts127>constructor</span><span class=rvts124>(props) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>super</span><span class=rvts124>(props);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>this</span><span class=rvts124>.store = createStore(reducer);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// set up the store in the constructor, so each component instance has its own</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts127>render</span><span class=rvts124>() {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts128>Provider</span><span class=rvts130> </span><span class=rvts153>store</span><span class=rvts128>=</span><span class=rvts124>{</span><span class=rvts130>this</span><span class=rvts124>.store}&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts128>MyRealApplication</span><span class=rvts130> </span><span class=rvts124>/&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts128>Provider</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>;</span></p>
+<p><br></p>
+<p><br></p>
+

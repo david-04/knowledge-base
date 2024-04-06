@@ -1,0 +1,124 @@
+
+<div id='nodeSection1'>Classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyClass</span><span class=rvts113> {</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113> myProperty = 1;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>final</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> MY_CONSTANT = 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// constants are marked as "final"</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> myOtherProperty;</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyClass(</span><span class=rvts64>int</span><span class=rvts113> value) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// constructor</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.myProperty = value;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyClass() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>(1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// call another constructor of the same class</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>static</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// static constructor (executed only once at the beginning of the program)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>MyClass</span><span class=rvts113>.myOtherProperty = 1; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>protected</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> finalize() {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// called only during garbage collection (which might not run at all)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> getProperty() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// method</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.myProperty;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyNestedClass</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// classes can be nested inside other classes (or even just blocks)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> getParentProperty() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> myProperty;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// non-static classes can access the parent's properties and methods</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Inheritance</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>abstract</span><span class=rvts113> </span><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyBaseClass</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// abstract classes can't be instantiated (only derived)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyBaseClass(</span><span class=rvts64>int</span><span class=rvts113> someValue) {</span><span class=rvts73>...</span><span class=rvts113>}</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> myFunction() {}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>abstract</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> mustOverride();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// abstract methods are declarations (to be implemented in the derived class)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>final</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> mustNotOverride() {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// final methods forbid overriding (performance tuning: might be inlined)</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>class final</span><span class=rvts113> </span><span class=rvts233>MyDerivedClass</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>MyBaseClass</span><span class=rvts113> {&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// final classes can't be derived from</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyDerivedClass(</span><span class=rvts64>int</span><span class=rvts113> someValue) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>(someValue);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// call the base class' constructor </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public void</span><span class=rvts113> mustOverride() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>.myFunction();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// reference base class' members (properties or functions)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Interfaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>interface</span><span class=rvts113> </span><span class=rvts233>MyInterface</span><span class=rvts113> {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> SOME_VALUE = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// properties are implicitely static and final (const)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> myMethod();</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>interface</span><span class=rvts113> </span><span class=rvts233>MyOtherInterface</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>MyInterface</span><span class=rvts113> {&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// interfaces can inherit from one another</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>default</span><span class=rvts113> </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> myDefaultMethod() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>JDK8</span><span class=rvts62>: methods can now have default implementations for methods</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.myMethod();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// can't access instance variables, but can call interface methods</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> myStaticMethod() {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>JDK8</span><span class=rvts62>: interfaces can now implement static methods</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyClass</span><span class=rvts113> </span><span class=rvts64>implements</span><span class=rvts113> </span><span class=rvts233>MyInterface</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// can specifiy multiple interfaces (comma-separated)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> myMethod() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyOtherInterface.myStaticMethod();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// static interface methods must be invoked through the interface's name</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyOtherInterface.</span><span class=rvts64>super</span><span class=rvts113>.myDefaultMethod();&nbsp;&nbsp; </span><span class=rvts62>// this doesn't compile but should (in theory) explicitely target</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the specified interface's default implementation</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection4'>Anonymous classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Runnable</span><span class=rvts113> myRunnable = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Runnable</span><span class=rvts113>() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// anonymous classes can be based on interfaces or abstract classes</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> run() {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// implement all required methods inline</span></p>
+<p><span class=rvts113>};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// inner classes can access the surrounding scope/context (like in JavaScript)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection5'>Functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> main(</span><span class=rvts233>String</span><span class=rvts113> args[]) {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// may include a main program</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> myFunction(</span><span class=rvts64>int</span><span class=rvts113> x1, </span><span class=rvts64>int</span><span class=rvts113> ...args) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// variable argument list (must always be the last parameter)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.println(args.length);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// access the vargs like a regular array</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113>myFunction(1, 2, 3);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// pass in a list of values rather than an array</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts62><br></span></p>
+<div id='nodeSection6'>Modifiers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>public&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// access modifiers for classes, properties and methods</span></p>
+<p><span class=rvts64>protected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// accessible everywhere within the package and from derived classes outside</span></p>
+<p><span class=rvts64>private</span></p>
+<p><span class=rvts73>no modifier</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// accessible everywhere within the current package (but hidden outside)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>static&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// shared across all instances of the class</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>final</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// property ... a read-only (const) value that can't be modified</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // method ..... prevent it from being overridden</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // class ...... prevent it from being inherited from</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>abstract</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// method ..... is only declared and must be implemented in the derived class</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // class ...... can't be instantiated (only inherited classes might)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>transient&nbsp;&nbsp;</span><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the targetted property should not be serialised</span></p>
+<p><span class=rvts64>volatile&nbsp;&nbsp;</span><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the targetted property or variable is accessed in parallel by multiple threads</span></p>
+<p><span class=rvts64>strictfp&nbsp;&nbsp;</span><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // apply the stricter floating point model used prior to Java 2</span></p>
+<p><span class=rvts64><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,99 @@
+
+<div id='nodeSection1'>Functions</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function</span><span class=rvts270>(</span><span class=rvts262>a, b</span><span class=rvts270>)</span><span class=rvts262>                       </span><span class=rvts263># define a function (parentheses are optional)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"#{a} #{b}"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts270>return</span><span class=rvts262> 36                                 </span><span class=rvts263># return is optional (if it's the last statement)</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts262>my_function</span><span class=rvts270>(</span><span class=rvts262>123, </span><span class=rvts266>"abc"</span><span class=rvts270>)</span><span class=rvts262>                     </span><span class=rvts263># call a function (parentheses are optional)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Parameters</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function(a, b = </span><span class=rvts266>""</span><span class=rvts262>)                  </span><span class=rvts263># default parameters</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function</span><span class=rvts270>(</span><span class=rvts262>name, location:, age: 18</span><span class=rvts270>)</span><span class=rvts262>   </span><span class=rvts263># paramters starting with ":" are named parameters (can have defaults as well)</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts262>my_function</span><span class=rvts270>(</span><span class=rvts266>"abc"</span><span class=rvts262>, location: </span><span class=rvts266>"Melbourne"</span><span class=rvts270>)</span><span class=rvts262>   </span><span class=rvts263># named parameters must be passed as key:value</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function(p1, *vargs_array)           </span><span class=rvts263># variable arguments received as array</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts262>my_function(1, 2, 3, 4, 5)                  </span><span class=rvts263># pass variable arguments as CSV list</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function(p1, **vargs_hash)           </span><span class=rvts263># variable arguments for named parameters { x: 1, y: 2}</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts262>my_function(</span><span class=rvts266>"abc"</span><span class=rvts262>, x: 1, y: 2)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function(a, b = 1, *c, d: 1, **x)  &nbsp; </span><span class=rvts263># mixe vargs and named_vargs: c == [3, 4, 5], x = { x: 1 }</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts262>my_function(1, 2, 3, 4, 5, d: 2, x: 1)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Return values</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function(type)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>if</span><span class=rvts262> </span><span class=rvts266>"array"</span><span class=rvts262> == type</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>return</span><span class=rvts262> 1, 2                             </span><span class=rvts263># mutliple return values are automatically wrapped into and returned as an array</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  36                                        </span><span class=rvts263># the last statement does not require a "return"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>array = my_function(</span><span class=rvts266>"array"</span><span class=rvts262>)                </span><span class=rvts263># extract the array itself</span></p>
+<p class=rvps12><span class=rvts262>x, y = my_function(</span><span class=rvts266>"array"</span><span class=rvts262>)                 </span><span class=rvts263># ...or automatically decompose</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Code blocks</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> for_each(array, &amp;code_block)            </span><span class=rvts263># pass a code block</span></p>
+<p class=rvps12><span class=rvts262>  array.each { |x| code_block.call(x) }     </span><span class=rvts263># invoke code_block.call()</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>for_each(</span><span class=rvts266>%w{a e i o u}</span><span class=rvts262>) { |x| </span><span class=rvts265>puts</span><span class=rvts262> x }      </span><span class=rvts263># inline code block</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>for_each(</span><span class=rvts266>%w{a e i o u}</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |x|              </span><span class=rvts263># multi-line code block</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> x</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> for_each(array)                         </span><span class=rvts263># no explicitit code block parameter</span></p>
+<p class=rvps12><span class=rvts262>  array.each </span><span class=rvts265>do</span><span class=rvts262> |x|</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>if</span><span class=rvts262> </span><span class=rvts265>defined?</span><span class=rvts262>(</span><span class=rvts265>yield</span><span class=rvts262>)                      </span><span class=rvts263># check if a code block has been passed</span></p>
+<p class=rvps12><span class=rvts262>      </span><span class=rvts265>yield</span><span class=rvts262> x                               </span><span class=rvts263># invoke the passed code block</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>else</span></p>
+<p class=rvps12><span class=rvts262>      </span><span class=rvts265>puts</span><span class=rvts262> x</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>for_each(</span><span class=rvts266>%w{1 2 3}</span><span class=rvts262>) { |x| </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"&gt; #{x}"</span><span class=rvts262> }   </span><span class=rvts263># can be called with</span></p>
+<p class=rvps12><span class=rvts262>for_each(</span><span class=rvts266>%w{1 2 3}</span><span class=rvts262>)                         </span><span class=rvts263># ...or without code block</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>my_code_block = </span><span class=rvts267>Proc</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262> { |x| </span><span class=rvts265>puts</span><span class=rvts262> x }     </span><span class=rvts263># define a code block as a variable</span></p>
+<p class=rvps12><span class=rvts262>my_code_block.call(100)                     </span><span class=rvts263># call the code block</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

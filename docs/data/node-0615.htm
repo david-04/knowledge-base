@@ -1,0 +1,144 @@
+
+<div id='nodeSection1'>Declaration files</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts61>*.d.ts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the compiler automatically includes all *.d.ts files in the source folder</span></p>
+<p><span class=rvts39><br></span></p>
+<p><a class=rvts112 href="https://github.com/borisyankov/DefinitelyTyped">https://github.com/borisyankov/DefinitelyTyped</a><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// repository of declaration files for 3rd party libraries like jQuery</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Variables</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>var</span><span class=rvts41> weekdays: </span><span class=rvts45>string</span><span class=rvts41>[];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// var weekdays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IUser</span><span class=rvts41> { name: </span><span class=rvts45>string</span><span class=rvts41>; age: </span><span class=rvts45>number</span><span class=rvts41>; }</span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>var</span><span class=rvts41> currentUser: </span><span class=rvts110>IUser</span><span class=rvts41>[];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// var currentUser = { name: "David", age: 38 };</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Helper objects</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>module</span><span class=rvts41> </span><span class=rvts110>MyHelper</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// var MyHelper = (function() { return { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> version: </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; version&nbsp;&nbsp;&nbsp; : "1.0",</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; function</span><span class=rvts41> log(message: </span><span class=rvts45>string</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; logMessage : function(message) {...}</span></p>
+<p><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// }})()</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>module</span><span class=rvts41> </span><span class=rvts110>MyHelper</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// var MyHelper = (function() { return {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>module</span><span class=rvts41> </span><span class=rvts110>Ajax</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; Ajax : (function() { return {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> load(url: </span><span class=rvts45>string</span><span class=rvts41>) : string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; load : function(url) {...}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; }})()</span></p>
+<p><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// }})()</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>module</span><span class=rvts41> </span><span class=rvts42>"path"</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// declare the structure of a node package in node.d.ts</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> normalize(p: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// export all the symbols exported by the original package</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> join(...paths: </span><span class=rvts45>any</span><span class=rvts41>[]): </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>var</span><span class=rvts41> sep: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>module</span><span class=rvts41> </span><span class=rvts42>"wildcard-moule"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// anything can be imported from this module (and defaults to type "any")</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39>/// &lt;reference path="node.d.ts"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // reference the declaration from the client application</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> * </span><span class=rvts45>as</span><span class=rvts41> path </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"path"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import the package (creates: var path = require("path"))</span></p>
+<p><span class=rvts41>path.normalize(</span><span class=rvts42>"..."</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the package </span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>Namespaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>namespace</span><span class=rvts41> </span><span class=rvts110>MyNamespace</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// public items must be declared with the "export" keyword</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; age : </span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection6'>Functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> isValid(id: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>boolean</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// function isValid(id) {...}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> cmp(p1:</span><span class=rvts45>string</span><span class=rvts41>,p2:</span><span class=rvts45>string</span><span class=rvts41>):</span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// function cmp(stringOrNumber1, stringOrNumber2)</span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> cmp(p1:</span><span class=rvts45>number</span><span class=rvts41>,p2:</span><span class=rvts45>number</span><span class=rvts41>):</span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IMyOptions</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; animate?: </span><span class=rvts45>boolean</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; speed?: </span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; cycle?: </span><span class=rvts45>boolean</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> show(options: IMyOptions): </span><span class=rvts45>void</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// function show(options) {...}</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection7'>Classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyClass</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(id: </span><span class=rvts45>number</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// function MyClass(id) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; id: </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; this.id = id;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>static</span><span class=rvts41> instanceCount: </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; this.Prototype.instanceCount++;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; myFunction(): </span><span class=rvts45>void</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// MyClass.prototype.myFunction = function() {...}</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>module</span><span class=rvts41> </span><span class=rvts110>MyClass</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// var MyModule = (function() { return { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>class</span><span class=rvts41> NestedClass { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp; MyClass : function() { }</span></p>
+<p><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// }})()</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection8'>Hybrid objects</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> hybridObject(id: </span><span class=rvts45>number</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// hybridObject(1);</span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>module</span><span class=rvts41> hybridObject {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// hybridObject.name = "name";</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection9'>Enums</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>declare</span><span class=rvts41> </span><span class=rvts45>enum</span><span class=rvts41> </span><span class=rvts110>MyEnum</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; A = 1,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; B,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; C = 2</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection10'>Extension methods</div>
+<p><span class=rvts61><br></span></p>
+<p class=rvps12><span class=rvts64>import</span><span class=rvts251> { Observable } </span><span class=rvts64>from</span><span class=rvts251> </span><span class=rvts289>"./observable"</span><span class=rvts251>;          </span><span class=rvts252>// import the object to augment</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>declare</span><span class=rvts251> </span><span class=rvts64>module</span><span class=rvts251> </span><span class=rvts289>"./observable"</span><span class=rvts251> {                     </span><span class=rvts252>// decare the extension</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>interface</span><span class=rvts251> </span><span class=rvts288>Observable</span><span class=rvts251>&lt;</span><span class=rvts288>T</span><span class=rvts251>&gt; {</span></p>
+<p class=rvps12><span class=rvts251>        map&lt;</span><span class=rvts288>U</span><span class=rvts251>&gt;(f: (x: </span><span class=rvts288>T</span><span class=rvts251>) =&gt; </span><span class=rvts288>U</span><span class=rvts251>): </span><span class=rvts288>Observable</span><span class=rvts251>&lt;</span><span class=rvts288>U</span><span class=rvts251>&gt;;</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>Observable.prototype.map = </span><span class=rvts64>function</span><span class=rvts251> (f: </span><span class=rvts288>Function</span><span class=rvts251>) { </span><span class=rvts252>// implement the extension</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts252>//...</span></p>
+<p class=rvps12><span class=rvts251>};</span></p>
+<p class=rvps12><span class=rvts251></span><br><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>import</span><span class=rvts251> </span><span class=rvts289>"./map"</span><span class=rvts251>;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// in the client code only import for the side effects</span></p>
+<p class=rvps12><span class=rvts296><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>declare</span><span class=rvts251> global {                                    </span><span class=rvts252>// standard ES classes are augmented in the </span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>interface</span><span class=rvts251> </span><span class=rvts288>Array</span><span class=rvts251>&lt;</span><span class=rvts288>T</span><span class=rvts251>&gt; {</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts252>// add extension methods</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251>Array.prototype.myExtension = </span><span class=rvts64>function</span><span class=rvts251> () {         </span><span class=rvts252>// implement the extension</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts252>// ...</span></p>
+<p class=rvps12><span class=rvts251>};</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

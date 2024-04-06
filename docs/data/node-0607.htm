@@ -1,0 +1,173 @@
+
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection1'>Case class</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>person.copy(name=</span><span class=rvts284>”</span><span class=rvts269>David</span><span class=rvts284>”</span><span class=rvts269>) // case class</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Nothing inherits from Null (Null only applies to Object/AnyRef, Nothing also applies to AnyVal)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Case (</span><span class=rvts284>…</span><span class=rvts269>) if </span><span class=rvts284>…</span><span class=rvts269> =&gt;</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection2'>Either</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>Either[A, B]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Left[A]&nbsp; // usually the error</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Right[B] // usually the return value of a function</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Type ErrorOr[A] = Either[String, A] // error message or object</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<div id='nodeSection3'>For comprehension</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>For comprehension (syntactic sugar for map/flatmap):</span></p>
+<p><span class=rvts269>for {</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>&nbsp; User1 &lt;- getUser(1) // returns either</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>&nbsp; User2 &lt;- getUser(2) // returns Either</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>&nbsp; Result = User2.name // can include = instead of &lt;-</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>} yiels s</span><span class=rvts284>”</span><span class=rvts269>${user1.name} ${user2.name}</span><span class=rvts284>”</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; Works with all data structures that have map, flatmap and the likes</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection4'>Try</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>Try[A] returns Success[A] or Failure[Exception]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Similar to Either[A, Exception]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Val result : Try[Int] = Try(</span><span class=rvts284>“</span><span class=rvts269>abc</span><span class=rvts284>”</span><span class=rvts269>.toInt)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Case </span><span class=rvts284>‘</span><span class=rvts269>W</span><span class=rvts284>’</span><span class=rvts269> | </span><span class=rvts284>‘</span><span class=rvts269>E</span><span class=rvts284>’</span><span class=rvts269> =&gt; </span><span class=rvts284>…</span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection5'>IO</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>Import cats.effect.IO</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Val io : IO[String] = IO { Console.readline }</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>IO { println(</span><span class=rvts284>“</span><span class=rvts269>hello world</span><span class=rvts284>”</span><span class=rvts269>) } // cats library</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Val x = Io.map(result =&gt; </span><span class=rvts284>…</span><span class=rvts269>.) // does not call the IO, returns another IO instance</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>myIo.unsafeRunSync to run all IOs</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>object Main extends IOApp</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>myIo.attempt.map {</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>&nbsp; case Right(_) =&gt; success</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>&nbsp; case Left(_) =&gt; error</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>}</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>IO(sideEffectLambda)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>IO.apply(sideEffectLambda) // lazy evaluation</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>IO.pure(constantLamda)&nbsp; // evaluated immediately</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>IO.raiseError(new Exception())</span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection6'>Http4s</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>Http4s</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Effect[Response] // like Future/Promise/IO</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Case GET -&gt; Root / </span><span class=rvts284>“</span><span class=rvts269>hello</span><span class=rvts284>”</span><span class=rvts269> =&gt; Ok // or Ok(data)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Circe</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>implicit val personEncoder: Encoder[Person] = (p: Person) =&gt; Json.obj(</span></p>
+<p><span class=rvts269>&nbsp; ("name", Json.fromString(p.name)),</span></p>
+<p><span class=rvts269>&nbsp; ("age", Json.fromInt(p.age))</span></p>
+<p><span class=rvts269>)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection7'>Validated</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>Category theory</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Monoid</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Semigroup</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Validated[E: Semgroup, A]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Invalid[E:Semigroup]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Valid[A]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Validated[NonEMptyList[String], A] === ValidatedNel[String, A] // predefined type alias)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>List(Valid(), Invalid()).sequence =&gt; swaps valid and list </span><span class=rvts284>è</span><span class=rvts269> same effect via Lis(1,2,3).traverse(validate)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Input1.productR(input2)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Input1.andThen(input2) // input2 only runes if inut1 is valid</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Validated.condNel(input.nonEmpty, input, </span><span class=rvts284>“</span><span class=rvts269>ERROR</span><span class=rvts284>”</span><span class=rvts269>) // create a Valid or Invalid</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Validated.condNel(synopsis.nonEmpty, synopsis, MovieSynopsisTooShort)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Input1.valid.productR(myValidator(input1)) // collects all errors, productL picks the left input1, product picks up the right input</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>(</span></p>
+<p><span class=rvts269>&nbsp; nameValidation(firstName, "firstName"),</span></p>
+<p><span class=rvts269>&nbsp; nameValidation(firstName, "lastName"),</span></p>
+<p><span class=rvts269>&nbsp; passwordValidation(password)</span></p>
+<p><span class=rvts269>).mapN((first, last, pw) =&gt; Person(first, last, pw))</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269> </span></p>
+<p><span class=rvts269><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,223 @@
+
+<div id='nodeSection1'>index.html</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;!</span><span class=rvts46>DOCTYPE</span><span class=rvts41> </span><span class=rvts90>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>meta</span><span class=rvts41> </span><span class=rvts90>charset</span><span class=rvts45>="UTF-8"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>base</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="/"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- </span><span class=rvts101>this is required for routing</span><span class=rvts91>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>title</span><span class=rvts45>&gt;</span><span class=rvts41>Playground Angular2</span><span class=rvts45>&lt;/</span><span class=rvts46>title</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="node_modules/core-js/client/shim.min.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="node_modules/zone.js/dist/zone.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="node_modules/systemjs/dist/system.src.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="systemjs.config.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.import(</span><span class=rvts42>"app"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(</span><span class=rvts45>function</span><span class=rvts41> (err) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.error(err);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>my-application</span><span class=rvts45>&gt;</span><span class=rvts41>Loading ...</span><span class=rvts45>&lt;/</span><span class=rvts46>my-application</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the root component is inserted here&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>app/data-model.ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the data model is a pure JavaScript module</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; id&nbsp; : </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// there are no specific Angular annoations</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; age : </span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>app/main.ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { platformBrowserDynamic } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/platform-browser-dynamic"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { enableProdMode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { AppModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./app.module"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>if</span><span class=rvts41> (!</span><span class=rvts42>/localhost/</span><span class=rvts41>.test(document.location.host)) {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable production mode</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; enableProdMode();</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>platformBrowserDynamic()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// initialise the application and and handle possible errors</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .bootstrapModule(AppModule)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .then(success =&gt; console.log(</span><span class=rvts42>"Bootstrap OK"</span><span class=rvts41>))</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .catch(err =&gt; console.error(err));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>app/app.module.ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { NgModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { BrowserModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/platform-browser"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { FormsModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/forms"</span><span class=rvts41>;</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { AppComponent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./app.component"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { ListViewComponent&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./list-view.component"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { DetailViewComponent } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./detail-view.component"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { DataService&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data.service"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts41>@</span><span class=rvts60>NgModule</span><span class=rvts41>({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; imports: [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import other modules with their components/services/pipes/...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BrowserModule,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this one is always needed</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FormsModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the FormsModule is required for two-way data binding in forms</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; declarations: [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all the components/services/pipes/... that belong to this module</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AppComponent,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ListViewComponent,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DetailViewComponent</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; exports: [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// feature modules: export components/services/... to other modules</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AppComponent</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; bootstrap: [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the root component is the one referenced in the main HTML file</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AppComponent</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; providers: [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// services that can be injected into all components/services/...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DataService</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ]</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>AppModule</span><span class=rvts41> { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the root module should always be called AppModule</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>app/app.component.ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Component } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Component({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; selector: </span><span class=rvts42>"my-application"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// tag name (a CSS selector) as referenced in the main HTML file</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; template: </span><span class=rvts42>`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// short HTML code can be inlined here</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="myContainer"&gt;</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h1&gt;{{Title}}&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use interpolation to insert model properties</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;my-list-view&gt;&lt;/my-list-view&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// reference (include) another component here</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp; `</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; styles: [</span><span class=rvts42>".myContainer { color: black; }"</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add inline styles that are applied to this component only</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>AppComponent</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; title = </span><span class=rvts42>"My Application"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// data is stored in the component itself (not in a separate scope)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection6'>app/list-view.component.html + ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>ul</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- use the template syntax to define and populate the view&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>li</span><span class=rvts41> *</span><span class=rvts90>ngFor</span><span class=rvts45>="let person of people"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span><span class=rvts90>click</span><span class=rvts41>)</span><span class=rvts45>="selectedPerson = person"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>person.name</span><span class=rvts94>}}</span><span class=rvts41> (</span><span class=rvts94>{{</span><span class=rvts95>person.age</span><span class=rvts94>}}</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>li</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>ul</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>detail-view</span><span class=rvts41> [</span><span class=rvts90>person</span><span class=rvts41>]</span><span class=rvts45>="selectedPerson"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include other views and pass data [objects] as input parameters&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span><span class=rvts90>saveRequest</span><span class=rvts41>)</span><span class=rvts45>="save($event)"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- receive events that are emitted by the child component&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>detail-view</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Component&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { OnInit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// interface for lifecycle hooks</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data-model"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import everything that this component needs</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { RestService } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data.service"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Component({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; moduleId&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>module</span><span class=rvts41>.id,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>this is mandatory</span><span class=rvts39> when referencing HTML+CSS files with relative paths</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; selector&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>"my-list-view"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// CSS selector ... elements matching this pattern are populated</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; templateUrl : </span><span class=rvts42>"list-view.component.html"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the view and local CSS definitions stored in separate files</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; styleUrls&nbsp;&nbsp; : [</span><span class=rvts42>"list-view.componentn.css"</span><span class=rvts41>],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; providers&nbsp;&nbsp; : [</span><span class=rvts110>DataService</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// include only services specific to this component (not used elsewhere)</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>ListViewComponent</span><span class=rvts41> </span><span class=rvts45>implements</span><span class=rvts41> OnInit {&nbsp; </span><span class=rvts39>// OnInit is the initialistian lifecycle hook </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> people: </span><span class=rvts110>Person</span><span class=rvts41>[] = </span><span class=rvts45>null</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// data is attached directly to the component (without $scope)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> selectedPerson: </span><span class=rvts110>Person</span><span class=rvts41> = </span><span class=rvts45>null</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(</span><span class=rvts45>private</span><span class=rvts41> dataService: </span><span class=rvts110>DataService</span><span class=rvts41>) { </span><span class=rvts39>// all parameters will trigger a dependency injection</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ngOnInit(): </span><span class=rvts45>void</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this method is invoked when the component is loaded/first rendered</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.dataService.getPeople().then(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use a service to retrieve the data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; people =&gt; </span><span class=rvts45>this</span><span class=rvts41>.people = people&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// in case of Ajax: process the response asynchronously</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection7'>app/detail-view.component.html + ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> *</span><span class=rvts90>ngIf</span><span class=rvts45>="person"&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>label</span><span class=rvts45>&gt;</span><span class=rvts41>Name: </span><span class=rvts45>&lt;/</span><span class=rvts46>label</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>person.id</span><span class=rvts94>}}</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>label</span><span class=rvts45>&gt;</span><span class=rvts41>Name: </span><span class=rvts45>&lt;/</span><span class=rvts46>label</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> [(</span><span class=rvts90>ngModel</span><span class=rvts41>)]</span><span class=rvts45>="person.name"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- apply two-way data binding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>label</span><span class=rvts45>&gt;</span><span class=rvts41>Age: </span><span class=rvts45>&lt;/</span><span class=rvts46>label</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> [(</span><span class=rvts90>ngModel</span><span class=rvts41>)]</span><span class=rvts45>="person.age"&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>button</span><span class=rvts41> (</span><span class=rvts90>click</span><span class=rvts41>)</span><span class=rvts45>="save()"&gt;</span><span class=rvts41>Save</span><span class=rvts45>&lt;/</span><span class=rvts46>button</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- attach event handlers defined within the component&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Component,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Input,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Output,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EventEmitter } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data-model"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Component({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; moduleId&nbsp;&nbsp; : </span><span class=rvts43>module</span><span class=rvts41>.id,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; selector&nbsp;&nbsp; : </span><span class=rvts42>"detail-view"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; templateUrl: </span><span class=rvts42>"detail-view.component.html"</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>DetailViewComponent</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; @Input()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this is an input parameter passed by the parent component</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; person: Person;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use @Input("alias") to expose it under another name</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; @Output()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; saveRequest = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>EventEmitter</span><span class=rvts41>&lt;</span><span class=rvts110>Person</span><span class=rvts41>&gt;();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// an event source that the parent component can subscribe to</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; save() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// event handler invoked from this component's view</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.saveRequest.emit(</span><span class=rvts45>this</span><span class=rvts41>.person);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// raise a custom event (to the parent component)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection8'>app/data.service.ts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Injectable } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// dependency injection</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Http&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/http"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Ajax requests</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> </span><span class=rvts42>"rxjs/add/operator/toPromise"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// convert observables (returned by http.get) into promises</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Person&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data-model"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom modules</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Injectable()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this class' constructor requires dependency injection</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>DataService</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(</span><span class=rvts45>private</span><span class=rvts41> http: </span><span class=rvts110>Http</span><span class=rvts41>) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inject the Ajax service</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getPeople(): Promise&lt;</span><span class=rvts110>Person</span><span class=rvts41>[]&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// service methods to retrieve the required data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http.get(</span><span class=rvts42>"api/people"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .toPromise()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .then(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response =&gt; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.json().data </span><span class=rvts45>as</span><span class=rvts41> Person[])</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(</span><span class=rvts47>...</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

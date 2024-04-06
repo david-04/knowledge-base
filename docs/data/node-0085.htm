@@ -1,0 +1,33 @@
+
+<div id='nodeSection1'>Conditional processing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> *</span><span class=rvts90>ngIf</span><span class=rvts45>="mustShowDetails"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- add an element to (or remove it from) the DOM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts94><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>span</span><span class=rvts41> [</span><span class=rvts90>ngSwitch</span><span class=rvts41>]</span><span class=rvts45>="location"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- switch case&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>span</span><span class=rvts41> *</span><span class=rvts90>ngSwitchCase</span><span class=rvts45>="'AU'"&gt;</span><span class=rvts41>Australia</span><span class=rvts45>&lt;/</span><span class=rvts46>span</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>span</span><span class=rvts41> *</span><span class=rvts90>ngSwitchCase</span><span class=rvts45>="'DE'"&gt;</span><span class=rvts41>Germany&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>span</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>span</span><span class=rvts41> *</span><span class=rvts90>ngSwitchDefault&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&gt;</span><span class=rvts41>Unkown&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>span</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>span</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Iteration</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>li</span><span class=rvts41> *</span><span class=rvts90>ngFor</span><span class=rvts45>="let person of people"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- iterate over the elements of a collection&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>person.fullName</span><span class=rvts94>}}</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>li</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> *</span><span class=rvts90>ngFor</span><span class=rvts45>="let person of people; let i=index"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- make the iteration index available as variable "i"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>i</span><span class=rvts41> </span><span class=rvts95>+</span><span class=rvts41> </span><span class=rvts95>1</span><span class=rvts94>}}</span><span class=rvts41> - </span><span class=rvts94>{{</span><span class=rvts95>person.name</span><span class=rvts94>}}</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> *</span><span class=rvts90>ngFor</span><span class=rvts45>="let person of people; trackBy:</span><span class=rvts50>getId</span><span class=rvts45>"&gt;</span><span class=rvts41>&nbsp; </span><span class=rvts91>&lt;!-- performance tuning: don't re-create (but update) the DOM if&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>person.name</span><span class=rvts94>}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the getId function returns returns the same (unchanged) value&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts114>getId</span><span class=rvts41>(index: </span><span class=rvts45>number</span><span class=rvts41>, person: Person) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// this function returns the key to match identical objects</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; return</span><span class=rvts41> person.id;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45><br></span></p>
+<p><br></p>
+<p><br></p>
+

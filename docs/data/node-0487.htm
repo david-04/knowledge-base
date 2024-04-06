@@ -1,0 +1,57 @@
+
+<div><table width="100%" border=1 cellpadding=1 cellspacing=-1 style="border-width: 0px; border-collapse: collapse;">
+<tr valign=top>
+<td width=1386 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #d2d2d2;"><div><table width="100%" border=0 cellpadding=0 cellspacing=0 style="border-width: 0px;">
+<tr valign=top>
+<td width="7%" valign=top><p class=rvps3><span class=rvts10>Conditionals</span></p>
+</td>
+<td width="50%" valign=top><p class=rvps4><span class=rvts40>lesscontrolstructurese lessconditionalprocessing </span><span class=rvts120>lessif</span><span class=rvts40>thenelse </span><span class=rvts120>lessif</span><span class=rvts40>else lesselse </span><span class=rvts120>lessif</span><span class=rvts40>statement </span><span class=rvts120>lessif</span><span class=rvts40>command lesselsecommand lesselsestatement</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts46>.myClass</span><span class=rvts41> </span><span class=rvts46>when</span><span class=rvts41> (</span><span class=rvts95>@myVariable</span><span class=rvts41> </span><span class=rvts46>=</span><span class=rvts41> </span><span class=rvts46>myValue</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// output this rule only if the given condition is met</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>red</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>.myBaseClass(@param)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// mixin-definitions can be encapsulated by a guarding condition</span></p>
+<p><span class=rvts46>&nbsp;&nbsp;&nbsp; when (@myLayout = 10 and @param &lt;= 17),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// can access the mixin's paramters and </span><span class=rvts101>use the AND operator (but not OR)</span></p>
+<p><span class=rvts46>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (@myOption=5),</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// the logical OR is simulated by the comma</span></p>
+<p><span class=rvts46>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (isnumber(@param)) </span><span class=rvts41>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// check paramter types via: isnumber, iscolor, isstring, iskeyword, isurl,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>red</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// ixpixel, ispercentage, isem or isunit</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>.myBaseClass(</span><span class=rvts95>@param</span><span class=rvts46>)</span><span class=rvts41> </span><span class=rvts45>when</span><span class=rvts41> </span><span class=rvts46>(default())</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// this is like an else-branch: the mixin is applied only if no other </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>yellow</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// mixin with the same name could be matched</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>.myDeriveClass</span><span class=rvts41> {</span></p>
+<p><span class=rvts91>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>.myBaseClass(@myVariable) when (</span><span class=rvts95>@mySwitch</span><span class=rvts46>=1)</span><span class=rvts41>;</span><span class=rvts91>&nbsp;&nbsp; // the invocation can be encapsulated by a guard as well</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection1'>Loops</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts46>.generate-headers(</span><span class=rvts95>@total</span><span class=rvts41>, </span><span class=rvts95>@current</span><span class=rvts41>: </span><span class=rvts45>1</span><span class=rvts46>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// iterations are simulated via recursive mixins</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>when</span><span class=rvts41> </span><span class=rvts46>(</span><span class=rvts95>@current</span><span class=rvts41> </span><span class=rvts46>=&lt;</span><span class=rvts41> </span><span class=rvts95>@total</span><span class=rvts46>)</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// a guard is used to end the recursion</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>.h@{</span><span class=rvts95>current</span><span class=rvts46>}</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// generate the content for the current iteration (recursion level)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>width</span><span class=rvts41>: (</span><span class=rvts95>@current</span><span class=rvts41> * </span><span class=rvts45>100%</span><span class=rvts41> / </span><span class=rvts95>@total</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>.generate-headers(</span><span class=rvts95>@total</span><span class=rvts41>, (</span><span class=rvts95>@current</span><span class=rvts41> + </span><span class=rvts45>1</span><span class=rvts41>)</span><span class=rvts46>)</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// recursively invoke the same mixin for the next step</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>.generate-headers(</span><span class=rvts45>6</span><span class=rvts46>)</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// call the mixin to let it generate all content</span></p>
+<p><span class=rvts91><br></span></p>
+<p><br></p>
+<p><br></p>
+

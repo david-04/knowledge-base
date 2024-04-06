@@ -1,0 +1,59 @@
+
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection1'>Define a template</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts125>/**</span></p>
+<p class=rvps12><span class=rvts125> * comment is required</span></p>
+<p class=rvps12><span class=rvts125> */</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>template </span><span class=rvts124>.sayHello private=</span><span class=rvts128>'true'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163>&nbsp;&nbsp; </span><span class=rvts125>// can be called from everywhere in the current bundles (enables inlining)</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>autoescape=</span><span class=rvts128>'strict'</span><span class=rvts124>}&nbsp;</span><span class=rvts163>&nbsp;&nbsp; </span><span class=rvts125>// escape everything</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>Hello world!</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>template</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection2'>Declaring parameters</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts125>/**</span></p>
+<p class=rvps12><span class=rvts125> * Greet a person.</span></p>
+<p class=rvps12><span class=rvts125> * @param name The name of the person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // parameters can be declared in the JavaDoc comment block</span></p>
+<p class=rvps12><span class=rvts125> * @param? greeting Greeting (optional)</span></p>
+<p class=rvps12><span class=rvts125> */</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>template </span><span class=rvts124>.sayHello}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>if not </span><span class=rvts124>$greeting}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello {$name}!</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>else</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {$greeting} {$name}!</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {/</span><span class=rvts130>if</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>template</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts125>/**</span></p>
+<p class=rvps12><span class=rvts125> * Greet a person.</span></p>
+<p class=rvps12><span class=rvts125> */</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>template </span><span class=rvts124>.sayHello}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>@param&nbsp; </span><span class=rvts124>name:&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts137>string</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// parameters can also be declared with commands (must be on top of the template)</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>{</span><span class=rvts130>@param? </span><span class=rvts124>greeting: </span><span class=rvts137>string</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts135>...</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>template</span><span class=rvts124>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection3'>Calling templates</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>alias </span><span class=rvts124>my.package.general}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// like import: can now call templates via </span><span class=rvts207>my.package.</span><span class=rvts125>general.myTemplate</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>alias </span><span class=rvts124>my.package.general </span><span class=rvts130>as </span><span class=rvts124>myLib}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// same as above but use a custom alias</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>call </span><span class=rvts124>.myTemplate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// prepend the namespace (or alias) to call templates from elsewhere</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>param </span><span class=rvts124>show: $isActive /}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// pass parameters individually</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>{</span><span class=rvts130>param </span><span class=rvts124>message}Hello world!{/</span><span class=rvts130>param</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>call</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>call </span><span class=rvts124>.myTemplate data=</span><span class=rvts128>"$myMap" </span><span class=rvts124>/}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// pass parameters from a map (name=key, value=value)</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>call </span><span class=rvts124>.myTemplate data=</span><span class=rvts128>"all" </span><span class=rvts124>/}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// pass all parameters of the current template</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>call </span><span class=rvts124>.myTemplate data=</span><span class=rvts128>"all" </span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// pass all parameters from the current template </span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>{</span><span class=rvts130>param </span><span class=rvts124>message}Hello world!{/</span><span class=rvts130>param</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// ... plus additional ones</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>call</span><span class=rvts124>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,46 @@
+
+<div id='nodeSection1'>Defining modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>myModule = angular.module(</span><span class=rvts42>"myApp"</span><span class=rvts41>, []);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// define a new module without depenencies</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myModule = angular.module(</span><span class=rvts42>"myApp"</span><span class=rvts41>, [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// define a new module with depencies to other modules</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"myApp.Filters"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"myApp.Controllers"</span></p>
+<p><span class=rvts41>]);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myModule = angular.module(</span><span class=rvts42>"myApp"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// obtain a module that has already been defined before</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>myModule.name</span><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // contains the name of the module</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>html</span><span class=rvts41> </span><span class=rvts90>ng-app</span><span class=rvts45>="myApp"</span><span class=rvts41> </span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- associate the application module (does not need to target the &lt;html&gt; element) --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Configuring modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>angular.module(</span><span class=rvts42>"myApp"</span><span class=rvts41>, [])</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .value(</span><span class=rvts42>"myValue"</span><span class=rvts41>, </span><span class=rvts42>"Hi"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// values are mutable, support decorators but can't be injected during the config phase</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .constant(</span><span class=rvts42>"myConst"</span><span class=rvts41>, </span><span class=rvts45>true</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// constants should be immutable, don't support decorators but can be used during the config phase</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .config(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this code is executed while the application/module is being initialised</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> ($http</span><span class=rvts52>Provider</span><span class=rvts41>, myConst) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// constants (but not values) can be injected, "Provider" must be appended to regular services</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $httpProvider.withCredentials=myConst;&nbsp; </span><span class=rvts39>// configure the services that the module uses</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .controller(</span><span class=rvts42>"myCtrl"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> ($scope, myValue, myConst) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// values and constants can be injected anywhere after the config phase</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(myValue + </span><span class=rvts42>" "</span><span class=rvts41> + myConst);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ); </span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Initialisation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>myModule.run(</span><span class=rvts45>function</span><span class=rvts41> ($http) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register a function to execute right after the module has been intialised/configured</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $http.get(</span><span class=rvts42>"data.json"</span><span class=rvts41>).success(</span><span class=rvts45>function</span><span class=rvts41>(data){&nbsp; </span><span class=rvts39>// useful for doing the initial data load</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model.items = data;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>}); </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

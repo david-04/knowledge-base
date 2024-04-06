@@ -1,0 +1,62 @@
+
+<div id='nodeSection1'>Services</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Injectable } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// dependency injection</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@Injectable()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this class' constructor requires dependency injection</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>DataService</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the service itself does not need any special Angular annotations</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(</span><span class=rvts45>private</span><span class=rvts41> http: </span><span class=rvts110>Http</span><span class=rvts41>) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// request the injection of other services</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getPeople(): Promise&lt;</span><span class=rvts110>Person</span><span class=rvts41>[]&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// implement service methods as required, return whatever is appropriate</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http.get(</span><span class=rvts42>"api/people"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .toPromise()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .then(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response =&gt; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.json().data </span><span class=rvts45>as</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41>[])</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(...);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Static registration</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> dummySvc = { doSomething: () =&gt; { } };</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>@NgModule({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; providers: [</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>DataService</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// make a single service available</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { provide: </span><span class=rvts110>Service2</span><span class=rvts41>, useClass&nbsp;&nbsp; : </span><span class=rvts110>Service3</span><span class=rvts41> }</span><span class=rvts39>// create alias names for a service</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { provide: </span><span class=rvts110>Service3</span><span class=rvts41>, useClass&nbsp;&nbsp; : </span><span class=rvts110>Service3</span><span class=rvts41> }</span><span class=rvts39>// </span><span class=rvts44>the injector will create two different Service3 instances</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { provide: </span><span class=rvts110>Service5</span><span class=rvts41>, use</span><span class=rvts52>Class</span><span class=rvts41>&nbsp;&nbsp; : </span><span class=rvts110>Service5</span><span class=rvts41> }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { provide: </span><span class=rvts110>Service4</span><span class=rvts41>, use</span><span class=rvts52>Existing</span><span class=rvts41>: </span><span class=rvts110>Service5</span><span class=rvts41> }</span><span class=rvts39>// like above, but now only one Service5 will be instanicated</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { provide: </span><span class=rvts110>Service6</span><span class=rvts41>, use</span><span class=rvts52>Value</span><span class=rvts41>&nbsp;&nbsp; : dummySvc }</span><span class=rvts39>// always use the object/instance provided (see below), don't instantiate anything</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ]</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>AppModule</span><span class=rvts41> { }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Factory registration</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> dataServiceFactory =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// or use a factory to preconfigure the service</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; (anotherService: </span><span class=rvts110>AnotherService</span><span class=rvts41>) =&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// request other services to be injected</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>DataService</span><span class=rvts41>(anotherService);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and pre-configures the new service instance</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@NgModule({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; providers: [{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; provide&nbsp;&nbsp; : </span><span class=rvts110>DataService</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the type of object provided by the factory</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; use</span><span class=rvts52>Factory</span><span class=rvts41>: dataServiceFactory,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the factory function to invoke</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : [</span><span class=rvts110>AnotherService</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the dependencies to inject into the factory function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }]</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>AppModule</span><span class=rvts41> { }</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

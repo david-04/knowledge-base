@@ -1,0 +1,81 @@
+
+<div id='nodeSection1'>Useful annotations</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>[</span><span class=rvts110>CLSCompliant</span><span class=rvts183>(</span><span class=rvts58>true</span><span class=rvts183>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// enforce compliance with the Common Language Specification</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Obsolete</span><span class=rvts183>(</span><span class=rvts184>"Use this and that method instead"</span><span class=rvts183>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// mark an element as obsolete</span></p>
+<p><span class=rvts200><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Namespaces</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>using</span><span class=rvts183> System.Collections;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// import namespace</span></p>
+<p><span class=rvts58>using</span><span class=rvts183> </span><span class=rvts110>MyList</span><span class=rvts183> = System.Collections.</span><span class=rvts110>ArrayList</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// alias a single class</span></p>
+<p><span class=rvts110>MyList</span><span class=rvts183> list = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MyList</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// use an aliased class</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Aliasing methods with lamda expressions</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Close() =&gt; </span><span class=rvts58>this</span><span class=rvts183>.Dispose();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// redirect Close() =&gt; Dispose()</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Dynamic variables</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>dynamic</span><span class=rvts183> variable = </span><span class=rvts184>"string"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// untyped variable</span></p>
+<p><span class=rvts183>variable = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ArrayList</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// can be reassigned to other objects</span></p>
+<p><span class=rvts183>variable.NonExistentFunction(1, </span><span class=rvts58>true</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// resolved only at runtime, might throw (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Registering an application-close event handler</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>AppDomain</span><span class=rvts183>.CurrentDomain.ProcessExit += (o, s) =&gt;</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// code to execute on shutdown</span></p>
+<p><span class=rvts183>};</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Collapsable sections in Visual Studio</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts200>#region</span><span class=rvts183> Contains this and that</span></p>
+<p><span class=rvts176>// ...</span></p>
+<p><span class=rvts200>#endregion</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Configuration</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>AppSettingsReader</span><span class=rvts183> reader = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>AppSettingsReader</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// retrieves configuration stored in the Visual Studio's App.config</span></p>
+<p><span class=rvts110>String</span><span class=rvts183> value = (</span><span class=rvts58>string</span><span class=rvts183>) reader.GetValue(</span><span class=rvts184>"parameter"</span><span class=rvts183>, </span><span class=rvts58>typeof</span><span class=rvts183>(</span><span class=rvts58>string</span><span class=rvts183>));</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>String</span><span class=rvts183> value = </span><span class=rvts110>ConfigurationManager</span><span class=rvts183>.AppSettings[</span><span class=rvts184>"parameter"</span><span class=rvts183>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// requires System.Configuration.dll</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Lazy object initialisation</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>int</span><span class=rvts183> age = 37;</span></p>
+<p><span class=rvts110>Lazy</span><span class=rvts183>&lt;</span><span class=rvts110>Person</span><span class=rvts183>&gt; person = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Lazy</span><span class=rvts183>&lt;</span><span class=rvts110>Person</span><span class=rvts183>&gt;(() =&gt; { </span><span class=rvts58>return</span><span class=rvts183> </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Person</span><span class=rvts183>(</span><span class=rvts184>"David"</span><span class=rvts183>, age); });</span></p>
+<p><span class=rvts183>age = 38;</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.Write(person.Value.ToString()); </span><span class=rvts176>// age = 38</span></p>
+<p><span class=rvts183>age = 39;</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.Write(person.Value.ToString()); </span><span class=rvts176>// age = 38</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>Retrieving code identifiers as strings</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>nameof</span><span class=rvts183>(MyClass)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// returns "MyClass"</span></p>
+<p><span class=rvts58>nameof</span><span class=rvts183>(MyMethod)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// returns "MyMethod"</span></p>
+<p><span class=rvts58>nameof</span><span class=rvts183>(myVariable)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// returns "MyVariable"</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection10'>Naming conventions</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>MyNamespace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>// </span><span class=rvts202>Pascal notatation:</span><span class=rvts201> namespaces</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>// classes, interfaces</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>.MyPublicProperty&nbsp;&nbsp; </span><span class=rvts201>// public properties</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>.MyPublicMethod&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>// public methods</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts203>myParameterName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>// </span><span class=rvts202>Camel notation:</span><span class=rvts201> function parameterers</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>.myPrivateField&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>// private fields</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts203>.myPrivateMethod&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// private methods</span></p>
+<p><span class=rvts203>myVariable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// local variables</span></p>
+<p><span class=rvts176><br></span></p>
+<p><br></p>
+<p><br></p>
+

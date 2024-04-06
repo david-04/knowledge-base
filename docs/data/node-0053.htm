@@ -1,0 +1,26 @@
+
+<div id='nodeSection1'>Views</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>VIEW</span><span class=rvts61> my_view</span><span class=rvts64> </span><span class=rvts63>(</span><span class=rvts61>col1</span><span class=rvts63>,</span><span class=rvts61> col2</span><span class=rvts63>)</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a view (the column names are optional and are retrieved from the SELECT otherwise)</span></p>
+<p><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts63>{</span><span class=rvts64>ENCRYPTION</span><span class=rvts63>|</span><span class=rvts64>SCHEMABINDING</span><span class=rvts63>|</span><span class=rvts64>VIEW_METADATA</span><span class=rvts63>}</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- SCHEMABINDING: prevent the source tables from being modified, VIEW_METADATA: allow inserting/updating records</span></p>
+<p><span class=rvts64>AS</span><span class=rvts61> </span><span class=rvts64>SELECT</span><span class=rvts61> col1</span><span class=rvts63>,</span><span class=rvts61> col2 </span><span class=rvts64>FROM</span><span class=rvts61> my_table </span><span class=rvts64>WHERE</span><span class=rvts61> </span><span class=rvts63>...</span></p>
+<p><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>CHECK</span><span class=rvts61> </span><span class=rvts64>OPTION</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- only allow inserting records that will be visible within the view</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>VIEW</span><span class=rvts61> my_view </span><span class=rvts63>...;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- modify/redefine a view (same syntax as CREATE VIEW)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>VIEW</span><span class=rvts61> my_view</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- remove a view</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts61><br></span></p>
+<div id='nodeSection2'>Materialised views</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>VIEW</span><span class=rvts61> my_view&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- the base table MUST be protected from (metadata-) modifications</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>SCHEMABINDING</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- the SELECT MUST NOT contain DISTINCT, UNION, TOP, ORDER BY, MIN, MAX, COUNT, </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>AS</span><span class=rvts61> </span><span class=rvts64>SELECT</span><span class=rvts61> col1</span><span class=rvts63>,</span><span class=rvts61> col2 </span><span class=rvts64>from</span><span class=rvts61> dbo</span><span class=rvts63>.</span><span class=rvts61>my_table</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- SUM (on a nullable expression), subqueries, derived tables, or OUTER</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>UNIQUE</span><span class=rvts61> </span><span class=rvts64>CLUSTERED</span><span class=rvts61> </span><span class=rvts64>INDEX</span><span class=rvts61> my_index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- the first index MUST be clustered</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>ON</span><span class=rvts61> my_view</span><span class=rvts63>(</span><span class=rvts61>col1</span><span class=rvts63>);</span></p>
+<p><span class=rvts63><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><br></p>
+<p><br></p>
+

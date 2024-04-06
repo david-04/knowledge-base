@@ -1,0 +1,102 @@
+
+<div id='nodeSection1'>Thread-safe assignments</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Interlocked</span><span class=rvts183>.Increment(</span><span class=rvts58>ref</span><span class=rvts183> variable);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// variable++</span></p>
+<p><span class=rvts110>Interlocked</span><span class=rvts183>.Decrement(</span><span class=rvts58>ref</span><span class=rvts183> variable);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// variable--</span></p>
+<p><span class=rvts110>Interlocked</span><span class=rvts183>.Exchange(</span><span class=rvts58>ref</span><span class=rvts183> variable, 2015);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// variable = 2015 (value types)</span></p>
+<p><span class=rvts110>Interlocked</span><span class=rvts183>.Exchange&lt;</span><span class=rvts58>string</span><span class=rvts183>&gt;(</span><span class=rvts58>ref</span><span class=rvts183> text, </span><span class=rvts184>"abc"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// text = "abc" (reference types)</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Thread-safe collections</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>ConcurrentBag</span><span class=rvts183>&lt;</span><span class=rvts110>T</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// unsorted set</span></p>
+<p><span class=rvts110>ConcurrentQueue</span><span class=rvts183>&lt;</span><span class=rvts110>T</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// queue</span></p>
+<p><span class=rvts110>ConcurrentStack</span><span class=rvts183>&lt;</span><span class=rvts110>T</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// stack</span></p>
+<p><span class=rvts110>ConcurrentDictionary</span><span class=rvts183>&lt;</span><span class=rvts110>TKey</span><span class=rvts183>, </span><span class=rvts110>TValue</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// hashtable</span></p>
+<p><span class=rvts110>BlockingCollection</span><span class=rvts183>&lt;</span><span class=rvts110>T</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// read access is paused if emtpy, write access is paused if collection is full</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Synchronised locking</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>lock</span><span class=rvts183> (</span><span class=rvts58>this</span><span class=rvts183>) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// lock object instance for other threads</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>private</span><span class=rvts183> </span><span class=rvts58>object</span><span class=rvts183> lockToken = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts58>object</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// best practice: use a dedicated locking field</span></p>
+<p><span class=rvts58>lock</span><span class=rvts183>(</span><span class=rvts58>this.</span><span class=rvts183>lockToken) { }</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Monitor</span><span class=rvts183>.Enter(</span><span class=rvts58>this</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// manually start a synchronisation block</span></p>
+<p><span class=rvts58>try</span><span class=rvts183> { }</span></p>
+<p><span class=rvts58>finally</span><span class=rvts183> { </span><span class=rvts110>Monitor</span><span class=rvts183>.Exit(</span><span class=rvts58>this</span><span class=rvts183>); }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// manually end a synchronization block</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Synchronization</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// declare the whole class as thread-synchronised</span></p>
+<p><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>Program</span><span class=rvts183> : </span><span class=rvts110>ContextBoundObject</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// </span><span class=rvts197>must</span><span class=rvts176> be derived from ContextBoundObject</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>[</span><span class=rvts110>MethodImpl</span><span class=rvts183>(</span><span class=rvts110>MethodImplOptions</span><span class=rvts183>.Synchronized)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// during execution the object instance is locked for other threads</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> myMethod()</span></p>
+<p><span class=rvts183>{ }</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>[</span><span class=rvts110>MethodImpl</span><span class=rvts183>(</span><span class=rvts110>MethodImplOptions</span><span class=rvts183>.Synchronized)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// during execution the whole class is locked for other threads</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> myMethod2()</span></p>
+<p><span class=rvts183>{ }</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Write-only-locks</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts110>ReaderWriterLockSlim</span><span class=rvts183> myLock = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ReaderWriterLockSlim</span><span class=rvts183>();&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a static instacnce</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>try</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; myLock.EnterWriteLock();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// or myLock.EnterReadLock()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// ...</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>finally</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; myLock.ExitWriteLock();</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Synchornising parallel threads</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Barrier</span><span class=rvts183> barrier = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Barrier</span><span class=rvts183>(3);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 3 threads will participate in this synchronisation</span></p>
+<p><span class=rvts183>barrier.SignalAndWait();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// thread reached the barrier and waits for the other 2 threads</span></p>
+<p><span class=rvts176>// ...</span></p>
+<p><span class=rvts183>barrier.SignalAndWait();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// barrier can be reused (barrier.CurrentPhaseNumber is incremented)</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Cancellation tokens (task parallel library)</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>CancellationTokenSource</span><span class=rvts183> canceller = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>CancellationTokenSource</span><span class=rvts183>();&nbsp; </span><span class=rvts176>// this method integrates well into the Parallel Library</span></p>
+<p><span class=rvts110>ParallelOptions</span><span class=rvts183> options = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ParallelOptions</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create an configuration object</span></p>
+<p><span class=rvts183>options.CancellationToken = canceller.Token;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// link the cancellation token</span></p>
+<p><span class=rvts183>options.MaxDegreeOfParallelism = System.</span><span class=rvts110>Environment</span><span class=rvts183>.ProcessorCount; </span><span class=rvts176>// specify the amount of threads</span></p>
+<p><span class=rvts110>Parallel</span><span class=rvts183>.ForEach&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt;(array, options, (</span><span class=rvts58>int</span><span class=rvts183> i) =&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass the configuration as well</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; { options.CancellationToken.ThrowIfCancellationRequested(); }&nbsp;&nbsp; </span><span class=rvts176>// throw an OperationCanceledException if required</span></p>
+<p><span class=rvts183>);</span></p>
+<p><span class=rvts183>canceller.Cancel();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// trigger a cancellation from outside</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Notifications</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>AutoResetEvent</span><span class=rvts183> autoResetEvent = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>AutoResetEvent</span><span class=rvts183>(</span><span class=rvts58>false</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// this is like a thread-safe boolean</span></p>
+<p><span class=rvts110>Thread</span><span class=rvts183> thread = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Thread</span><span class=rvts183>(</span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ParameterizedThreadStart</span><span class=rvts183>(method));</span></p>
+<p><span class=rvts183>thread.Start(autoResetEvent);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass the notification object into the thread</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>autoResetEvent.WaitOne();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// wait for the event to be triggered</span></p>
+<p><span class=rvts183>autoResetEvent.WaitOne(1000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// ... or wait with a timeout</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>autoResetEvent.Set();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// trigger the event</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Reporting progress</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>private</span><span class=rvts183> </span><span class=rvts110>Progress</span><span class=rvts183>&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt; progress = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Progress</span><span class=rvts183>&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt;();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a progress porpagator</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>progress.ProgressChanged += (</span><span class=rvts58>object</span><span class=rvts183> sender, </span><span class=rvts58>int</span><span class=rvts183> progress) =&gt; { };&nbsp;&nbsp; </span><span class=rvts176>// register a handler to process the update</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>void</span><span class=rvts183> MyMethod(</span><span class=rvts110>IProgress</span><span class=rvts183>&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt; progress)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass the propagator as IProgress (not Progress!)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; progress.Report(50);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// send a progress update</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

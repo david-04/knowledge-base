@@ -1,0 +1,26 @@
+
+<div id='nodeSection1'>Boolean assertions</div>
+<p><span class=rvts290><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> assert(</span></p>
+<p class=rvps12><span class=rvts251>    condition: </span><span class=rvts64>unknown</span><span class=rvts251>, message: </span><span class=rvts64>string</span></p>
+<p class=rvps12><span class=rvts251>): </span><span class=rvts64>asserts</span><span class=rvts251> condition {                              </span><span class=rvts252>// asserts that condition is truthy</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>if</span><span class=rvts251> (!condition) </span><span class=rvts64>throw</span><span class=rvts251> </span><span class=rvts64>new</span><span class=rvts251> Error(message);</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> value = Math.random() &lt; 0.5 ? </span><span class=rvts289>"abc"</span><span class=rvts251> : 123;</span></p>
+<p class=rvps12><span class=rvts251>assert(</span><span class=rvts289>"string"</span><span class=rvts251> === </span><span class=rvts64>typeof</span><span class=rvts251> value, </span><span class=rvts289>"not a string"</span><span class=rvts251>);  </span><span class=rvts252>// after this statement, "value" is typed as string</span></p>
+<p class=rvps12><span class=rvts251>value.toLowerCase();</span></p>
+<p class=rvps12><span class=rvts251></span><br><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Type assertions</div>
+<p><span class=rvts290><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> assertIsString(</span></p>
+<p class=rvps12><span class=rvts251>    value: </span><span class=rvts64>unknown</span></p>
+<p class=rvps12><span class=rvts251>): </span><span class=rvts64>asserts</span><span class=rvts251> value </span><span class=rvts64>is</span><span class=rvts251> </span><span class=rvts64>string</span><span class=rvts251> {                         </span><span class=rvts252>// similar to a type guard - asserts that the value is a string</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>if</span><span class=rvts251> (</span><span class=rvts289>"string"</span><span class=rvts251> !== </span><span class=rvts64>typeof</span><span class=rvts251> value) {</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>throw</span><span class=rvts251> </span><span class=rvts64>new</span><span class=rvts251> Error(</span><span class=rvts289>"Not a string!"</span><span class=rvts251>);</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p><br></p>
+<p><br></p>
+

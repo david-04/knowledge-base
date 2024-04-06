@@ -1,0 +1,45 @@
+
+<div id='nodeSection1'>Retrieving type information</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>typeof</span><span class=rvts183>(</span><span class=rvts110>Program</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// from a class name</span></p>
+<p><span class=rvts183>myObject.GetType()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// from an object instance</span></p>
+<p><span class=rvts110>Type</span><span class=rvts183>.GetType(</span><span class=rvts184>"Namespace.Class"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// from a class within the current assembly</span></p>
+<p><span class=rvts110>Type</span><span class=rvts183>.GetType(</span><span class=rvts184>"Namespace.Class, LibraryName"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// from a class in the external assemlby "LibraryName"</span></p>
+<p><span class=rvts110>Type</span><span class=rvts183>.GetType(</span><span class=rvts184>"Namespace.Class+NestedClass"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// from a class nested inside another</span></p>
+<p><span class=rvts110>Type</span><span class=rvts183>.GetType(</span><span class=rvts184>"System.Collections.Generic.Dictionary`2"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// from a generic class (`2 == two parameters: Dictionary&lt;Tkey, TValue&gt;)</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Reflection classes</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>Assembly</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// assembly</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>AssemblyName</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// assembly version, culture, ...</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>EventInfo</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// events</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>FieldInfo</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// fields</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>MemberInfo</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// base class for EventInfo, FieldInfo, MethodInfo and PropertyInfo</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>MethodInfo</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// method</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>Module</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// module within assembly</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>ParameterInfo</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// parameter</span></p>
+<p><span class=rvts183>System.Reflection.</span><span class=rvts110>PropertyInfo</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// property</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Accessing objects and methods</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Assembly</span><span class=rvts183>&nbsp;&nbsp; assembly = </span><span class=rvts110>Assembly</span><span class=rvts183>.Load(</span><span class=rvts184>"MyLibrary"</span><span class=rvts183>);</span></p>
+<p><span class=rvts110>Type</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myType&nbsp;&nbsp; = assembly.GetType(</span><span class=rvts184>"MyLibrary.MyClass"</span><span class=rvts183>);</span></p>
+<p><span class=rvts110>Object</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp; myObject = </span><span class=rvts110>Activator</span><span class=rvts183>.CreateInstance(myType);</span></p>
+<p><span class=rvts110>MethodInfo</span><span class=rvts183> myMethod = myType.GetMethod(</span><span class=rvts184>"MyMethodName"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>myMethod.Invoke(myObject, </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Object</span><span class=rvts183>[] { </span><span class=rvts184>"param1"</span><span class=rvts183>, 2 });</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Retrieving caller information</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>void</span><span class=rvts183> myMethod([</span><span class=rvts110>CallerFilePath</span><span class=rvts183>()] </span><span class=rvts58>string</span><span class=rvts183> file = </span><span class=rvts58>null</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts110>CallerLineNumber</span><span class=rvts183>()] </span><span class=rvts58>int</span><span class=rvts183> line = 0)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>$"myMethod was called from </span><span class=rvts183>{file}</span><span class=rvts184> line </span><span class=rvts183>{line}</span><span class=rvts184>"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

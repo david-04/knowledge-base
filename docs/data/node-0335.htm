@@ -1,0 +1,75 @@
+
+<div id='nodeSection1'>Loosely coupled file resources</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Add the files to the solution and set the following properties:</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps10><span class=rvts105>BuildAction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = Content</span></p>
+<p class=rvps10><span class=rvts105>CopyToOutputDirectory = Always</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Image</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Name</span><span class=rvts58>="ImageHolder"</span><span class=rvts185> Stretch</span><span class=rvts58>="Fill" /&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>this</span><span class=rvts183>.ImageHolder.Source = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>BitmapImage</span><span class=rvts183>(</span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Uri</span><span class=rvts183>(</span><span class=rvts193>$@"</span><span class=rvts183>{</span><span class=rvts110>Environment</span><span class=rvts183>.CurrentDirectory}</span><span class=rvts193>\Images\flag.jpg"</span><span class=rvts183>));</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts8>The resources (including subdirectories) are copied to the Bin folder and loaded from the file system at runtime</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Embedded file resources</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Add the files to the solution and set the following properties:</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps10><span class=rvts105>BuildAction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = Resource</span></p>
+<p class=rvps10><span class=rvts105>CopyToOutputDirectory = DoNotCopy</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>BitmapImage</span><span class=rvts183> image = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>BitmapImage</span><span class=rvts183>(</span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Uri</span><span class=rvts183>(</span><span class=rvts193>@"/Images/flag.jpg"</span><span class=rvts183>, </span><span class=rvts110>UriKind</span><span class=rvts183>.Relative));</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts8>The resources (with their relative paths) are compiled into the assembly and retrieved from there at runtime</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Logical window resources</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Window</span><span class=rvts58> </span><span class=rvts196>...</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Window.Resources</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>LinearGradientBrush</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Key</span><span class=rvts58>="MyBrush"</span><span class=rvts185> EndPoint</span><span class=rvts58>="0.5,1"</span><span class=rvts185> StartPoint</span><span class=rvts58>="0.5,0"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>GradientStop</span><span class=rvts185> Color</span><span class=rvts58>="#4CFF0000"</span><span class=rvts185> Offset</span><span class=rvts58>="0"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>GradientStop</span><span class=rvts185> Color</span><span class=rvts58>="White"</span><span class=rvts185> Offset</span><span class=rvts58>="1"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>LinearGradientBrush</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Logical application resources</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Application</span><span class=rvts185> </span><span class=rvts196>...</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Application.Resources</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>SolidColorBrush</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Key</span><span class=rvts58>="MyBrush"</span><span class=rvts185> Color</span><span class=rvts58>="blue"/&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Logical reuseable resources</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Create a XAML Resource Dictionary file:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>ResourceDictionary</span><span class=rvts185> </span><span class=rvts47>...</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Style</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Key</span><span class=rvts58>="MyStyle"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Setter</span><span class=rvts185> Property</span><span class=rvts58>="Control.FontSize"</span><span class=rvts185> Value</span><span class=rvts58>="20"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Style</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>ResourceDictionary</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8>Reference the XAML Resource Dictionary from App.xaml</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Application</span><span class=rvts185> </span><span class=rvts47>...</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Application.Resources</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ResourceDictionary</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ResourceDictionary.MergedDictionaries</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ResourceDictionary</span><span class=rvts185> Source</span><span class=rvts58>="MyStyles.xaml"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>ResourceDictionary.MergedDictionaries</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>ResourceDictionary</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Application.Resources</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>Application</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8>For style files in external libaries/assemblies add the library name and the Component keyword</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>ResourceDictionary.MergedDictionaries</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ResourceDictionary</span><span class=rvts185> Source</span><span class=rvts58>="/MyResourcesLibrary;Component/MyBrushes.xaml"/&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>ResourceDictionary.MergedDictionaries</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

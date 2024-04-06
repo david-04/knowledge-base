@@ -1,0 +1,59 @@
+
+<div id='nodeSection1'>Messgage box</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>MessageBoxResult</span><span class=rvts183> result = </span><span class=rvts110>MessageBox</span><span class=rvts183>.Show</span></p>
+<p><span class=rvts183>(</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"Message"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"Title"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MessageBoxButton</span><span class=rvts183>.YesNoCancel,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MessageBoxImage</span><span class=rvts183>.Question,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MessageBoxResult</span><span class=rvts183>.Cancel</span></p>
+<p><span class=rvts183>);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Open file</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>OpenFileDialog</span><span class=rvts183> dialog = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>OpenFileDialog</span><span class=rvts183>()</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts184>"Select input file"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; InitialDirectory = </span><span class=rvts184>"."</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; CheckFileExists&nbsp; = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; DereferenceLinks = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Multiselect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts58>false</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; ReadOnlyChecked&nbsp; = </span><span class=rvts58>false</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; DefaultExt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts184>".txt"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts184>"All files | *.* | Word | *.doc; *.docx"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; FilterIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 0</span></p>
+<p><span class=rvts183>};</span></p>
+<p><span class=rvts58>if</span><span class=rvts183> (</span><span class=rvts58>true</span><span class=rvts183> == dialog.ShowDialog())</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183> file = dialog.FileName;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183>[] files = dialog.FileNames;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Save file</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>SaveFileDialog</span><span class=rvts183> dialog = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>SaveFileDialog</span><span class=rvts183>()</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Title = </span><span class=rvts184>"Select input file"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; InitialDirectory = </span><span class=rvts184>"."</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; CheckPathExists = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; CreatePrompt = </span><span class=rvts58>false</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; OverwritePrompt = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; ValidateNames = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; DereferenceLinks = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; AddExtension = </span><span class=rvts58>true</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; DefaultExt = </span><span class=rvts184>".txt"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Filter = </span><span class=rvts184>"All files | *.* | Word | *.doc; *.docx"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; FilterIndex = 0</span></p>
+<p><span class=rvts183>};</span></p>
+<p><span class=rvts58>if</span><span class=rvts183> (</span><span class=rvts58>true</span><span class=rvts183> == dialog.ShowDialog())</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183> file = dialog.FileName;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183>[] files = dialog.FileNames;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

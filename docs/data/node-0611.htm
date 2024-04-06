@@ -1,0 +1,52 @@
+
+<div id='nodeSection1'>Aysnc + await</div>
+<p><span class=rvts291><br></span></p>
+<p class=rvps12><span class=rvts64><br></span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>async</span><span class=rvts251> </span><span class=rvts64>function</span><span class=rvts251> myFunction() {                       </span><span class=rvts252>// mark asynchronous functions with "async"</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>const</span><span class=rvts251> result = </span><span class=rvts64>await</span><span class=rvts251> sleep(1_000);              </span><span class=rvts252>// call other asynchronous functions with "await"</span></p>
+<p class=rvps12><span class=rvts251>    console.log(result);</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>await</span><span class=rvts251> myFunction();                                 </span><span class=rvts252>// can use await on top-level</span></p>
+<p class=rvps12><span class=rvts64>export</span><span class=rvts251> { };                                         </span><span class=rvts252>// ...but only within modules (must have at least one import or export)</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Promises</div>
+<p><span class=rvts291><br></span></p>
+<p class=rvps12><span class=rvts64>async</span><span class=rvts251> </span><span class=rvts64>function</span><span class=rvts251> sleep(ms: </span><span class=rvts64>number</span><span class=rvts251>) {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>return</span><span class=rvts251> </span><span class=rvts64>new</span><span class=rvts251> Promise((resolve, reject) =&gt; {       </span><span class=rvts252>// create and return a promise</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>if</span><span class=rvts251> (0 &lt;= ms) {</span></p>
+<p class=rvps12><span class=rvts251>            setTimeout(() =&gt; resolve(</span><span class=rvts289>"ok"</span><span class=rvts251>), ms);    </span><span class=rvts252>// resolve the promise after successful execution</span></p>
+<p class=rvps12><span class=rvts251>        } </span><span class=rvts64>else</span><span class=rvts251> { </span></p>
+<p class=rvps12><span class=rvts251>            reject(</span><span class=rvts289>"ms must not be negative"</span><span class=rvts251>);      </span><span class=rvts252>// reject the promise in case of errors</span></p>
+<p class=rvps12><span class=rvts251>        }</span></p>
+<p class=rvps12><span class=rvts251>    });</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> promises = [                                  </span><span class=rvts252>// deal with a set of parallel promises</span></p>
+<p class=rvps12><span class=rvts251>    Promise.resolve(</span><span class=rvts289>"abc"</span><span class=rvts251>),</span></p>
+<p class=rvps12><span class=rvts251>    Promise.resolve(123)</span></p>
+<p class=rvps12><span class=rvts251>] </span><span class=rvts64>as</span><span class=rvts251> </span><span class=rvts64>const</span><span class=rvts251>;</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>Promise.all(promises)                               </span><span class=rvts252>// Promise.all returns when all promises have been resolved</span></p>
+<p class=rvps12><span class=rvts251>    .then((tuple: [</span><span class=rvts64>string</span><span class=rvts251>, </span><span class=rvts64>number</span><span class=rvts251>]) =&gt; { })         </span><span class=rvts252>// the result of all promises is passed as a tuple</span></p>
+<p class=rvps12><span class=rvts251>    .catch(error =&gt; { });</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>Promise.race(promises)                              </span><span class=rvts252>// Promise.race returns when the first promise has been resolved</span></p>
+<p class=rvps12><span class=rvts251>    .then((value: </span><span class=rvts64>string</span><span class=rvts251> | </span><span class=rvts64>number</span><span class=rvts251>) =&gt; { })          </span><span class=rvts252>// only a single value is passed</span></p>
+<p class=rvps12><span class=rvts251>    .catch(error =&gt; { });</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>Promise.allSettled(promises)                        </span><span class=rvts252>// Promise.allSettled returns when all promises have been resolve or rejected</span></p>
+<p class=rvps12><span class=rvts251>    .then((tuple) =&gt; { });                          </span><span class=rvts252>// tuple with PromiseSettledResult for each promise</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts288>T</span><span class=rvts251> </span><span class=rvts64>extends</span><span class=rvts251> </span><span class=rvts288>PromiseLike</span><span class=rvts251>&lt;</span><span class=rvts64>infer</span><span class=rvts251> </span><span class=rvts288>U</span><span class=rvts251>&gt; ? </span><span class=rvts288>Awaited</span><span class=rvts251>&lt;</span><span class=rvts288>U</span><span class=rvts251>&gt; : </span><span class=rvts288>T</span><span class=rvts251>     </span><span class=rvts252>// unwrap the type within a promise</span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,125 @@
+
+<div id='nodeSection1'>Installing and using pug</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> express = require(</span><span class=rvts42>'express'</span><span class=rvts41>);</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> app = express();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate the Express server</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> pug = require(</span><span class=rvts42>'pug'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install pug</span></p>
+<p><span class=rvts41>app.set(</span><span class=rvts42>'view engine'</span><span class=rvts41>, </span><span class=rvts42>'pug'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set pug as the default rendering engine</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (req, res) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.render(</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'index'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// loads ./view/index.pug</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { placholder: </span><span class=rvts42>'Value'</span><span class=rvts41> });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// values to replace placeholders with</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Tags and variables</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts46>html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- each element is converted to an HTML tag</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>head&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- indented tags will be nested, indent level must be one tab or four spaces</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts46>title</span><span class=rvts41> My Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- text is inserted verbatim into the &lt;title&gt; tag</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>body</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts46>h1</span><span class=rvts45>=</span><span class=rvts41> </span><span class=rvts46>'&gt;&gt;&gt;'</span><span class=rvts41> </span><span class=rvts45>+</span><span class=rvts41> header&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- insert the evaluated expression and mask HTML characters</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts46>p</span><span class=rvts45>!=</span><span class=rvts41> </span><span class=rvts46>'</span><span class=rvts45>&lt;</span><span class=rvts46>b</span><span class=rvts45>&gt;</span><span class=rvts46>'</span><span class=rvts41> </span><span class=rvts45>+</span><span class=rvts41> introduction </span><span class=rvts45>+</span><span class=rvts41> </span><span class=rvts46>'</span><span class=rvts45>&lt;/</span><span class=rvts46>b</span><span class=rvts45>&gt;</span><span class=rvts46>'</span><span class=rvts91>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //- insert the evaluated expression without masking HTML characters</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts91>//- pug internal comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //- this comment will be swallowed by pug</span></p>
+<p><span class=rvts91>// single line comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //- these comments will be transformed into HTML comments (&lt;!-- ... --&gt;)</span></p>
+<p><span class=rvts91>// </span></p>
+<p><span class=rvts91>&nbsp;&nbsp;&nbsp; multiline comment</span></p>
+<p><span class=rvts91>&nbsp;&nbsp;&nbsp; covering all indented lines</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts41>| this is </span><span class=rvts45>&lt;</span><span class=rvts46>u</span><span class=rvts45>&gt;</span><span class=rvts41>plain</span><span class=rvts45>&lt;/</span><span class=rvts46>u</span><span class=rvts45>&gt;</span><span class=rvts41> text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- insert plaint ext without a tag (can contain HTML code)</span></p>
+<p><span class=rvts46>p&nbsp;&nbsp; </span><span class=rvts41>single line text</span></p>
+<p><span class=rvts46>p</span><span class=rvts41>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- the dot means: insert all subsequent lines</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Text across</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; multiple lines</span></p>
+<p><span class=rvts46><br></span></p>
+<p><span class=rvts46>#myDivID</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;div id="myDivID"&gt;</span></p>
+<p><span class=rvts260>.myClass1.myClass2</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;div class="myClass1 myClass2"&gt;</span></p>
+<p><span class=rvts260>.myClass</span><span class=rvts46>#myDivID</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;div class="myClass" id="myDivID"&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>p</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;p&gt;</span></p>
+<p><span class=rvts46>p#myID</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;p id="myID"&gt;</span></p>
+<p><span class=rvts46>p</span><span class=rvts260>.myClass1.myClass2</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;p class="myClass1 myClass2"&gt;</span></p>
+<p><span class=rvts46>p</span><span class=rvts260>.myClass</span><span class=rvts46>#myDivID</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;p class="myClass" id="yDivID"&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts43>a</span><span class=rvts41>(</span><span class=rvts90>href</span><span class=rvts41>='google.com.au',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;a href="google.com.au"</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts90>target</span><span class=rvts45>=newTab </span><span class=rvts43>?</span><span class=rvts41> </span><span class=rvts43>'_blank' : '_self'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//-&nbsp;&nbsp;&nbsp; target="_blank"&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>a</span><span class=rvts41>(</span><span class=rvts90>class</span><span class=rvts45>=</span><span class=rvts41>['myCssClass1', </span><span class=rvts43>'myCssClass2'</span><span class=rvts41>])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;a class="myCssClass1 myCssClass2"</span></p>
+<p><span class=rvts43>a</span><span class=rvts41>(</span><span class=rvts90>onclick</span><span class=rvts41>=</span><span class=rvts260>`if (show) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;a onclick="if (show) {</span></p>
+<p><span class=rvts260>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert("test");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert(&amp;quot;test&amp;quot);</span></p>
+<p><span class=rvts260>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }`</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /</span><span class=rvts91>/-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }"&gt;</span></p>
+<p><span class=rvts43>p</span><span class=rvts41>&amp;attributes({'data-id':1,</span><span class=rvts43>'data-mode':2</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- &lt;p data-id="1" data-mode="2"&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts46>br</span><span class=rvts41>/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- self closing</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Code and interpolation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>- </span><span class=rvts45>var</span><span class=rvts41> text </span><span class=rvts45>=</span><span class=rvts41> </span><span class=rvts46>'&gt;&gt;&gt; Hello world!',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- the minus sign introduces code to be executed</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts41> html </span><span class=rvts45>=</span><span class=rvts41> </span><span class=rvts46>'</span><span class=rvts45>&lt;</span><span class=rvts46>b</span><span class=rvts45>&gt;</span><span class=rvts46>Hello world</span><span class=rvts45>&lt;/</span><span class=rvts46>b</span><span class=rvts45>&gt;</span><span class=rvts46>'</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- (can be multiline)</span></p>
+<p><span class=rvts46><br></span></p>
+<p><span class=rvts46>h1</span><span class=rvts41> Text: </span><span class=rvts45>#{text}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- #{} inserts text after masking HTML characters</span></p>
+<p><span class=rvts46>h1</span><span class=rvts41> Text: \</span><span class=rvts45>#{html}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- \#{} inserts text without masking HTML characters</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts41>- </span><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>var</span><span class=rvts41> x </span><span class=rvts45>=</span><span class=rvts41> 0; x &lt; 3; x</span><span class=rvts45>++</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- code and markup can be mixed like in JSP and PHP</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>li</span><span class=rvts45>=</span><span class=rvts41> x</span></p>
+<p><span class=rvts41>- }</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection4'>Control structures</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>if</span><span class=rvts41> show </span><span class=rvts45>===</span><span class=rvts41> </span><span class=rvts46>'everything'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- if-elseif-else</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>p</span><span class=rvts41> Showing everything</span></p>
+<p><span class=rvts45>else</span><span class=rvts41> </span><span class=rvts45>if</span><span class=rvts41> show </span><span class=rvts45>===</span><span class=rvts41> </span><span class=rvts46>'something'</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>p</span><span class=rvts41> Showing something</span></p>
+<p><span class=rvts45>else</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>p</span><span class=rvts41> Showing nothing</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>case</span><span class=rvts41> variable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- switch</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>when</span><span class=rvts41> 0</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; - break</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>when</span><span class=rvts41> 1</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>p</span><span class=rvts41> one</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>default</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>p</span><span class=rvts41> many</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>each</span><span class=rvts41> value, index </span><span class=rvts45>in</span><span class=rvts41> [</span><span class=rvts46>'a'</span><span class=rvts41>, </span><span class=rvts46>'b'</span><span class=rvts41>, </span><span class=rvts46>'c'</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- iterating through an array</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>li</span><span class=rvts45>=</span><span class=rvts41> </span><span class=rvts46>'array['</span><span class=rvts41> </span><span class=rvts45>+</span><span class=rvts41> index </span><span class=rvts45>+</span><span class=rvts41> </span><span class=rvts46>'] = '</span><span class=rvts41> </span><span class=rvts45>+</span><span class=rvts41> value</span></p>
+<p><span class=rvts45>else</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>li</span><span class=rvts41> The array is empty</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>each</span><span class=rvts41> value, key </span><span class=rvts45>in</span><span class=rvts41> {</span><span class=rvts46>'name'</span><span class=rvts41>:</span><span class=rvts46>'David'</span><span class=rvts41>,</span><span class=rvts46>'age'</span><span class=rvts41>:</span><span class=rvts46>'37'</span><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- iterating throught the properties of an object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>li</span><span class=rvts45>=</span><span class=rvts41> key </span><span class=rvts45>+</span><span class=rvts41> </span><span class=rvts46>': '</span><span class=rvts41> </span><span class=rvts45>+</span><span class=rvts41> value</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>while</span><span class=rvts41> n &lt; 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- while</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>li</span><span class=rvts45>=</span><span class=rvts41> n</span><span class=rvts45>++</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>unless</span><span class=rvts41> 30 &lt; n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- while-not</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>li</span><span class=rvts45>=</span><span class=rvts41> n</span><span class=rvts45>++</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection5'>Layouts and includes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts261>include</span><span class=rvts41> includes/widget.pug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- includes ./views/includes/widget.pug</span></p>
+<p><span class=rvts41> </span></p>
+<p><span class=rvts46>html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- </span><span class=rvts101>./views</span><span class=rvts91>/layout/layout.pug</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>head</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>title</span><span class=rvts41> </span><span class=rvts45>#{title}</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>body</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts261>block</span><span class=rvts41> content</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>hr</span><span class=rvts41>/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts261>block</span><span class=rvts41> foot</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts261>extends</span><span class=rvts41> ./layouts/layout.pug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>//- </span><span class=rvts101>./views</span><span class=rvts91>/index.pug</span></p>
+<p><span class=rvts261>block</span><span class=rvts41> content</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>p</span><span class=rvts41> page content</span></p>
+<p><span class=rvts261>block</span><span class=rvts41> foot</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts46>p</span><span class=rvts41> (c) 2016 by MyCompany</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

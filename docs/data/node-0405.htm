@@ -1,0 +1,82 @@
+
+<div id='nodeSection1'>Stream API</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Stream</span><span class=rvts113>&lt;</span><span class=rvts233>T</span><span class=rvts113>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a generic (object-based) stream</span></p>
+<p><span class=rvts233>IntStream</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// streams based on primitive value types (not objects)</span></p>
+<p><span class=rvts233>LongStream</span></p>
+<p><span class=rvts233>DoubleStream</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Obtaining streams</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Stream</span><span class=rvts113>&lt;</span><span class=rvts233>MyClass</span><span class=rvts113>&gt; stream = </span><span class=rvts233>Arrays</span><span class=rvts113>.stream(myArray);&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a stream from an array</span></p>
+<p><span class=rvts233>Stream</span><span class=rvts113>&lt;</span><span class=rvts233>MyClass</span><span class=rvts113>&gt; stream = myList.stream();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a stream from an instance of the collection framework</span></p>
+<p><span class=rvts233>Stream</span><span class=rvts113>&lt;</span><span class=rvts233>MyClass</span><span class=rvts113>&gt; stream = myList.parallelStream();&nbsp;&nbsp; </span><span class=rvts62>// obtain a parallel stream if possible (might return a sequential one)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>stream = stream.parallel();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a parallel stream fom a pre-existing stream</span></p>
+<p><span class=rvts113>stream = stream.sequential();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a sequential (non-parallel) stream from a pre-existing stream</span></p>
+<p><span class=rvts113>stream = stream.unordered();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a stream that can sacrifice the sort order in favor of parallel processing</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Creating collections</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>list = stream.collect(</span><span class=rvts233>Collectors</span><span class=rvts113>.toList());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a new collection based on a stream </span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>list = stream.collect(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or manually construct the target collection </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; () -&gt; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>LinkedList</span><span class=rvts113>&lt;</span><span class=rvts233>MyClass</span><span class=rvts113>&gt;(),</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (list2, element) -&gt; list2.add(element),</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (list1, list2) -&gt; list1.addAll(list2));</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>list = stream1.collect(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or just specify the container methods to be used</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>HashSet</span><span class=rvts113>::</span><span class=rvts64>new</span><span class=rvts113>,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HashSet::add,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HashSet::addAll);</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection4'>Stream functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>stream.{min|max}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the smallest/greatest elements in the stream</span></p>
+<p><span class=rvts113>stream.count</span></p>
+<p><span class=rvts113>stream.reduce&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// simple aggregation or map-reduce (accumulate+aggregate)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>stream.{all|any|none}Match&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// check if elements satisfy the specified condition</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>stream.distinct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// remove duplicates</span></p>
+<p><span class=rvts113>stream.sorted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// sort the stream</span></p>
+<p><span class=rvts113>stream.filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// select only elements that meet the specified criteria</span></p>
+<p><span class=rvts113>stream.map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// map elements (i.e. create new objects based on the existing ones)</span></p>
+<p><span class=rvts113>stream.mapTo{Int|Long|Double}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// like above, but creates an {Int|Long|Double}Stream</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>stream.forEach&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// run a lambda expression on each element</span></p>
+<p><span class=rvts113>stream.forEachOrdered&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// run a lambda expression on each element</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts61>stream.collect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a collection populated with the stream's items</span></p>
+<p><span class=rvts61>stream.iterator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain an iterator based on the stream's elements</span></p>
+<p><span class=rvts61>stream.spliterator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a spliterator based on the stream's elements</span></p>
+<p><span class=rvts62><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>Optional</span><span class=rvts113>&lt;</span><span class=rvts233>MyClass</span><span class=rvts113>&gt; min = stream3.filter(n -&gt; </span><span class=rvts64>true</span><span class=rvts113>)&nbsp;&nbsp; </span><span class=rvts62>// some filter methods produce another stream (chainable; fluent API)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .min((a,b) -&gt; 1);&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... while others return a value</span></p>
+<p><span class=rvts64>if</span><span class=rvts113> (min.isPresent()) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.println(min.get());</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>collectoin.stream().reduce(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// concatenate a stream into a string</span></p>
+<p class=rvps12><span class=rvts113>&nbsp;&nbsp;&nbsp; (a, b) -&gt; a + </span><span class=rvts217>";" </span><span class=rvts113>+ b</span></p>
+<p class=rvps12><span class=rvts113>).orElse(</span><span class=rvts239>null</span><span class=rvts113>)</span></p>
+<p class=rvps12><span class=rvts113><br></span></p>
+<p class=rvps2><span class=rvts239><br></span></p>
+<p><span class=rvts113>collection.stream().collect(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// convert a stream to a map</span></p>
+<p class=rvps12><span class=rvts240>&nbsp;&nbsp;&nbsp; HashMap</span><span class=rvts113>::</span><span class=rvts239>new</span><span class=rvts113>, </span></p>
+<p class=rvps12><span class=rvts113>&nbsp;&nbsp;&nbsp; (map, record) -&gt; { map.put(record); }, </span></p>
+<p class=rvps12><span class=rvts240>&nbsp;&nbsp;&nbsp; HashMap</span><span class=rvts113>::putAll</span></p>
+<p class=rvps12><span class=rvts113>);</span></p>
+<p class=rvps12><span class=rvts113><br></span></p>
+<p><br></p>
+<p><br></p>
+

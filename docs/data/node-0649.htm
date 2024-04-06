@@ -1,0 +1,69 @@
+
+<div id='nodeSection1'>Usage</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Using</span><span class=rvts183> myObject </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' automatically have Dispose() called at the end of the Using block</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' ...</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Using</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myObject </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183> = </span><span class=rvts58>Nothing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' alternative: Dispose() manually</span></p>
+<p><span class=rvts58>Try</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' wrapped by a try block to ensure that Dispose() is always called</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; myObject = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>()</span></p>
+<p><span class=rvts58>Finally</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; myObject?.Dispose()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' explicitely dispose of the object</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Try</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Disposable</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>SomeClass</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IDisposable</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' implement IDisposable</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Private</span><span class=rvts183> hasBeenDisposed </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' only dispose once</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Dispose() </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IDisposable</span><span class=rvts183>.Dispose</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>If</span><span class=rvts183> </span><span class=rvts58>Not</span><span class=rvts183> hasBeenDisposed </span><span class=rvts58>Then</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' call properties' and fields' Dispose()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' relase and clean up unmanaged resources</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>If</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hasBeenDisposed = </span><span class=rvts58>True</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' prevent re-disposal</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Disposable and finalisable</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>SomeClass</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IDisposable</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' implement IDisposable</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Private</span><span class=rvts183> hasBeenDisposed </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' only dispose once</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Protected</span><span class=rvts183> </span><span class=rvts58>Overrides</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Finalize()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' destructor inherited from Object, invoked by GC</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Try</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dispose(</span><span class=rvts58>False</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' do the actual disposal work</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>MyBase</span><span class=rvts183>.Finalize()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' finalise the base class as well</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Catch</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' swallow all exceptions, otherwise the application crashes</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Try</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Dispose() </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IDisposable</span><span class=rvts183>.Dispose</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dispose(</span><span class=rvts58>True</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' do the actual disposal work</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>GC</span><span class=rvts183>.SuppressFinalize(</span><span class=rvts58>Me</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' no need for the GC to call the destructor</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Protected</span><span class=rvts183> </span><span class=rvts58>Overridable</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Dispose(disposing </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>If</span><span class=rvts183> </span><span class=rvts58>Not</span><span class=rvts183> hasBeenDisposed </span><span class=rvts58>Then</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' only dispose once</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>If</span><span class=rvts183> disposing </span><span class=rvts58>Then</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' call properties' and fields' Dispose()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>If</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' relase and clean up unmanaged resources</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hasBeenDisposed = </span><span class=rvts58>True</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>If</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

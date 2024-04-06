@@ -1,0 +1,42 @@
+
+<div id='nodeSection1'>Dialogs (Swing)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>JOptionPane</span></p>
+<p><span class=rvts233>JDialog</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>File dialogs (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>FileDialog</span><span class=rvts113> fileDialog = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileDialog</span><span class=rvts113>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a file dialog</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>, </span><span class=rvts217>"Select ..."</span><span class=rvts113>, </span><span class=rvts233>FileDialog</span><span class=rvts113>.LOAD);</span></p>
+<p><span class=rvts113>fileDialog.setVisible(</span><span class=rvts64>true</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// show the dialog</span></p>
+<p><span class=rvts233>String</span><span class=rvts113> selectedFile = fileDialog.getFile();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// retrieve the results from the dialog</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Custom dialogs (AWT)</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyDialog</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>Dialog</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// custom dialog window</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyDialog(</span><span class=rvts233>Frame</span><span class=rvts113> parent) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// dialogs must be attached to a parent window, frame or dialog</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>(parent, </span><span class=rvts217>"My dialog"</span><span class=rvts113>, </span><span class=rvts64>false</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// initialise the dialog as non-modal (use "true" for modal)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.setLayout(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FlowLayout</span><span class=rvts113>());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set the layout manager</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.add(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Label</span><span class=rvts113>(</span><span class=rvts217>"placeholder"</span><span class=rvts113>));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... and add components as required</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.addWindowListener(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>WindowAdapter</span><span class=rvts113>(){ </span><span class=rvts62>// handle the closing of the dialog</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> windowClosing(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>WindowEvent</span><span class=rvts113> e) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispose();</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>MyDialog</span><span class=rvts113> myDialog = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MyDialog</span><span class=rvts113>(</span><span class=rvts64>this</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create and display a dialog</span></p>
+<p><span class=rvts113>myDialog.setVisible(</span><span class=rvts64>true</span><span class=rvts113>);</span></p>
+<p><span class=rvts113><br></span></p>
+<p><br></p>
+<p><br></p>
+

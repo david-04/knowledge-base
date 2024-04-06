@@ -1,0 +1,34 @@
+
+<div id='nodeSection1'>DNS lookup</div>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'resolv'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>begin</span></p>
+<p class=rvps12><span class=rvts262>  ip = </span><span class=rvts267>Resolv</span><span class=rvts262>.getaddress(</span><span class=rvts266>"</span><a class=rvts272 href="http://www.google.com">www.google.com</a><span class=rvts266>"</span><span class=rvts262>)  </span><span class=rvts263># look up IP address for a given host name</span></p>
+<p class=rvps12><span class=rvts265>rescue</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Unresolved domain name"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>begin</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts267>Resolv</span><span class=rvts262>.getname(</span><span class=rvts266>"192.0.34.166"</span><span class=rvts262>)       </span><span class=rvts263># reverse lookup, get hostname for IP address</span></p>
+<p class=rvps12><span class=rvts265>rescue</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"No hostname associated"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Resolv</span><span class=rvts262>::</span><span class=rvts267>DNS</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262> </span><span class=rvts265>do</span><span class=rvts262> |dns|</span></p>
+<p class=rvps12><span class=rvts262>  mail_servers = dns.getresources(          </span><span class=rvts263># query for specific DNS records</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>"google.com"</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts267>Resolv</span><span class=rvts262>::</span><span class=rvts267>DNS</span><span class=rvts262>::</span><span class=rvts267>Resource</span><span class=rvts262>::</span><span class=rvts267>IN</span><span class=rvts262>::MX</span></p>
+<p class=rvps12><span class=rvts262>  )</span></p>
+<p class=rvps12><span class=rvts262>  mail_servers.each </span><span class=rvts265>do</span><span class=rvts262> |server|</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> server.exchange.to_s</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> server.preference</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,96 @@
+
+<div id='nodeSection1'>Define injectable objects</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts130>public interface </span><span class=rvts137>Greeter </span><span class=rvts124>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the interface itself contains no annotations</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts138>String </span><span class=rvts124>greet(</span><span class=rvts138>String </span><span class=rvts124>name);</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>@Component&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// this class is used automatically for injection (or use @Service)</span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts138>MyGreeter </span><span class=rvts130>implements </span><span class=rvts137>Greeter </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts138>String </span><span class=rvts124>greet(</span><span class=rvts138>String </span><span class=rvts124>name) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts128>"Hello " </span><span class=rvts124>+ name;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Request injections</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Autowired </span><span class=rvts137>Greeter </span><span class=rvts124>greeter;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// have the property injected directly</span></p>
+<p class=rvps12><span class=rvts137><br></span></p>
+<p class=rvps12><span class=rvts124>@Autowired&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// or receive the injected objects through the constructor</span></p>
+<p class=rvps12><span class=rvts130>public </span><span class=rvts124>HelloController(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts137>Greeter </span><span class=rvts124>greeter,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Value(</span><span class=rvts128>"#{ @environment['my.param'] ?: 0 }"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// load my.param from application.properties&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>int </span><span class=rvts124>param&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... or load the environment variable MY_PARAM</span></p>
+<p class=rvps12><span class=rvts124>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... or use 0 as the default (if nothing else is found)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>this</span><span class=rvts124>.greeter = greeter;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>this</span><span class=rvts124>.param = param;</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Autowired&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// setters can be used for injection as well (are called automatically0</span></p>
+<p class=rvps12><span class=rvts130>public void </span><span class=rvts124>setGreeter(</span><span class=rvts137>Greeter </span><span class=rvts124>greeter) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>this</span><span class=rvts124>.greeter = greeter;</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>@Autowired</span></p>
+<p class=rvps12><span class=rvts137>Greeter</span><span class=rvts124>[] greeters;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the array will contain one instance for each applicable implementation/class</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Case-dependent object instantiation</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Configuration</span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts138>MyConfig </span><span class=rvts124>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create instances through a configuration object</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>@Bean(name = </span><span class=rvts128>"jwtToken1"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// applied to @Autowired JwtToken jwtToken1;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts138>JwtToken </span><span class=rvts124>jwtToken1() {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return new </span><span class=rvts124>JwtToken(...);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>@Bean(name = </span><span class=rvts128>"jwtToken2"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// applied to @Autowired JwtToken jwtToken1;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts138>JwtToken </span><span class=rvts124>jwtToken2() {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return new </span><span class=rvts124>JwtToken(...);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Autowired</span></p>
+<p class=rvps12><span class=rvts124>@Qualifier(</span><span class=rvts128>"standardGreeter"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// explicitely specify the required implementation class (</span><span class=rvts126>must start with a lowercase character</span><span class=rvts125>)</span></p>
+<p class=rvps12><span class=rvts137>Greeter </span><span class=rvts124>greeter;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Configuration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// contains @Bean methods that Spring uses to intantiate objects</span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts138>GreeterConfig </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Bean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// this method creates instances of the Greeter interface</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>@ConditionalOnProperty(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... but only if the given conditions are met</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>name = </span><span class=rvts128>"language.name"</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; havingValue = </span><span class=rvts128>"english"</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; matchIfMissing = </span><span class=rvts130>true</span></p>
+<p class=rvps12><span class=rvts130>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts137>Greeter </span><span class=rvts124>standardGreeter() {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return new </span><span class=rvts124>StandardGreeter();</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Bean</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @ConditionalOnProperty(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name = </span><span class=rvts128>"language.name"</span><span class=rvts124>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... otherwise this method is used to intantiate the dependencies</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>havingValue = </span><span class=rvts128>"french"</span></p>
+<p class=rvps12><span class=rvts128>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts137>Greeter </span><span class=rvts124>additionalGreeter() {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return new </span><span class=rvts124>StandardGreeter();</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Manually request instances</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts137>Injector </span><span class=rvts124>injector;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// obtain this injector via injection</span></p>
+<p class=rvps12><span class=rvts124>MyClass obj = injector.getInstance(MyClass.</span><span class=rvts130>class</span><span class=rvts124>);&nbsp; </span><span class=rvts125>// retrieve an object from the injector</span></p>
+<p><br></p>
+<p><br></p>
+

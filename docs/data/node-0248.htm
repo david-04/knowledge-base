@@ -1,0 +1,100 @@
+
+<div id='nodeSection1'>Implementing an HTTP handler</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyHttpHandler</span><span class=rvts41> : </span><span class=rvts171>IHttpHandler</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// file extension: ashx</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> ProcessRequest(</span><span class=rvts171>HttpContext</span><span class=rvts41> context)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// serve a reqest</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.Response.ContentType = </span><span class=rvts42>"text/plain"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the content type</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.Response.Write(</span><span class=rvts42>"Hello World"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// flush the actual content</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> IsReusable { </span><span class=rvts45>get</span><span class=rvts41> {</span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>false</span><span class=rvts41>; } }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><a class=rvts167 href="http://localhost:57438/MyHttpHandler.ashx">http://localhost:57438/MyHttpHandler.ashx</a><span class=rvts105>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can be invoked as a stand-alone page</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyHttpHandler</span><span class=rvts41> : </span><span class=rvts171>HttpTaskAsyncHandler</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// asyncronous version</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>async</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41> ProcessRequestAsync(</span><span class=rvts171>HttpContext</span><span class=rvts41> ctx)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>int</span><span class=rvts41> result = </span><span class=rvts45>await</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41>.Run&lt;</span><span class=rvts45>int</span><span class=rvts41>&gt;(() =&gt; { </span><span class=rvts45>return</span><span class=rvts41> 0; });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// wait for asynchronous activity</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.Response.Write(</span><span class=rvts42>"..."</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// prepare the result</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Associating an HTTP handler with a file extension</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.webServer</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>handlers</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>name </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>MyHttpHandler</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>*</span><span class=rvts41>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;!--</span><span class=rvts39> allow all request types (GET, POST, ...)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>path </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>*.ping</span><span class=rvts41>"</span><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> path and name (or file extension) to match&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>PlaygroundASP.MyHttpHandler, PlaygroundASP</span><span class=rvts41>"</span><span class=rvts45> /&gt;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> namespace.class, assembly (or APP_CODE if internal)&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>handlers</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>system.webServer</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.web</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>httpHandlers</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> this section is only required for IIS 6 and above&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>verb </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>*</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>*.ping</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>PlaygroundASP.MyHttpHandler, PlaygroundASP</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>httpHandlers</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Implementing an HTTP module</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>AppendMessage</span><span class=rvts41> : </span><span class=rvts171>IHttpModule</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// regular .cs class file</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts171>HttpApplication</span><span class=rvts41> _application = </span><span class=rvts45>null</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Dispose() { }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Init(</span><span class=rvts171>HttpApplication</span><span class=rvts41> context)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _application = context;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// store the application for later use</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.EndRequest += context_EndRequest;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register a synchronous handler</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>EventHandlerTaskAsyncHelper</span><span class=rvts41> helper =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register an asynchronous handler</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>EventHandlerTaskAsyncHelper</span><span class=rvts41>(context_EndRequestAsync);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.AddOnEndRequestAsync(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; helper.BeginEventHandler, helper.EndEventHandler);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>void</span><span class=rvts41> context_EndRequest(</span><span class=rvts45>object</span><span class=rvts41> sender, </span><span class=rvts171>EventArgs</span><span class=rvts41> e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// synchronous handler</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _application.Context.Response.Write(</span><span class=rvts42>"test"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>async</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41> context_EndRequestAsync(</span><span class=rvts45>object</span><span class=rvts41> caller,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// asynchronous handler</span></p>
+<p><span class=rvts171>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EventArgs</span><span class=rvts41> e)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>int</span><span class=rvts41> result = </span><span class=rvts45>await</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41>.Run&lt;</span><span class=rvts45>int</span><span class=rvts41>&gt;(() =&gt; { </span><span class=rvts45>return</span><span class=rvts41> 0; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _application.Context.Response.Write(</span><span class=rvts42>"test"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Registering an HTTP module</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.webServer</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>validation</span><span class=rvts45> </span><span class=rvts90>validateIntegratedModeConfiguration</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>false</span><span class=rvts41>"</span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> only for IIS 6 and above&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>modules</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>name </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>AppendMessage</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>PlaygroundASP.AppendMessage, PlaygroundASP</span><span class=rvts41>"</span><span class=rvts45> /&gt;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> namespace.class, assembly (or APP_CODE if internal)&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>modules</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>system.webServer</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.web</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>httpModules</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> only for IIS 6 and above&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>name </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>AppendMessage</span><span class=rvts41>"</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>type </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>PlaygroundASP.AppendMessage, PlaygroundASP</span><span class=rvts41>" </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>httpModules</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><br></p>
+<p><br></p>
+

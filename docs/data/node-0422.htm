@@ -1,0 +1,104 @@
+
+<div id='nodeSection1'>Stream classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Reader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Writer&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// (base classes for) unicode-oriented character I/O</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>CharArrayReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CharArrayWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a character array</span></p>
+<p><span class=rvts233>FileReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a file</span></p>
+<p><span class=rvts233>PipedReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PipedWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a pipe (e.g. intra-process communication)</span></p>
+<p><span class=rvts233>StringReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringWriter&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a string</span></p>
+<p><span class=rvts233>InputStreamReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OutputStreamWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a byte-oriented (non-unicode) stream</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>BufferedReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BufferedWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds buffering and flushing capability</span></p>
+<p><span class=rvts233>FilterReader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FilterWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds hooks to manipulate data as it passes through</span></p>
+<p><span class=rvts233>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PrintWriter&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds printf formatting</span></p>
+<p><span class=rvts233>PushbackReader&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds "undo" support (pushing read bytes back into the input stream)</span></p>
+<p><span class=rvts62><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>InputStream</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts233>&nbsp;&nbsp; OutputStream&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>deprecated</span><span class=rvts62>: (base classes for) byte-oriented raw I/O (8 bits, no unicode)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts233>ByteArrayInputStream&nbsp;&nbsp;&nbsp; ByteArrayOutputStream&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a byte array</span></p>
+<p><span class=rvts233>FileInputStream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileOutputStream&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a file</span></p>
+<p><span class=rvts233>PipedInputStream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PipedOutputStream&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from / written to a pipe (e.g. intra-process communication)</span></p>
+<p><span class=rvts233>SequenceInputStream&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is read from multiple streams (one after the other)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>BufferedInputStream&nbsp;&nbsp;&nbsp;&nbsp; BufferedOuputStream</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds buffering and flushing capability</span></p>
+<p><span class=rvts233>DataInputStream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DataOutputStream&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds specialised methods to parse Java data types (like integers)</span></p>
+<p><span class=rvts233>ObjectInputStream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ObjectOutputStream&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds (de-) serialisation capability for Java objects</span></p>
+<p><span class=rvts233>FilterInputStream&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FilterOutputStream&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds hooks to manipulate data as it passes through</span></p>
+<p><span class=rvts233>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PrintOutputStream&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds printf formatting</span></p>
+<p><span class=rvts233>PushbackInputStream&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// adds "undo" support (pushing read bytes back into the input stream)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Files</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>File</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// represents a file or a directory</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>FileInputStream</span><span class=rvts113> fis = </span><span class=rvts64>null</span><span class=rvts113>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>byte-oriented input</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// wrap all file operations in a try block to ensure the file is closed at the end</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; fis = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileInputStream</span><span class=rvts113>(</span><span class=rvts217>"in.txt"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>char</span><span class=rvts113> character = (</span><span class=rvts64>char</span><span class=rvts113>) fis.read();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// read a single byte (returns -1 in case of EOF)</span></p>
+<p><span class=rvts113>} </span><span class=rvts64>finally</span><span class=rvts113> {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (</span><span class=rvts64>null</span><span class=rvts113> != fis) fis.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// possibly catch exceptions here as well</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>FileOutputStream</span><span class=rvts113> fos = </span><span class=rvts64>null</span><span class=rvts113>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>byte-oriented output</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// wrap all file operations in a try block to ensure the file is closed at the end</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; fos = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileOutputStream</span><span class=rvts113>(</span><span class=rvts217>"in.txt"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; fos.write(</span><span class=rvts217>'a'</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// write a single byte (only last 8 bits are written)</span></p>
+<p><span class=rvts113>} </span><span class=rvts64>finally</span><span class=rvts113> {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (</span><span class=rvts64>null</span><span class=rvts113> != fos) fos.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// possibly catch exceptions here as well</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>FileOutputStream</span><span class=rvts113> fos =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>JDK7: auto-closing scope</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileOutputStream</span><span class=rvts113>(</span><span class=rvts217>"out.txt"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>FileInputStream</span><span class=rvts113> fis =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// can declare multiple resource variables separated by a semicolon</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileInputStream</span><span class=rvts113>(</span><span class=rvts217>"in.txt"</span><span class=rvts113>)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; fos.write(</span><span class=rvts217>'a'</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the stream is closed automatically at the end of the block</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// catch and finally handers can be added here optionally</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Console</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// input stream (line buffered, input is available upon ENTER)</span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// print stream</span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.err</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>BufferedReader</span><span class=rvts113> br = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>BufferedReader</span><span class=rvts113>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// wrap the input byte stream into a character stream</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new</span><span class=rvts113> </span><span class=rvts233>InputStreamReader</span><span class=rvts113>(</span></p>
+<p><span class=rvts233>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System</span><span class=rvts113>.in));</span></p>
+<p><span class=rvts64>char</span><span class=rvts113> character = (</span><span class=rvts64>char</span><span class=rvts113>) br.read();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// returns -1 if the end of the stream is reached </span></p>
+<p><span class=rvts233>String</span><span class=rvts113> line = br.readLine();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// returns null iif the end of the stream is reached </span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Scanner</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// use this wrapper to parse an input stream (e.g. read an int value)</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.out.print(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// write text without trailing line break</span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.out.println(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// write text and append a line break</span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.out.printf(</span><span class=rvts217>"%s"</span><span class=rvts113>, </span><span class=rvts217>"Hello world!"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// write formatted text</span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.out.write(myByte);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// write a single byte (myByte % 256 is written)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>PrintWriter</span><span class=rvts113> pw = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>PrintWriter</span><span class=rvts113>(</span><span class=rvts233>System</span><span class=rvts113>.out, </span><span class=rvts64>true</span><span class=rvts113>); </span><span class=rvts62>// wrap System.out into a character output stream that's flushed automatically</span></p>
+<p><span class=rvts113>pw.print(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// it works like using System.out directly, but it writes unicode characters</span></p>
+<p><span class=rvts113>pw.println(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// isntead of single bytes</span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

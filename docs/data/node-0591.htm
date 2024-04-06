@@ -1,0 +1,14 @@
+
+<div id='nodeSection1'>Assertions</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>assert(0 &lt; x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// assertions can be enabled/disabled via -ea/-da JVM switches</span></p>
+<p class=rvps12><span class=rvts262>assert(0 &lt; x, </span><span class=rvts266>"x must be positive"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can pass a message to be included in the AssertionError</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>require(0 &lt; x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// throws an IllegalArgumentException</span></p>
+<p class=rvps12><span class=rvts262>require(0 &lt; x, </span><span class=rvts266>"x must be positive"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can pass a message</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>a = b / 3 ensuring(0 &lt; _)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ensuring asserts the value to its left-hand side</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

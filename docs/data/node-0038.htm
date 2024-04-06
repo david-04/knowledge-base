@@ -1,0 +1,85 @@
+
+<div id='nodeSection1'>Managing databases</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a new database</span></p>
+<p><span class=rvts64>ON</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- optional: specify the data file</span></p>
+<p><span class=rvts63>(</span><span class=rvts61> </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> my_database_dat</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FILENAME</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'C:\SQL Server\my_database.mdf'</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> 10</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; MAXSIZE&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> 50</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; FILEGROWTH </span><span class=rvts63>=</span><span class=rvts61> 5 </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts63>)</span></p>
+<p><span class=rvts67>LOG</span><span class=rvts61> </span><span class=rvts64>ON</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- optional: specify the log file (transaction journal)</span></p>
+<p><span class=rvts63>(</span><span class=rvts61> </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> my_database_log</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FILENAME</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'C:\SQL Server\my_database.ldf'</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> 5MB</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; MAXSIZE&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> 25MB</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; FILEGROWTH </span><span class=rvts63>=</span><span class=rvts61> 5MB </span></p>
+<p><span class=rvts63>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database_backup_copy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a new database as a copy of an existing one</span></p>
+<p><span class=rvts64>AS</span><span class=rvts61> </span><span class=rvts64>SNAPSHOT</span><span class=rvts61> </span><span class=rvts64>OF</span><span class=rvts61> my_database</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>USE</span><span class=rvts61> database_name</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- switch to the given database</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database </span><span class=rvts64>ADD</span><span class=rvts61> </span><span class=rvts64>FILE</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- add another data file to the datatabase</span></p>
+<p><span class=rvts63>(</span><span class=rvts61> </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> my_db_dat2</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FILENAME</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'C:\SQL Server\my_database2.mdf'</span></p>
+<p><span class=rvts63>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database </span><span class=rvts64>ADD</span><span class=rvts61> </span><span class=rvts67>LOG</span><span class=rvts61> </span><span class=rvts64>FILE</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- add another log file to the datatabase</span></p>
+<p><span class=rvts63>(</span><span class=rvts61> </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> my_db_log2</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FILENAME</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'C:\SQL Server\my_database2.ldf'</span></p>
+<p><span class=rvts63>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database </span><span class=rvts64>REMOVE</span><span class=rvts61> </span><span class=rvts64>FILE</span><span class=rvts61> my_db_dat2</span><span class=rvts63>;</span><span class=rvts61>&nbsp; </span><span class=rvts62>-- remove a data or log file</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- remove a database</span></p>
+<p><span class=rvts68><br></span></p>
+<p><span class=rvts68><br></span></p>
+<div id='nodeSection2'>Schemas</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>SCHEMA</span><span class=rvts61> my_schema </span><span class=rvts64>AUTHORIZATION</span><span class=rvts61> my_user</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a schema that is owned by my_user</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>GRANT</span><span class=rvts61> </span><span class=rvts64>SELECT</span><span class=rvts61> </span><span class=rvts64>TO</span><span class=rvts61> another_user</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>DENY</span><span class=rvts61> </span><span class=rvts67>UPDATE</span><span class=rvts61> </span><span class=rvts64>TO</span><span class=rvts61> another_user</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>SCHEMA</span><span class=rvts61> target_schema </span><span class=rvts64>TRANSFER</span><span class=rvts61> src_schema</span><span class=rvts63>.</span><span class=rvts61>tab</span><span class=rvts63>;</span><span class=rvts61> </span><span class=rvts62>-- transfer a table from a source schema into the target schema</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>SCHEMA</span><span class=rvts61> my_schema</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- delete a schema (allowed only, if the schema is empty)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Enabling FILESTREAM storage</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>start the "</span><span class=rvts8>SQL&nbsp; Server&nbsp; Configuration&nbsp; Manager"</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>select "SQL Server Services" from the tree on the left-hand side</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>right-click the selected server instance for "Properties"</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>goto the tab "FILESTREAM" and activate the checkboxes</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>switch to the SQL Server Management Studio</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>right-click on the selected server (not database) in the Object Explorer for "Properties"</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>go to the "Advanced" section and configure the "FILESTREAM" section</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>ADD</span><span class=rvts61> </span><span class=rvts64>FILEGROUP</span><span class=rvts61> my_database_fs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- add a new file group to the database</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts67>CONTAINS</span><span class=rvts61> </span><span class=rvts64>FILESTREAM</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- and enable it for FILESTREAM</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database </span><span class=rvts64>ADD</span><span class=rvts61> </span><span class=rvts64>FILE</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- add the filestream file group to the database</span></p>
+<p><span class=rvts63>(</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; NAME </span><span class=rvts63>=</span><span class=rvts61> my_database_fs</span><span class=rvts63>,</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FILENAME</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'C:\temp\FileStream'</span></p>
+<p><span class=rvts63>)</span></p>
+<p><span class=rvts64>TO</span><span class=rvts61> </span><span class=rvts64>FILEGROUP</span><span class=rvts61> my_file_group</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><br></p>
+<p><br></p>
+

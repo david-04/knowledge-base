@@ -1,0 +1,42 @@
+
+<div id='nodeSection1'>Overloading regular operators</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// overloading common operators:</span></p>
+<p><span class=rvts183>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// Unary:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + - ! ~ ++ -- true false</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts110>MyClass</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> + (</span><span class=rvts110>MyClass</span><span class=rvts183> x1, </span><span class=rvts110>MyClass</span><span class=rvts183> x2)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// Binary:&nbsp;&nbsp;&nbsp;&nbsp; + - * / % &amp; | ^ &lt;&lt; &gt;&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// Comparison: == != &lt; &gt; &lt;= &gt;=</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MyClass</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// Always return a new object, even for the ++ operator</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Overloand the indexer ([ ]-operator)</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>StringCollection</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>private</span><span class=rvts183> </span><span class=rvts110>String</span><span class=rvts183>[] array = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>String</span><span class=rvts183>[10];</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts110>String</span><span class=rvts183> </span><span class=rvts58>this</span><span class=rvts183>[</span><span class=rvts58>int</span><span class=rvts183> index]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// overloading the [] operator (can be multi-dimensional)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>get</span><span class=rvts183> { </span><span class=rvts58>return</span><span class=rvts183> array[index]; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// read operation</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>set</span><span class=rvts183> { array[index] = </span><span class=rvts58>value</span><span class=rvts183>; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// write operation</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Type casting</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>MyNumber</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts191>explicit</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> </span><span class=rvts110>MyNumber</span><span class=rvts183>(</span><span class=rvts110>MyCurrency</span><span class=rvts183> c)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// overloading cast MyCurrency -&gt; MyNumber for explicit casting only</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MyNumber</span><span class=rvts183>();</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts191>implicit</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> </span><span class=rvts110>MyCurrency</span><span class=rvts183>(</span><span class=rvts110>MyNumber</span><span class=rvts183> n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// overloading cast MyNumber -&gt; MyCurrency for implicit and explicit casting</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MyCurrency</span><span class=rvts183>();</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

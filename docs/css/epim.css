@@ -1,0 +1,1614 @@
+  body_UNUSED
+{
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}  body_UNUSED
+
+{  font-family:sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+}
+span.rvts7
+{
+ color: #000000;
+}
+span.rvts8
+{
+ color: #000000;
+}
+span.rvts9
+{
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts10
+{
+}
+span.rvts11
+{
+}
+span.rvts12
+{
+}
+span.rvts13
+{
+}
+span.rvts14
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts15
+{
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts16
+{
+ font-family: 'Helv';
+ color: #000000;
+}
+span.rvts17
+{
+ color: #000000;
+}
+span.rvts18
+{  font-family:sans-serif;
+ color: #000000;
+}
+span.rvts19
+{  font-family:sans-serif;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts20
+{
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts21
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008080;
+}
+span.rvts22
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #3f7f7f;
+}
+span.rvts23
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800080;
+}
+span.rvts24
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2a00ff;
+}
+span.rvts25
+{
+ color: #0000ff;
+}
+span.rvts26
+{
+ color: #000080;
+}
+span.rvts27
+{  font-family:sans-serif;
+ color: #000000;
+}
+span.rvts28
+{  font-family:sans-serif;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts29
+{  font-family:sans-serif;
+ color: #000000;
+}
+span.rvts30
+{
+ color: #000000;
+}
+span.rvts31
+{
+ font-family: 'Helv';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts32
+{
+ font-family: 'Helv';
+ font-style: italic;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts33
+{
+ color: #000000;
+ border-bottom: double;
+}
+span.rvts34
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts35
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts36
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+}
+span.rvts37
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+}
+span.rvts38
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808000;
+}
+span.rvts39
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts40
+{
+ color: #c0c0c0;
+ vertical-align: super;
+}
+span.rvts41
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts42
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+}
+span.rvts43
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts44
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts45
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts46
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+}
+span.rvts47
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+}
+span.rvts48
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffff00;
+}
+span.rvts49
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts50
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffff99;
+}
+a.rvts51, span.rvts51
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts52
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffff99;
+}
+span.rvts53
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts54
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #008000;
+}
+span.rvts55
+{  font-family:sans-serif;
+ color: #c0c0c0;
+}
+span.rvts56
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts57
+{  font-family:sans-serif;
+ color: #000000;
+}
+span.rvts58
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffffff;
+}
+span.rvts59
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts60
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ background-color: #ffffff;
+}
+span.rvts61
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts62
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts63
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808080;
+}
+span.rvts64
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts65
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+}
+span.rvts66
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+}
+span.rvts67
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff00ff;
+}
+span.rvts68
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+}
+span.rvts69
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffff99;
+}
+span.rvts70
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts71
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808080;
+ background-color: #ffff99;
+}
+span.rvts72
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ background-color: #ffff99;
+}
+span.rvts73
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+}
+span.rvts74
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts75
+{  font-family:sans-serif;
+}
+span.rvts76
+{
+ color: #ff0000;
+}
+span.rvts77
+{  font-family:sans-serif;
+}
+span.rvts78
+{
+ font-family: 'Microsoft Sans Serif';
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts79
+{
+ font-family: 'Microsoft Sans Serif';
+}
+span.rvts80
+{
+ font-family: 'Microsoft Sans Serif';
+ color: #ff00ff;
+}
+span.rvts81
+{
+ font-family: 'Microsoft Sans Serif';
+ color: #0000ff;
+}
+span.rvts82
+{
+ font-family: 'Calibri';
+ color: #1f497d;
+}
+span.rvts83
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts84
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts85
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff00ff;
+}
+span.rvts86
+{  font-family:sans-serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts87
+{  font-family:sans-serif;
+}
+span.rvts88
+{  font-family:sans-serif;
+ color: #800000;
+}
+span.rvts89
+{  font-family:sans-serif;
+ color: #0000ff;
+}
+span.rvts90
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+}
+span.rvts91
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+}
+span.rvts92
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ background-color: #ffff99;
+}
+span.rvts93
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts94
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts95
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800080;
+}
+span.rvts96
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts97
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+ background-color: #ffff99;
+}
+span.rvts98
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+ background-color: #ffff99;
+}
+span.rvts99
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ background-color: #ffff00;
+}
+span.rvts100
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #ffff99;
+}
+span.rvts101
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #006400;
+ text-decoration: underline;
+}
+span.rvts102
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+}
+span.rvts103
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #006400;
+}
+span.rvts104
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts105
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts106
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts107
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+}
+span.rvts108
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #ffffff;
+}
+span.rvts109
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts110
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #ffffff;
+}
+span.rvts111
+{
+}
+a.rvts112, span.rvts112
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts113
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts114
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ background-color: #ffff99;
+}
+span.rvts115
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800080;
+ background-color: #ffff99;
+}
+span.rvts116
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts117
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #969696;
+}
+span.rvts118
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ background-color: #00ff00;
+}
+span.rvts119
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #c0c0c0;
+}
+span.rvts120
+{
+ color: #ffffff;
+ background-color: #0a246a;
+ vertical-align: super;
+}
+span.rvts121
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #c0c0c0;
+ background-color: #ffff99;
+}
+span.rvts122
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #c0c0c0;
+}
+span.rvts123
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+ text-decoration: line-through;
+}
+span.rvts124
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts125
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts126
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts127
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts128
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+}
+span.rvts129
+{
+ color: #c0c0c0;
+ vertical-align: super;
+}
+span.rvts130
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts131
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #000000;
+}
+a.rvts132, span.rvts132
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts133
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #660e7a;
+}
+span.rvts134
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #0000ff;
+}
+span.rvts135
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+}
+span.rvts136
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffff99;
+}
+span.rvts137
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c91af;
+}
+span.rvts138
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #2c91af;
+}
+span.rvts139
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+}
+span.rvts140
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts141
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #660e7a;
+}
+span.rvts142
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts143
+{
+ color: #008000;
+}
+a.rvts144, span.rvts144
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ text-decoration: none;
+}
+span.rvts145
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: line-through;
+}
+span.rvts146
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ text-decoration: line-through;
+}
+span.rvts147
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #008000;
+}
+span.rvts148
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ text-decoration: line-through;
+}
+span.rvts149
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ font-weight: bold;
+ color: #660e7a;
+}
+span.rvts150
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts151
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #458383;
+}
+span.rvts152
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #7a7a43;
+}
+span.rvts153
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+}
+span.rvts154
+{
+ color: #000000;
+}
+span.rvts155
+{
+ color: #000000;
+}
+span.rvts156
+{  font-family:sans-serif;
+ font-style: italic;
+ color: #000000;
+}
+span.rvts157
+{
+ font-family: 'calibri';
+}
+a.rvts158, span.rvts158
+{
+ font-family: 'calibri';
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts159
+{
+ font-family: 'calibri';
+ color: #000000;
+}
+span.rvts160
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts161
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+}
+span.rvts162
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+}
+span.rvts163
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808080;
+}
+a.rvts164, span.rvts164
+{
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts165
+{
+ color: #c0c0c0;
+}
+span.rvts166
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #008000;
+}
+a.rvts167, span.rvts167
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts168
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts169, span.rvts169
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ text-decoration: none;
+}
+a.rvts170, span.rvts170
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts171
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+}
+span.rvts172
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+}
+span.rvts173
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #006400;
+}
+span.rvts174
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts175
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffff00;
+}
+span.rvts176
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #ffffff;
+}
+span.rvts177
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #ffff99;
+}
+span.rvts178
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffff00;
+}
+span.rvts179
+{
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts180
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts181
+{
+ color: #c0c0c0;
+ text-decoration: line-through;
+}
+span.rvts182
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #000000;
+}
+span.rvts183
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffffff;
+}
+span.rvts184
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ background-color: #ffffff;
+}
+span.rvts185
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+ background-color: #ffffff;
+}
+span.rvts186
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #ff0000;
+ background-color: #ffff00;
+}
+span.rvts187
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #ffffff;
+ text-decoration: underline;
+}
+span.rvts188
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffffff;
+}
+span.rvts189
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #000000;
+}
+a.rvts190, span.rvts190
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffffff;
+ text-decoration: underline;
+}
+span.rvts191
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffffff;
+ text-decoration: underline;
+}
+span.rvts192
+{
+ font-style: italic;
+ color: #000000;
+}
+span.rvts193
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+ background-color: #ffffff;
+}
+span.rvts194
+{
+ color: #000000;
+ background-color: #ffffff;
+}
+span.rvts195
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+ background-color: #ffffff;
+ text-decoration: line-through;
+}
+span.rvts196
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+ background-color: #ffffff;
+}
+span.rvts197
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #008000;
+ background-color: #ffffff;
+ text-decoration: underline;
+}
+span.rvts198
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ background-color: #ffffff;
+}
+span.rvts199
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #ffff00;
+}
+span.rvts200
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808080;
+ background-color: #ffffff;
+}
+span.rvts201
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #ffffff;
+}
+span.rvts202
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #008000;
+ background-color: #ffffff;
+ text-decoration: underline;
+}
+span.rvts203
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ background-color: #ffffff;
+}
+span.rvts204
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #000000;
+ background-color: #ffffff;
+}
+span.rvts205
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #0000ff;
+ background-color: #ffffff;
+}
+span.rvts206
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+ background-color: #ffff99;
+ text-decoration: line-through;
+}
+span.rvts207
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ text-decoration: line-through;
+}
+span.rvts208
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #0000ff;
+}
+span.rvts209
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+}
+span.rvts210
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+}
+span.rvts211
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts212
+{  font-family:sans-serif;
+ font-weight: bold;
+}
+span.rvts213
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #333333;
+}
+span.rvts214
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #969696;
+}
+span.rvts215
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #800000;
+}
+span.rvts216
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #a31515;
+}
+span.rvts217
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+}
+span.rvts218
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts219
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts220
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #ffff99;
+}
+span.rvts221
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ background-color: #ffff99;
+}
+span.rvts222
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts223
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+ text-decoration: underline;
+}
+span.rvts224
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+ text-decoration: line-through;
+}
+span.rvts225
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+ background-color: #ffff00;
+}
+span.rvts226
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+ vertical-align: sub;
+}
+span.rvts227
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+ vertical-align: super;
+}
+span.rvts228
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #006400;
+}
+span.rvts229
+{  font-family:sans-serif;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts230, span.rvts230
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: none;
+}
+span.rvts231
+{  font-family:sans-serif;
+ color: #000000;
+}
+span.rvts232
+{
+ font-weight: bold;
+ text-decoration: underline;
+}
+span.rvts233
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+}
+span.rvts234
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008080;
+}
+span.rvts235
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #646464;
+}
+span.rvts236
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ text-decoration: underline;
+}
+span.rvts237
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #ffff99;
+}
+span.rvts238
+{
+ vertical-align: super;
+}
+span.rvts239
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts240
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #2c91af;
+}
+span.rvts241
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #e8f2fe;
+}
+span.rvts242
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #e8f2fe;
+ text-decoration: underline;
+}
+span.rvts243
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+span.rvts244
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c91af;
+}
+span.rvts245
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-style: italic;
+ color: #0000ff;
+}
+span.rvts246
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ background-color: #e8f2fe;
+ text-decoration: underline;
+}
+span.rvts247
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts248
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #e8f2fe;
+}
+span.rvts249
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+ text-decoration: line-through;
+}
+span.rvts250
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #ffff00;
+}
+span.rvts251
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c2c2c;
+}
+span.rvts252
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #009000;
+}
+span.rvts253
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts254
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #a31515;
+}
+span.rvts255
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+ text-decoration: line-through;
+}
+span.rvts256
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800000;
+ background-color: #ffff00;
+}
+span.rvts257
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ background-color: #ffff00;
+}
+span.rvts258
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #800080;
+ text-decoration: line-through;
+}
+span.rvts259
+{
+ color: #000000;
+}
+span.rvts260
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff8000;
+}
+span.rvts261
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff4500;
+}
+span.rvts262
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c2c2c;
+}
+span.rvts263
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #009000;
+}
+span.rvts264
+{
+ font-family: 'Roboto';
+}
+span.rvts265
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+}
+span.rvts266
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c93b0a;
+}
+span.rvts267
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff23c9;
+}
+span.rvts268
+{
+ font-family: 'Roboto';
+}
+span.rvts269
+{
+ font-family: 'Roboto';
+ color: #000000;
+}
+span.rvts270
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #969696;
+}
+span.rvts271
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+}
+a.rvts272, span.rvts272
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts273
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #009000;
+}
+span.rvts274
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #267f99;
+}
+span.rvts275
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #660e7a;
+}
+span.rvts276
+{
+ font-family: 'Office Code Pro Bold';
+ font-weight: bold;
+ color: #00b8bb;
+}
+span.rvts277
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #000000;
+}
+span.rvts278
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c93b0a;
+}
+span.rvts279
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+}
+span.rvts280
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c2c2c;
+ text-decoration: line-through;
+}
+span.rvts281
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ text-decoration: line-through;
+}
+span.rvts282
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808080;
+}
+span.rvts283
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #009000;
+ text-decoration: underline;
+}
+span.rvts284
+{
+ font-family: 'Roboto';
+ color: #000000;
+}
+span.rvts285
+{
+ font-family: 'Roboto';
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts286, span.rvts286
+{
+ font-family: 'Roboto';
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts287
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #2c2c2c;
+}
+span.rvts288
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff23c9;
+}
+span.rvts289
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c93b0a;
+}
+span.rvts290
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #e9eded;
+}
+span.rvts291
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #e9eded;
+}
+span.rvts292
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2b91af;
+ background-color: #ffffff;
+}
+span.rvts293
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #009000;
+ text-decoration: underline;
+}
+span.rvts294
+{
+ vertical-align: super;
+}
+span.rvts295
+{
+ font-family: 'roboto mono';
+ color: #0000ff;
+}
+span.rvts296
+{
+ font-family: 'roboto mono';
+ color: #2c2c2c;
+}
+span.rvts297
+{
+ font-family: 'roboto mono';
+ color: #009000;
+}
+span.rvts298
+{
+ font-family: 'roboto mono';
+ color: #c93b0a;
+}
+span.rvts299
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c2c2c;
+}
+span.rvts300
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #009000;
+}
+span.rvts301
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #009000;
+}
+span.rvts302
+{
+ font-family: 'Roboto Mono';
+ color: #ff23c9;
+}
+span.rvts303
+{  font-family:sans-serif;
+ color: #009000;
+}
+span.rvts304
+{  font-family:sans-serif;
+ color: #0000ff;
+}
+span.rvts305
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff23c9;
+}
+span.rvts306
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffff00;
+}
+span.rvts307
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #2c2c2c;
+ background-color: #ffff00;
+}
+span.rvts308
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #0000ff;
+ background-color: #ffffff;
+}
+span.rvts309
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #a31515;
+ background-color: #ffffff;
+}
+span.rvts310
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #6464b9;
+ background-color: #ffffff;
+}
+span.rvts311
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #844646;
+ background-color: #ffffff;
+}
+span.rvts312
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #b96464;
+ background-color: #ffffff;
+}
+span.rvts313
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #555555;
+ background-color: #fffebf;
+}
+span.rvts314
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #555555;
+ background-color: #ffffff;
+}
+span.rvts315
+{
+ text-decoration: underline;
+}
+span.rvts316
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #ff0000;
+ background-color: #ffff00;
+}
+span.rvts317
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #808080;
+}
+span.rvts318
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #008000;
+}
+a.rvts319, span.rvts319
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ text-decoration: none;
+}
+span.rvts320
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #008000;
+ background-color: #ffffff;
+}
+span.rvts321
+{
+ color: #000000;
+ background-color: #ffff99;
+}
+a.rvts322, span.rvts322
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ text-decoration: none;
+}
+span.rvts323
+{
+ color: #0000ff;
+ background-color: #ffff99;
+ text-decoration: underline;
+}
+a.rvts324, span.rvts324
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ color: #c0c0c0;
+ text-decoration: none;
+}
+span.rvts325
+{ font-family: monospace, 'Office Code Pro Medium', 'Inconsolata', 'Consolas', monospace;
+ font-weight: bold;
+ color: #000043;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ line-height: 0.00;
+}
+.rvps3
+{
+ line-height: 0.00;
+ margin: 4px 4px 4px 4px;
+}
+.rvps4
+{
+ text-align: right;
+ line-height: 0.00;
+ margin: 4px 4px 4px 4px;
+}
+.rvps5
+{
+}
+.rvps6
+{
+ text-indent: -96px;
+ line-height: 0.00;
+ margin: 0px 0px 0px 96px;
+}
+.rvps7
+{
+ text-indent: -25px;
+ line-height: 0.00;
+ margin: 0px 0px 0px 25px;
+}
+.rvps8
+{
+ text-indent: -24px;
+ line-height: 0.00;
+ margin: 0px 0px 0px 24px;
+}
+.rvps9
+{
+ line-height: 0.00;
+}
+.rvps10
+{
+ text-indent: -24px;
+ margin: 0px 0px 0px 24px;
+}
+.rvps11
+{
+ border-color: #000000;
+ border-style: solid;
+ border-width: 1px;
+ border-top: none;
+ border-right: none;
+ border-left: none;
+}
+.rvps12
+{
+ background: #ffffff;
+}
+.rvps13
+{
+ margin: 5px 10px 5px 5px;
+}
+.rvps14
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps15
+{
+ text-align: right;
+}
+.rvps16
+{
+ line-height: 1.15;
+}
+.rvps17
+{
+}
+.rvps18
+{
+ border-color: #000000;
+ border-style: solid;
+ border-width: 1px;
+ border-top: none;
+ border-right: none;
+ border-left: none;
+}
+.rvps19
+{
+ text-indent: -24px;
+ background: #ffffff;
+ margin: 0px 0px 0px 24px;
+}
+/* ========== Lists ========== */
+.list0 {text-indent: 10px; margin-left: 8px; list-style-position: outside; list-style-type: disc;}
+.list1 {text-indent: 0px; margin-left: 25px; list-style-position: outside; list-style-type: disc;}
+.list2 {text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: disc;}
+.list3 {text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: disc;}
+.list4 {text-indent: 0px; margin-left: 24px; list-style-position: outside; list-style-type: decimal;}
+.list5 {text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;}
+

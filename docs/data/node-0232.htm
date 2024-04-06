@@ -1,0 +1,71 @@
+
+<div id='nodeSection1'>Required packages</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts8>PM&gt; Install-Package Microsoft.AspNet.Web.Optimization</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Purpose</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>an area is a set of URLs that all start with a fixed prefix (e.g. Admin/...)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>right-click on the project and select Add =&gt; Area to create the "Areas" folder</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>routes within the will only target controllers within the same area</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>... but non-area routes have access to all areas and can cause ambiguity</span></li>
+</ul>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection3'>Folder structure</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>MyProject</span></p>
+<p><span class=rvts113>|</span></p>
+<p><span class=rvts113>+-- Areas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// root folder for all areas</span></p>
+<p><span class=rvts43>|&nbsp;&nbsp; |</span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; +-- Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// covers all URLs starting with Admin/...</span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; |&nbsp;&nbsp; +-- Controllers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// controllers, models and views that form this area</span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; |&nbsp;&nbsp; +-- Models&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; |&nbsp;&nbsp; +-- Views</span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; |&nbsp;&nbsp; +-- AdminAreaRegistration.cs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// route configuration for this area</span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; |</span></p>
+<p><span class=rvts113>|&nbsp;&nbsp; +-- ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// more areas as required</span></p>
+<p><span class=rvts43>|</span></p>
+<p><span class=rvts43>+-- Controllers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// controllers, models and views for the global (non-area) scope</span></p>
+<p><span class=rvts43>+-- Models</span></p>
+<p><span class=rvts43>+-- Views</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection4'>Routing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>AdminAreaRegistration</span><span class=rvts41>:</span><span class=rvts171>AreaRegistration</span><span class=rvts41> </span><span class=rvts39>// area routes are configured in Areas/MyArea/MyAreaAreaRegistration.cs</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> AreaName</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>get</span><span class=rvts41> { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts42>"Admin"</span><span class=rvts41>; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// defines the area's name (i.e. URL prefix)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> RegisterArea(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register all routes contained in this area</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>AreaRegistrationContext</span><span class=rvts41> context)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.MapRoute(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// will search controllers exclusively within the current area</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"MyRouteName"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the general syntax is the same as for global (non-area) routes</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Admin/{controller}/{action}/{id}"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the routes must still contain the area's prefix</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41>{ id = </span><span class=rvts171>UrlParameter</span><span class=rvts41>.Optional }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection5'>Attribute routing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts171>RouteArea</span><span class=rvts41>(</span><span class=rvts42>"Admin"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// a global (non-area) controller can be associate with an area</span></p>
+<p><span class=rvts41>[</span><span class=rvts171>RoutePrefix</span><span class=rvts41>(</span><span class=rvts42>"UserManagement"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: all routes handled by this class must start with "Admin/UserManagement"</span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyController</span><span class=rvts41> : </span><span class=rvts171>Controller</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>Route</span><span class=rvts41>(</span><span class=rvts42>"MyRoute/Test"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this action method matches Admin/UserManagement/MyRoute/Test</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>ActionResult</span><span class=rvts41> MyActionMethod() {...}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>ActionResult</span><span class=rvts41> MyActionMethod() {...}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// methods without route attribute are still available for convention based routing</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

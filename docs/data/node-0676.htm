@@ -1,0 +1,49 @@
+
+<div id='nodeSection1'>Single property animation</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> doubleAnimation </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DoubleAnimation</span><span class=rvts183> </span><span class=rvts58>With</span><span class=rvts183> {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .From = 1.0,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .To = 0.0,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Duration = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Duration</span><span class=rvts183>(</span><span class=rvts110>TimeSpan</span><span class=rvts183>.FromSeconds(4))</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>AddHandler</span><span class=rvts183> doubleAnimation.Completed, </span><span class=rvts58>Sub</span><span class=rvts183>(o, s) </span><span class=rvts310>...</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' callback when animation has finished</span></p>
+<p><span class=rvts58>Me</span><span class=rvts183>.myButton.BeginAnimation(</span><span class=rvts110>Button</span><span class=rvts183>.OpacityProperty, doubleAnimation)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Animated transformations</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> doubleAnimation </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DoubleAnimation</span><span class=rvts183>() </span><span class=rvts58>With</span><span class=rvts183> {.From = 0, .To = 360}</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> rotateTransform </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>RotateTransform</span><span class=rvts183>()</span></p>
+<p><span class=rvts58>Me</span><span class=rvts183>.myButton.RenderTransform = rotateTransform</span></p>
+<p><span class=rvts183>rotateTransform.BeginAnimation(</span><span class=rvts110>RotateTransform</span><span class=rvts183>.AngleProperty, doubleAnimation)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>XAML</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Label</span><span class=rvts185> Content</span><span class=rvts58>="Test"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Label.Triggers</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>EventTrigger</span><span class=rvts185> RoutedEvent</span><span class=rvts58>="Label.Loaded"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>EventTrigger.Actions</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>BeginStoryboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Storyboard</span><span class=rvts185> TargetProperty</span><span class=rvts58>="FontSize"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>DoubleAnimation</span><span class=rvts185> From</span><span class=rvts58>="12"</span><span class=rvts185> To</span><span class=rvts58>="100"</span><span class=rvts185> Duration</span><span class=rvts58>="0:0:4"</span><span class=rvts185> RepeatBehavior</span><span class=rvts58>="Forever"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Storyboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>BeginStoryboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>BeginStoryboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Storyboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>StringAnimationUsingKeyFrames</span><span class=rvts185> RepeatBehavior</span><span class=rvts58>="Forever"</span><span class=rvts185> Storyboard.TargetProperty</span><span class=rvts58>="Content"</span><span class=rvts185> Duration</span><span class=rvts58>="0:0:3"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>DiscreteStringKeyFrame</span><span class=rvts185> Value</span><span class=rvts58>=""</span><span class=rvts185> KeyTime</span><span class=rvts58>="0:0:0" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>DiscreteStringKeyFrame</span><span class=rvts185> Value</span><span class=rvts58>="O"</span><span class=rvts185> KeyTime</span><span class=rvts58>="0:0:1"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>DiscreteStringKeyFrame</span><span class=rvts185> Value</span><span class=rvts58>="OK"</span><span class=rvts185> KeyTime</span><span class=rvts58>="0:0:1.5" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>DiscreteStringKeyFrame</span><span class=rvts185> Value</span><span class=rvts58>="OK!"</span><span class=rvts185> KeyTime</span><span class=rvts58>="0:0:2" /&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>StringAnimationUsingKeyFrames</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Storyboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>BeginStoryboard</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>EventTrigger.Actions</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>EventTrigger</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Label.Triggers</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>Label</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

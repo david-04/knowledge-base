@@ -1,0 +1,128 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts183>MySql.Data.dll</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Configuring App.config</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>&lt;!--</span><span class=rvts176> this section is usually already configured in machine.config </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>system.data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>DbProviderFactories</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>remove</span><span class=rvts58> </span><span class=rvts185>invariant</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySQL Data Provider</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>invariant</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; description</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>.Net Framework Data Provider for MySQL</span><span class=rvts183>"</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>DbProviderFactories</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>system.data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Establishing a connecting</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>DbConnection</span><span class=rvts183> connection = </span><span class=rvts110>DbProviderFactories</span><span class=rvts183>.GetFactory(</span><span class=rvts184>"System.Data.MySqlClient"</span><span class=rvts183>).CreateConnection();</span></p>
+<p><span class=rvts110>DbConnection</span><span class=rvts183> connection = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MySqlConnection</span><span class=rvts183>();</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts183>connection.ConnectionString = </span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "Server=127.0.0.1;Database=david;Uid=david;Pwd=pw;"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// define the connect string in one step</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>var</span><span class=rvts183> params = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>SqlConnectionStringBuilder</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// define the connect string with dedicated attriubtes</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; DataSource = </span><span class=rvts184>"127.0.0.1"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; InitialCatalog = </span><span class=rvts184>"david"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; UserID = </span><span class=rvts184>"david"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Password = </span><span class=rvts184>"test123"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; ConnectTimeout = 30</span></p>
+<p><span class=rvts183>};</span></p>
+<p><span class=rvts183>connection.ConnectionString = params.ConnectionString;</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>connection.Open();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// open the connection</span></p>
+<p><span class=rvts183>connection.Dispose();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// close when finished</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>SQL statements</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>DbCommand</span><span class=rvts183> command = connection.CreateCommand();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// simple query</span></p>
+<p><span class=rvts183>command.CommandText = </span><span class=rvts184>"select * from customer"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts110>DbDataReader</span><span class=rvts183> dataReader = command.ExecuteReader();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>while</span><span class=rvts183> (dataReader.Read())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts110>&nbsp;&nbsp;&nbsp; Console</span><span class=rvts183>.WriteLine(dataReader[</span><span class=rvts184>"first_name"</span><span class=rvts183>]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts110>DbCommand</span><span class=rvts183> command = connection.CreateCommand();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// simple update</span></p>
+<p><span class=rvts183>command.CommandText = </span><span class=rvts184>"update customer set name='David' ..."</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>int</span><span class=rvts183> updateRows = command.ExecuteNonQuery();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>DbCommand</span><span class=rvts183> command = connection.CreateCommand();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// statement with parameters</span></p>
+<p><span class=rvts183>command.CommandText = </span><span class=rvts184>"select * from customer where name=@name"</span><span class=rvts183>;&nbsp; </span></p>
+<p><span class=rvts110>DbParameter</span><span class=rvts183> parameter = command.CreateParameter();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>parameter.ParameterName = </span><span class=rvts184>"@name"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>parameter.Value = </span><span class=rvts184>"David"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>parameter.DbType = </span><span class=rvts110>DbType</span><span class=rvts183>.String;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>command.Parameters.Add(parameter);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts110>DbDataReader</span><span class=rvts183> dataReader = command.ExecuteReader();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Transactions</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>DbTransaction</span><span class=rvts183> transaction = connection.BeginTransaction();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// start a new transaction</span></p>
+<p><span class=rvts110>DbCommand</span><span class=rvts183> command = connection.CreateCommand();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>command.CommandText = </span><span class=rvts184>"update ..."</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts52>command.Transaction = transaction;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// link the command to the transaction</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>transaction.Commit();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// commit changes</span></p>
+<p><span class=rvts183>transaction.Rollback();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// rollback changes</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Stored procedures</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>DbCommand</span><span class=rvts183> command = connection.CreateCommand();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a procedure object</span></p>
+<p><span class=rvts183>command.CommandType = </span><span class=rvts110>CommandType</span><span class=rvts183>.StoredProcedure;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>command.CommandText = </span><span class=rvts184>"proc_or_func_name"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>DbParameter</span><span class=rvts183> parameter1 = command.CreateParameter();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// add an input parameter</span></p>
+<p><span class=rvts183>parameter1.ParameterName = </span><span class=rvts184>"name"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>parameter1.Value = </span><span class=rvts184>"David"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>parameter1.Direction = </span><span class=rvts110>ParameterDirection</span><span class=rvts183>.</span><span class=rvts52>Input</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>command.Parameters.Add(parameter1);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>DbParameter</span><span class=rvts183> parameter2 = command.CreateParameter();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// add an output parameter</span></p>
+<p><span class=rvts183>parameter2.ParameterName = </span><span class=rvts184>"address"</span><span class=rvts183>;</span></p>
+<p><span class=rvts183>parameter2.Direction = </span><span class=rvts110>ParameterDirection</span><span class=rvts183>.</span><span class=rvts52>Output</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>command.Parameters.Add(parameter2);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>DbParameter</span><span class=rvts183> parameter3 = command.CreateParameter();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// add a parameter for a return value</span></p>
+<p><span class=rvts183>parameter3.ParameterName = </span><span class=rvts184>"result"</span><span class=rvts183>;</span></p>
+<p><span class=rvts183>parameter3.Direction = </span><span class=rvts110>ParameterDirection</span><span class=rvts183>.</span><span class=rvts52>ReturnValue</span><span class=rvts183>;</span></p>
+<p><span class=rvts183>command.Parameters.Add(parameter3);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>command.ExecuteNonQuery();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// execute as "non-query"</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>command.Parameters[</span><span class=rvts184>"result"</span><span class=rvts183>].Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts176>&nbsp; // retrieve the return value</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Locally cached DataSets</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>MySqlDataAdapter</span><span class=rvts183> adapter = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MySqlDataAdapter</span><span class=rvts183>(</span><span class=rvts110>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a data adapter for a particular SELECT statement</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "select * from customer"</span><span class=rvts183>, connection);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>DataTableMappingCollection</span><span class=rvts183> tableMapping = adapter.TableMappings;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// define name mappings for tables and columns </span></p>
+<p><span class=rvts183>talbeMapping.Add(</span><span class=rvts184>"customer"</span><span class=rvts183>, </span><span class=rvts184>"Customer Table"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183>tableMapping.ColumnMappings.Add(</span><span class=rvts184>"first_name"</span><span class=rvts183>, </span><span class=rvts184>"First name"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>MySqlCommandBuilder</span><span class=rvts183> cmdBuilder = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MySqlCommandBuilder</span><span class=rvts183>(adapter);&nbsp; </span><span class=rvts176>// automatically create INSERT, UPDATE, ... (only works for tables with primary keys)</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>adapter.UpdateCommand = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MySqlCommand</span><span class=rvts183>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// manually create an UPDATE statement</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "update customer set address=@address where name=name"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; connection);</span></p>
+<p><span class=rvts183>adapter.UpdateCommand.Parameters.Add(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// define named parameters</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "@first_name"</span><span class=rvts183>, </span><span class=rvts110>MySqlDbType</span><span class=rvts183>.String, 250, </span><span class=rvts184>"First name"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183>adapter.UpdateCommand.Parameters.Add(</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "@address"</span><span class=rvts183>, </span><span class=rvts110>MySqlDbType</span><span class=rvts183>.String, 250, </span><span class=rvts184>"address"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>DataSet</span><span class=rvts183> dataSet = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>DataSet</span><span class=rvts183>(</span><span class=rvts184>"mMySQL Sample DB"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a DataSet in memory</span></p>
+<p><span class=rvts183>adapter.Fill(dataSet, </span><span class=rvts184>"customer"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// let the adapter load the whole table from the database</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>adapter.Update(dataSet, </span><span class=rvts184>"Customer Table"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// write all changes of the given table back to the database</span></p>
+<p><span class=rvts176><br></span></p>
+<p><br></p>
+<p><br></p>
+

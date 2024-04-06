@@ -1,0 +1,31 @@
+
+<div id='nodeSection1'>HTML parsing</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'nokogiri'</span><span class=rvts262>                          </span><span class=rvts263># gem install nokogiri</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>document = </span><span class=rvts267>Nokogiri</span><span class=rvts262>::HTML(html_code)</span></p>
+<p class=rvps12><span class=rvts262>document = </span><span class=rvts267>Nokogiri</span><span class=rvts262>::HTML(</span><span class=rvts267>URI</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(url))    </span><span class=rvts263># requires 'open-uri'</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>array = document.css(</span><span class=rvts266>"h1"</span><span class=rvts262>)                  </span><span class=rvts263># get all elements</span></p>
+<p class=rvps12><span class=rvts262>element = document.at(</span><span class=rvts266>"ul"</span><span class=rvts262>)                 </span><span class=rvts263># get the first match only</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>element.inner_html                          </span><span class=rvts263># get the innerHTML</span></p>
+<p class=rvps12><span class=rvts262>element.at(</span><span class=rvts266>"li"</span><span class=rvts262>)                            </span><span class=rvts263># can continue querying in fragment via at() or css()</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>doc.at(</span><span class=rvts266>"ul"</span><span class=rvts262>).css(</span><span class=rvts266>"li"</span><span class=rvts262>).each </span><span class=rvts265>do</span><span class=rvts262> |li|         </span><span class=rvts263># iterate over all matches</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> li.inner_html</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>XML parsing</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'nokogiri'</span><span class=rvts262>                          </span><span class=rvts263># gem install nokogiri</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>document = </span><span class=rvts267>Nokogiri</span><span class=rvts262>::XML(xml)               </span><span class=rvts263># parse the XML content</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>array = document.css(</span><span class=rvts266>"paragraph"</span><span class=rvts262>)           </span><span class=rvts263># get all elements with the given tag name</span></p>
+<p class=rvps12><span class=rvts262>array[0].children                           </span><span class=rvts263># get the text content</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

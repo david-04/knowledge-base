@@ -1,0 +1,116 @@
+
+<div id='nodeSection1'>Defining functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> add(x1, x2) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// standard declaration (</span><span class=rvts44>can be invoked even before it is defined</span><span class=rvts39>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> x1 + x2;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> add = </span><span class=rvts45>function</span><span class=rvts41> (x1, x2) { </span><span class=rvts45>return</span><span class=rvts41> x2 + x2; };&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// defining a function as a variable (</span><span class=rvts44>can't be invoked befor this assignment</span><span class=rvts39>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> add = </span><span class=rvts45>new</span><span class=rvts41> Function(</span><span class=rvts42>"x1"</span><span class=rvts41>,</span><span class=rvts42>"x2"</span><span class=rvts41>,</span><span class=rvts42>"return x1+x2"</span><span class=rvts41>);&nbsp;&nbsp; </span><span class=rvts39>// defining a function from a string</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myFunction = add;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use functions like variables (function pointers)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Calling functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>myFunction(1, 2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// calling a function has the same syntax as a function pointer</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>myFunction.call(</span><span class=rvts45>this</span><span class=rvts41>, 1, 2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// call the function to run in the specified context (this)</span></p>
+<p><span class=rvts41>myFunction.apply(</span><span class=rvts45>this</span><span class=rvts41>, [1, 2]);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myNewFunction = myFunction.bind(</span><span class=rvts45>this</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a function pointer with a pre-set (non-default) context</span></p>
+<p><span class=rvts41>myNewFunction();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Passing parameters</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction(name, age) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// caller is free to pass less or more parameters</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; document.write(</span><span class=rvts42>"Name: "</span><span class=rvts41> + arguments[0]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>only ECMAScript &lt; 6</span><span class=rvts39>: parameters can be accessed via the built-in arguments array</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> parameterCount = arguments.length;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// determine how many actual parameters have been passed</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myFunction();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the caller can pass fewer parameters than expected</span></p>
+<p><span class=rvts41>myFunction(</span><span class=rvts42>"David"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>myFunction(</span><span class=rvts42>"David"</span><span class=rvts41>, 37);</span></p>
+<p><span class=rvts41>myFunction(</span><span class=rvts42>"David"</span><span class=rvts41>, 37, </span><span class=rvts42>"Melbourne"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the caller can pass meore parameters than exepcted</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Passing many optional parameters</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction(args) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// expect just one generic object as input</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (</span><span class=rvts45>typeof</span><span class=rvts41> args.name == </span><span class=rvts42>"string"</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check if a given property is set</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> name = args.name;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access the property</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (</span><span class=rvts45>typeof</span><span class=rvts41> args.age == </span><span class=rvts42>"number"</span><span class=rvts41>) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> age = args.age;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myFunction({ name: </span><span class=rvts42>"David"</span><span class=rvts41> });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass only selected parameters</span></p>
+<p><span class=rvts41>myFunction({ name: </span><span class=rvts42>"David"</span><span class=rvts41>, age: 37 });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass all parameters</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Variable argument list</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction(p1, p2, ... p3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 6</span><span class=rvts39>: variable argument list: p3 is passed as an array</span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction(p1, p2 = </span><span class=rvts42>"default"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 6</span><span class=rvts39>: default values</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Passing callback functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> invoke(anyFunction) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// using a function pointer as parameter</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; anyFunction(</span><span class=rvts42>"hello world"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// calling the function via the supplied pointer</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> logMessage(text) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; document.write(text);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>invoke(logMessage);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// a pre-existing function can be passed</span></p>
+<p><span class=rvts41>invoke(</span><span class=rvts45>function</span><span class=rvts41> (text) { logMessage(text); });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or an anonymous function can be created on-the-fly</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Returning function pointers (closures)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> createFunction(useSimpleVersion) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> </span><span class=rvts52>index = 1</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> myFunction = </span><span class=rvts45>null</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (useSimpleVersion) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myFunction = </span><span class=rvts45>function</span><span class=rvts41> () { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts52>index</span><span class=rvts41>; }&nbsp; </span><span class=rvts39>// will return </span><span class=rvts100>2</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myFunction = </span><span class=rvts45>function</span><span class=rvts41> (num) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> () { </span><span class=rvts45>return</span><span class=rvts41> num; };&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// will return </span><span class=rvts100>1</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }(</span><span class=rvts52>index</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts52>index = 2</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> myFunction;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> context = </span><span class=rvts42>"Global"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// variable in the global scope</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> object = {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; context: </span><span class=rvts42>"Object"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// object property shadowing the global variable</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getNameFunc: </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> that = </span><span class=rvts45>this</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// link the object's scope to a local variable in the function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> that.context;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// returns "Object" (this.context would return "Global" instead)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Caching function results</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> versionMajor = 5;</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> versionMinor = 1;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> getVersion() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> version = versionMajor+</span><span class=rvts42>"."</span><span class=rvts41>+versionMinor;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// carry out complicated calculations</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getVersion = </span><span class=rvts45>function</span><span class=rvts41> () { </span><span class=rvts45>return</span><span class=rvts41> version; };&nbsp;&nbsp; </span><span class=rvts39>// replace this function to always return the previously calculated value</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> version;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

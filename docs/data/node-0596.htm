@@ -1,0 +1,139 @@
+
+<div id='nodeSection1'>Functions</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>add(a: Int, b: Int): Int = {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; a + b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the return statement is omitted if it's the last statement</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>add(a: Int, b: Int): Int = a + b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// single statement/command can be written inline</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>add(a: Int, b: Int) = a + b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the return type is inferred automatically</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>hello(): Unit = println(</span><span class=rvts266>"Hello world!"</span><span class=rvts262>) </span><span class=rvts263>// use parentheses if the function has side effects</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>pi: Double = 3.14159654&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// omit parentheses if there are not side effects (getter-style functions)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>pi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// functions without parentheses can only be called without parentheses</span></p>
+<p class=rvps12><span class=rvts262>hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// functions with parentheses can be called with or without parentheses</span></p>
+<p class=rvps12><span class=rvts262>hello()</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>greeting(name: </span><span class=rvts277>String</span><span class=rvts262>) = </span><span class=rvts266>s"Hi </span><span class=rvts276>$</span><span class=rvts262>name</span><span class=rvts266>"</span></p>
+<p class=rvps12><span class=rvts262>greeting { </span><span class=rvts266>"David" </span><span class=rvts262>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// if a function has only one parameter, it can be passed in curly brackets</span></p>
+<p class=rvps12><span class=rvts262>greeting { </span><span class=rvts265>val </span><span class=rvts262>name = </span><span class=rvts266>"David"</span><span class=rvts262>; name * 2 }&nbsp;&nbsp; </span><span class=rvts263>// it's actually a lambda and whose return value is passed as argument</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<div id='nodeSection2'>Default and named parameters</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>sum(a: Int, b: Int = 0, c: Int = 0) =&nbsp;&nbsp; </span><span class=rvts263>// default parameters</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>a + b + c</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>sum(1, 2, 3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// pass all parameters positional</span></p>
+<p class=rvps12><span class=rvts262>sum(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// omit optional parameters</span></p>
+<p class=rvps12><span class=rvts262>sum(1, c = 3, b = 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// pass optional parameters by their name (can be in any order)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Variable arguments</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFunction(args: Int*): Unit = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// args is passed in as array</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>args.foreach(println)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; myFunction(args.tail:_*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// convert any sequence into variable arguments (Scala 3: mySequence*)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>myFunction(1,2,3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// values are passed as sequence of parameters</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<div id='nodeSection4'>Curying</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>add(x: Int) = (y: Int) =&gt; x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// manual currying - function returns a lambda</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>add(x: Int)(y: Int) = x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// explicit currying - same effect as above</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>add(10)(20)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// nested functions can be called in a row</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>offset = add(10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// calling only the outer function returns the partially applied inner function</span></p>
+<p class=rvps12><span class=rvts262>offset(20)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>add(x: Int, y: Int) = x + y</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>offset = add(10, _)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// use the "_" placeholder syntax to create partially applied (non-curried) functions</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts12><br></span></p>
+<div id='nodeSection5'>Nested functions</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFunction(x: Int): Int = {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>square(x: Int) = x * x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// functions can be defined within other functions</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>square(x) + 5</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts269><br></span></p>
+<div id='nodeSection6'>Lambdas</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>list.foreach(println)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can pass a function reference only</span></p>
+<p class=rvps12><span class=rvts262>list.foreach(println(_))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// each "_" matches one parameter (in sequential order)</span></p>
+<p class=rvps12><span class=rvts262>list.foreach(println(_: Int))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// each "_" can be be assigned an explicit type inline</span></p>
+<p class=rvps12><span class=rvts262>list.foreach(x =&gt; println(x))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// arrow function with inferred types</span></p>
+<p class=rvps12><span class=rvts262>list.foreach((x: Int) =&gt; println(x))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// arrow function with explicit types</span></p>
+<p class=rvps12><span class=rvts262>list.foreach { x =&gt; println(x) }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// if there's only one parameter, it can be passed with curly braces instead of parentheses</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myFn = (x: Int, y: Int) =&gt; x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// define a lambda as a variable</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFn(fn: (Int, Int) =&gt; Int) = fn(1, 2)&nbsp; </span><span class=rvts263>// pass a lambda to a function</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFn(x: Int) = (y: Int) =&gt; x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// return a lambda from a function</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFun(x: Int)(y: Int) = x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// use currying to return a lambda</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFunction(a: Int, b: Int) = a + b</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myFn1 = myFunction(_, _)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// create a delegate (myFn = myFunction does not compile)</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myFn2 = myFunction _&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// create a delegate that passes on all parameters</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myFn3 = myFunction(1, _)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// create a partially applied function</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>debug(action: =&gt; Unit): Unit =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// by-name parameter uses "=&gt; Boolean" instead of "() =&gt; boolean"</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>if </span><span class=rvts262>(debugEnabled) action</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>debug(println(</span><span class=rvts266>"debug message"</span><span class=rvts262>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// passed as a lambda and only evaluated if debug() reads action</span></p>
+<p class=rvps12><span class=rvts262>debug(() =&gt; println(</span><span class=rvts266>"debug message"</span><span class=rvts262>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can also be passed as an explicit lambda</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>trait </span><span class=rvts274>MyTrait </span><span class=rvts262>{ </span><span class=rvts265>def </span><span class=rvts262>calc(x: Int): Int }&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// SAM - single action method</span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFn(t: </span><span class=rvts274>MyTrait</span><span class=rvts262>): Int = t.calc(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// function consuming a lambda</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>myFn(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>new </span><span class=rvts274>MyTrait </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// old Java-style of anonymous classes</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>def </span><span class=rvts262>calc(x: Int): Int = x * 2</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>myFn(x =&gt; x * 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// new Java-style arrow function (mapped to the trait method "calc" automatically) </span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<div id='nodeSection7'>Tail recursion</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>scala.annotation.</span><span class=rvts274>tailrec</span></p>
+<p class=rvps12><span class=rvts274><br></span></p>
+<p class=rvps12><span class=rvts277>@tailrec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// assert that the compiler rewrites this recursion into a loop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>sum(v: </span><span class=rvts277>List</span><span class=rvts262>[Int], s : Int = 0): Int = {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>if </span><span class=rvts262>(v.isEmpty) s</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>else </span><span class=rvts262>sum(v.tail, s + v.head)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the recursive call MUST be the last statement (not even part of an expression like s + sum(...) </span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<div id='nodeSection8'>Partial functions (pattern matching)</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>fn: </span><span class=rvts274>PartialFunction</span><span class=rvts262>[Any, </span><span class=rvts274>Location</span><span class=rvts262>] = {&nbsp; </span><span class=rvts263>// pattern matching without default case can be used as a function </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>case </span><span class=rvts262>Person(</span><span class=rvts266>"David"</span><span class=rvts262>, loc) =&gt; loc</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>if </span><span class=rvts262>(fn.isDefinedAt(david)) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// check via isDefinedAt if a case matches</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>fn(david)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// call the function to get the case's result</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<div id='nodeSection9'>Generic functions</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFunction[</span><span class=rvts277>T1</span><span class=rvts262>, </span><span class=rvts277>T2</span><span class=rvts262>](</span><span class=rvts282>x</span><span class=rvts262>: </span><span class=rvts277>T1</span><span class=rvts262>, </span><span class=rvts282>y</span><span class=rvts262>: </span><span class=rvts277>T2</span><span class=rvts262>) = ...&nbsp; </span><span class=rvts263>// generic function</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// T can be any type</span></p>
+<p class=rvps12><span class=rvts262>T &gt;: </span><span class=rvts274>MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// T must be X or a parent of X</span></p>
+<p class=rvps12><span class=rvts262>T &lt;: </span><span class=rvts274>MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// T must be X or a child of X</span></p>
+<p class=rvps12><span class=rvts262>T &lt;: </span><span class=rvts275>Ordered</span><span class=rvts262>[T]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// T must implement the trait Ordered[T]</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

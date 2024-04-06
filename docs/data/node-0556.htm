@@ -1,0 +1,104 @@
+
+<div id='nodeSection1'>Strings</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts266>'string'</span><span class=rvts262>                                    </span><span class=rvts263># string without interpolation</span></p>
+<p class=rvps12><span class=rvts266>"user=#{name}"</span><span class=rvts262>                              </span><span class=rvts263># string with interpolation</span></p>
+<p class=rvps12><span class=rvts266>%q{text}</span><span class=rvts262>                                    </span><span class=rvts263># non-quoted (multi-line) string</span></p>
+<p class=rvps12><span class=rvts266><br></span></p>
+<p class=rvps12><span class=rvts266>&lt;&lt;__DONE__                                  </span><span class=rvts263># the closing __DONE__ must be on it's own line (without comment)</span></p>
+<p class=rvps12><span class=rvts266>  text</span></p>
+<p class=rvps12><span class=rvts266>__DONE__</span></p>
+<p class=rvps12><span class=rvts266><br></span></p>
+<p class=rvps12><span class=rvts266>&lt;&lt;~__DONE__                                 </span><span class=rvts263># same as above, but the "~" strips leading and trailing whitespace</span></p>
+<p class=rvps12><span class=rvts266>  text</span></p>
+<p class=rvps12><span class=rvts266>__DONE__</span></p>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.length                        </span><span class=rvts263># 11</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.encoding                      </span><span class=rvts263># Encoding:UTF-8</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.encode(</span><span class=rvts266>"UTF-8"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>"sample"</span><span class=rvts262> + </span><span class=rvts266>"text"</span><span class=rvts262>                           </span><span class=rvts263># sampletext</span></p>
+<p class=rvps12><span class=rvts266>"sample"</span><span class=rvts262> * 2                                </span><span class=rvts263># samplesample</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.capitalize                    </span><span class=rvts263># Sample text</span></p>
+<p class=rvps12><span class=rvts266>"SAMPLE TEXT"</span><span class=rvts262>.downcase                      </span><span class=rvts263># sample text</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.chop                          </span><span class=rvts263># sample tex</span></p>
+<p class=rvps12><span class=rvts266>"sample text\n\n"</span><span class=rvts262>.chomp                     </span><span class=rvts263># sample text\n</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.next                          </span><span class=rvts263># sample texu</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.reverse                       </span><span class=rvts263># txet elpmas"</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.sum                           </span><span class=rvts263># 1127</span></p>
+<p class=rvps12><span class=rvts266>"Sample Text"</span><span class=rvts262>.swapcase                      </span><span class=rvts263># sAMPLE tEXT</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.upcase                        </span><span class=rvts263># SAMPLE TEXT</span></p>
+<p class=rvps12><span class=rvts266>" ample \n "</span><span class=rvts262>.strip                          </span><span class=rvts263># ample</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.split                         </span><span class=rvts263># ["sample", "text"]</span></p>
+<p class=rvps12><span class=rvts266>"sample text"</span><span class=rvts262>.split(</span><span class=rvts266>/[aeiou]/</span><span class=rvts262>)              </span><span class=rvts263># ["s", "mpl", " t", "xt"]</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>"A"</span><span class=rvts262>.ord                                     </span><span class=rvts263># 65</span></p>
+<p class=rvps12><span class=rvts262>65.chr                                      </span><span class=rvts263># A</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Regular expressions</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts266>"text"</span><span class=rvts262>.match(</span><span class=rvts266>/[aeiou]/</span><span class=rvts262>)                     </span><span class=rvts263># returns a MatchData array (0 is th whole match, than named groups)</span></p>
+<p class=rvps12><span class=rvts266>"text"</span><span class=rvts262> =~ </span><span class=rvts266>/[aeiou]/</span><span class=rvts262>                         </span><span class=rvts263># returns the index of match (or nil if no match)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>"text"</span><span class=rvts262>.sub(</span><span class=rvts266>'t'</span><span class=rvts262>, </span><span class=rvts266>'T'</span><span class=rvts262>)                        </span><span class=rvts263># replace only the first occurence</span></p>
+<p class=rvps12><span class=rvts266>"text"</span><span class=rvts262>.gsub(</span><span class=rvts266>'t'</span><span class=rvts262>, </span><span class=rvts266>'T'</span><span class=rvts262>)                       </span><span class=rvts263># replace all occurences</span></p>
+<p class=rvps12><span class=rvts266>"text"</span><span class=rvts262>.gsub(</span><span class=rvts266>/[aeiou]/</span><span class=rvts262>, </span><span class=rvts266>'*'</span><span class=rvts262>)                 </span><span class=rvts263># replace via regular expression</span></p>
+<p class=rvps12><span class=rvts266>"text"</span><span class=rvts262>.gsub(</span><span class=rvts266>/[aeiou]/</span><span class=rvts262>) { |l| l.upcase }     </span><span class=rvts263># dynamiclly calculate the replacement</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>"more text"</span><span class=rvts262>.scan(</span><span class=rvts266>/[a-z]+/</span><span class=rvts262>)                  </span><span class=rvts263># scans for matching fragments, returns ["more", "text"]</span></p>
+<p class=rvps12><span class=rvts266>"more text"</span><span class=rvts262>.scan(</span><span class=rvts266>/\w+/</span><span class=rvts262>) { |match| ... }     </span><span class=rvts263># stream the scan results</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Global variables</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts263>#   require 'english'</span></p>
+<p class=rvps12><span class=rvts263>#   vvvvvvvvvvvvvvvvv</span></p>
+<p class=rvps12><span class=rvts263># </span></p>
+<p class=rvps12><span class=rvts262>$~  $LAST_MATCH_INFO                        </span><span class=rvts263># MatchData object of the last successful pattern match</span></p>
+<p class=rvps12><span class=rvts262>$&amp;  $MATCH                                  </span><span class=rvts263># match (string) of the last successful pattern match</span></p>
+<p class=rvps12><span class=rvts262>$`  $PREMATCH                               </span><span class=rvts263># the string preceding the last successful pattern match</span></p>
+<p class=rvps12><span class=rvts262>$'  $POSTMATCH                              </span><span class=rvts263># the string trailing the last successful pattern match</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>strscan</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'strscan'</span><span class=rvts262>                           </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>scanner = </span><span class=rvts267>StringScanner</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262> </span><span class=rvts266>"a1b2c3"</span><span class=rvts262>        </span><span class=rvts263>#     | a1b2c3</span></p>
+<p class=rvps12><span class=rvts262>scanner.scan(</span><span class=rvts266>/[a-z]/</span><span class=rvts262>)                       </span><span class=rvts263># a   |  1b2c3</span></p>
+<p class=rvps12><span class=rvts262>scanner.scan(</span><span class=rvts266>/[a-z]/</span><span class=rvts262>)                       </span><span class=rvts263>#     |  1b2c3 (returns nil because it doesn't match from the start)</span></p>
+<p class=rvps12><span class=rvts262>scanner.scan_until(</span><span class=rvts266>/[a-z]/</span><span class=rvts262>)                 </span><span class=rvts263># 1b  |    2c3</span></p>
+<p class=rvps12><span class=rvts262>scanner.unscan                              </span><span class=rvts263>#     |  1b2c3 (undo the previous scan/scan_until)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>scanner.rest                                </span><span class=rvts263># 1b2c3 (the remainder yet to be scanned)</span></p>
+<p class=rvps12><span class=rvts262>scanner.pos                                 </span><span class=rvts263># 1 (only the leading "a" has been scanned)</span></p>
+<p class=rvps12><span class=rvts262>scanner.pos += 2                            </span><span class=rvts263># change scanner position</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>BASE64</div>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'base64'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Base64</span><span class=rvts262>.encode64(</span><span class=rvts266>'text'</span><span class=rvts262>)                     </span><span class=rvts263># encode text to BASE64</span></p>
+<p class=rvps12><span class=rvts267>Base64</span><span class=rvts262>.encode64(</span><span class=rvts267>File</span><span class=rvts262>.read(</span><span class=rvts266>'README'</span><span class=rvts262>))        </span><span class=rvts263># encode the contents of a file</span></p>
+<p class=rvps12><span class=rvts267>Base64</span><span class=rvts262>.decode64(</span><span class=rvts266>'dGVzdGluZw=='</span><span class=rvts262>)             </span><span class=rvts263># decode BASE64 to text</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Digest</div>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'digest/sha2'</span><span class=rvts262>                       </span><span class=rvts263># standard libraries</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'digest/md5'</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'digest'</span><span class=rvts262>                            </span><span class=rvts263># includes both of the above</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Digest</span><span class=rvts262>::</span><span class=rvts267>SHA2</span><span class=rvts262>.hexdigest(</span><span class=rvts266>'password'</span><span class=rvts262>)          </span><span class=rvts263># calculate digest in hex representation</span></p>
+<p class=rvps12><span class=rvts267>Digest</span><span class=rvts262>::</span><span class=rvts267>MD5</span><span class=rvts262>.hexdigest(</span><span class=rvts266>'password'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Digest</span><span class=rvts262>::</span><span class=rvts267>SHA2</span><span class=rvts262>.digest(</span><span class=rvts266>'password'</span><span class=rvts262>)             </span><span class=rvts263># calculate digest in biary representation (returns a byte array)</span></p>
+<p class=rvps12><span class=rvts267>Digest</span><span class=rvts262>::</span><span class=rvts267>MD5</span><span class=rvts262>.digest(</span><span class=rvts266>'password'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

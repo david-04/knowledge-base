@@ -1,0 +1,63 @@
+
+<div id='nodeSection1'>Sorted sets</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts58>ZADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>myOrderedSet 100 </span><span class=rvts42>"David"</span><span class=rvts41> 101 </span><span class=rvts42>"Edeltraud"</span><span class=rvts41>&nbsp; </span><span class=rvts39>// add an item with the given score (=primary sort order)</span></p>
+<p><span class=rvts58>ZREM</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myOrderedSet </span><span class=rvts42>"David"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove an item from the set</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts58>ZCOUNT</span><span class=rvts41>&nbsp;&nbsp;&nbsp; myOrderedSet 100 101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// count the number of items in the selected score range</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58>ZRANGE</span><span class=rvts41>&nbsp;&nbsp;&nbsp; myOrderedSet 0 -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve a range of items (first to last in this example)</span></p>
+<p><span class=rvts58>ZREVRANGE</span><span class=rvts41> myOrderedSet 0 -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve a range of items in reversed order (last to first in this example)</span></p>
+<p><span class=rvts58>ZRANGE</span><span class=rvts41>&nbsp;&nbsp;&nbsp; myOrderedSet 0 -1 </span><span class=rvts58>WITHSCORES</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return as an array [value1, score1, value2, score2, ...]</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts58>ZSCORE</span><span class=rvts41>&nbsp;&nbsp;&nbsp; myOrderedSet </span><span class=rvts42>"David"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get score associated with the given item</span></p>
+<p><span class=rvts58>ZRANK</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; myOrderedSet </span><span class=rvts42>"David"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the rank (zero-based index of the item within the set)</span></p>
+<p><span class=rvts58>ZREVRANK</span><span class=rvts41>&nbsp; myOrededAet </span><span class=rvts42>"David"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the reverse rank</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58>ZRANGEBYLEX</span></p>
+<p><span class=rvts58>ZRANGEBYSCORE</span></p>
+<p><span class=rvts58>ZREVRANGEBYLEX</span></p>
+<p><span class=rvts58>ZREVRANGEBYSCORE</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection2'>Node</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>client.zadd(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add items to a sorted set</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts42>"mySortedSet"</span><span class=rvts41>, 10, </span><span class=rvts42>"David"</span><span class=rvts41>, 10, </span><span class=rvts42>"Edeltraud"</span><span class=rvts41>],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, replies) { }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.zrem(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove an item from a sorted set</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"mySortedSet"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"Edeltraud"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, replies) { }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.zscore(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the (sort-) score of a selected item</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"mySortedSet"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"David"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, zscoreReply) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(zscoreReply);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.zrevrank(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the rank (zero-based index of the item within the sorted set)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"mySortedSet"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"David"</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, zrevrankReply) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(zrevrankReply);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.zrevrange(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get a range of items</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts42>"mySortedSet"</span><span class=rvts41>, 0, 4, </span><span class=rvts42>"WITHSCORES"</span><span class=rvts41>],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, reply) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>var</span><span class=rvts41> i = 0; i &lt; reply.length; i+=2) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(reply[i+1], reply[i]);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

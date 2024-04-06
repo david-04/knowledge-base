@@ -1,0 +1,75 @@
+
+<div id='nodeSection1'>Conditional processing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts46>div</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>width</span><span class=rvts41>: </span><span class=rvts45>if($myVariable</span><span class=rvts41> </span><span class=rvts45>&lt;</span><span class=rvts41> </span><span class=rvts45>10,</span><span class=rvts41> </span><span class=rvts45>50%,</span><span class=rvts41> </span><span class=rvts45>300px)</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>the inline if-function works like the ?: operator in C/C++/Java</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts95>@if</span><span class=rvts41> </span><span class=rvts46>$myVariable &lt; 10</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>when used as an directive, it also supports else-if branches</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>red</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; } </span><span class=rvts95>@else</span><span class=rvts41> </span><span class=rvts46>if $myVariable &lt; 20</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>font-weigth</span><span class=rvts41>: </span><span class=rvts45>bold</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; } </span><span class=rvts95>@else</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>text-decoration</span><span class=rvts41>: </span><span class=rvts45>underline</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts95>@if</span><span class=rvts41> </span><span class=rvts46>$myVariable &lt; 10</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>the directive can also be used to produce whole rules</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>#myElement</span><span class=rvts41> { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>red</span><span class=rvts41>; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts91><br></span></p>
+<div id='nodeSection2'>Iterations</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts46>@for</span><span class=rvts43> </span><span class=rvts46>$i from 1 through 3</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>couting loop ("1 through 3" can also be written as "1 to 3")</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>.myClass#{$i}</span><span class=rvts41> { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>width</span><span class=rvts41>: </span><span class=rvts45>2em</span><span class=rvts41> </span><span class=rvts45>*</span><span class=rvts41> </span><span class=rvts45>$i</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts46>@each</span><span class=rvts41> </span><span class=rvts46>$severity</span><span class=rvts41> </span><span class=rvts46>in</span><span class=rvts41> </span><span class=rvts46>info</span><span class=rvts41>, </span><span class=rvts46>warning</span><span class=rvts41>, </span><span class=rvts46>error</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>iterate through a list of values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; .#{$severity}</span><span class=rvts46>Box</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>border</span><span class=rvts41>: </span><span class=rvts45>1px</span><span class=rvts41> </span><span class=rvts45>solid</span><span class=rvts41> </span><span class=rvts45>black</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>.myClass</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts95>@each</span><span class=rvts41> </span><span class=rvts46>$k, $v in (color: red, width: 10%)</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>iterate through the key-value-pairs of a map</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>#{$k}</span><span class=rvts41>: </span><span class=rvts45>$v</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts46>@each</span><span class=rvts41> </span><span class=rvts46>$name</span><span class=rvts41>, </span><span class=rvts46>$color</span><span class=rvts41>, </span><span class=rvts46>$width</span><span class=rvts41> </span><span class=rvts46>in</span><span class=rvts41> </span><span class=rvts46>(info</span><span class=rvts41>, </span><span class=rvts46>black</span><span class=rvts41>, </span><span class=rvts46>50%)</span><span class=rvts41>,&nbsp; </span><span class=rvts91>/*</span><span class=rvts41> </span><span class=rvts91>iterate through a list of lists</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts46>(warn</span><span class=rvts41>, </span><span class=rvts46>orange</span><span class=rvts41>, </span><span class=rvts46>50%)</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts46>(error</span><span class=rvts41>, </span><span class=rvts46>red</span><span class=rvts41>, </span><span class=rvts46>50%)</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>.#{$name}Box</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>color</span><span class=rvts41>: </span><span class=rvts45>$color</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>width</span><span class=rvts41>: </span><span class=rvts45>$width</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts46>$i:</span><span class=rvts41> </span><span class=rvts46>1;</span></p>
+<p><span class=rvts46>@while</span><span class=rvts41> </span><span class=rvts46>$i</span><span class=rvts41> </span><span class=rvts46>&lt;</span><span class=rvts41> </span><span class=rvts46>5</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>/* while-loop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>h#{$i}</span><span class=rvts41> { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>width</span><span class=rvts41>: </span><span class=rvts45>2em</span><span class=rvts41> </span><span class=rvts45>*</span><span class=rvts41> </span><span class=rvts45>$i</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts46>$i:</span><span class=rvts41> </span><span class=rvts46>$i</span><span class=rvts41> </span><span class=rvts46>+</span><span class=rvts41> </span><span class=rvts46>1;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,41 @@
+
+<p class=rvps2><span class=rvts7><br></span></p>
+<div id='nodeSection1'>File API</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="file"</span><span class=rvts41> </span><span class=rvts90>id</span><span class=rvts45>="fileInputField"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- a HTML input field must be populated by the user first --&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts41>fileInputField.onchange = </span><span class=rvts45>function</span><span class=rvts41>(event) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach a handler to an &lt;input type="file"&gt; element</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> files = event.target.files;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// FileList object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; files[0].{name|size|type|lastModifiedDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve file properties (type is the MIME type, name excludes the path)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>fileReader = </span><span class=rvts45>new</span><span class=rvts41> FileReader()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate a new reader object (</span><span class=rvts44>not supported in IE&lt;=9</span><span class=rvts39>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>fileReader.</span><span class=rvts47>on</span><span class=rvts41>load&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>all operations are asynchronous, must use event handlers</span><span class=rvts39>; event.target.result contains the file contents</span></p>
+<p><span class=rvts41>fileReader.</span><span class=rvts47>on</span><span class=rvts41>progress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// event.{lengthComputable|loaded|total|result}</span></p>
+<p><span class=rvts41>fileReader.</span><span class=rvts47>on</span><span class=rvts41>error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// event.code: 1 file not found, 2 security error, 3 aborted, 4 not readable, 5 encoding error</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>fileReader.readAsText(fileObject, encoding)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// read the file as plain text and store the text in the result property</span></p>
+<p><span class=rvts41>fileReader.readAsDataURL(fileObject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// read the file and store a data URI representing the files in the result property</span></p>
+<p><span class=rvts41>fileReader.readAsBinaryString(fileObject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// read the file and store a byte-string in the result property</span></p>
+<p><span class=rvts41>fileReader.readAsArrayBuffer(fileObject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// read the file and store an ArrayBuffer containing the contents in the result property</span></p>
+<p><span class=rvts41>fileReader.readAsText(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// read only parts of the file</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; fileObject.slice(startIndex, length))</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>fileReader.abort()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// cancel the current reading operation</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>url = window.URL.createObjectURL(fileObject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// returns an URL that can be used for example as img.src</span></p>
+<p><span class=rvts41>window.URL.revokeObjectURL(url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// release the URL when no longer needed (so the file can be unloaded)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>element.ondrop = </span><span class=rvts45>function</span><span class=rvts41>() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this event can receive files dropped from outside of the browser</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; event.dataTransfer.files&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// array of file objects that can be used to read the content</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; event.preventDefault()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// prevent the default behaviour when accepting drops</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>data = </span><span class=rvts45>new</span><span class=rvts41> FormData();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// post files like they were part of a form</span></p>
+<p><span class=rvts41>data.append(</span><span class=rvts42>"file1"</span><span class=rvts41>, fileOject);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// invokes a FileReader automatically before sending</span></p>
+<p><span class=rvts41>XMLHttpRequest.send(data);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,67 @@
+
+<div id='nodeSection1'>XML data binding</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>C:\&gt;xsd.exe my-schema.xsd /c /language:VB /namespace:MyTargetNamespace /eld</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts58>using</span><span class=rvts183> (</span><span class=rvts110>FileStream</span><span class=rvts183> stream = </span><span class=rvts110>File</span><span class=rvts183>.Open(</span><span class=rvts184>"test.xml"</span><span class=rvts183>, </span><span class=rvts110>FileMode</span><span class=rvts183>.Open, </span><span class=rvts110>FileAccess</span><span class=rvts183>.Read))</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>XmlReader</span><span class=rvts183> reader = </span><span class=rvts110>XmlReader</span><span class=rvts183>.Create(stream, </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XmlReaderSettings</span><span class=rvts183>());</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>XmlSerializer</span><span class=rvts183> serializer = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XmlSerializer</span><span class=rvts183>(</span><span class=rvts58>typeof</span><span class=rvts183>(</span><span class=rvts110>UpTick</span><span class=rvts183>));</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>UpTick </span><span class=rvts183>upTick = (</span><span class=rvts110>UpTick</span><span class=rvts183>)serializer.Deserialize(reader);</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Parsing strings and files</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>XElement</span><span class=rvts183> element = </span><span class=rvts110>XElement</span><span class=rvts183>.Parse</span></p>
+<p><span class=rvts183>(</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "&lt;books&gt;&lt;book&gt;My Book&lt;/book&gt;&lt;/books&gt;"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// parse from string</span></p>
+<p><span class=rvts183>); </span></p>
+<p><span class=rvts183>element = </span><span class=rvts110>XElement</span><span class=rvts183>.Load(</span><span class=rvts184>"file.xml"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// load from file (see also XDocument.Load)</span></p>
+<p><span class=rvts183>element.Save(</span><span class=rvts184>"output.xml"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// save to file (see also XDocument.Save)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Creating DOM nodes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>XDocument</span><span class=rvts183> document = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XDocument</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// wrapping document is only needed for delcarations</span></p>
+<p><span class=rvts183>(</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XDeclaration</span><span class=rvts183>(</span><span class=rvts184>"1.0"</span><span class=rvts183>, </span><span class=rvts184>"utf-8"</span><span class=rvts183>, </span><span class=rvts184>"yes"</span><span class=rvts183>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// this is also the default XML declaration</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XComment</span><span class=rvts183>(</span><span class=rvts184>"This is a comment"</span><span class=rvts183>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// comments can be placed anywhere in the tree</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XProcessingInstruction</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// &lt;? ... ?&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; (</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"xml-stylesheet"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// instruction (command) name</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"href=</span><span class=rvts198>’</span><span class=rvts184>stylesheet.css</span><span class=rvts198>’</span><span class=rvts184> type=</span><span class=rvts198>’</span><span class=rvts184>text/css</span><span class=rvts198>’</span><span class=rvts184>"</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// value</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; ),</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XElement</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; (</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"Books"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XElement</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"Book"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XAttribute</span><span class=rvts183>(</span><span class=rvts184>"id"</span><span class=rvts183>, 1028),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// node attribute</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XComment</span><span class=rvts183>(</span><span class=rvts184>"This is a comment"</span><span class=rvts183>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// comment</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XElement</span><span class=rvts183>(</span><span class=rvts184>"autor"</span><span class=rvts183>, </span><span class=rvts184>"David"</span><span class=rvts183>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// child elements</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XElement</span><span class=rvts183>(</span><span class=rvts184>"year"</span><span class=rvts183>, </span><span class=rvts184>"2016"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts183>);</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Creating DOM nodes the old-fashined way</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>XmlDocument</span><span class=rvts183> document = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>XmlDocument</span><span class=rvts183>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// the whole document</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>XmlElement</span><span class=rvts183> books = document.CreateElement(</span><span class=rvts184>"books"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// root element</span></p>
+<p><span class=rvts183>document.AppendChild(books);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>XmlElement</span><span class=rvts183> book = document.CreateElement(</span><span class=rvts184>"book"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// child element</span></p>
+<p><span class=rvts183>book.SetAttribute(</span><span class=rvts184>"title"</span><span class=rvts183>, </span><span class=rvts184>"My Book"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// attributes</span></p>
+<p><span class=rvts183>books.AppendChild(book);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>XmlElement</span><span class=rvts183> author = document.CreateElement(</span><span class=rvts184>"author"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// child element</span></p>
+<p><span class=rvts183>author.InnerText = </span><span class=rvts184>"David"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// inner text content</span></p>
+<p><span class=rvts183>book.AppendChild(author);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

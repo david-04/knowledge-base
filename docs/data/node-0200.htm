@@ -1,0 +1,79 @@
+
+<div id='nodeSection1'>INSERT</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Account a = </span><span class=rvts130>new </span><span class=rvts124>Account(Name=</span><span class=rvts128>'Account Example'</span><span class=rvts124>);&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create the object in memory first</span></p>
+<p class=rvps12><span class=rvts124>insert a;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// insert it</span></p>
+<p class=rvps12><span class=rvts124>ID id = a.Id;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// after the insert, the generated record ID is accessible</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>UPDATE</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Account account = [SELECT Name, Industry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve the record </span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>FROM Account</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE Name=</span><span class=rvts128>'Account Example'</span></p>
+<p class=rvps12><span class=rvts128>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>LIMIT 1];</span></p>
+<p class=rvps12><span class=rvts124>account.Name = </span><span class=rvts128>'Account of the Day'</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// perform manipulations in memory</span></p>
+<p class=rvps12><span class=rvts124>update account;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// update the record</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>UPSERT</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Account a = </span><span class=rvts130>new </span><span class=rvts124>Account(CRN__c=</span><span class=rvts128>'C-123456'</span><span class=rvts124>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// can match via record ID, custom external ID or standard field with idLookup set</span></p>
+<p class=rvps12><span class=rvts124>upsert a;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// throws an error if more than one record matches</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>MERGE</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>merge masterAccount obsoleteAccount;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// merge objects (reparents all children; only applicable to leads, contacts and accounts)</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>Database.MergeResult[] results = Database.merge(&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// merge multiple records at once</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>masterAccount, listOfObsoleteAccount, </span><span class=rvts130>false</span><span class=rvts124>);&nbsp;&nbsp; </span><span class=rvts125>// ... continuing even if errors occurred</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>DELETE</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Account[] doomedAccts = [SELECT Id, Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// select the records to remove</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM Account&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>WHERE Name = </span><span class=rvts128>'DotCom'</span><span class=rvts124>];</span></p>
+<p class=rvps12><span class=rvts124>delete doomedAccts;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// performs a cascading delete</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>UNDELETE</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Account[] deleteAccounts = [SELECT Id, Name</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM Account</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE Name = </span><span class=rvts128>'...'</span></p>
+<p class=rvps12><span class=rvts128>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>ALL ROWS];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// this seems to include items in the recycle bin</span></p>
+<p class=rvps12><span class=rvts124>undelete savedAccts;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// restore deleted items</span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Lead -&gt; Account</div>
+<p><span class=rvts8><br></span></p>
+<p><a class=rvts164 href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_dml_examples_convertlead.htm">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_dml_examples_convertlead.htm</a></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Relationships</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Contact contact = </span><span class=rvts130>new </span><span class=rvts124>Contact(AccountId=acctID);&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// refertence the foreign key (if it is known)</span></p>
+<p class=rvps12><span class=rvts124>insert contact;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>Opportunity opportunity = </span><span class=rvts130>new </span><span class=rvts124>Opportunity();</span></p>
+<p class=rvps12><span class=rvts124>Account account = </span><span class=rvts130>new </span><span class=rvts124>Account(CRN__c=</span><span class=rvts128>'C-ABC'</span><span class=rvts124>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// creat a dummy object specifyig an external ID only</span></p>
+<p class=rvps12><span class=rvts124>opportunity.Account = account;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// link the new opportunity to the proxy account</span></p>
+<p class=rvps12><span class=rvts124>Database.SaveResult r=Database.insert(opportunity); </span><span class=rvts125>// probably works with insert opprtunity as well</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>Opportunity opportunity = </span><span class=rvts130>new </span><span class=rvts124>Opportunity(...);</span></p>
+<p class=rvps12><span class=rvts124>Account accountRef = </span><span class=rvts130>new </span><span class=rvts124>Account(CRN__c=</span><span class=rvts128>'C-ABC'</span><span class=rvts124>);&nbsp;&nbsp; </span><span class=rvts125>// create and link a proxy object</span></p>
+<p class=rvps12><span class=rvts124>opportunity.Account = accountRef;</span></p>
+<p class=rvps12><span class=rvts124>Account account = </span><span class=rvts130>new </span><span class=rvts124>Account(CRN__c=</span><span class=rvts128>'C-ABC'</span><span class=rvts124>, ...); </span><span class=rvts125>// create the real record with all details</span></p>
+<p class=rvps12><span class=rvts124>Database.SaveResult[] results = Database.insert(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>new </span><span class=rvts124>SObject[] {account, opportunity});&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// insert the real record and the opportunity in one statement</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><br></p>
+<p><br></p>
+

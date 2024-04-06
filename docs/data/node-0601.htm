@@ -1,0 +1,117 @@
+
+<div id='nodeSection1'>Data types</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>Any</span></p>
+<p class=rvps12><span class=rvts262>+- AnyValue</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Boolean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// true or false</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Byte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -128 ......................... 127 |&nbsp; 8-bit signed two</span><span class=rvts273>’</span><span class=rvts263>s complement integer</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Short&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts273>−</span><span class=rvts263>32,768 ...................... 32,767 | 16-bit signed two</span><span class=rvts273>’</span><span class=rvts263>s complement integer</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts273>−</span><span class=rvts263>2,147,483,648 ............... 2,147,483,647 | 32-bit signed two</span><span class=rvts273>’</span><span class=rvts263>s complement integer</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// </span><span class=rvts273>−</span><span class=rvts263>9,223,372,036,854,775,808 ... 9,223,372,036,854,775,807 | 64-bit signed integer</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Char&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ....................... 65535 | 16-bit unsigned Unicode character</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Float&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// 32-bit IEEE 754 single-precision float</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// 64-bit IEEE 754 double-precision float</span></p>
+<p class=rvps12><span class=rvts262>|&nbsp; +- Unit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// corresponds to Java's void type</span></p>
+<p class=rvps12><span class=rvts262>+- AnyRef&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// correspondsd to Java's Object class</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>+- Null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the type of the null object</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>Nothing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// similar to "never" in TypeScript - is a child of every other class</span></p>
+<p class=rvps12><span class=rvts262>Null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// similar to "Nothing" - is a child of every other class </span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>option : </span><span class=rvts274>Option</span><span class=rvts262>[Int] = Some(1) || </span><span class=rvts274>None&nbsp; </span><span class=rvts263>// equivalent to Java's "Optional" class</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>value = option </span><span class=rvts265>match </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can use pattern matching to extract the value</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>case </span><span class=rvts262>Some(number) =&gt; number</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>case </span><span class=rvts274>None </span><span class=rvts262>=&gt; 0</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Alias, union and intersection types</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>type </span><span class=rvts277>MyAlias&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts262>= Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// type alias (like in TypeScript, just a shortcut - does not create a new/distinct type)</span></p>
+<p class=rvps12><span class=rvts265>type </span><span class=rvts262>MyIntersect = </span><span class=rvts277>String </span><span class=rvts262>| Int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can be one or the other</span></p>
+<p class=rvps12><span class=rvts265>type </span><span class=rvts262>MyUnion&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts277>List</span><span class=rvts262>[Int] &amp; </span><span class=rvts274>Array</span><span class=rvts262>[Int]&nbsp;&nbsp; </span><span class=rvts263>// all methods/properties that are shared by List and Array</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>getType(x: Int | </span><span class=rvts277>String</span><span class=rvts262>) = x </span><span class=rvts265>match </span><span class=rvts262>{&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the actual type can be identified via pattern matching</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>case </span><span class=rvts262>n: Int =&gt; </span><span class=rvts266>s"number: </span><span class=rvts276>$</span><span class=rvts262>n</span><span class=rvts266>"</span></p>
+<p class=rvps12><span class=rvts266>&nbsp; </span><span class=rvts265>case </span><span class=rvts262>s: </span><span class=rvts277>String </span><span class=rvts262>=&gt; </span><span class=rvts266>s"string: </span><span class=rvts276>$</span><span class=rvts262>s</span><span class=rvts266>"</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p><span class=rvts9><br></span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<div id='nodeSection3'>Typecheck and casting</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts262>myObject.isInstanceOf[</span><span class=rvts274>MyChildClass</span><span class=rvts262>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// check the type</span></p>
+<p class=rvps12><span class=rvts262>myObject.asInstanceOf[</span><span class=rvts274>MyChildClass</span><span class=rvts262>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// typecast (discouraged, rather use pattern matching)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>myObject </span><span class=rvts265>match </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// type cast via pattern matching (preferred approach)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>case </span><span class=rvts262>x: </span><span class=rvts274>MyChildClass </span><span class=rvts262>=&gt; x.myMethod()</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Variables</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>var </span><span class=rvts262>myVariable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// mutable variable with inferred type</span></p>
+<p class=rvps12><span class=rvts265>var </span><span class=rvts262>myVariable : Int&nbsp; = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// explicit type</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myValue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// immutable value</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>MyConstant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// constant (naming convention is first letter uppercase)</span></p>
+<p class=rvps12><span class=rvts265>lazy val </span><span class=rvts262>myLazyVal&nbsp;&nbsp;&nbsp; = calculate(2, 3)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// calls the "add" function only when myLazyVal is accessed/read</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myObject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts265>new </span><span class=rvts262>MyClass()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// instantiation (the "new" keyword is optional in Scala 3)</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>myLambdaResult&nbsp;&nbsp;&nbsp; = { myValue + 1 }&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// initialise with the result of a lambda</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Decomposition</div>
+<p><span class=rvts265><br></span></p>
+<p><span class=rvts265>var </span><span class=rvts262>x, y = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// assign 1 to both variables (like x = y = 1 in C)</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>(x, y) = (3, 7)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// decompose a tuple (useful when a function returns a tuple)</span></p>
+<p class=rvps12><span class=rvts265>val </span><span class=rvts262>MyClass(x, y) = </span><span class=rvts265>new </span><span class=rvts262>MyClass(3, 5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// decompose a class and create variables x and y</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Literals</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// represents Unit (a bit like an instance of void, e.g. () == println(1)</span></p>
+<p class=rvps12><span class=rvts265>null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// Null</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// int, short, byte</span></p>
+<p class=rvps12><span class=rvts262>0xA0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...as hex</span></p>
+<p class=rvps12><span class=rvts262>1_000_000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...can include underscore for optical grouping</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>123L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// long</span></p>
+<p class=rvps12><span class=rvts262>0xA0L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...as hex</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>1.23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || 1.23D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// double</span></p>
+<p class=rvps12><span class=rvts262>1.23E-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || 1.23E-3D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...scientific notation</span></p>
+<p class=rvps12><span class=rvts262>1_123_456E5&nbsp; || 1_123_456E5D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...can include underscore</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>1.23F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// float</span></p>
+<p class=rvps12><span class=rvts262>1.23E-3F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...scientific notation</span></p>
+<p class=rvps12><span class=rvts262>1_123_456E5F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...can include underscore</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts266>'A'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// char</span></p>
+<p class=rvps12><span class=rvts266>'\u0041'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...as unicode hex</span></p>
+<p class=rvps12><span class=rvts266>'\\'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...escape character</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts266>"\r\n\t\"\'\\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// string with escaping</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts266>"""multiline string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// multi-line string</span></p>
+<p class=rvps12><span class=rvts266>with \ " ' """</span></p>
+<p class=rvps12><span class=rvts266><br></span></p>
+<p class=rvps12><span class=rvts266>"""|multiline string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// indented multi-line string</span></p>
+<p class=rvps12><span class=rvts266>&nbsp;&nbsp; |with \ " ' """</span><span class=rvts262>.stripMargin</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>s"User: </span><span class=rvts276>$</span><span class=rvts262>name </span><span class=rvts276>$</span><span class=rvts262>{location.city}</span><span class=rvts266>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// interpolation</span></p>
+<p class=rvps12><span class=rvts266>raw"\\\</span><span class=rvts276>$</span><span class=rvts262>name</span><span class=rvts266>\\\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...does not interpret the escape character</span></p>
+<p class=rvps12><span class=rvts266>f"</span><span class=rvts276>$</span><span class=rvts262>{3.5}</span><span class=rvts266>%2.2f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...interpolates with printf-style format strings (defaults to "%s" if omitted)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>(3.1415).formatted(</span><span class=rvts266>"%.2f"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// all value classes have a formatted() method that works like sprintf</span></p>
+<p class=rvps12><span class=rvts262>(3.1415).formatted(</span><span class=rvts266>s"%.</span><span class=rvts276>$</span><span class=rvts262>{precision}</span><span class=rvts266>f"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can use interpolation to create dynamic format strings</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

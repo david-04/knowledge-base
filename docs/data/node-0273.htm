@@ -1,0 +1,70 @@
+
+<div id='nodeSection1'>Calling web sockets from the client</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> socket = </span><span class=rvts45>null</span><span class=rvts41>;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>try</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket = </span><span class=rvts45>new</span><span class=rvts41> WebSocket(</span><span class=rvts42>"ws://localhost:57438/IISHandler.cs"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket.onopen&nbsp;&nbsp;&nbsp; = </span><span class=rvts45>function</span><span class=rvts41> (msg) { alert(</span><span class=rvts42>"The socket is now open"</span><span class=rvts41>); };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket.onmessage = </span><span class=rvts45>function</span><span class=rvts41> (msg) { alert(</span><span class=rvts42>"Response: "</span><span class=rvts41> + msg.data);&nbsp; };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket.onclose&nbsp;&nbsp; = </span><span class=rvts45>function</span><span class=rvts41> (msg) { alert(</span><span class=rvts42>"The socket was closed"</span><span class=rvts41>);&nbsp; };</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>} </span><span class=rvts45>catch</span><span class=rvts41> (exception) { </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; alert(exception); </span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>socket.send(</span><span class=rvts42>"payload data"</span><span class=rvts41>)</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Implementing web sockets on the server</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>IISHandler</span><span class=rvts41> : </span><span class=rvts171>IHttpHandler</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> IsReusable</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>get</span><span class=rvts41> { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>true</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> ProcessRequest(</span><span class=rvts171>HttpContext</span><span class=rvts41> context)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// only handle web socket request</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (context.IsWebSocketRequest)&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.AcceptWebSocketRequest(MyWebSocket);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>async</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41> MyWebSocket(</span><span class=rvts171>AspNetWebSocketContext</span><span class=rvts41> context)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>WebSocket</span><span class=rvts41> socket = context.WebSocket;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>while</span><span class=rvts41> (</span><span class=rvts45>true</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>ArraySegment</span><span class=rvts41>&lt;</span><span class=rvts45>byte</span><span class=rvts41>&gt; buffer = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>ArraySegment</span><span class=rvts41>&lt;</span><span class=rvts45>byte</span><span class=rvts41>&gt;(</span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts45>byte</span><span class=rvts41>[1024]);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Asynchronously wait for a message to arrive from a client</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>WebSocketReceiveResult</span><span class=rvts41> result = </span><span class=rvts45>await</span><span class=rvts41> socket.ReceiveAsync(buffer, </span><span class=rvts171>CancellationToken</span><span class=rvts41>.None);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// If the socket is still open, echo the message back to the client</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (socket.State == </span><span class=rvts171>WebSocketState</span><span class=rvts41>.Open)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>string</span><span class=rvts41> userMessage = </span><span class=rvts171>Encoding</span><span class=rvts41>.UTF8.GetString(buffer.Array, 0, result.Count);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; userMessage = </span><span class=rvts42>"You sent: "</span><span class=rvts41> + userMessage + </span><span class=rvts42>" at "</span><span class=rvts41> + </span><span class=rvts171>DateTime</span><span class=rvts41>.Now.ToLongTimeString();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buffer = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>ArraySegment</span><span class=rvts41>&lt;</span><span class=rvts45>byte</span><span class=rvts41>&gt;(</span><span class=rvts171>Encoding</span><span class=rvts41>.UTF8.GetBytes(userMessage));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Asynchronously send a message to the client</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>await</span><span class=rvts41> socket.SendAsync(buffer, </span><span class=rvts171>WebSocketMessageType</span><span class=rvts41>.Text, </span><span class=rvts45>true</span><span class=rvts41>, </span><span class=rvts171>CancellationToken</span><span class=rvts41>.None);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>break</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

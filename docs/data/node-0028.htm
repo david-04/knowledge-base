@@ -1,0 +1,27 @@
+
+<div id='nodeSection1'>HyperLogLog</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>PFADD</span><span class=rvts41>&nbsp;&nbsp; myHyperLogLog </span><span class=rvts42>"David"</span><span class=rvts41> </span><span class=rvts42>"Edeltraud"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add items to a HyperLogLog</span></p>
+<p><span class=rvts58>PFCOUNT</span><span class=rvts41> myHyperLogLog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get an </span><span class=rvts44>approximate estimation</span><span class=rvts39> of the number of distinct items</span></p>
+<p><span class=rvts58>PFMERGE</span><span class=rvts41> myResultHyperLogLog myHLL1 matchMedia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// merge two HyperLogLogs into one result container</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection2'>Node</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts41>client.pfadd(</span><span class=rvts42>"myHyperLogLog"</span><span class=rvts41>, </span><span class=rvts42>"David"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add an item to the HyperLogLog</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.pfcount(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// count the approximate number of distinct items in the given HyperLogLogs</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts42>"myHyperLogLog"</span><span class=rvts41>, </span><span class=rvts42>"myOtherHyperLogLog"</span><span class=rvts41>],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, reply) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(reply);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.pfmerge(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// merge multiple sources into one combined HyperLogLog</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts42>"myResultHyperLogLog"</span><span class=rvts41>, </span><span class=rvts42>"myHLL1"</span><span class=rvts41>, </span><span class=rvts42>"myHLL2"</span><span class=rvts41>],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, reply) { }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,85 @@
+
+<div id='nodeSection1'>Drawing (Swing)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyPanel</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>JPanel</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a custom component class in oder to draw</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>final</span><span class=rvts113> </span><span class=rvts64>long</span><span class=rvts113> serialVersionUID = 1L;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyPanel() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// always initialise the super class </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.setSize(300, 300);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ensure that the component is rendered large enough to</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.setPreferredSize(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// acommodate the whole drawing</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Dimension</span><span class=rvts113>(300,300));</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>protected</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> paintComponent(</span><span class=rvts233>Graphics</span><span class=rvts113> g) {&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// override paintComponent (not paint!)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>.paintComponent(g);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// let the base class to its painting first</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Insets</span><span class=rvts113> insets = </span><span class=rvts64>this</span><span class=rvts113>.getInsets();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// determine the visible area (component size - frame width)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.drawString(</span><span class=rvts217>"Painted text"</span><span class=rvts113>,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insets.left+10,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// paint into the visible area only </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insets.top+10);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Graphics context (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Graphics</span><span class=rvts113> graphics = myComponent.getGraphics()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain the graphics context from a component</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Colours (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Color</span><span class=rvts113> myColor = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Color</span><span class=rvts113>(red, green, blue)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// define a color as integer (0-255) or as float (0.0-1.0)</span></p>
+<p><span class=rvts233>Color</span><span class=rvts113> myColor = </span><span class=rvts233>Color</span><span class=rvts113>.RED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// use a predefined colour</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>component.setForeground(myColor)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set the fore- or background colour of a component (or window)</span></p>
+<p><span class=rvts113>component.setBackground(myColor)</span></p>
+<p><span class=rvts113>graphics.setColor(</span><span class=rvts233>Color</span><span class=rvts113>.RED)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set the drawing colour of the graphics context</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection4'>Drawing shapes (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>graphics.drawLine(</span><span class=rvts61>x1, y1, x2, y2</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// draw a line</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>graphics.drawRect(</span><span class=rvts61>x1, y1, x2, y2</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// draw a rectangle (outline or filled)</span></p>
+<p><span class=rvts113>graphics.fillRect(</span><span class=rvts61>x1, y1, x2, y2</span><span class=rvts113>) </span></p>
+<p><span class=rvts113>graphics.drawRoundRect(</span><span class=rvts61>x1, y1, x2, y2</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... optionally with rounded corners</span></p>
+<p><span class=rvts113>graphics.fillRoundRect(</span><span class=rvts61>x1, y1, x2, y2</span><span class=rvts113>) </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>graphics.drawOval(x, y, w, h)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// draw circles or ellipses</span></p>
+<p><span class=rvts113>graphics.fillOval(x, y, w, h)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>graphics.drawArc(x, y, w, h, startAngle, arcAngle)&nbsp; </span><span class=rvts62>// draw an arc</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>graphics.drawPolygon(xPoints, yPoints, nPoints);&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// draw a polygon</span><span class=rvts113> </span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection5'>Overwrite mode (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>graphics.setPaintMode()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// default: newer drawings overwrite pre-existing ones</span></p>
+<p><span class=rvts113>graphics.setXORMode(</span><span class=rvts233>Color</span><span class=rvts113>.RED)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// if necessary invert the new paint so that the outline is always visible</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection6'>Text and fonts (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>graphics.drawString(</span><span class=rvts217>"string"</span><span class=rvts113>, x, y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// print the given text at the specified position</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>Font</span><span class=rvts113> myFont = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Font</span><span class=rvts113>(</span><span class=rvts217>"SansSerif"</span><span class=rvts113>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// font name or Dialog, DialogInput, SansSerif, Serif, Monospaced</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Font</span><span class=rvts113>.PLAIN,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// Font.PLAIN, Font.BOLD, Font.ITALIC (combinable via bitwise OR)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// font size in points</span></p>
+<p><span class=rvts113>component.setFont(myFont)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set a component's font</span></p>
+<p><span class=rvts113>graphics.setFont(myFont)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set the graphics context's font (overriding the component's font)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>fontMetrics = graphics.getFontMetrics()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain font metrics from the graphic context's current font</span></p>
+<p><span class=rvts113>fontMetrics = graphics.getFontMetrics(font)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or from a specified one</span></p>
+<p><span class=rvts113>fontMetrics.getHeight()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain details about the font, like for example the line height</span></p>
+<p><span class=rvts113>fontMetrics.stringWidth(</span><span class=rvts217>"text"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... or the with that a particular text would consume</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>GraphicsEnvironment</span><span class=rvts113>.getLocalGraphicsEnvironment()&nbsp;&nbsp; </span><span class=rvts62>// identfy all available fonts</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .getAllFonts()</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,112 @@
+
+<div id='nodeSection1'>Approaches</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Thread</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>an unlimited number of threads can be started and prioritised</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>every single thread executes synchronously (but might receive only limited time slices)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>parent thread can obtain the status, suspend/resume the thread or wait for its completion</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>ThreadPool</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>only contains a limited number of real threads (managed by the system)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>queued items are processed in FIFO order (long running jobs block subsequent ones)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>parent thread can't obtain any kind of status information</span></li>
+</ul>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Task</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>enhanced version of the ThreadPool and part of the Parallel Library</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>still only contains a limited number of threads (FIFO processing delaying subseuqnet jobs)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>parent thread can obtain status information and receive a return value</span></li>
+</ul>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Threads</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>ThreadStart</span><span class=rvts183> starter = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ThreadStart</span><span class=rvts183>(myMethod);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// signature: void myMethod()</span></p>
+<p><span class=rvts110>Thread</span><span class=rvts183> thread = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Thread</span><span class=rvts183>(starter);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create </span><span class=rvts197>foreground</span><span class=rvts176> thread</span></p>
+<p><span class=rvts183>thread.Start();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// start the thread</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts110>ThreadStart</span><span class=rvts183> starter = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ParameterizedThreadStart</span><span class=rvts183>(myMethod);&nbsp;&nbsp; </span><span class=rvts176>// signature: void myMethod(object o)</span></p>
+<p><span class=rvts110>Thread</span><span class=rvts183> thread = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Thread</span><span class=rvts183>(starter);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create </span><span class=rvts197>foreground</span><span class=rvts176> thread</span></p>
+<p><span class=rvts183>thread.Start(myParameterObject);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass parameters as a single object</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Thread pools</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>ThreadPool</span><span class=rvts183>.QueueUserWorkItem(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// queue a </span><span class=rvts197>background</span><span class=rvts176> thread</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; new</span><span class=rvts183> </span><span class=rvts110>WaitCallback</span><span class=rvts183>(myMethod),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// signature: void myMethod(object o)</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "parameters"</span><span class=rvts183>&nbsp;&nbsp;</span><span class=rvts184>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass the parameters as a single object</span></p>
+<p><span class=rvts183>);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Tasks and the parallel library</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Task</span><span class=rvts183> task = </span><span class=rvts110>Task</span><span class=rvts183>.Factory.StartNew(() =&gt; { myMethod(); });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// start a </span><span class=rvts197>background</span><span class=rvts176> thread</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Task</span><span class=rvts183>&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt; myTask = </span><span class=rvts110>Task</span><span class=rvts183>&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt;.Factory.StartNew(myFunction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// start a task with a return value</span></p>
+<p><span class=rvts58>int</span><span class=rvts183> result = myTask.Result;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// retrieve the return value</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Parallel</span><span class=rvts183>.ForEach&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt;(array, (</span><span class=rvts58>int</span><span class=rvts183> i) =&gt; { </span><span class=rvts110>Console</span><span class=rvts183>.Write(i); });&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// iterate in parallel through a container/collection/array</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Parallel</span><span class=rvts183>.For(0, 10, (</span><span class=rvts58>int</span><span class=rvts183> i) =&gt; { </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(i); });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// for (int i = 0; i &lt; 10; i++)</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Parallel</span><span class=rvts183>.Invoke(() =&gt; {method1(); }, () =&gt; {method2(1,2);} );&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// execute any individual code blocks in parallel</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Async and await</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>async</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> methodAsync()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// async marks methods that start </span><span class=rvts197>background</span><span class=rvts176> threads</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>int</span><span class=rvts183> result = </span><span class=rvts58>await</span><span class=rvts183> </span><span class=rvts110>Task</span><span class=rvts183>.Run&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt;(() =&gt; { </span><span class=rvts58>return</span><span class=rvts183> 0; });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// returns to the caller and processes the rest asynchronously</span></p>
+<p><span class=rvts176>&nbsp;&nbsp;&nbsp; // further asynchronous actions</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Asynchronous delegates</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>event</span><span class=rvts183> </span><span class=rvts110>Func</span><span class=rvts183>&lt;</span><span class=rvts58>string</span><span class=rvts183>, </span><span class=rvts58>int</span><span class=rvts183>&gt; EventHandler;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// delegate event handler</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> eventWithWait()</span></p>
+<p><span class=rvts183>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>IAsyncResult</span><span class=rvts183> result = EventHandler.BeginInvoke(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a </span><span class=rvts197>background</span><span class=rvts176> thread</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"event handler parammeters"</span><span class=rvts183>, </span><span class=rvts58>null</span><span class=rvts183>, </span><span class=rvts58>null</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// only pass the delegate parameters</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>if</span><span class=rvts183> (result.IsCompleted) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// check if the event handler has completed its processing</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>int</span><span class=rvts183> returnValue = EventHandler.EndInvoke(result);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// wait for the event handler to finish and retrieve the return value</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> eventWithCallback()</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>AsyncCallback</span><span class=rvts183> callback = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>AsyncCallback</span><span class=rvts183>(onComplete);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a callback object</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>IAsyncResult</span><span class=rvts183> asyncResult = EventHandler.BeginInvoke(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a </span><span class=rvts197>background</span><span class=rvts176> thread</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"event handler params"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass the delegate parameters</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new</span><span class=rvts183> </span><span class=rvts110>AsyncCallback</span><span class=rvts183>(onComplete), </span><span class=rvts184>"callback params"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// pass the callback handler and parameters for it</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> onComplete(</span><span class=rvts110>IAsyncResult</span><span class=rvts183> asyncResult)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// Callback handler</span></p>
+<p><span class=rvts183>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>AsyncResult</span><span class=rvts183> result = (</span><span class=rvts110>AsyncResult</span><span class=rvts183>) asyncResult;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// cast from IAsyncResult =&gt; AsyncResult</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"Callback params: "</span><span class=rvts183> + (</span><span class=rvts58>string</span><span class=rvts183>) result.AsyncState&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// retrieve the custom parameters</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; );&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>int</span><span class=rvts183> returnValue = ((</span><span class=rvts110>Func</span><span class=rvts183>&lt;</span><span class=rvts58>string</span><span class=rvts183>, </span><span class=rvts58>int</span><span class=rvts183>&gt;)result.AsyncDelegate)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// cast to original event delegate and retrieve the return value</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .EndInvoke(result);</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Timer</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Timer</span><span class=rvts183> timer = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Timer</span><span class=rvts183>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a </span><span class=rvts197>background</span><span class=rvts176> thread</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>TimerCallback</span><span class=rvts183>(cronjobMethod),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// void cronjobMethod(object o)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"custom data"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// object passed to cronjobMethod</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; 0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// milliseconds before the first invocation</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; 1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// milliseconds between subsequent invokations</span></p>
+<p><span class=rvts183>);</span></p>
+<p><span class=rvts176><br></span></p>
+<p><br></p>
+<p><br></p>
+

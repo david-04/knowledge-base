@@ -1,0 +1,90 @@
+
+<div id='nodeSection1'>Installation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts61>npm install mocha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// testing framework</span></p>
+<p><span class=rvts113>npm install chai</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add client-side assert features</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>cp node_modules/mocha/mocha.js&nbsp; public/test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy the relevant files to the public folder</span></p>
+<p><span class=rvts113>cp node_modules/mocha/mocha.css public/test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// so that they can be served by a static route</span></p>
+<p><span class=rvts113>cp node_modules/chai/chai.js&nbsp;&nbsp;&nbsp; public/test</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Integrating the test framework</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;!</span><span class=rvts46>doctype</span><span class=rvts41> </span><span class=rvts90>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>link</span><span class=rvts41> </span><span class=rvts90>rel</span><span class=rvts45>="stylesheet"</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="/test/mocha.css"/&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/jquery-2.0.2.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> </span><span class=rvts90>id</span><span class=rvts45>="mocha"&gt;&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- this DIV will be populated with the output&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/mocha.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include the relevant javascript libraries&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/chai.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mocha.ui(</span><span class=rvts42>'tdd'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// initialise mocha</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> assert = chai.assert;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/my-tests.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include the test cases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>mocha.run();</span><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- run the test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Implementing tests (./public/test/my-test.js)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>suite(</span><span class=rvts42>'My test suite'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// client-side tests are organised in suites</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; test(</span><span class=rvts42>'page has a valid title'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// each test has a description and a function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assert(</span><span class=rvts42>''</span><span class=rvts41> !== document.title);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use asserts to validate assumptions</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; test(</span><span class=rvts42>'page links to the contact form'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// other libraries like jQuery can be used as well</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assert($(</span><span class=rvts42>'a[href="/contact"]'</span><span class=rvts41>).length);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Integration with the handlebars templating engine</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function</span><span class=rvts41> (req, res, next) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add a middleware that enables/deables the tests</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.locals.showTests =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set a variable that is passed to the rendering engine</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; app.get(</span><span class=rvts42>'env'</span><span class=rvts41>) !== </span><span class=rvts42>'production'</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// tests are disabled in the production environment</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; req.query.test === </span><span class=rvts42>'1'</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and only run with the query parameter test=1</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; next();</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>!doctype</span><span class=rvts41> </span><span class=rvts90>html</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- ./views/layouts/my-layout.handlebars&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts103>#if</span><span class=rvts41> </span><span class=rvts95>showTests</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>link</span><span class=rvts41> </span><span class=rvts90>rel</span><span class=rvts45>="stylesheet"</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="/test/mocha.css"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts103>/if</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/jquery-2.0.2.min.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{{</span><span class=rvts95>body</span><span class=rvts94>}}}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts103>#if</span><span class=rvts41> </span><span class=rvts95>showTests</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- add testing infrastructure (if enabled) --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> </span><span class=rvts90>id</span><span class=rvts45>="mocha"&gt;&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/mocha.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/chai.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mocha.ui(</span><span class=rvts42>'tdd'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> assert = chai.assert;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="/test/my-tests.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- always run these tests --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts103>#if</span><span class=rvts41> </span><span class=rvts95>pageTestScript</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="</span><span class=rvts94>{{</span><span class=rvts95>pageTestScript</span><span class=rvts94>}}</span><span class=rvts45>"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- run page specific tests if required --&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts103>/if</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>mocha.run();</span><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts103>/if</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

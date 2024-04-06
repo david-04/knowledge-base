@@ -1,0 +1,71 @@
+
+<div id='nodeSection1'>Creating the Express server</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> express = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'express'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install express</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> app = express();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate the Express server</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Adding middleware and the template engine</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> cookieParser = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'cookie-parser'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install cookie- parser</span></p>
+<p><span class=rvts41>app.use(cookieParser(</span><span class=rvts42>'encryption_key'</span><span class=rvts41>));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39>// ...</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> express_hbrs = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'express3-handlebars'</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// npm install express3-handlebars</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> handlebars = express_hbrs.create({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate a rendering engine</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; extname: </span><span class=rvts42>'.handlebars'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the file extension used for tempaltes (.handlebars is the default)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; defaultLayout: </span><span class=rvts42>'my-layout'</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use ./views/layouts/my-layout.handlebars as the default template</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.engine(</span><span class=rvts42>'handlebars'</span><span class=rvts41>, handlebars.engine);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach the handlebars engine to the Express server</span></p>
+<p><span class=rvts41>app.set(</span><span class=rvts42>'view engine'</span><span class=rvts41>, </span><span class=rvts42>'handlebars'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the engine as the default renderer</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Adding routes and custom middleware</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (req, res) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches case-insensitive</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.type(</span><span class=rvts42>'text/plain'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.send(</span><span class=rvts42>'Hello world!'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39>// ...</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function</span><span class=rvts41> (req, res) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom 404 page</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.type(</span><span class=rvts42>'text/plain'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.status(404);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.send(</span><span class=rvts42>'404 - Not Found'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function</span><span class=rvts41> (err, req, res, next) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom 500 page</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.error(err.message);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.type(</span><span class=rvts42>'text/plain'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.status(500);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.send(</span><span class=rvts42>'500 - Server Error'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection4'>Starting up the Express server</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>app.set(</span><span class=rvts42>'port'</span><span class=rvts41>, process.env.PORT || 3000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// take the port from the environment variable or set a default</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.listen(app.get(</span><span class=rvts42>'port'</span><span class=rvts41>), </span><span class=rvts45>function</span><span class=rvts41> () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start up the server (do not call app.listen() for HTTPS servers)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'Listening on port:'</span><span class=rvts41> + app.get(</span><span class=rvts42>'port'</span><span class=rvts41>));</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection5'>Running Express on top of a HTTPS server</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> https = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'https'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// https support</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> fs&nbsp;&nbsp;&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'fs'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// file system access</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>https.createServer({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// wrap the Express application into an HTTPs server</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; key&nbsp; : fs.readFileSync(__dirname + </span><span class=rvts42>'/key.pem'</span><span class=rvts41>), </span><span class=rvts39>// private key</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; cert : fs.readFileSync(__dirname + </span><span class=rvts42>'/cert.crt'</span><span class=rvts41>) </span><span class=rvts39>// certificate</span></p>
+<p><span class=rvts41>}, app).listen(443)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><br></p>
+<p><br></p>
+

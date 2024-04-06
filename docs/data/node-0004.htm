@@ -1,0 +1,29 @@
+
+<div id='nodeSection1'>Compacting</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.runCommand({ </span><span class=rvts42>"compact"</span><span class=rvts41>: </span><span class=rvts42>"collName"</span><span class=rvts41> })</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>db.runCommand({ </span><span class=rvts42>"compact"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>"collName"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// defragment the database</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"paddingFactor"</span><span class=rvts41> : 1.5 })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: add padding to each document (defaut: 1=no padding)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>db.repairDatabase()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// recreate (compact+defragent+shrink) a database (to reclaim unused disk space)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&gt; mongod --repair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// recreate all databases maintained by a server</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection2'>Assorted</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.adminCommand({ </span><span class=rvts42>"setParameter"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"journalCommitInterval"</span><span class=rvts41> : 10 })&nbsp;&nbsp; </span><span class=rvts39>// persist the journal every 10ms (default: 100ms, can be set to 2ms...500ms)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>db.mycollection.validate()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check a collection for corruptions</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"setParameter"</span><span class=rvts41> : 1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the loglevel</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"logLevel"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; : 3})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 0 (default, little logging) ... 5 (verbose)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>db.startup_log&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// contains one summary document for each server startup</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

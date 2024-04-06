@@ -1,0 +1,87 @@
+
+<div id='nodeSection1'>Routing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function </span><span class=rvts41>(req, res, next)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { ... })&nbsp;&nbsp; </span><span class=rvts39>// catch-all route for all paths and all HTTP verbs</span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function </span><span class=rvts41>(error, req, res, next) { ... })&nbsp;&nbsp; </span><span class=rvts39>// catch-all error handler (will be invoked only in case of a preceding error)</span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts42>'/user'</span><span class=rvts41>, functionOrErrorHandler)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// catches only the specified route but applies to all HTTP verbs</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>app.{</span><span class=rvts43>get</span><span class=rvts41>|post|head|...}(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Express shortcut to add a routing middleware for a particular HTTP verb</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'/route'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the route (path to match)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; function1(request, response, next) {...},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// multiple functions can be added</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; myCheckAuthenticationFunction,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// external functions can be reused in multiple routes</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; function2(request, response, next) {...}</span></p>
+<p><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/string'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>strings are case-insenstive and must match the whole route</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/contact'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches: /contact, /Contact/ and /contact?...</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/contact*'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches: /Contact, /contact/helpdesk, /CONTACT/us</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/users/*/details'</span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches: /users//details and /users/David/details</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'*/contact*'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches: /contact, /david/contact/office</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>/regexp/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>regular expressions are case-sensitive and may match only a part of the route</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>/contact/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches /contact, /david/contact/office</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>/contact/i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches /contact, /david/CONTACT/office</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>/^\/contact/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>, </span><span class=rvts47>...</span><span class=rvts43>)</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// matches /contact, /contact/david</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/user/:last/:first'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the route can contain placeholders (:identifier)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (request, response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.send(</span><span class=rvts42>'Hi' </span><span class=rvts41>+ request.params.first); </span><span class=rvts39>// the placeholder matches are accessible via request.params</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Module-based routing libraries</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>module</span><span class=rvts41>.exports.home = </span><span class=rvts45>function</span><span class=rvts41> (req, res) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// implement and export each handler</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.send(</span><span class=rvts42>'Welcome'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts45>module</span><span class=rvts41>.exports.contact = </span><span class=rvts45>function</span><span class=rvts41> (req, res) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.send(</span><span class=rvts42>'Call us on 123 456 789'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts45>module</span><span class=rvts41>.exports.addAllRoutes = </span><span class=rvts45>function</span><span class=rvts41> (app) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// provide a function to auto-register all routes</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; app.get(</span><span class=rvts42>'/home'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp; </span><span class=rvts45>module</span><span class=rvts41>.exports.home);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; app.get(</span><span class=rvts42>'/contact'</span><span class=rvts41>, </span><span class=rvts45>module</span><span class=rvts41>.exports.contact);</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myRoutes = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'./my-routes.js'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import the module with the route handlers</span></p>
+<p><span class=rvts41>myRoutes.addAllRoutes(app);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register all handlers with their default route ...</span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/home'</span><span class=rvts41>, myRoutes.home);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or the handlers manually with custom routes</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Subdomains</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> vhost = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'vhost'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install vhost</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> app_admin = express.Router();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a secondary Express router</span></p>
+<p><span class=rvts41>app.use(vhost(</span><span class=rvts42>'admin.*'</span><span class=rvts41>, admin));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// bind the router to a subdomain</span></p>
+<p><span class=rvts41>admin.get(</span><span class=rvts42>'/route'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (req, res, next) { })&nbsp; </span><span class=rvts39>// add routes as required</span></p>
+<p><span class=rvts41>admin.get(</span><span class=rvts42>'/*'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (req, res, next) { })&nbsp; </span><span class=rvts39>// create a catchAll (404) function</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/route'</span><span class=rvts41>, ...)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the regular (non-subdomain) routes follow here</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Automatic routing of views</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> fs = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'fs'</span><span class=rvts41>);</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> availableViews = {};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// a cache of previously disovered views (initially empty)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function</span><span class=rvts41> (req, res, next) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the last (default) handler before the 404 middleware</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> path = req.path.toLowerCase();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all view names are lowercase</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (!availableViews[path]) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// if the route has not been examined so far ...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (fs.existsSync(&nbsp; __dirname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check if a .handlebars file matches the route</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts42>'/views'</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + path</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts42>'.handlebars'</span><span class=rvts41>)) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; availableViews[path] =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// extract the view's name</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path.replace(</span><span class=rvts42>/^\//</span><span class=rvts41>, </span><span class=rvts42>''</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (availableViews[path]) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// if there is a view matching the route</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> res.render(availableViews[path]);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// render it</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// and otherwise</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; next();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// move on to the next handler</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

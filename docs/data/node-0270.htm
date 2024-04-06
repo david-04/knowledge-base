@@ -1,0 +1,34 @@
+
+<div id='nodeSection1'>Server-side implementation</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>CSChat</span><span class=rvts41> : Hub</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Send(</span><span class=rvts45>string</span><span class=rvts41> message)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Call the addMessage method on all clients</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Clients.All.addMessage(message);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Server-side invocation</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts39>// Proxy created on the fly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts45>var</span><span class=rvts41> chat = $.connection.cSChat;</span></p>
+<p><span class=rvts41> </span></p>
+<p><span class=rvts39>// Declare a function on the chat hub so the server can invoke it&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>chat.client.addMessage = </span><span class=rvts45>function</span><span class=rvts41> (message) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $(</span><span class=rvts42>'#messages'</span><span class=rvts41>).append(</span><span class=rvts42>'&lt;li&gt;'</span><span class=rvts41> + message + </span><span class=rvts42>'&lt;/li&gt;'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts41> </span></p>
+<p><span class=rvts39>// Start the connection</span></p>
+<p><span class=rvts41>$.connection.hub.start().done(</span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $(</span><span class=rvts42>"#broadcast"</span><span class=rvts41>).click(</span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Call the chat method on the server</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; chat.server.send($(</span><span class=rvts42>'#msg'</span><span class=rvts41>).val());</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

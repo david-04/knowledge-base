@@ -1,0 +1,53 @@
+
+<div id='nodeSection1'>Generics</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyWrapper</span><span class=rvts113>&lt;T&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// declare a class with a generic type (applicable to interfaces as well)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; T object;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// properties of the generic type must not be static</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; MyWrapper(T object) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.object = object;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> T getObject() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.object;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>MyWrapper</span><span class=rvts113>&lt;</span><span class=rvts233>String</span><span class=rvts113>&gt; myWrapper =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// declare and instantiate a strongly typed version of the generic class</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MyWrapper</span><span class=rvts113>&lt;</span><span class=rvts233>String</span><span class=rvts113>&gt;(</span><span class=rvts217>"David"</span><span class=rvts113>);</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts233>MyWrapper</span><span class=rvts113>&lt;</span><span class=rvts233>String</span><span class=rvts113>&gt; myWrapper =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>JDK7</span><span class=rvts62>: the second mentioning of the type can be omitted ("diamond operator")</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new</span><span class=rvts113> </span><span class=rvts233>MyWrapper</span><span class=rvts220>&lt;&gt;</span><span class=rvts113>(</span><span class=rvts217>"David"</span><span class=rvts113>);</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts233>MyWrapper</span><span class=rvts113> myWrapper = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MyWrapper</span><span class=rvts113>(</span><span class=rvts217>"David"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// backward compatibility: generics can be treated like non-generics</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>MyWrapper</span><span class=rvts113>&lt;</span><span class=rvts220>?</span><span class=rvts113>&gt; myArray</span><span class=rvts220>[]</span><span class=rvts113> = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MyWrapper</span><span class=rvts220>&lt;?&gt;[10]</span><span class=rvts113>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// arrays can't be strongly typed, use &lt;?&gt; instead of &lt;MyClass&gt;</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>void</span><span class=rvts113> myFunction(</span><span class=rvts233>MyWrapper</span><span class=rvts113>&lt;?&gt; myWrapper) {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// require a MyWrapper instance, no matter what type it has</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>public</span><span class=rvts113> &lt;T1, T2&gt; </span><span class=rvts233>String</span><span class=rvts113> concat(T1 o1, T2 o2) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// functions can be defined as generics on their own as well</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> o1.toString() + </span><span class=rvts217>" "</span><span class=rvts113> + o2.toString();</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>myObject.concat(</span><span class=rvts217>"David"</span><span class=rvts113>, 38);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the actual type parameters are usually inferred automatically</span></p>
+<p><span class=rvts113>myObject.&lt;</span><span class=rvts233>String</span><span class=rvts113>, </span><span class=rvts233>Integer</span><span class=rvts113>&gt;concat(</span><span class=rvts217>"David"</span><span class=rvts113>, 38);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... but can optionally be specified explicitely</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Constraints</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&lt;T&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// can be instantiated with any type</span></p>
+<p><span class=rvts113>&lt;T1, T2&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// can use more than one type parameter</span></p>
+<p><span class=rvts113>&lt;T </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>MyClassOrInterface</span><span class=rvts113>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// require a particular type (or one derived from it)</span></p>
+<p><span class=rvts113>&lt;T </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>MyClass</span><span class=rvts113> &amp; </span><span class=rvts233>MyInterface1</span><span class=rvts113> &amp; </span><span class=rvts233>MyInterface1</span><span class=rvts113>&gt;&nbsp;&nbsp; </span><span class=rvts62>// can combine one class with any number of interfaces</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>&lt;?&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// when using a generic as input parameter: accept instances of any type</span></p>
+<p><span class=rvts113>&lt;? </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>MyClassOrInterface</span><span class=rvts113>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// accept only instances of the given type or derived from it</span></p>
+<p><span class=rvts113>&lt;? </span><span class=rvts64>super</span><span class=rvts113>&nbsp;&nbsp; </span><span class=rvts233>MyClassOrInterface</span><span class=rvts113>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// accept only instances of the given type or one of its parents</span></p>
+<p><span class=rvts62><br></span></p>
+<p><br></p>
+<p><br></p>
+

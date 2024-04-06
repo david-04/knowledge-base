@@ -1,0 +1,26 @@
+
+<div id='nodeSection1'>eval</div>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>result = </span><span class=rvts265>eval</span><span class=rvts262> </span><span class=rvts266>"MyClass.new"</span><span class=rvts262>                 </span><span class=rvts263># returns the result of the expression</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>x = 10</span></p>
+<p class=rvps12><span class=rvts265>def</span><span class=rvts262> my_function</span></p>
+<p class=rvps12><span class=rvts262>  x = 20</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>binding</span><span class=rvts262>                                   </span><span class=rvts263># retun the "binding" (i.e. the current scope/context)</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>eval</span><span class=rvts262>(</span><span class=rvts266>"puts x"</span><span class=rvts262>)                              </span><span class=rvts263># return 10 (runs in the global context)</span></p>
+<p class=rvps12><span class=rvts265>eval</span><span class=rvts262>(</span><span class=rvts266>"puts x"</span><span class=rvts262>, my_function)                 </span><span class=rvts263># return 20 (runs in my_function's context)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>my_object = </span><span class=rvts267>MyClass</span><span class=rvts262>.</span><span class=rvts265>new</span></p>
+<p class=rvps12><span class=rvts262>my_object.instance_eval(</span><span class=rvts266>"puts @property"</span><span class=rvts262>)   </span><span class=rvts263># run an eval in the context of a class</span></p>
+<p class=rvps12><span class=rvts262>my_object.instance_eval { </span><span class=rvts265>puts</span><span class=rvts262> @property }  </span><span class=rvts263># can also use a code block rather than stringified code</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

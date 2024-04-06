@@ -1,0 +1,102 @@
+
+<div id='nodeSection1'>NIO.2</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>channels represent connections to open files, network connections, ...</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>obtain a channel by calling channel() on stream classes or by opening new ones via the File class</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>charset: defines how bytes are mapped to characters (encoder + decoder)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>Path (newer version of File)</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>File channels</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113> path = </span><span class=rvts233>Paths</span><span class=rvts113>.get(</span><span class=rvts217>"E:/test.txt"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>manual read</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>SeekableByteChannel</span><span class=rvts113> sbc = </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Files</span><span class=rvts113>.newByteChannel(path)) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// open the file for reading</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>ByteBuffer</span><span class=rvts113> bb = </span><span class=rvts233>ByteBuffer</span><span class=rvts113>.allocate(100);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a buffer to hold the data read</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113> bytesRead = sbc.read(bb);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// fills the buffer (returns -1 if there is no further data to read)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; bb.rewind();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// reset the read/write pointer to the start</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>for</span><span class=rvts113> (</span><span class=rvts64>int</span><span class=rvts113> i = 0; i &lt; bytesRead; i++) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.print((</span><span class=rvts64>char</span><span class=rvts113>)bb.get());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// retrieve bytes from the buffer one by one</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>} </span><span class=rvts62>// sbc.close()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the channel is closed automatically by the try-with-resources</span></p>
+<p><span class=rvts62><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113> path = </span><span class=rvts233>Paths</span><span class=rvts113>.get(</span><span class=rvts217>"E:/test.out"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>manual write</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>FileChannel</span><span class=rvts113> fc = </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span><span class=rvts233>FileChannel</span><span class=rvts113>) </span><span class=rvts233>Files</span><span class=rvts113>.newByteChannel(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path, </span><span class=rvts233>StandardOpenOption</span><span class=rvts113>.WRITE, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>StandardOpenOption</span><span class=rvts113>.CREATE)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>ByteBuffer</span><span class=rvts113> bb = </span><span class=rvts233>ByteBuffer</span><span class=rvts113>.allocate(26);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>for</span><span class=rvts113> (</span><span class=rvts64>int</span><span class=rvts113> i = 0; i &lt; 26; i++) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bb.put((</span><span class=rvts64>byte</span><span class=rvts113>)(</span><span class=rvts217>'A'</span><span class=rvts113>+i));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the buffer has to be filled byte by byte</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; bb.rewind();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// rewind the buffer so that data is written from its start</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; fc.write(bb);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// writes the whole buffer (overwrites only parts of a pre-existing file)</span></p>
+<p><span class=rvts113>} </span><span class=rvts62>// fc.close()</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113> path = </span><span class=rvts233>Paths</span><span class=rvts113>.get(</span><span class=rvts217>"E:/test.txt"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>automatic read</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>FileChannel</span><span class=rvts113> fc = </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span><span class=rvts233>FileChannel</span><span class=rvts113>) </span><span class=rvts233>Files</span><span class=rvts113>.newByteChannel(path)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>long</span><span class=rvts113> fileSize = fc.size();</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>MappedByteBuffer</span><span class=rvts113> mbb = fc.map(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a buffer that is automatically filled with the file's contents</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>FileChannel</span><span class=rvts113>.</span><span class=rvts233>MapMode</span><span class=rvts113>.READ_ONLY, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, fileSize);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>for</span><span class=rvts113> (</span><span class=rvts64>int</span><span class=rvts113> i = 0; i &lt; fileSize; i++) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.print((</span><span class=rvts64>char</span><span class=rvts113>)mbb.get());</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>} </span><span class=rvts62>// fc.close()</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113> path = </span><span class=rvts233>Paths</span><span class=rvts113>.get(</span><span class=rvts217>"E:/test.out"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>automatic write</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>FileChannel</span><span class=rvts113> fc = </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (</span><span class=rvts233>FileChannel</span><span class=rvts113>) </span><span class=rvts233>Files</span><span class=rvts113>.newByteChannel(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path, </span><span class=rvts233>StandardOpenOption</span><span class=rvts113>.WRITE, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>StandardOpenOption</span><span class=rvts113>.READ, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>StandardOpenOption</span><span class=rvts113>.CREATE)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>MappedByteBuffer</span><span class=rvts113> mbb = fc.map(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>FileChannel</span><span class=rvts113>.</span><span class=rvts233>MapMode</span><span class=rvts113>.READ_WRITE, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, 26);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>for</span><span class=rvts113> (</span><span class=rvts64>int</span><span class=rvts113> i = 0; i &lt; 26; i++) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mbb.put((</span><span class=rvts64>byte</span><span class=rvts113>)(</span><span class=rvts217>'A'</span><span class=rvts113>+i));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// data is persisted automatically, no need to call write</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>} </span><span class=rvts62>// fc.close()</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Stream channels</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113> path = </span><span class=rvts233>Paths</span><span class=rvts113>.get(</span><span class=rvts217>"E:/test.txt"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>manual read</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>InputStream</span><span class=rvts113> is=</span><span class=rvts233>Files</span><span class=rvts113>.newInputStream(path)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>int</span><span class=rvts113> input;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>while</span><span class=rvts113> (0 &lt; (input = is.read())) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.print((</span><span class=rvts64>char</span><span class=rvts113>) input);</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// is.close()</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113> path = </span><span class=rvts233>Paths</span><span class=rvts113>.get(</span><span class=rvts217>"E:/test.out"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>manual write</span></p>
+<p><span class=rvts64>try</span><span class=rvts113> (</span><span class=rvts233>OutputStream</span><span class=rvts113> os=</span><span class=rvts233>Files</span><span class=rvts113>.newOutputStream(path)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>for</span><span class=rvts113> (</span><span class=rvts64>int</span><span class=rvts113> i = 0; i &lt; 26; i++) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; os.write((</span><span class=rvts64>byte</span><span class=rvts113>)(</span><span class=rvts217>'A'</span><span class=rvts113> + i));</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// os.close()</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection4'>File system</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>Path</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// represents a file in the file system</span></p>
+<p><span class=rvts233>Files</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// contains static methods that provide information about Paths (files)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

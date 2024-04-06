@@ -1,0 +1,55 @@
+
+<div id='nodeSection1'>Exception handling</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>try</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Exception</span><span class=rvts183> exception = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MyException</span><span class=rvts183>(</span><span class=rvts184>"Error message"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; exception.HelpLink = </span><span class=rvts184>"URL with additional information"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// link to further help</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; exception.Data.Add(</span><span class=rvts184>"Argument count"</span><span class=rvts183>, args.Length);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// custom key-value-pairs</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>throw</span><span class=rvts183> exception;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>catch</span><span class=rvts183> (</span><span class=rvts110>MyException</span><span class=rvts183> exception)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// catch a specific type</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(exception);</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts110>DictionaryEntry</span><span class=rvts183> data </span><span class=rvts58>in</span><span class=rvts183> exception.Data)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"{0} = {1}"</span><span class=rvts183>, data.Key, data.Value);</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>catch</span><span class=rvts183> (</span><span class=rvts110>Exception</span><span class=rvts183> exception)</span></p>
+<p><span class=rvts58>when</span><span class=rvts183> (exception.Message.Contains(</span><span class=rvts184>"DEBUG"</span><span class=rvts183>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// catch only if criteria is met</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>throw</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// using "throw exception" instead disturbes the stack trace!</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>catch</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// catch any exception</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>finally</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// processed after all catch blocks have been processed</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Defining exceptions</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Generate the template by typing "exception" and pressing the TAB key twice:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Serializable</span><span class=rvts183>]</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>MyException</span><span class=rvts183> : </span><span class=rvts110>Exception</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> MyException() { }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> MyException(</span><span class=rvts58>string</span><span class=rvts183> message) : </span><span class=rvts58>base</span><span class=rvts183>(message) { }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> MyException(</span><span class=rvts58>string</span><span class=rvts183> message, </span><span class=rvts110>Exception</span><span class=rvts183> inner) : </span><span class=rvts58>base</span><span class=rvts183>(message, inner) { }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>protected</span><span class=rvts183> MyException(</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Runtime.Serialization.</span><span class=rvts110>SerializationInfo</span><span class=rvts183> info,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Runtime.Serialization.</span><span class=rvts110>StreamingContext</span><span class=rvts183> context) : </span><span class=rvts58>base</span><span class=rvts183>(info, context)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; { }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Class hierarchy</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>System.</span><span class=rvts110>Object</span></p>
+<p><span class=rvts183>&nbsp;&nbsp; System.</span><span class=rvts110>Exception</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp; System.</span><span class=rvts110>ApplicationException</span></p>
+<p><span class=rvts110><br></span></p>
+<p><br></p>
+<p><br></p>
+

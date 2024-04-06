@@ -1,0 +1,82 @@
+
+<div id='nodeSection1'>Useful annotations</div>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>CLSCompliant</span><span class=rvts183>(</span><span class=rvts58>True</span><span class=rvts183>)&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' enforce compliance with the Common Language Specification</span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>Obsolete</span><span class=rvts183>(</span><span class=rvts184>"Use this and that method instead"</span><span class=rvts183>)&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' mark an element as obsolete</span></p>
+<p><span class=rvts200><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Namespaces</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>Imports</span><span class=rvts183> System.Collections&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' import namespace</span></p>
+<p><span class=rvts58>Imports</span><span class=rvts183> </span><span class=rvts110>MyList</span><span class=rvts183> = System.Collections.</span><span class=rvts110>ArrayList</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' alias a single class</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> list </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>MyList</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' use an aliased class</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>Namespace</span><span class=rvts183> </span><span class=rvts191>Global</span><span class=rvts183>.MyUtilities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' with Global the Visual Studio's project root namespace will not be prepended</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Registering an application-close event handler</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>AddHandler</span><span class=rvts183> </span><span class=rvts110>AppDomain</span><span class=rvts183>.CurrentDomain.ProcessExit, </span><span class=rvts58>Sub</span><span class=rvts183>()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' code to execute on shutdown</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Collapsable sections in Visual Studio</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts200>#Region</span><span class=rvts183> </span><span class=rvts184>"Short description"</span></p>
+<p><span class=rvts176>' ...</span></p>
+<p><span class=rvts200>#End Region</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Disable compilerwarings</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts200>#Disable</span><span class=rvts183> </span><span class=rvts200>Warning</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> unusedVariable </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span></p>
+<p><span class=rvts200>#Enable</span><span class=rvts183> </span><span class=rvts200>Warning</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts200>#Disable</span><span class=rvts183> </span><span class=rvts200>Warning</span><span class=rvts183> BC42024</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> unusedVariable </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts200>#Enable</span><span class=rvts183> </span><span class=rvts200>Warning</span><span class=rvts183> BC42024</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Configuration</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> reader </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>AppSettingsReader</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' retrieves configuration stored in the Visual Studio's App.config</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> value </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183> = </span><span class=rvts58>CType</span><span class=rvts183>(reader.GetValue(</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "parameter"</span><span class=rvts183>, </span><span class=rvts58>GetType</span><span class=rvts183>(</span><span class=rvts58>String</span><span class=rvts183>)), </span><span class=rvts58>String</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> value </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183> = </span><span class=rvts110>ConfigurationManager</span><span class=rvts183>.AppSettings(</span><span class=rvts184>"parameter"</span><span class=rvts183>)&nbsp;&nbsp; </span><span class=rvts176>' requires System.Configuration.dll</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Lazy object initialisation</div>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> age </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183> = 37</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> person </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Lazy</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>Person</span><span class=rvts183>)(</span><span class=rvts58>Function</span><span class=rvts183>() </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Person</span><span class=rvts183>(</span><span class=rvts184>"David"</span><span class=rvts183>, age))</span></p>
+<p><span class=rvts183>age = 38</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(person.Value.Age) </span><span class=rvts176>' age = 38</span></p>
+<p><span class=rvts183>age = 39</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(person.Value.Age) </span><span class=rvts176>' age = 38</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Retrieving code identifiers as strings</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>NameOf</span><span class=rvts183>(MyClass)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' returns "MyClass"</span></p>
+<p><span class=rvts58>NameOf</span><span class=rvts183>(MyMethod)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' returns "MyMethod"</span></p>
+<p><span class=rvts58>NameOf</span><span class=rvts183>(myVariable)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' returns "MyVariable"</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>Naming conventions</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>MyNamespace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' </span><span class=rvts202>Pascal notation:</span><span class=rvts201> namespaces</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' classes, interfaces</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>.MyPublicProperty&nbsp;&nbsp; </span><span class=rvts201>' public properties</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>.MyPublicMethod&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' public methods</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts203>myParameterName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' </span><span class=rvts202>Camel notation:</span><span class=rvts201> function parameterers</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts113>.myPrivateField&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts201>' private fields</span></p>
+<p><span class=rvts110>MyClass</span><span class=rvts203>.myPrivateMethod&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' private methods</span></p>
+<p><span class=rvts203>myVariable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' local variables</span></p>
+<p><span class=rvts176><br></span></p>
+<p><br></p>
+<p><br></p>
+

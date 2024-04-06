@@ -1,0 +1,17 @@
+
+<div id='nodeSection1'>CGI</div>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>#!/usr/bin/env ruby</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'cgi'</span><span class=rvts262>                                     </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>cgi = </span><span class=rvts267>CGI</span><span class=rvts262>.</span><span class=rvts265>new</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> cgi.header                                   </span><span class=rvts263># or puts "Content-type: text/html\n\n"</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>text = cgi[</span><span class=rvts266>'text'</span><span class=rvts262>]                                </span><span class=rvts263># get a form field or query parameter</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"&lt;html&gt;&lt;body&gt;This is a test&lt;/body&gt;&lt;/html&gt;"</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

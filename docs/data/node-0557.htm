@@ -1,0 +1,27 @@
+
+<div id='nodeSection1'>Struct</div>
+<p><span class=rvts264><br></span></p>
+<p><span class=rvts262>Person = </span><span class=rvts267>Struct</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(:name, :country)      </span><span class=rvts263># create a class with constructor and accessors</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>Person</span><span class=rvts262>                              </span><span class=rvts263># can optionally extend the class with additional methods</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> to_s</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>"#{name} (#{country})"</span><span class=rvts262>                </span><span class=rvts263># attributes MUST be accessed without "@"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>fred = </span><span class=rvts267>Person</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>"David"</span><span class=rvts262>, </span><span class=rvts266>"Australia"</span><span class=rvts262>)   </span><span class=rvts263># the struct automatically provides a constructor</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>OpenStruct</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'ostruct'</span><span class=rvts262>                           </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>person = </span><span class=rvts267>OpenStruct</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>                     </span><span class=rvts263># does not create a class, but an object with dynamic properties</span></p>
+<p class=rvps12><span class=rvts262>person.name = </span><span class=rvts266>"David"</span><span class=rvts262>                       </span><span class=rvts263># can assign any property on-the-fly</span></p>
+<p class=rvps12><span class=rvts262>person.country = </span><span class=rvts266>"Australia"</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>person.age == </span><span class=rvts265>nil</span><span class=rvts262>                           </span><span class=rvts263># accessing undefined properties returns nil</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

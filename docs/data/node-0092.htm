@@ -1,0 +1,91 @@
+
+<div id='nodeSection1'>Modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12>General characteristics</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>a module is a container for Angular components, services, pipes, directives, ...</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>the contained elements are privately protected but can optionally be exported</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>modules can import and optionally re-export other modules</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>when using routing, modules can be lazy-loaded</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12>Types of modules:</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>root module: the application's main module (named AppModule)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>feature module: contains the views and application logic for an application area (e.g. admin, online shop, ...)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>shared module: exposes general purpose elements to be consumed by other modules</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>core module: contains everything used only by the root module (used to prevent cluttering)</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Root module</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { NgModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// NgModule and BrowserModule are always required</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { BrowserModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/platform-browser"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { FormsModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/forms"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this is required for two-way data-binding in forms</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { AppComponent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./app.component"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import custom modules, components, services, directives, ...</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { DataService&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data.service"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { ListViewComponent&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./list-view.component"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { DetailViewComponent } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./detail-view.component"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@NgModule({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// declare this class to be an Angular module</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; imports: [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>BrowserModule</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import all modules that this current module is going to utilise</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>FormsModule</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; declarations: [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>AppComponent</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// declare all custom modules, components, services, directives, ...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>ListViewComponent</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// that are implemented as part of this module</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>DetailViewComponent</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>EditViewComponent</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; exports: [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>AppComponent</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optionally: expose items in case this module is imported elsewhere</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; bootstrap: [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>AppComponent</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this is the main start view (the root component referenced by the main HTML file)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; providers: [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>DataService</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// make services available for application-wide dependency injection</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ]</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>AppModule</span><span class=rvts41> { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the root module should be called AppModule by convention</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Core module</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { NgModule,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optional,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SkipSelf } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts43>@NgModule({...})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MyCoreModule</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>constructor</span><span class=rvts41>(@Optional() @SkipSelf()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use this constructor to prevent the module from being loaded multiple times</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parentModule: </span><span class=rvts110>MyCoreModule</span><span class=rvts41> ) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (parentModule) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>throw</span><span class=rvts41> </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts110>Error</span><span class=rvts41>(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"CoreModule is already loaded."</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Shared module</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { NgModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/core"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { CommonModule&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/common"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>import CommonModule instead of BrowserModule</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { FormsModule&nbsp;&nbsp; } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"@angular/forms"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@NgModule({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; imports:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts110>CommonModule</span><span class=rvts60>, </span><span class=rvts110>FormsModule</span><span class=rvts41>, ...],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; declarations: [</span><span class=rvts110>MyComponent</span><span class=rvts41>, ...],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; exports:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts110>MyComponent</span><span class=rvts41>, </span><span class=rvts110>CommonModule</span><span class=rvts41>, ...], </span><span class=rvts39>// re-export imported modules (so that they don't have to be imported separately</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; providers:&nbsp;&nbsp;&nbsp; [</span><span class=rvts110>MyService</span><span class=rvts41>, ...]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// by client modules that import this shared module)</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>MySharedModule</span><span class=rvts41> { }</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

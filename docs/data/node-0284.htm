@@ -1,0 +1,513 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts183>MySql.Data.dll</span></p>
+<p><span class=rvts183>MySql.Data.Entity for EF6.dll</span></p>
+<p><span class=rvts183>System.ComponentModel.DataAnnotations.dll</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>PM&gt; install-package EntityFramework</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Configuration</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>connectionStrings</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts50>MyContextClass</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>providerName</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>" </span><span class=rvts185>connectionString</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts50>server=127.0.0.1;port=3306;database=db;uid=user;password=pwd</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>connectionStrings</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>entityFramework </span><span class=rvts185>codeConfigurationType</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.Entity.MySqlEFConfiguration, MySql.Data.Entity.EF6</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>defaultConnectionFactory</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>providers</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>provider</span><span class=rvts58> </span><span class=rvts185>invariantName</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient.MySqlProviderServices, MySql.Data.Entity.EF6</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>provider</span><span class=rvts58> </span><span class=rvts185>invariantName</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Data.SqlClient</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>providers</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>entityFramework</span><span class=rvts58>&gt;&nbsp; </span></p>
+<p><span class=rvts58>&lt;!--</span><span class=rvts176> this section is usually already configured in machine.config </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>system.data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>DbProviderFactories</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>remove</span><span class=rvts58> </span><span class=rvts185>invariant</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySQL Data Provider</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>invariant</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; description</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>.Net Framework Data Provider for MySQL</span><span class=rvts183>"</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>DbProviderFactories</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>system.data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Modelling approaches</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Code First</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the entity model is coded manually and can therefore be fully harmonised with the business model</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the database is set up and migrated automatically by the EF</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>good support for database migrations</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Database First</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the entity model is generated automatically from an existing database</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the naming conventions and relationships might not always be fully as expected</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>code can be adjusted manually unless it needs to be re-generated from the database later</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Model First</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the model can be designed from scratch or imported from an existing database</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>nice design interface for the entity-relationship-diagram</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the actual model classes are generated automatically and can't be adjusted manually</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>no sophisticated support for migrations</span></li>
+</ul>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Data model</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Customer</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// annotations are optional an can be left out</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> CustomerId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Name { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>virtual</span><span class=rvts41> </span><span class=rvts171>ICollection</span><span class=rvts41>&lt;</span><span class=rvts171>Order</span><span class=rvts41>&gt; Orders { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Order</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> OrderId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Name { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"Customer"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional link to the navigation property</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> CustomerId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"CustomerId"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional link to the key property</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>InverseProperty</span><span class=rvts41>(</span><span class=rvts42>"Orders"</span><span class=rvts41>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// name of the corresponding public in Customers</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>virtual</span><span class=rvts41> </span><span class=rvts171>Customer</span><span class=rvts41> Customer { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>CustomerDbContext</span><span class=rvts41> : </span><span class=rvts171>DbContext</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the context represents the whole database (a collection of entites/tables)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> CustomerDbContext() : </span><span class=rvts45>base</span><span class=rvts41>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// default constructor loads connection string from App.info</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> CustomerDbContext(</span><span class=rvts45>string</span><span class=rvts41> connectionString)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass App.info connection name Or full connection string</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>: </span><span class=rvts45>base</span><span class=rvts41>(connectionString)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>DbSet</span><span class=rvts41>&lt;</span><span class=rvts171>Customer</span><span class=rvts41>&gt; Customers { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>set</span><span class=rvts41>; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// entities contained In this DB context</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>DbSet</span><span class=rvts41>&lt;</span><span class=rvts171>Order</span><span class=rvts41>&gt; Orders { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>ObjectContext</span><span class=rvts41> GetObjectContext()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// expose the object context for WCF data services and ASP dynamic data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>ObjectContext</span><span class=rvts41> context = </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ((</span><span class=rvts171>IObjectContextAdapter</span><span class=rvts41>)</span><span class=rvts45>this</span><span class=rvts41>).ObjectContext;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.ContextOptions.ProxyCreationEnabled = </span><span class=rvts45>false</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> context;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Data model attributes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Table</span><span class=rvts183>(</span><span class=rvts184>"table_name"</span><span class=rvts183>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// set DB name or entity</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Column</span><span class=rvts183>(</span><span class=rvts184>"Name"</span><span class=rvts183>, Order = 1)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// column name</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Key</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// mark this field as (a memober of) the primary key</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Required</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// NOT NULL constraint</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Index</span><span class=rvts183>(</span><span class=rvts184>"index_name"</span><span class=rvts183>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// name of the index the column belongs to</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>DatabaseGenerated</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// automatically generated sequence</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>ComplexType</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// ???</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>Timestamp</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// field must be of type byte[], is used automatically for concurrency checks</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>ConcurrencyCheck</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// use this field for concurrency checks</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>NotMapped</span><span class=rvts183>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// this field is not persisted</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>StringLength</span><span class=rvts183>(50)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// length of the string field</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>MinLength</span><span class=rvts183>(10)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// string length</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>MaxLength</span><span class=rvts183>(20)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// length of string or arrays</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>ForeignKey</span><span class=rvts183>(</span><span class=rvts184>"ForeignKey"</span><span class=rvts183>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// link between key property and navigation property</span></p>
+<p><span class=rvts183>[</span><span class=rvts110>InverseProperty</span><span class=rvts183>(</span><span class=rvts184>"Property"</span><span class=rvts183>)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// link </span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Fluent API</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>CustomerContext</span><span class=rvts183> : </span><span class=rvts110>DbContext</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>protected</span><span class=rvts183> </span><span class=rvts58>override</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> OnModelCreating(</span><span class=rvts110>DbModelBuilder</span><span class=rvts183> modelBuilder)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>base</span><span class=rvts183>.OnModelCreating(modelBuilder); </span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts110>Customer</span><span class=rvts183>&gt;()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .ToTable(</span><span class=rvts184>"customers"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// set table name</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts110>Customer</span><span class=rvts183>&gt;()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasKey&lt;</span><span class=rvts58>int</span><span class=rvts183>&gt;(customer =&gt; customer.CustomerId);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// mark the key column</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts110>Customer</span><span class=rvts183>&gt;()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Property(customer =&gt; customer.Name)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// configure a particular property</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasColumnName(</span><span class=rvts184>"customer_name"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// set the column name</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasColumnOrder(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// set the column order number</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasColumnType(</span><span class=rvts184>"varchar"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// set the data type</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .IsOptional();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// or isRequired</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts110>Customer</span><span class=rvts183>&gt;()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// define relationships</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasOptional(customer =&gt; customer.Orders)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .WithMany()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .WillCascadeOnDelete(</span><span class=rvts58>false</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// disable cascading delete</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts171>Customer</span><span class=rvts41>&gt;()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// disable one-to-many cascading delete</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasMany(c =&gt; c.Orders)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .WithRequired(o =&gt; o.Customer)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasForeignKey(o =&gt; o.CustomerId)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .WillCascadeOnDelete(</span><span class=rvts45>false</span><span class=rvts41>);</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Database setup</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>MyCustomerContextInitializer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// custom class to initialise the database</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts110>DropCreateDatabaseAlways</span><span class=rvts183>&lt;</span><span class=rvts110>CustomerContext</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// will drop and recreate all tables during each run</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>protected</span><span class=rvts183> </span><span class=rvts58>override</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Seed(</span><span class=rvts110>CustomerContext</span><span class=rvts183> context)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.Customers.Add(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// add records as required</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new</span><span class=rvts183> </span><span class=rvts110>Customer</span><span class=rvts183>() { Id = 1, Name = </span><span class=rvts184>"David"</span><span class=rvts183> });</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// ...</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>base</span><span class=rvts183>.Seed(context);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// the base class takes care of persisting the data</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>using</span><span class=rvts183> (</span><span class=rvts58>var</span><span class=rvts183> context = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>CustomerContext</span><span class=rvts183>(</span><span class=rvts184>"CustomerContext"</span><span class=rvts183>))&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// the parameter can be left out as it is also the default value</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts110>&nbsp;&nbsp;&nbsp; Database</span><span class=rvts183>.SetInitializer&lt;</span><span class=rvts110>CustomerContext</span><span class=rvts183>&gt;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>MyCustomerContextInitializer</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>//&nbsp;&nbsp;&nbsp; populate the database with data</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>DropCreateDatabaseAlways</span><span class=rvts183>&lt;</span><span class=rvts110>CustomerContext</span><span class=rvts183>&gt;()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// OR always drop and recreate the tables</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>DropCreateDatabaseIfModelChanges</span><span class=rvts183>&lt;</span><span class=rvts110>CustomerContext</span><span class=rvts183>&gt;() </span><span class=rvts176>// OR recreate the tables whenever the model has changed</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>CreateDatabaseIfNotExists</span><span class=rvts183>&lt;</span><span class=rvts110>CustomerContext</span><span class=rvts183>&gt;()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// OR create the database only if it does not exist</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; context.Database.Initialize(</span><span class=rvts45>true</span><span class=rvts41>);</span></p>
+<p><span class=rvts8>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Usage syntax</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>using</span><span class=rvts183> (</span><span class=rvts110>CustomerDbContext</span><span class=rvts183> context = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>CustomerDbContext</span><span class=rvts183>())&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// the context class is the root element of the entity model</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// processing data ...</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; context.SaveChanges();</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>SELECT</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Customer</span><span class=rvts183> customer = context.Customers.Find(1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// retrieve a single record by its primary key</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts110>Customer</span><span class=rvts183> customer </span><span class=rvts58>in</span><span class=rvts183> context.Customers)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// iterate through all records</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts110>Customer</span><span class=rvts183> customer </span><span class=rvts58>in</span><span class=rvts183> context.Customers.SqlQuery(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// execute an SQL SELECT statement</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Select customer_id as CustomerId, name as Name"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// columns must be aliased to match the EF model</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; + " from customer where first_name = @p0"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// placeholder @p0 for a parameter</span></p>
+<p><span class=rvts184>&nbsp;&nbsp;&nbsp; "David"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// the parameter value</span></p>
+<p><span class=rvts183>))</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>from</span><span class=rvts183>&nbsp;&nbsp; customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// LINQ</span></p>
+<p><span class=rvts58>in</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp; context.Customers.Include(</span><span class=rvts184>"Orders"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// </span><span class=rvts187>without .Include no orders will be loaded!</span><span class=rvts176> (also: .Include((c) =&gt; c.Orders)</span></p>
+<p><span class=rvts58>where</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp; customer.FirstName == </span><span class=rvts184>"David"</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; 2 &lt; customer.Orders.Count</span></p>
+<p><span class=rvts58>select</span><span class=rvts183> customer;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>from&nbsp;&nbsp; </span><span class=rvts183>customer </span><span class=rvts58>in</span><span class=rvts183> context.Customers.Local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// only query the entities that have already been loaded from the DB</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection10'>INSERT</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Customer</span><span class=rvts183> customer = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Customer</span><span class=rvts183>() { CustId = 1, Name = </span><span class=rvts184>"David" </span><span class=rvts183>};&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create and initialise a new entity instance</span></p>
+<p><span class=rvts183>context.Customers.Add(customer);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// add the new record to the table</span></p>
+<p><span class=rvts183>context.Orders.Add(</span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Order</span><span class=rvts183>() { </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Customer = customer, OrderId = 1, Description = </span><span class=rvts184>"Test order"</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// foreign keys can be referenced by passing entity objects</span></p>
+<p><span class=rvts183>});</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection11'>UPDATE</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Customer</span><span class=rvts183> customer = context.Customers.Find(1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// retrieve the record by its primary key</span></p>
+<p><span class=rvts183>customer.LastName = </span><span class=rvts184>"Smith"</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// just reassign the object's properties</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection12'>DELETE</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Customer</span><span class=rvts183> customer = context.Customers.Find(1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// retrieve the record by its primary key</span></p>
+<p><span class=rvts183>context.Customers.Remove(customer);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// flag the already loaded object for deletion</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Customer</span><span class=rvts183> customer = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Customer</span><span class=rvts183>() { CustomerId = 1};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// create a dummy-object that only contains the primary key</span></p>
+<p><span class=rvts183>context.Entry(customer).State = </span><span class=rvts110>EntityState</span><span class=rvts183>.Deleted;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// flag the dummy-object for deletion</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection13'>Validating data</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>customerContext.GetValidationErrors();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// get validation errors for all entities</span></p>
+<p><span class=rvts183>customerContext.Entry(customer).GetValidationResult();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// get validation errors for a single enity</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection14'>Resolving concurrency</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>try</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// Manipulate data</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; customerContext.SaveChanges();</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>catch</span><span class=rvts183> (</span><span class=rvts110>DbUpdateConcurrencyException</span><span class=rvts183> exception)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// concurrency exception</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>if</span><span class=rvts183> (databaseWins)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts58>var</span><span class=rvts183> entry </span><span class=rvts58>in</span><span class=rvts183> exception.Entries)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// exception.Entries contains the failed objects</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entry.Reload();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// reload the object and discard local changes</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>else</span><span class=rvts183> </span><span class=rvts58>if</span><span class=rvts183> (clientWins)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts58>var</span><span class=rvts183> entry </span><span class=rvts58>in</span><span class=rvts183> exception.Entries)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entry.OriginalValues.SetValues(entry.GetDatabaseValues()); </span><span class=rvts176>// overwrite the intermediate database changes</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customerContext.SaveChanges();</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection15'>Lazy and explicit loading</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>context.Configuration.LazyLoadingEnabled = </span><span class=rvts58>false</span><span class=rvts183>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// disable lazy loading (which is active by default)</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>context.Customers.Include(c =&gt; c.Orders)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// load attached orders (only)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts110>Customer</span><span class=rvts183> customer </span><span class=rvts58>in</span><span class=rvts183> context.Customers)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; context.Entry(customer).Collection(c =&gt; c.Orders).Load();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// load all orders for the current customer</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div><table width="100%" border=1 cellpadding=1 cellspacing=-1 style="border-width: 0px; border-collapse: collapse;">
+<tr valign=top>
+<td width=1386 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #d2d2d2;"><div><table width="100%" border=0 cellpadding=0 cellspacing=0 style="border-width: 0px;">
+<tr valign=top>
+<td width="37%" valign=top><p class=rvps3><span class=rvts7>"</span><span class=rvts8>Specified key was too long; max key length is 767 bytes"</span></p>
+</td>
+<td width="50%" valign=top><p class=rvps4><span class=rvts11><br></span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Customise the HistoryContext in the project's migration folder:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>internal</span><span class=rvts41> </span><span class=rvts45>sealed</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Configuration</span><span class=rvts41> : </span><span class=rvts171>DbMigrationsConfiguration</span><span class=rvts41>&lt;PlaygroundASP.App_Code.</span><span class=rvts171>CustomerDbContext</span><span class=rvts41>&gt;</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> Configuration()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetSqlGenerator(</span><span class=rvts42>"MySql.Data.MySqlClient"</span><span class=rvts41>, </span><span class=rvts45>new</span><span class=rvts41> MySql.Data.Entity.</span><span class=rvts171>MySqlMigrationSqlGenerator</span><span class=rvts41>());</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetHistoryContextFactory(</span><span class=rvts42>"MySql.Data.MySqlClient"</span><span class=rvts41>, (conn, schema) =&gt; </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>MySqlHistoryContext</span><span class=rvts41>(conn, schema));</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MySqlHistoryContext</span><span class=rvts41> : </span><span class=rvts171>HistoryContext</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> MySqlHistoryContext(</span><span class=rvts171>DbConnection</span><span class=rvts41> connection, </span><span class=rvts45>string</span><span class=rvts41> defaultSchema)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>base</span><span class=rvts41>(connection, defaultSchema)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> OnModelCreating(</span><span class=rvts171>DbModelBuilder</span><span class=rvts41> modelBuilder)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>base</span><span class=rvts41>.OnModelCreating(modelBuilder);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts171>HistoryRow</span><span class=rvts41>&gt;().Property(h =&gt; h.MigrationId).HasMaxLength(100).IsRequired();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts171>HistoryRow</span><span class=rvts41>&gt;().Property(h =&gt; h.ContextKey).HasMaxLength(200).IsRequired();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection16'>Migrations</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts188>PM&gt; Enable-Migrations</span></p>
+<p><span class=rvts113>PM&gt; Add-Migration </span><span class=rvts189>Description</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>partial</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Customer</span><span class=rvts41> : </span><span class=rvts171>DbMigration</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Up()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddColumn(</span><span class=rvts42>"dbo.Players"</span><span class=rvts41>, </span><span class=rvts42>"TeamId"</span><span class=rvts41>, c =&gt; c.Int(nullable: </span><span class=rvts45>false</span><span class=rvts41>));</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddForeignKey(</span><span class=rvts42>"dbo.Players"</span><span class=rvts41>, </span><span class=rvts42>"TeamId"</span><span class=rvts41>, </span><span class=rvts42>"dbo.Teams"</span><span class=rvts41>, </span><span class=rvts42>"TeamId"</span><span class=rvts41>, cascadeDelete: </span><span class=rvts45>true</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateIndex(</span><span class=rvts42>"dbo.Players"</span><span class=rvts41>, </span><span class=rvts42>"TeamId"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Down()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DropIndex(</span><span class=rvts42>"dbo.Players"</span><span class=rvts41>, </span><span class=rvts45>new</span><span class=rvts41>[] { </span><span class=rvts42>"TeamId"</span><span class=rvts41> });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DropForeignKey(</span><span class=rvts42>"dbo.Players"</span><span class=rvts41>, </span><span class=rvts42>"TeamId"</span><span class=rvts41>, </span><span class=rvts42>"dbo.Teams"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DropColumn(</span><span class=rvts42>"dbo.Players"</span><span class=rvts41>, </span><span class=rvts42>"TeamId"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>PM&gt; Update-Database</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p>Sample:</p>
+<p><span class=rvts45>using</span><span class=rvts41> System;</span></p>
+<p><span class=rvts45>using</span><span class=rvts41> System.Collections.Generic;</span></p>
+<p><span class=rvts45>using</span><span class=rvts41> System.ComponentModel.DataAnnotations.Schema;</span></p>
+<p><span class=rvts45>using</span><span class=rvts41> System.Data.Entity;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>namespace</span><span class=rvts41> PlaygroundASP.App_Code</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>CustomerType</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>DatabaseGenerated</span><span class=rvts41>(</span><span class=rvts171>DatabaseGeneratedOption</span><span class=rvts41>.Identity)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> CustomerTypeId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Description { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Customer</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>DatabaseGenerated</span><span class=rvts41>(</span><span class=rvts171>DatabaseGeneratedOption</span><span class=rvts41>.Identity)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> CustomerId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> FirstName { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> LastName { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"CustomerType"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> CustomerTypeId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"CustomerTypeId"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>virtual</span><span class=rvts41> </span><span class=rvts171>CustomerType</span><span class=rvts41> CustomerType { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>virtual</span><span class=rvts41> </span><span class=rvts171>ICollection</span><span class=rvts41>&lt;</span><span class=rvts171>Order</span><span class=rvts41>&gt; Orders { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>OrderStatus</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>DatabaseGenerated</span><span class=rvts41>(</span><span class=rvts171>DatabaseGeneratedOption</span><span class=rvts41>.Identity)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> OrderStatusId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Description { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Order</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>DatabaseGenerated</span><span class=rvts41>(</span><span class=rvts171>DatabaseGeneratedOption</span><span class=rvts41>.Identity)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> OrderId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"Customer"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> CustomerId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"CustomerId"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>InverseProperty</span><span class=rvts41>(</span><span class=rvts42>"Orders"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>virtual</span><span class=rvts41> </span><span class=rvts171>Customer</span><span class=rvts41> Customer { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>DateTime</span><span class=rvts41> OrderDate { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"OrderStatus"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> OrderStatusId { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [</span><span class=rvts171>ForeignKey</span><span class=rvts41>(</span><span class=rvts42>"OrderStatusId"</span><span class=rvts41>)]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>virtual</span><span class=rvts41> </span><span class=rvts171>OrderStatus</span><span class=rvts41> OrderStatus { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>int</span><span class=rvts41> Items { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>decimal</span><span class=rvts41> Price { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>CustomerDbContext</span><span class=rvts41> : DbContext</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> CustomerDbContext() : </span><span class=rvts45>base</span><span class=rvts41>() { }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> CustomerDbContext(</span><span class=rvts45>string</span><span class=rvts41> connectionString) : </span><span class=rvts45>base</span><span class=rvts41>(connectionString) { }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> DbSet&lt;</span><span class=rvts171>Customer</span><span class=rvts41>&gt; Customers { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> DbSet&lt;</span><span class=rvts171>Order</span><span class=rvts41>&gt; Orders { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> DbSet&lt;</span><span class=rvts171>CustomerType</span><span class=rvts41>&gt; CustomerTypes { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> OnModelCreating(DbModelBuilder modelBuilder)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>base</span><span class=rvts41>.OnModelCreating(modelBuilder);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelBuilder.Entity&lt;</span><span class=rvts171>Customer</span><span class=rvts41>&gt;()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasMany(c =&gt; c.Orders)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .WithRequired(c =&gt; c.Customer)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .HasForeignKey(c =&gt; c.CustomerId)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .WillCascadeOnDelete(</span><span class=rvts45>false</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>ObjectContext</span><span class=rvts41> GetObjectContext()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// expose the object context for WCF data services and ASP dynamic data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>ObjectContext</span><span class=rvts41> context = </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ((</span><span class=rvts171>IObjectContextAdapter</span><span class=rvts41>)</span><span class=rvts45>this</span><span class=rvts41>).ObjectContext;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.ContextOptions.ProxyCreationEnabled = </span><span class=rvts45>false</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> context;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>CustomerDbContextInitializer</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom class to initialise the database</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : DropCreateDatabaseAlways&lt;</span><span class=rvts171>CustomerDbContext</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// will drop and recreate all tables during each run</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts171>Random</span><span class=rvts41> random = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>Random</span><span class=rvts41>();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>CustomerType</span><span class=rvts41> prospect = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>CustomerType</span><span class=rvts41>() { Description = </span><span class=rvts42>"prospect"</span><span class=rvts41> };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>CustomerType</span><span class=rvts41> existingCustomer = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>CustomerType</span><span class=rvts41>() { Description = </span><span class=rvts42>"existing customer"</span><span class=rvts41> };</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>OrderStatus</span><span class=rvts41>[] orderStatus = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>OrderStatus</span><span class=rvts41>[] {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>OrderStatus</span><span class=rvts41>() { Description = </span><span class=rvts42>"received"</span><span class=rvts41> },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>OrderStatus</span><span class=rvts41>() { Description = </span><span class=rvts42>"shipped"</span><span class=rvts41> },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>OrderStatus</span><span class=rvts41>() { Description = </span><span class=rvts42>"paid"</span><span class=rvts41> }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>override</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Seed(</span><span class=rvts171>CustomerDbContext</span><span class=rvts41> context)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"David"</span><span class=rvts41>, </span><span class=rvts42>"Hofmann"</span><span class=rvts41>, 20);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Patrick"</span><span class=rvts41>, </span><span class=rvts42>"Hofmann"</span><span class=rvts41>, 10);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Winfried"</span><span class=rvts41>, </span><span class=rvts42>"Hofmann"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Celine"</span><span class=rvts41>, </span><span class=rvts42>"Dion"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Sarah"</span><span class=rvts41>, </span><span class=rvts42>"Brightman"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Angela"</span><span class=rvts41>, </span><span class=rvts42>"Merkel"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"David"</span><span class=rvts41>, </span><span class=rvts42>"Copperfield"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Tina"</span><span class=rvts41>, </span><span class=rvts42>"Turner"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Eros"</span><span class=rvts41>, </span><span class=rvts42>"Ramazotti"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Dieter"</span><span class=rvts41>, </span><span class=rvts42>"Bohlen"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Andrea"</span><span class=rvts41>, </span><span class=rvts42>"Bocelli"</span><span class=rvts41>, 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>int</span><span class=rvts41> index=10; index &lt; 30; index++)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addCustomer(context, </span><span class=rvts42>"Customer"</span><span class=rvts41>, </span><span class=rvts45>string</span><span class=rvts41>.Format(</span><span class=rvts42>"{0:D2}"</span><span class=rvts41>, index), 0);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>base</span><span class=rvts41>.Seed(context);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> addCustomer(</span><span class=rvts171>CustomerDbContext</span><span class=rvts41> context, </span><span class=rvts45>string</span><span class=rvts41> FirstName, </span><span class=rvts45>string</span><span class=rvts41> LastName, </span><span class=rvts45>int</span><span class=rvts41> totalOrders)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>Customer</span><span class=rvts41> customer = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>Customer</span><span class=rvts41>()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FirstName = FirstName,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LastName = LastName,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CustomerType = 0 == totalOrders ? </span><span class=rvts45>this</span><span class=rvts41>.prospect : </span><span class=rvts45>this</span><span class=rvts41>.existingCustomer</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (0 &lt; totalOrders)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.Orders = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>List</span><span class=rvts41>&lt;</span><span class=rvts171>Order</span><span class=rvts41>&gt;();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>var</span><span class=rvts41> index = 0; index &lt; totalOrders; index++)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; customer.Orders.Add(</span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>Order</span><span class=rvts41>()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Customer = customer,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OrderStatus = </span><span class=rvts45>this</span><span class=rvts41>.orderStatus[index % </span><span class=rvts45>this</span><span class=rvts41>.orderStatus.Length],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Items = 1,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OrderDate = </span><span class=rvts171>DateTime</span><span class=rvts41>.Now.AddDays((totalOrders-index)*7),</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Price = (</span><span class=rvts45>decimal</span><span class=rvts41>) (</span><span class=rvts45>this</span><span class=rvts41>.random.Next(0, 19999) / 100.0)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.Customers.Add(customer);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,41 @@
+
+<div id='nodeSection1'>Preparing translations</div>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>install the Multilingual App Toolkit (MAT)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>set the neutral language for the project (Project Properties -&gt; Application -&gt; Assembly Information)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>enable localisation via the menu (Tools -&gt; Multilingual App Toolkit -&gt; Enable Selection)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>right-click on the project in the solution explorer and select Multilingual App Toolkit -&gt; Add Translation Languages</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>rebuild the project and enable "Show all files" in the solution explorer</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>under My Project there are separate files for each culture (Resources.*.resx)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>for all of these .resx files set the access modifier to Public</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>add the relevant (and to be translated) text content to the .resx files</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>translations are generated in the subfolder MultilingualResources</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>double-click the .xlf file to open the the Multilingual editor and to translate the text content</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>translation files are created in a folder named MultilingualResources</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Referencing translations</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>My</span><span class=rvts183>.Resources.</span><span class=rvts204>IdentifierName</span></p>
+<p><span class=rvts204><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Window</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Class</span><span class=rvts58>="MainWindow"</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts185> </span><span class=rvts97>xmlns</span><span class=rvts50>:</span><span class=rvts97>properties</span><span class=rvts50>="clr-namespace:WpfApplicationVB.My.Resources"</span><span class=rvts58> </span><span class=rvts196>...</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>Button</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Name</span><span class=rvts58>="button"</span><span class=rvts185> Content</span><span class=rvts58>="{</span><span class=rvts184>x</span><span class=rvts58>:</span><span class=rvts184>Static</span><span class=rvts185> properties</span><span class=rvts58>:</span><span class=rvts185>Resources</span><span class=rvts58>.</span><span class=rvts205>IdentifierName</span><span class=rvts58>}" /&gt;</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Activating a localisation</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Thread</span><span class=rvts183>.CurrentThread.CurrentCulture = </span><span class=rvts58>New</span><span class=rvts183> Globalization.</span><span class=rvts110>CultureInfo</span><span class=rvts183>(</span><span class=rvts184>"de-DE"</span><span class=rvts183>)</span></p>
+<p><span class=rvts110>Thread</span><span class=rvts183>.CurrentThread.CurrentUICulture = </span><span class=rvts58>New</span><span class=rvts183> Globalization.</span><span class=rvts110>CultureInfo</span><span class=rvts183>(</span><span class=rvts184>"de-DE"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection4'>Localisation matching</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Translation de matches culture de and de-DE</span></p>
+<p><span class=rvts8>Translation de-DE only matches culture de-DE</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

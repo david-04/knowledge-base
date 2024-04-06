@@ -1,0 +1,92 @@
+
+<div id='nodeSection1'>Master and slave replication</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>Redis servers can be configured to act as slaves to other Redis (master) servers</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>slaves automatically replicate all data and can serve read-only requests</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>can be used for scaling (distribute read-requests amongst multiple server instances)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>slaves can be used for persistence; the master is faster if it doesn't have to persist</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>however: non-persisting masters must not be restarted automatically after a crash</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; redis-server.exe&nbsp; --slaveof 127.0.0.1 6379&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// make this instance a slave of 127.0.0.1:6379</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts58>SLAVEOF</span><span class=rvts41> 127.0.0.1 6379&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// make this instance a slave of 127.0.0.1:6379</span></p>
+<p><span class=rvts58>SLAVEOF NO ONE</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// promote this instance from slave to master</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span><span class=rvts59>settings in redis.conf</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>slaveof&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 127.0.0.1 6379&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// make this instance a slave of 127.0.0.1:6379</span></p>
+<p><span class=rvts41>min-slaves-to-write 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// requre that at least 0 slaves are connected to this master</span></p>
+<p><span class=rvts41>min-slaves-max-lag&nbsp; 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// count onlyy slaves who are no more than 10 seconds behind the master</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection2'>Failover with Redis Sentinel</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>sentinels are separate watchdog processes (one for each Redis server)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>they add failover to non-partitioned master-slave-architectures</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>when the master becomes unavailable, the sentinels elect a (former) slave to take over</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>the other slaves are re-configured automatically to replicate from the new master</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>clients obtain the current master address and port from any of the sentinel processes</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>queries are then sent directly to the master process (not proxied through the sentinel)</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts59>configuration in sentinel.conf</span><span class=rvts39> (for one sentinel process)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>sentinel monitor mymaster 127.0.0.1 6379 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the Redis instance to monitor</span></p>
+<p><span class=rvts41>sentinel down-after-milliseconds mymaster 30000&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// trigger a re-election only after an alledged downtime of 30 seconds</span></p>
+<p><span class=rvts41>sentinel failover-timeout mymaster 180000</span></p>
+<p><span class=rvts41>sentinel parallel-syncs mymaster 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// reconfigure 1 slave at a time (during which it won't accept client requests)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>redis = Redis.new(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Ruby example of how to establish a connection from the client application</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; :url =&gt; </span><span class=rvts42>"redis://mymaster"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; :sentinels =&gt; [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// try to contact these sentinels</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {:host =&gt; </span><span class=rvts42>"127.0.0.1"</span><span class=rvts41>, :port =&gt; 26380},</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {:host =&gt; </span><span class=rvts42>"127.0.0.1"</span><span class=rvts41>, :port =&gt; 26381}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ], </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; :role =&gt; :master&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve (and connect to) the (current) Redis master</span></p>
+<p><span class=rvts41>)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection3'>Manual partitioning</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>Redis itself does not support any kind of partitioning</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>data must be partitioned manually by the client</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>partitioning by a sequence (e.g. userid) simplifies scaling (adding and removing servers)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>partitioning by a hash value yields better distribution, but requires manual migration during scaling</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>"consistent hashing" reduces the number of keys affected by a scaling operation</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>commands like SDIFF, SINTER and SUINION require all keys to be on the same server instance</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>requests can be routed automatically via </span><span class=rvts8>twemproxy (also know as nutcracker)</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection4'>Automatic partitioning with Redis Cluster</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>cluster nodes communicate with each other over a second port (10,000 above the regular listen port)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>all keys are distributed across </span><span class=rvts8>16,384 slots in total</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>a range of these slots has to be assigned manually to each node</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>when scaling the cluster, keys (and slot-range assignments) have to be migraged/adjusted manually</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>use hash tag names (like {user123}:activity:today) to ensure that related keys are stored on the same node</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>each node should have a replicating slave for backup and failover</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>clients can connect to any master, but might be redirected to the one that has the required data</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; redis-cli.exe -c -h localhost -p 6379</span><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // connect in cluster mode</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>&gt; ./utils/create-cluster/create-cluster start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create 3 masters with 3 replicating slaves</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>cluster-enabled yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// run in cluster mode</span></p>
+<p><span class=rvts41>cluster-config-file cluster.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this file is auto-generated</span></p>
+<p><span class=rvts41>cluster-node-timeout 2000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// consider a node dead if it can't be reached for 2 seconds</span></p>
+<p><span class=rvts41>cluster-slave-validity-factor 10</span></p>
+<p><span class=rvts41>cluster-migration-barrier 1</span></p>
+<p><span class=rvts41>cluster-require-full-coverage yes</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>For configuration and setup see: Redis Essentials&nbsp;&nbsp; </span><span class=rvts39>// Chapter 9 &gt; Redis Cluster &gt; Cluster Administration</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

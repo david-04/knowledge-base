@@ -1,0 +1,31 @@
+
+<div id='nodeSection1'>Defining an interface</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>interface</span><span class=rvts183> </span><span class=rvts110>IPerson</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// interface names always start with an I</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183> FirstName { </span><span class=rvts58>get</span><span class=rvts183>; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// required properties</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183> LastName { </span><span class=rvts58>get</span><span class=rvts183>; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183> FullName();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// required methods</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Implementing an interface</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>Employee</span><span class=rvts183> : </span><span class=rvts110>Object</span><span class=rvts183>, </span><span class=rvts110>IPerson</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// derived from Object, immplementing IPerson</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>string</span><span class=rvts183> FirstName { </span><span class=rvts58>get</span><span class=rvts183>; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>string</span><span class=rvts183> LastName { </span><span class=rvts58>get</span><span class=rvts183>; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> Employee(</span><span class=rvts58>string</span><span class=rvts183> first, </span><span class=rvts58>string</span><span class=rvts183> last)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.FirstName = first;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.LastName = last;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>string</span><span class=rvts183> </span><span class=rvts199>IPerson</span><span class=rvts183>.FullName()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// if the interface name is used here, then the method can only be called by casting Employee to IPerson</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> </span><span class=rvts58>this</span><span class=rvts183>.FirstName + </span><span class=rvts184>" "</span><span class=rvts183> + </span><span class=rvts58>this</span><span class=rvts183>.LastName;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

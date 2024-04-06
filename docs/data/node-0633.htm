@@ -1,0 +1,91 @@
+
+<div id='nodeSection1'>General usage</div>
+<p class=rvps10><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>untyped data sets can be created and used as describe below</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>typed data sets can be generated from existing databases (Project -&gt; Add new data source)</span></li>
+</ul>
+<p><span class=rvts183><br></span></p>
+<p class=rvps10><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Defining the data model</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> column1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DataColumn</span><span class=rvts183>(</span><span class=rvts184>"name"</span><span class=rvts183>, </span><span class=rvts58>GetType</span><span class=rvts183>(</span><span class=rvts58>String</span><span class=rvts183>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create columns</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> column2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DataColumn</span><span class=rvts183>() </span><span class=rvts58>With</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .AllowDBNull = </span><span class=rvts58>False</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .AutoIncrement = </span><span class=rvts58>True</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .AutoIncrementSeed = 1000,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .AutoIncrementStep = 1,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Caption = </span><span class=rvts184>"Customer number"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .ColumnMapping = </span><span class=rvts110>MappingType</span><span class=rvts183>.Element,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' element Or attribute In XML export</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .ColumnName = </span><span class=rvts184>"customer_id"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .DataType = </span><span class=rvts58>GetType</span><span class=rvts183>(</span><span class=rvts58>Integer</span><span class=rvts183>),</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .DefaultValue = 0,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Expression = </span><span class=rvts58>Nothing</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' calculated columns, e.g. "column1+column2"</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .ReadOnly = </span><span class=rvts58>True</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; .Unique = </span><span class=rvts58>True</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> table </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DataTable</span><span class=rvts183>(</span><span class=rvts184>"Customer"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create tables</span></p>
+<p><span class=rvts183>table.Columns.AddRange({column1, column2})</span></p>
+<p><span class=rvts183>table.PrimaryKey = {table.Columns(</span><span class=rvts184>"customer_id"</span><span class=rvts183>)}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> view </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DataView</span><span class=rvts183>(table)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create views</span></p>
+<p><span class=rvts183>view.RowFilter = </span><span class=rvts184>"customer_id &gt; 1000"</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> dataSet </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DataSet</span><span class=rvts183>(</span><span class=rvts184>"MyDB"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create databases</span></p>
+<p><span class=rvts183>dataSet.ExtendedProperties(</span><span class=rvts184>"author"</span><span class=rvts183>) = </span><span class=rvts184>"David"</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' custom properties</span></p>
+<p><span class=rvts183>dataSet.Tables.Add(table)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> relation </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>DataRelation</span><span class=rvts183>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create realtions (foreign keys)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"FK_CustomerOrder"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; dataSet.Tables(</span><span class=rvts184>"Customer"</span><span class=rvts183>).Columns(</span><span class=rvts184>"customer_id"</span><span class=rvts183>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' parent</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; dataSet.Tables(</span><span class=rvts184>"Orders"</span><span class=rvts183>).Columns(</span><span class=rvts184>"customer_id"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' child</span></p>
+<p><span class=rvts183>)</span></p>
+<p><span class=rvts183>dataSet.Relations.Add(relation)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Accessing records</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> row </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>DataRow</span><span class=rvts183> = dataSet.Tables(</span><span class=rvts184>"Customer"</span><span class=rvts183>).NewRow()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' create a new table row</span></p>
+<p><span class=rvts183>row(</span><span class=rvts184>"customer_id"</span><span class=rvts183>) = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' initialise the data</span></p>
+<p><span class=rvts183>dataSet.Tables(</span><span class=rvts184>"Customer"</span><span class=rvts183>).Rows.Add(row)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' add the row to the table</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>dataSet.Tables(</span><span class=rvts184>"Customer"</span><span class=rvts183>).Rows(0)(</span><span class=rvts184>"customer_id"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' access via nested arrays (result is untyped and requires casting)</span></p>
+<p><span class=rvts183>dataSet.Tables(</span><span class=rvts184>"Customer"</span><span class=rvts183>).Rows(0).Field(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>)(</span><span class=rvts184>"customer_id"</span><span class=rvts183>) </span><span class=rvts176>' used strongly typed accessors</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> rows </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>DataRow</span><span class=rvts183>() = dataTable.Select(</span><span class=rvts184>"name='David2"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' select with where-filter as string</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> data = </span><span class=rvts58>From</span><span class=rvts183> tableRow </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>DataRow</span><span class=rvts183> </span><span class=rvts58>In</span><span class=rvts183> table.</span><span class=rvts52>AsEnumerable()</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' LINQ</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Where</span><span class=rvts183> </span><span class=rvts58>CType</span><span class=rvts183>(tableRow(</span><span class=rvts184>"name"</span><span class=rvts183>), </span><span class=rvts58>String</span><span class=rvts183>).Contains(</span><span class=rvts184>"a"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Select</span><span class=rvts183> tableRow(</span><span class=rvts184>"customer_id"</span><span class=rvts183>)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Using</span><span class=rvts183> reader = table.CreateDataReader()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' use a reader like with real databases</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>While</span><span class=rvts183> reader.Read()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(reader(</span><span class=rvts184>"name"</span><span class=rvts183>))</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>While</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Using</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> orders() = dataSet.Tables(</span><span class=rvts184>"Customer"</span><span class=rvts183>).Rows(0).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Retrieve attached records from other tables via foreign keys</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GetChildRows(dataSet.Relations(</span><span class=rvts184>"FK_CustomerOrder"</span><span class=rvts183>)) </span><span class=rvts176>' FK_CustomerOrder must be a predefined relation within the dataset</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>dataSet.Clear()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' delete all rows from all tables</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Data im- and export</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>dataSet.WriteXmlSchema(</span><span class=rvts184>"database.xsd"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' save virtual database schema (metadata) as XSD</span></p>
+<p><span class=rvts183>dataSet.WriteXml(</span><span class=rvts184>"database.xml"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' save content as XML</span></p>
+<p><span class=rvts183>dataSet.ReadXmlSchema(</span><span class=rvts184>"database.xsd"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' load metadata from an XSD schema</span></p>
+<p><span class=rvts183>dataSet.ReadXml(</span><span class=rvts184>"database.xml"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' load content from XML</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>dataSet.RemotingFormat = </span><span class=rvts110>SerializationFormat</span><span class=rvts183>.Binary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' the binary formatter also exports type information</span></p>
+<p><span class=rvts58>Using</span><span class=rvts183> fileStream </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>FileStream</span><span class=rvts183>(</span><span class=rvts184>"db.bin"</span><span class=rvts183>, </span><span class=rvts110>FileMode</span><span class=rvts183>.Create)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Dim</span><span class=rvts183> formatter </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>BinaryFormatter</span><span class=rvts183>()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; formatter.Serialize(fileStream, dataSet)</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Using</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

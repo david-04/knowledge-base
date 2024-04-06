@@ -1,0 +1,41 @@
+
+<div id='nodeSection1'>Manual encryption</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>SYMMETRIC</span><span class=rvts61>&nbsp; </span><span class=rvts64>KEY</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- manual symmetric encryption</span></p>
+<p><span class=rvts64>OPEN</span><span class=rvts61> </span><span class=rvts64>SYMMETRIC</span><span class=rvts61> </span><span class=rvts64>KEY</span><span class=rvts61> </span></p>
+<p><span class=rvts67>EncryptByKey</span><span class=rvts63>(</span><span class=rvts67>key_id</span><span class=rvts63>,</span><span class=rvts61> text_to_encrypt</span><span class=rvts63>)</span></p>
+<p><span class=rvts67>DecryptByKey</span><span class=rvts63>(</span><span class=rvts67>key_id</span><span class=rvts63>,</span><span class=rvts61> text_to_decrypt</span><span class=rvts63>)</span></p>
+<p><span class=rvts64>CLOSE</span><span class=rvts61>&nbsp; </span><span class=rvts64>SYMMETRIC</span><span class=rvts61>&nbsp; </span><span class=rvts64>KEY</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61>&nbsp; </span><span class=rvts64>SYMMETRIC</span><span class=rvts61>&nbsp; </span><span class=rvts64>KEY</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>ASYMMETRIC</span><span class=rvts61> </span><span class=rvts64>KEY</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- manual assymetric encryption</span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61>&nbsp; </span><span class=rvts64>ASYMMETRIC</span><span class=rvts61>&nbsp; </span><span class=rvts64>KEY</span></p>
+<p><span class=rvts67>EncryptByAsymKey</span><span class=rvts63>(</span><span class=rvts67>key_id</span><span class=rvts63>,</span><span class=rvts61> text_to_encrypt</span><span class=rvts63>)</span></p>
+<p><span class=rvts67>DecryptByAsymKey</span><span class=rvts63>(</span><span class=rvts67>key_id</span><span class=rvts63>,</span><span class=rvts61> text_to_decrypt</span><span class=rvts63>)</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61>&nbsp; </span><span class=rvts64>ASYMMETRIC</span><span class=rvts61> </span><span class=rvts64>KEY</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts61>sys.symmetric_keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- views with encryption-related information</span></p>
+<p><span class=rvts61>sys.asymmetric_keys</span></p>
+<p><span class=rvts61>sys.certificates</span></p>
+<p><span class=rvts61>sys.database_principals&nbsp; </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Tranpsarent data encryption (whole database)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>MASTER</span><span class=rvts61> </span><span class=rvts64>KEY</span><span class=rvts61> </span><span class=rvts64>ENCRYPTION</span><span class=rvts61> </span><span class=rvts64>BY</span><span class=rvts61> </span><span class=rvts64>PASSWORD</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'***'</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts62>-- transparent data encryption (of the whole database)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>CERTIFICATE</span><span class=rvts61> my_certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>SUBJECT</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'My certificate'</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> </span><span class=rvts64>ENCRYPTION</span><span class=rvts61> </span><span class=rvts64>KEY</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>ALGORITHM</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts64>AES_256</span></p>
+<p><span class=rvts64>ENCRYPTION</span><span class=rvts61> </span><span class=rvts64>BY</span><span class=rvts61> </span><span class=rvts64>SERVER</span><span class=rvts61> </span><span class=rvts64>CERTIFICATE</span><span class=rvts61> my_certificate</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>DATABASE</span><span class=rvts61> my_database </span><span class=rvts64>SET</span><span class=rvts61> </span><span class=rvts64>ENCRYPTION</span><span class=rvts61> </span><span class=rvts64>ON</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

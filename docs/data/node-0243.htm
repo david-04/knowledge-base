@@ -1,0 +1,28 @@
+
+<div id='nodeSection1'>Container and grouping</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>PlaceHolder </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; group multiple elements without adding any encapsulating HTML element</span></p>
+<p><span class=rvts8>Panel </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; group multiple elements represented as a DIV in the final HTML output</span></p>
+<p><span class=rvts8>Wizard </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; splitting page into mulitple forms that the user fills in one step at a time (navigation between the steps is added automatically)</span></p>
+<p><span class=rvts8>MultiView </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; like Wizard but navigation must be handled manually/programmatically</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Using the wizzard</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>Wizard</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="Wizard1"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>WizardSteps</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>WizardStep</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="Step1"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"</span><span class=rvts41> </span><span class=rvts90>Title</span><span class=rvts45>="Name"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name: </span><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>TextBox</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="TextBox1"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"&gt;&lt;/</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>TextBox</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>WizardStep</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>WizardStep</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="Step2"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"</span><span class=rvts41> </span><span class=rvts90>Title</span><span class=rvts45>="Age"</span><span class=rvts41> </span><span class=rvts90>StepType</span><span class=rvts45>="Finish"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Age: </span><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>TextBox</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="TextBox2"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"&gt;&lt;/</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>TextBox</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>WizardStep</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>WizardStep</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="Step3"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"</span><span class=rvts41> </span><span class=rvts90>StepType</span><span class=rvts45>="Complete"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you!</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>WizardStep</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>WizardSteps</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>Wizard</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><br></p>
+<p><br></p>
+

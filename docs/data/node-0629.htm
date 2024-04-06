@@ -1,0 +1,42 @@
+
+<div id='nodeSection1'>Variables</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41>&nbsp;&nbsp; myString: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// variable is bound to the function's scope</span></p>
+<p><span class=rvts45>let</span><span class=rvts41>&nbsp;&nbsp; myString: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// variable is bound to the block's scope</span></p>
+<p><span class=rvts45>const</span><span class=rvts41> myString: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// like let (bound to the block scope) but can't be reassigned</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41>&nbsp;&nbsp; myString: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// explicitely typed</span></p>
+<p><span class=rvts45>let</span><span class=rvts41>&nbsp;&nbsp; myString&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// type is inferred from the assignment</span></p>
+<p><span class=rvts45>var</span><span class=rvts41>&nbsp;&nbsp; myObject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = { name: </span><span class=rvts42>"David"</span><span class=rvts41>, age: 38 };</span><span class=rvts39>// the type can be inferred from object literals as well</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41>&nbsp;&nbsp; greeting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>`Hello ${</span><span class=rvts41>myObject.name</span><span class=rvts42>}!`</span><span class=rvts41>; </span><span class=rvts39>// backtick-quoted "template strings" can contain expressions</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts41>[colour1, colour2] = [colour2, colour1];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// swap variables</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Casting</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> person: </span><span class=rvts110>Person</span><span class=rvts41> = (myObject </span><span class=rvts45>as</span><span class=rvts41> </span><span class=rvts110>Person</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// assume that myObject is of type Person (an assertion rather than a type conversion)</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> person: </span><span class=rvts110>Person</span><span class=rvts41> = &lt;</span><span class=rvts110>Person</span><span class=rvts41>&gt;myObject;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// same as above, different syntax (</span><span class=rvts44>not supported in JSX mode</span><span class=rvts39>)</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myObject = &lt;</span><span class=rvts45>any</span><span class=rvts41>&gt;{ item: </span><span class=rvts42>"Cake"</span><span class=rvts41>, quantity: 2 };&nbsp; </span><span class=rvts39>// disregard an object literal's implicite interface to prevent type inference</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Strict null checks</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; tsc --strictNullChecks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// with this switch variables and properties can't be set to null</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myString: </span><span class=rvts45>string</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts45>null</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// error: assignment of null not allowed with -strictNullChecks</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myString: </span><span class=rvts45>string </span><span class=rvts41>| </span><span class=rvts45>null</span><span class=rvts41> = </span><span class=rvts45>null</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ok: type specification explicitely allows null</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction(myString: </span><span class=rvts45>string</span><span class=rvts41>|</span><span class=rvts45>null</span><span class=rvts41>): </span><span class=rvts45>void</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(myString.length);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// error: myString might be null (which doesn't have a property named length)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (</span><span class=rvts45>null</span><span class=rvts41> != myString) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(myString.length);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ok: the type guard ensures that (within this block) we have an actual string</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(myString</span><span class=rvts52>!</span><span class=rvts41>.length);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ok: with the exclamation mark we assert that myString is a string (and not null)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,61 @@
+
+<div id='nodeSection1'>Initialisation</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>&gt; git init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// initialise the current folder as a repository (won't add/commit any files)</span></p>
+<p><span class=rvts41>&gt; git init --bare --shared&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// initialise the current folder as a bare repository (used by everyone to push to</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // and pull from; doesn't have any checked out local working copy; the folder name</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // should end with the suffix ".git" by convention)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts176><br></span></p>
+<div id='nodeSection2'>Cloning</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>&gt; git clone https://github.com/user/project&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone an existing repository (creates a folder named "project")</span></p>
+<p><span class=rvts41>&gt; git clone https://github.com/user/project work&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone the repository in a folder named "work"</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&gt; git clone </span><a class=rvts322 href="https://github.com/user/project">https://github.com/user/project</a><span class=rvts43>&nbsp;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone from a HTTP server</span></p>
+<p><span class=rvts41>&gt; git clone </span><span class=rvts47>ssh://</span><a class=rvts322 href="mailto:user@server/project.git">user@server/project.git</a><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone from a SSH server (the ssh:// is optional and can be omitted)</span></p>
+<p><span class=rvts41>&gt; git clone /opt/git/project.git&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone from the file system and create links instead of copying all files</span></p>
+<p><span class=rvts41>&gt; git clone file:///opt/git/project.git&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone from the file system but copy all files instead of creating links</span></p>
+<p><span class=rvts323><br></span></p>
+<p><span class=rvts41>&gt; git clone --bare https://</span><span class=rvts47>...</span><span class=rvts41> my-repository.git&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone the specified repository and create a bare copy of it (the target</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // folder name should end with the suffix ".git" by convention)</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts41>&gt; git clone --recursive&nbsp; </span><span class=rvts47>...</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// clone all embedded submodules as well</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts176><br></span></p>
+<div id='nodeSection3'>Managing remotes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>&gt; git remote -v</span><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // show the remote repositories that are linked to the current (local) one</span></p>
+<p><span class=rvts41>&gt; git remote show {origin|myAlias}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// show details about a remote repository (e.g. new branches)</span></p>
+<p><span class=rvts100><br></span></p>
+<p><span class=rvts41>&gt; git remote add myAlias</span><span class=rvts43> </span><a class=rvts322 href="https://github.com/user/project">https://</a><a class=rvts324 href="https://github.com/user/project">...</a><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// link an additional respository (known locally under the alias "myAlias")</span></p>
+<p><span class=rvts41>&gt; git remote rename myAlias myNewAlias&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// rename a remote repository alias</span></p>
+<p><span class=rvts41>&gt; git remote rm myAlias&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove a selected remote repository</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts176><br></span></p>
+<div id='nodeSection4'>Uploading changes</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts41>&gt; git push {origin|myAlias} {master|myBranch}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// push a branch to a remote repository (</span><span class=rvts44>won't push any other branches/tags</span><span class=rvts39>)</span></p>
+<p><span class=rvts41>&gt; git push {origin|myAlias} myBranch:davidsBranch&nbsp;&nbsp; </span><span class=rvts39>// push a branch but rename it on the remote repository</span></p>
+<p><span class=rvts41>&gt; git push {origin|myAlias} myTag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// push a tag</span></p>
+<p><span class=rvts41>&gt; git push {origin|myAlias} --tags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// push all new tags</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&gt; git push {origin|myAlias} --delete myBranch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// delete a branch from a remote repository</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts176><br></span></p>
+<div id='nodeSection5'>Downloading changes</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts41>&gt; git fetch </span><span class=rvts47>{origin|myAlias}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pull the latest commits from the specified (or all) repositories</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span><span class=rvts44>this won't merge any changes but create new (duplicate) branches</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&gt; git log --no-merges myBranch..origin/myBranch&nbsp;</span><span class=rvts39>&nbsp;&nbsp;&nbsp; // show all newly fetched commits in myBranch that need to be merged</span></p>
+<p><span class=rvts41>&gt; git merge {origin|myAlias}/myBranch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// merge the fetched myBranch </span><span class=rvts44>into the current local branch</span></p>
+<p><span class=rvts321><br></span></p>
+<p><span class=rvts43>&gt; git pull {origin|myAlias} myBranch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// do a git fetch + git merge (works only for tracking branches)</span></p>
+<p><span class=rvts43><br></span></p>
+<p><span class=rvts43>&gt; git pull&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// do a git fetch + git merge </span><span class=rvts44>into the current local branch</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts100><br></span></p>
+<p><br></p>
+<p><br></p>
+

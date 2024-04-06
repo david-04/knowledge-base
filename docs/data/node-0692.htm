@@ -1,0 +1,24 @@
+
+<div id='nodeSection1'>Defining entities</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts185>dh</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>David Hofmann</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- simple text replacement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts185>dh</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>&lt;firstName&gt;David&lt;/firstName&gt;</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- can contain nested markup (as a string)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;lastName&gt;Hofmann&lt;/lastName&gt;</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts185>footer</span><span class=rvts58> SYSTEM </span><span class=rvts183>"</span><span class=rvts58>footer.xml</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- load from a separate file (add NDATA keyword for non-xml-files=&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Using entities in XML</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>author</span><span class=rvts58>&gt;</span><span class=rvts185>&amp;dh;</span><span class=rvts58>&lt;/</span><span class=rvts184>author</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- reference via the &amp;entity; notation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Using entites in the DTD</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts183>%</span><span class=rvts58> </span><span class=rvts185>children</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>(child1|child2)+</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- defined with the % symbol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ELEMENT</span><span class=rvts58> </span><span class=rvts185>element</span><span class=rvts58> </span><span class=rvts183>%children;</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- referenced with the % symbol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

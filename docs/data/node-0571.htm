@@ -1,0 +1,35 @@
+
+<div id='nodeSection1'>Profiling</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'ruby-prof'</span><span class=rvts262>                         </span><span class=rvts263># gem install ruby-prof</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&gt; ruby-prof program.rb</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Benchmarking</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'benchmark'</span><span class=rvts262>                         </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>bm = </span><span class=rvts267>Benchmark</span><span class=rvts262>.measure { my_function }      </span><span class=rvts263># run and benchmark the given code</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>bm.to_s                                     </span><span class=rvts263># like the UNIX time command:  0.062000   0.000000   0.062000 (  0.064010)</span></p>
+<p class=rvps12><span class=rvts262>bm.real                                     </span><span class=rvts263># elapsed time</span></p>
+<p class=rvps12><span class=rvts262>bm.total                                    </span><span class=rvts263># total CPU time</span></p>
+<p class=rvps12><span class=rvts262>bm.utime                                    </span><span class=rvts263># user CPU time</span></p>
+<p class=rvps12><span class=rvts262>bm.stime                                    </span><span class=rvts263># system CPU time</span></p>
+<p class=rvps12><span class=rvts262>bm.cutime                                   </span><span class=rvts263># user CPU time of children</span></p>
+<p class=rvps12><span class=rvts262>bm.cstime                                   </span><span class=rvts263># system CPU time of children</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Benchmark</span><span class=rvts262>.bm </span><span class=rvts265>do</span><span class=rvts262> |bm|                        </span><span class=rvts263># run multiple benchmarks and display them as a table</span></p>
+<p class=rvps12><span class=rvts262>  bm.report(</span><span class=rvts266>"variant 1"</span><span class=rvts262>) { my_function_1 }</span></p>
+<p class=rvps12><span class=rvts262>  bm.report(</span><span class=rvts266>"variant 2"</span><span class=rvts262>) { my_function_2 }</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Benchmark</span><span class=rvts262>.bmbm </span><span class=rvts265>do</span><span class=rvts262> |bm|                      </span><span class=rvts263># like abovek but runs every benchmark twice and reports them separately</span></p>
+<p class=rvps12><span class=rvts262>  bm.report(</span><span class=rvts266>"variant 1"</span><span class=rvts262>) { my_function_1 }</span></p>
+<p class=rvps12><span class=rvts262>  bm.report(</span><span class=rvts266>"variant 2"</span><span class=rvts262>) { my_function_2 }</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,29 @@
+
+<div id='nodeSection1'>Messaging</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts58>PUBLISH</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myChannel </span><span class=rvts42>"Hello world!"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// publish a message to a channel</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58>SUBSCRIBE</span><span class=rvts41>&nbsp;&nbsp;&nbsp; myChannel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// subscribe for messages on the given channel</span></p>
+<p><span class=rvts58>PSUBSCRIBE</span><span class=rvts41>&nbsp;&nbsp; myChannel*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// subscribe with a wildcard channel name</span></p>
+<p><span class=rvts58>UNSUBSCRIBE</span><span class=rvts41>&nbsp; myChannel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// unsubscribe from a channel</span></p>
+<p><span class=rvts58>PUNSUBSCRIBE</span><span class=rvts41> myChannel*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// unsubscribe with a wildcard channel name</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58>PUBSUB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHANNELS</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// list all active channels (with at least one subscriber)</span></p>
+<p><span class=rvts58>PUBSUB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHANNELS</span><span class=rvts41> my*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... optionally filtered by a channel name mask</span></p>
+<p><span class=rvts58>PUBSUB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NUMSUB</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// count the number of currently active subscribers</span></p>
+<p><span class=rvts58>PUBSUB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NUMSUB</span><span class=rvts41> my*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... optionally filtered by a channel name mask</span></p>
+<p><span class=rvts58>PUBSUB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NUMPAT</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// count the number of clients with active PSUBSCRIBEs</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Node</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>client.publish(</span><span class=rvts42>"myChannel"</span><span class=rvts41>, </span><span class=rvts42>"Hello world!"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// publish a message to a channel</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.on(</span><span class=rvts42>"message"</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(channel, message) {&nbsp;&nbsp; </span><span class=rvts39>// attach an event handler for received messages</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(channel + </span><span class=rvts42>": "</span><span class=rvts41> + message);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41>client.subscribe(</span><span class=rvts42>"global"</span><span class=rvts41>, </span><span class=rvts42>"myChannel"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// subscribe to a channel</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

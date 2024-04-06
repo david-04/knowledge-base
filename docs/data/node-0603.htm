@@ -1,0 +1,77 @@
+
+<p><a class=rvts286 href="https://www.baeldung.com/scala/case-objects-vs-enumerations">https://www.baeldung.com/scala/case-objects-vs-enumerations</a></p>
+<p><span class=rvts229><br></span></p>
+<div id='nodeSection1'>Enums (Scala 3 only)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269>enum Direction:&nbsp; // generates a sealed class and a companion object with the enum's values</span></p>
+<p><span class=rvts269>&nbsp; case North, East, South, West</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>enum Direction extends java.lang.Enum[Direction]:&nbsp; // extending Enum will create a Java-compatible enum</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; case North, East, South, West</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>Direction.North.ordinal == 0 // compiler assings sequential numbers to each enum value</span></p>
+<p><span class=rvts269>Direction.East.ordinal == 1</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>array = Direction.values&nbsp; // get all values</span></p>
+<p><span class=rvts269>direction = Direction.valueOf("North")</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>enum Direction(val degrees: Int): // can have parameters</span></p>
+<p><span class=rvts269>&nbsp; def invert: Direction = // can have methods</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; this match</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; case North =&gt; South</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; case East =&gt; West</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; case South =&gt; North</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; case West =&gt; East</span></p>
+<p><span class=rvts269>&nbsp; case North extends Direction(0)</span></p>
+<p><span class=rvts269>&nbsp; case East extends Direction(90)</span></p>
+<p><span class=rvts269>&nbsp; case South extends Direction(180)</span></p>
+<p><span class=rvts269>&nbsp; case West extends Direction(270)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>object Direction:</span></p>
+<p><span class=rvts269>&nbsp; def nearestTo(degrees: Int): Direction = // can extend the companion object (and also override the generated values and valueOf methods</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; val rem = degrees % 360</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; val angle = if rem &lt; 0 then rem + 360 else rem</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; val (ne, se, sw, nw) = (45, 135, 225, 315)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; angle match</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case a if a &gt; nw || a &lt;= ne =&gt; North</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case a if a &gt; ne &amp;&amp; a &lt;= se =&gt; East</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case a if a &gt; se &amp;&amp; a &lt;= sw =&gt; South</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case a if a &gt; sw &amp;&amp; a &lt;= nw =&gt; West</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Parameterised values</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>enum Eastwood[+G, +B]:</span></p>
+<p><span class=rvts269>&nbsp; def map[G2](f: G =&gt; G2): Eastwood[G2, B] =</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; this match</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case Good(g) =&gt; Good(f(g)) // extract the actual parameter via pattern matching</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case Bad(b) =&gt; Bad(b)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case Ugly(ex) =&gt; Ugly(ex)</span></p>
+<p><span class=rvts269>&nbsp; case Good(g: G)</span></p>
+<p><span class=rvts269>&nbsp; case Bad(b: B)</span></p>
+<p><span class=rvts269>&nbsp; case Ugly(ex: Throwable)</span></p>
+<p><span class=rvts269>&nbsp; case Other&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the parameter list must not match, some enum values can be without any parameters</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>val eastWood = Good(41)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Generic enums</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>enum Literal[T]:</span></p>
+<p><span class=rvts269>&nbsp; case IntLit(value: Int) extends Literal[Int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // value can be retrieved via pattern matching</span></p>
+<p><span class=rvts269>&nbsp; case LongLit(value: Long) extends Literal[Long]</span></p>
+<p><span class=rvts269>&nbsp; case CharLit(value: Char) extends Literal[Char]</span></p>
+<p><span class=rvts269>&nbsp; case FloatLit(value: Float) extends Literal[Float]</span></p>
+<p><span class=rvts269>&nbsp; case DoubleLit(value: Double) extends Literal[Double]</span></p>
+<p><span class=rvts269>&nbsp; case BooleanLit(value: Boolean) extends Literal[Boolean]</span></p>
+<p><span class=rvts269>&nbsp; case StringLit(value: String) extends Literal[String]</span></p>
+<p><span class=rvts269><br></span></p>
+<p><br></p>
+<p><br></p>
+

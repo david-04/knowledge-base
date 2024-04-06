@@ -1,0 +1,67 @@
+
+<div id='nodeSection1'>Mixins</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>User</span><span class=rvts251> {                                        </span><span class=rvts252>// the class we want to mix something into</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>constructor</span><span class=rvts251>(</span><span class=rvts64>private</span><span class=rvts251> </span><span class=rvts64>readonly</span><span class=rvts251> name: </span><span class=rvts64>string</span><span class=rvts251>) { }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>type</span><span class=rvts251> </span><span class=rvts288>Constructor</span><span class=rvts251> = new (...args: </span><span class=rvts64>any</span><span class=rvts251>[]) =&gt; {};      </span><span class=rvts252>// declare a generic constructor type without constraints</span></p>
+<p class=rvps12><span class=rvts251>                                                    </span><span class=rvts252>// To add constraints use generics: type Constructor&lt;T = {}&gt; = new (...args: any[]) =&gt; T;</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> MixInId&lt;</span><span class=rvts288>T</span><span class=rvts251> </span><span class=rvts64>extends</span><span class=rvts251> </span><span class=rvts288>Constructor</span><span class=rvts251>&gt;(            </span><span class=rvts252>// create a constructor function</span></p>
+<p class=rvps12><span class=rvts251>    BaseClass: </span><span class=rvts288>T</span></p>
+<p class=rvps12><span class=rvts251>) {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>return</span><span class=rvts251> </span><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>WithId</span><span class=rvts251> </span><span class=rvts64>extends</span><span class=rvts251> </span><span class=rvts288>BaseClass</span><span class=rvts251> {         </span><span class=rvts252>// define the merged class on the fly</span></p>
+<p class=rvps12><span class=rvts251>        _id = 1;                                    </span><span class=rvts252>// can only use "ES2020 private fields" to avoid properties being public</span></p>
+<p class=rvps12><span class=rvts251>        set id(id: </span><span class=rvts64>number</span><span class=rvts251>) { </span><span class=rvts64>this</span><span class=rvts251>._id = id }</span></p>
+<p class=rvps12><span class=rvts251>        get id(): </span><span class=rvts64>number</span><span class=rvts251> { </span><span class=rvts64>return</span><span class=rvts251> </span><span class=rvts64>this</span><span class=rvts251>._id }</span></p>
+<p class=rvps12><span class=rvts251>    };</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> UserWithId = MixInId(User);                   </span><span class=rvts252>// Create the mixed class</span></p>
+<p class=rvps12><span class=rvts64>type</span><span class=rvts251> </span><span class=rvts288>UserWithId</span><span class=rvts251> = </span><span class=rvts64>typeof</span><span class=rvts251> UserWithId;                </span><span class=rvts252>// ...and get its type</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> david = </span><span class=rvts64>new</span><span class=rvts251> UserWithId(</span><span class=rvts289>"David"</span><span class=rvts251>);              </span><span class=rvts252>// instantiate the class</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> myFunction(user: </span><span class=rvts288>UserWithId</span><span class=rvts251>) { }           </span><span class=rvts252>// expect the mixed type in functions</span></p>
+<p class=rvps12><span class=rvts297><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Old (more verbose/hacky) way</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Disposable</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// base classes that provide domain-specific functionality</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; isDisposed: </span><span class=rvts45>boolean</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; dispose() { </span><span class=rvts45>this</span><span class=rvts41>.isDisposed = </span><span class=rvts45>true</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Activatable</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; isActive: </span><span class=rvts45>boolean</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; activate() { </span><span class=rvts45>this</span><span class=rvts41>.isActive = </span><span class=rvts45>true</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; deactivate() { </span><span class=rvts45>this</span><span class=rvts41>.isActive = </span><span class=rvts45>false</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyClass</span><span class=rvts41> </span><span class=rvts45>implements</span><span class=rvts41> </span><span class=rvts171>Disposable</span><span class=rvts41>, </span><span class=rvts171>Activatable</span><span class=rvts41> {&nbsp; </span><span class=rvts39>// the combined class inherits the interface only (implements, not extends)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; isDisposed: </span><span class=rvts45>boolean</span><span class=rvts41> = </span><span class=rvts45>false</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// declare the base class' properties and function types</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; dispose: () =&gt; </span><span class=rvts45>void</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// these are used only to satisfy the TypeScript's type checking</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; isActive: </span><span class=rvts45>boolean</span><span class=rvts41> = </span><span class=rvts45>false</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; activate: () =&gt; </span><span class=rvts45>void</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; deactivate: () =&gt; </span><span class=rvts45>void</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>applyMixins(</span><span class=rvts171>MyClass</span><span class=rvts41>, [</span><span class=rvts171>Disposable</span><span class=rvts41>, </span><span class=rvts171>Activatable</span><span class=rvts41>]);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// at runtime: merge the base types into the combined class</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> applyMixins(derivedCtor: </span><span class=rvts45>any</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// utility function that performms the actual merge</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; baseCtors: </span><span class=rvts45>any</span><span class=rvts41>[]) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; baseCtors.forEach(baseCtor =&gt; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object.getOwnPropertyNames(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; baseCtor.prototype</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ).forEach(name =&gt; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; derivedCtor.prototype[name]</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = baseCtor.prototype[name];</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

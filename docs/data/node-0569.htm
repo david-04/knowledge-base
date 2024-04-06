@@ -1,0 +1,68 @@
+
+<div id='nodeSection1'>Install gems</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts262>gem list                                    </span><span class=rvts263># display all locally installed gems</span></p>
+<p class=rvps12><span class=rvts262>gem list --remote                           </span><span class=rvts263># list gems from remote server - or browse https://rubygems.org/</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>gem install chronic                         </span><span class=rvts263># install a gem</span></p>
+<p class=rvps12><span class=rvts262>gem install -v 0.10.2 chronic               </span><span class=rvts263># install a specific version</span></p>
+<p class=rvps12><span class=rvts262>gem update                                  </span><span class=rvts263># upgrade to latest version(s)</span></p>
+<p class=rvps12><span class=rvts262>gem uninstall chronic                       </span><span class=rvts263># remove a gem</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Manage dependencies with bundler</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>Create file called </span><span class=rvts266>"Gemfile"</span><span class=rvts262>:</span></p>
+<p class=rvps12><span class=rvts262>+-------------------------------+</span></p>
+<p class=rvps12><span class=rvts262>| </span><span class=rvts265>source</span><span class=rvts262> </span><span class=rvts266>'</span><a class=rvts272 href="https://rubygems.org">https://rubygems.org</a><span class=rvts266>'</span><span class=rvts262> |           </span><span class=rvts263># the repository</span></p>
+<p class=rvps12><span class=rvts262>| gem </span><span class=rvts266>'nokogiri'</span><span class=rvts262>                |           </span><span class=rvts263># allow any version</span></p>
+<p class=rvps12><span class=rvts262>| gem </span><span class=rvts266>'rack'</span><span class=rvts262>, </span><span class=rvts266>'~&gt;1.5'</span><span class=rvts262>           |           </span><span class=rvts263># require 1.5 or above (but below 2)</span></p>
+<p class=rvps12><span class=rvts262>+-------------------------------+</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&gt; bundle install                            </span><span class=rvts263># creates a "Gemfile.lock"</span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'rubygems'</span><span class=rvts262>                          </span><span class=rvts263># ???</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'bundler/setup'</span><span class=rvts262>                     </span><span class=rvts263># adds the gems from the Gemfile.lock to the load path</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'nokogiri'</span><span class=rvts262>                          </span><span class=rvts263># include the preselected gem versions</span></p>
+<p class=rvps12><span class=rvts267>Bundler</span><span class=rvts262>.require(:default)                   </span><span class=rvts263># ...or auto-require all gems from the Gemfile.lock</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Creating gems manually</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>Create a folder structure:</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>my_gem</span></p>
+<p class=rvps12><span class=rvts262>+- lib                                      </span><span class=rvts263># sources</span></p>
+<p class=rvps12><span class=rvts262>+- test                                     </span><span class=rvts263># unit tests, can also be called spec</span></p>
+<p class=rvps12><span class=rvts262>+- doc                                      </span><span class=rvts263># usually generated via rdoc</span></p>
+<p class=rvps12><span class=rvts262>+- bin                                      </span><span class=rvts263># start scripts</span></p>
+<p class=rvps12><span class=rvts262>+- my_gem.gemspec                           </span><span class=rvts263># manifest</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>Populate the my_gem.gemspec:</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>+----------------------------------------+</span></p>
+<p class=rvps12><span class=rvts262>| Gem::Specification.new </span><span class=rvts265>do</span><span class=rvts262> |s|          |</span></p>
+<p class=rvps12><span class=rvts262>|   s.name = </span><span class=rvts266>'my_gem'</span><span class=rvts262>                    |</span></p>
+<p class=rvps12><span class=rvts262>|   s.version = </span><span class=rvts266>'0.0.1'</span><span class=rvts262>                  |</span></p>
+<p class=rvps12><span class=rvts262>|   s.summary = </span><span class=rvts266>'Description'</span><span class=rvts262>            |</span></p>
+<p class=rvps12><span class=rvts262>|   s.platform = Gem::Platform::RUBY     |</span></p>
+<p class=rvps12><span class=rvts262>|   s.files = Dir.glob(</span><span class=rvts266>"**/**/**"</span><span class=rvts262>)       |  </span><span class=rvts263># include all files from all folders</span></p>
+<p class=rvps12><span class=rvts262>|   s.test_files = Dir.glob(</span><span class=rvts266>"test/*.rb"</span><span class=rvts262>) |  </span><span class=rvts263># or test/*_test.rb or spec/*_spec.rb</span></p>
+<p class=rvps12><span class=rvts262>|   s.authors = [</span><span class=rvts266>"My name"</span><span class=rvts262>]              |</span></p>
+<p class=rvps12><span class=rvts262>|   s.email = </span><span class=rvts266>"</span><a class=rvts272 href="mailto:me@email.com">me@email.com</a><span class=rvts266>"</span><span class=rvts262>             |</span></p>
+<p class=rvps12><span class=rvts262>|   s.required_ruby_version = </span><span class=rvts266>'&gt;= 2.0.0'</span><span class=rvts262> |  </span><span class=rvts263># optional</span></p>
+<p class=rvps12><span class=rvts262>| end                                    |</span></p>
+<p class=rvps12><span class=rvts262>+----------------------------------------+</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&gt; gem build my_gem.gemspec                  </span><span class=rvts263># creates my_gem-0.0.1.gem</span></p>
+<p class=rvps12><span class=rvts262>&gt; gem push my_gem-0.0.1.gem                 </span><span class=rvts263># push to rubygems.org (requires an account)</span></p>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>&gt; bundle gem my_gem                         </span><span class=rvts263># or use bundler</span></p>
+<p class=rvps12><span class=rvts262>&gt; rake release                              </span><span class=rvts263># ...and rake</span></p>
+<p><span class=rvts269><br></span></p>
+<p><br></p>
+<p><br></p>
+

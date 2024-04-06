@@ -1,0 +1,118 @@
+
+<div id='nodeSection1'>Basic string functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>number = </span><span class=rvts45>strtonum</span><span class=rvts113>(</span><span class=rvts42>"1.52"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># parse a numeric string into a numeric value</span></p>
+<p><span class=rvts113>number = </span><span class=rvts45>strtonum</span><span class=rvts113>(</span><span class=rvts42>"0xFF"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># supports octal (0...) and hexadecimal (0x...) notation</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts174>string = </span><span class=rvts45>sprintf</span><span class=rvts174>(</span><span class=rvts42>"%s ..."</span><span class=rvts174>, var, [...])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># format a string</span></p>
+<p class=rvps2><span class=rvts174><br></span></p>
+<p><span class=rvts113>length = </span><span class=rvts64>length</span><span class=rvts113>(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># determine the length of a string (counts characters, not bytes)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>string = </span><span class=rvts64>substr</span><span class=rvts113>(string, start, [length])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># extract a substring from the given start index</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>string = </span><span class=rvts64>tolower</span><span class=rvts113>(sring)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># to lower case</span></p>
+<p><span class=rvts113>string = </span><span class=rvts64>toupper</span><span class=rvts113>(string)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># to upper case</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Search and replace</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>position = </span><span class=rvts64>index</span><span class=rvts113>(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>, </span><span class=rvts217>"world"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># returns the index (1-based) or 0 if no match was found</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>position = </span><span class=rvts64>match</span><span class=rvts113>(</span><span class=rvts217>"text"</span><span class=rvts113>, /regexp/, [array])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># find /regexp/ in "text" and optionally store the result in array, returns the start index of the match</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # array[0] == the whole match</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # array[1] == sub-match that belongs to the first grouping bracket</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # array[1,"start"]&nbsp; == start index of the first sub-match</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # array[1,"length"] == length of the first sub-match</span></p>
+<p><span class=rvts113> </span></p>
+<p><span class=rvts64>sub</span><span class=rvts113>(/regexp/, </span><span class=rvts217>"replace"</span><span class=rvts113>, [srcTarget])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># replace the first /regexp/ match by "replace" in srcTarget (or $0, if the parameter is missing)</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # "&amp;" in the replacement text is subsituted by the current match</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>count = </span><span class=rvts64>gsub</span><span class=rvts113>(/regexp/, </span><span class=rvts217>"replace"</span><span class=rvts113>, [srcTarget])&nbsp;&nbsp;&nbsp; </span><span class=rvts62># replace all matches and return the number of replacements made</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>string = </span><span class=rvts64>gensub</span><span class=rvts113>(/regexp/, </span><span class=rvts217>"replace"</span><span class=rvts113>, </span><span class=rvts217>"g"</span><span class=rvts113>, [src])&nbsp; </span><span class=rvts62># replace all /regexp/ by "replace" in src but do not overwrite src but return the result</span></p>
+<p><span class=rvts113>string = </span><span class=rvts64>gensub</span><span class=rvts113>(/regexp/, </span><span class=rvts217>"replace"</span><span class=rvts113>, </span><span class=rvts61>5</span><span class=rvts113>, [src])&nbsp;&nbsp;&nbsp; </span><span class=rvts62># only replace the 5th match</span></p>
+<p><span class=rvts113>string = </span><span class=rvts64>gensub</span><span class=rvts113>(/regexp/, </span><span class=rvts217>"</span><span class=rvts221>\\</span><span class=rvts217>1"</span><span class=rvts113>, </span><span class=rvts217>"g"</span><span class=rvts113>, [src])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># the replacement can contain \\1...\\9 to reference submatches</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection3'>Splitting</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>count = </span><span class=rvts64>split</span><span class=rvts113>(</span><span class=rvts217>"text"</span><span class=rvts113>, array, [fieldsep, seps])</span><span class=rvts62>&nbsp;&nbsp;&nbsp; # split the text into array[1...count] using the fieldsep (default: FS)</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # the separators are stored in seps[0...count]</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>count = </span><span class=rvts64>patsplit</span><span class=rvts113>(</span><span class=rvts217>"text"</span><span class=rvts113>, array, [fieldpat, seps]) </span><span class=rvts62># split the text into array[1...count] using the field pattern (default: FPAT)</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<div id='nodeSection4'>Escape characters</div>
+<p><span class=rvts104><br></span></p>
+<p class=rvps16><span class=rvts222>␣</span><span class=rvts113> \40</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # \43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * \52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( \50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 \60&nbsp; ... 9 \71</span></p>
+<p><span class=rvts113>!&nbsp; \41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ \44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + \53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) \51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A \101 ... Z \132</span></p>
+<p><span class=rvts113>?&nbsp; \77&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % \45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - \55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ \133&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a \141 ... z \172</span></p>
+<p><span class=rvts113>"&nbsp; \42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @ \100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _ \137&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ] \135</span></p>
+<p><span class=rvts113>'&nbsp; \47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp; \46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; . \56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { \173</span></p>
+<p><span class=rvts113>`&nbsp; \140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^ \136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / \57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } \175</span></p>
+<p><span class=rvts113>&lt;&nbsp; \74&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ~ \176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; , \54</span></p>
+<p><span class=rvts113>=&nbsp; \75&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \ \134&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; \73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \nnn octal</span></p>
+<p><span class=rvts113>&gt;&nbsp; \76&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | \174&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : \72&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \xhh hex</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection5'>Regular expressions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>{5}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># exactly 5 times</span></p>
+<p><span class=rvts113>{5,}&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># at least 5 times</span></p>
+<p><span class=rvts113>{5,10}&nbsp;&nbsp; </span><span class=rvts39># 5 ... 10 times</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>\s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># whitespace</span></p>
+<p><span class=rvts113>\S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># non-whitespace</span></p>
+<p><span class=rvts113>\w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># word (letter, digit, underscore)</span></p>
+<p><span class=rvts113>\W&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># non-word</span></p>
+<p><span class=rvts113>\&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># beginning of word</span></p>
+<p><span class=rvts113>\&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># end of word</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>\B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># must have word (letter, digit, underscore) but is not considered part of the match</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection6'>Format string</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>%2$d %1$s</span><span class=rvts73> ................... </span><span class=rvts39># "abc", 123&nbsp;&nbsp;&nbsp; =&gt; "123 abc"</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%s </span><span class=rvts73>.......................... </span><span class=rvts39># "Hello world" =&gt; "Hello world"</span></p>
+<p><span class=rvts113>%5s </span><span class=rvts73>.........................</span><span class=rvts113> </span><span class=rvts39># "Hello world" =&gt; "Hello world"</span></p>
+<p><span class=rvts113>%-5s </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39># "Hello world" =&gt; "Hello world"</span></p>
+<p><span class=rvts113>%15s </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39># "Hello world" =&gt; "&nbsp;&nbsp;&nbsp;&nbsp; Hello world"</span></p>
+<p><span class=rvts113>%-15s </span><span class=rvts73>.......................</span><span class=rvts113> </span><span class=rvts39># "Hello world" =&gt; "Hello world&nbsp;&nbsp;&nbsp;&nbsp; "</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%.5s </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39># "Hello world" =&gt; "Hello"</span></p>
+<p><span class=rvts113>%10.5s </span><span class=rvts73>......................</span><span class=rvts39> # "Hello world" =&gt; "&nbsp;&nbsp;&nbsp;&nbsp; Hello"</span></p>
+<p><span class=rvts113>%-10.5s</span><span class=rvts73>......................</span><span class=rvts113> </span><span class=rvts39># "Hello world" =&gt; "Hello&nbsp;&nbsp;&nbsp;&nbsp; "</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%c </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "A"</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%x </span><span class=rvts73>.......................... </span><span class=rvts62># 255&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; ff</span></p>
+<p><span class=rvts113>%X </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts62># 255&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; FF</span></p>
+<p><span class=rvts113>%#X </span><span class=rvts73>.........................</span><span class=rvts113> </span><span class=rvts62># 255&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; 0xFF</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%d </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp;&nbsp; 3.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "3"</span></p>
+<p><span class=rvts113>%3d </span><span class=rvts73>.........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "&nbsp; 5"</span></p>
+<p><span class=rvts113>%-3d </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "5&nbsp; "</span></p>
+<p><span class=rvts113>%.3d </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "005"</span></p>
+<p><span class=rvts113>%5.3d </span><span class=rvts73>.......................</span><span class=rvts113> </span><span class=rvts39>#&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "&nbsp; 005"</span></p>
+<p><span class=rvts113>%-5.3d </span><span class=rvts73>......................</span><span class=rvts113> </span><span class=rvts39>#&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "005&nbsp; "</span></p>
+<p><span class=rvts113>%+</span><span class=rvts73>...</span><span class=rvts113>d </span><span class=rvts73>......................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; </span><span class=rvts93>±</span><span class=rvts39>5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "</span><span class=rvts93>±</span><span class=rvts39>5"</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%e </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3e6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "1.230000e+07"</span></p>
+<p><span class=rvts113>%E </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3e6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "1.230000E+07"</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%f </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "12.345600"</span></p>
+<p><span class=rvts113>%12f </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "&nbsp;&nbsp; 12.345600"</span></p>
+<p><span class=rvts113>%-12f </span><span class=rvts73>.......................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "12.345600&nbsp;&nbsp; "</span></p>
+<p><span class=rvts113>%012f </span><span class=rvts73>.......................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "00012.345600"</span></p>
+<p><span class=rvts113>%.3f </span><span class=rvts73>........................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "12.346"</span></p>
+<p><span class=rvts113>%10.3f </span><span class=rvts73>......................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "&nbsp;&nbsp;&nbsp; 12.346"</span></p>
+<p><span class=rvts113>%-10.3f </span><span class=rvts73>.....................</span><span class=rvts113> </span><span class=rvts39>#&nbsp; 12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "12.346&nbsp;&nbsp;&nbsp; "</span></p>
+<p><span class=rvts113>%+</span><span class=rvts73>...</span><span class=rvts113>f </span><span class=rvts73>......................</span><span class=rvts113> </span><span class=rvts39># </span><span class=rvts93>±</span><span class=rvts39>12.3456&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; "</span><span class=rvts93>±</span><span class=rvts39>12.345600"</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>%g </span><span class=rvts73>..........................</span><span class=rvts113> </span><span class=rvts39># select %f or %F depending on the number's size</span></p>
+<p><span class=rvts105><br></span></p>
+<p><br></p>
+<p><br></p>
+

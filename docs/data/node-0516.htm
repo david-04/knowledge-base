@@ -1,0 +1,82 @@
+
+<div id='nodeSection1'>REST API</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts8>REpresentational State Transfer</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>POST </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; usually used to create objects</span></p>
+<p><span class=rvts8>PUT </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; usually used to update objects</span></p>
+<p><span class=rvts8>GET </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>=&gt; usually used to retrieve objects</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Standard Express REST handlers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>app.post(</span><span class=rvts42>'/api/test'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(request, response) { </span><span class=rvts39>// simple JSON handler</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; response.json({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the content type and send a serialised JSON object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; greeting: </span><span class=rvts42>'Hi '</span><span class=rvts41> + request.body.name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// requires app.use(bodyParser.json())</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Connect REST handler</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> connectRest = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'connect-rest'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install connect-rest</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> restDomain&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'domain'</span><span class=rvts41>).create();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an error handling domain&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>restDomain.on(</span><span class=rvts42>'error'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (err) { });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach an error handler (server shutdown/restart/failover/...)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> rest = connectRest.create({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate the connect-rest middleware</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; context: </span><span class=rvts42>'/api'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// process all routes that start with /api</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; domain: restDomain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// error handling domain</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.use(rest.processRequest())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// link the connect-rest handler into the chain</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or ...</span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'vhost'</span><span class=rvts41>)(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the vhost module to bind the handler to subdomains only</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'api.*'</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; rest.processRequest()</span></p>
+<p><span class=rvts41>));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>rest.post(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the connect-rest middleware is used like the regular Express routing functions</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'/test'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the path excludes the context set above (/test instead of /api/test)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (request, body, callback) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// no response object is passed</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (body.name) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the body is already parsed and passed in as an object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; callback(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// after successfully processing the request call the callback function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>null</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// do not pass any error</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { greeting: </span><span class=rvts42>'Hi '</span><span class=rvts41> + body.name }&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass the result data as an object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; callback({ error: </span><span class=rvts42>'Internal error.'</span><span class=rvts41> }); </span><span class=rvts39>// if an error occurred, pass it on to the callback function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection4'>Cross-origin resource sharing (CORS)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> cors = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'cors'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install cors</span></p>
+<p><span class=rvts41>app.use(cors());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// allow all handle cross-origin resource sharing requests</span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts42>'/api*'</span><span class=rvts41>, cors());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// limit cross-origin resource sharing to specific routes</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Test client with restler</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> http = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'http'</span><span class=rvts41>);</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> rest = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'restler'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install restler</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> request = rest.post(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send a get, put, post, ... request</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'</span><a class=rvts51 href="http://127.0.0.1:3000/api/test">http://127.0.0.1:3000/api/test</a><span class=rvts42>'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// URL to send the request to</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; { data: { name: </span><span class=rvts42>'David'</span><span class=rvts41>, age: 37 } }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// body data (use only for post requests)</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'success'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (data, response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>'Response:\n'</span><span class=rvts41> + data.greeting);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'fail'</span><span class=rvts41>,&nbsp; </span><span class=rvts45>function</span><span class=rvts41>(data,&nbsp; response) {});&nbsp; </span><span class=rvts39>// HTTP status codes 4xx and 5xx</span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'error'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(error, response) {});&nbsp; </span><span class=rvts39>// the connection was interrupted, parsing the resonse failed, ...</span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'3XX'</span><span class=rvts41>,&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41>(data,&nbsp; response) {});&nbsp; </span><span class=rvts39>// any 3xx status code is received (300, 301, 302, ...)</span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'404'</span><span class=rvts41>,&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41>(data,&nbsp; response) {});&nbsp; </span><span class=rvts39>// a specific status code is received (404 in this example)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

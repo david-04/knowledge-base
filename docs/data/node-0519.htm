@@ -1,0 +1,155 @@
+
+<div id='nodeSection1'>Installing handlebars</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> express = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'express'</span><span class=rvts41>);</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> app = express();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate the Express server</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> express_hbrs = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'express3-handlebars'</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// npm install express3-handlebars</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> handlebars = express_hbrs.create({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate a rendering engine</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; extname: </span><span class=rvts42>'.handlebars'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the file extension used for tempaltes (.handlebars is the default)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; defaultLayout: </span><span class=rvts42>'my-layout'</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use ./views/layouts/my-layout.handlebars as the default template</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.engine(</span><span class=rvts42>'handlebars'</span><span class=rvts41>, handlebars.engine);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach the handlebars engine to the Express server</span></p>
+<p><span class=rvts41>app.set(</span><span class=rvts42>'view engine'</span><span class=rvts41>, </span><span class=rvts42>'handlebars'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the engine as the default renderer</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts41>app.set(</span><span class=rvts42>'view cache'</span><span class=rvts41>, </span><span class=rvts45>true</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable caching (enabled by default in prodution but not in development)</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Master layouts</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>!doctype</span><span class=rvts41> </span><span class=rvts90>html</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- </span><span class=rvts101>./views/layouts</span><span class=rvts91>/my-layout.handlebars&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>title</span><span class=rvts45>&gt;</span><span class=rvts94>{{</span><span class=rvts95>title</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>title</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- custom parameters (double curly brackets: html characters will be masked)&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{{</span><span class=rvts95>body</span><span class=rvts94>}}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the content of the view is inserted here (tripple curly brackets: no masking) --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Definigng partials (widgets)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41> </span><span class=rvts90>style</span><span class=rvts45>="</span><span class=rvts90>border</span><span class=rvts41>: </span><span class=rvts45>1px</span><span class=rvts41> </span><span class=rvts45>solid</span><span class=rvts41> </span><span class=rvts45>black</span><span class=rvts41>;</span><span class=rvts45>"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- </span><span class=rvts101>./views/partials</span><span class=rvts91>/ticker-widget.handlebars --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>AUD: </span><span class=rvts94>{{</span><span class=rvts95>partials.ticker.AUD</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>EUR: </span><span class=rvts94>{{</span><span class=rvts95>partials.ticker.EUR</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>div</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection4'>Defining templates</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>h1</span><span class=rvts45>&gt;</span><span class=rvts94>{{</span><span class=rvts95>headline</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>h1</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- </span><span class=rvts101>./views</span><span class=rvts91>/my-view.handlebars --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts94>{{</span><span class=rvts95>content</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts94><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>&gt;</span><span class=rvts41> </span><span class=rvts95>ticker-widget</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include a partial (widgets)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Rendering templates</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>app.get(</span><span class=rvts42>'/contact'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (req, res) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; response.locals.copyright = </span><span class=rvts42>'(c) 2016'</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set parameters for later rendering (useful within middleware components)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.render(</span><span class=rvts42>'my-view'</span><span class=rvts41>, {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// render ./views/my-view.handlebars (can contain relative paths as well)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; title: </span><span class=rvts42>'Contact information'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// values for the placeholders (applied to view+layout)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; headline: </span><span class=rvts42>'Get in touch'</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; content: </span><span class=rvts42>'Call 04 911 38 620 today!'</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partials: {ticker:{AUD:1.45,EUR:1.22}},&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// values for partial placeholders are encapsulated in the partials object</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>layout: </span><span class=rvts42>'my-layout'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// apply a layout other than the default one (null to render without any layout)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the HTTP status is automatically set to 200</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function</span><span class=rvts41> (req, res, next) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.status(404);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// setting an HTTP status code prevents handlebars from setting it to 200</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; res.render(</span><span class=rvts42>'my-404-view'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.use(</span><span class=rvts45>function</span><span class=rvts41> (req, res, next) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// rendering can be used to just create a string (e.g. an email body)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; response.render(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'email-template'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the template to use</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { user: </span><span class=rvts42>'David'</span><span class=rvts41>, password: </span><span class=rvts42>'***'</span><span class=rvts41> },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// parameters for the placeholders</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, html) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// if a function is passed, the rendered page will not be sent as the response</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // instead the rendered page is passed into this function as html parameter</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// and can (for example) be used as an email template</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection6'>Syntax</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts39>{{!</span><span class=rvts41> </span><span class=rvts39>comment</span><span class=rvts41> </span><span class=rvts39>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- an internal comment that won't be sent to the client --&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts95>greeting</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- insert a parameter value (HTML characters will be masked)&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts95>customer.name</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- insert access nested objects and object properties --&gt;</span></p>
+<p><span class=rvts94>{{{</span><span class=rvts95>messageHtml</span><span class=rvts94>}}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- tripple curly brackets: HTML characters will NOT be masked --&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>&gt;</span><span class=rvts41> </span><span class=rvts95>ticker</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include a partial (widgets)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>#each</span><span class=rvts41> </span><span class=rvts95>ordersArray</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- iterate over an array of person objects --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>orderDate</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the current array item constitutes the current context --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>../customer.name</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- use ../ to access the parent context&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts95>.</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- references the current context (i.e. the current order array element)--&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>else</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the else branch is executed if the array is empty --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>There are no orders</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>/each</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>#if</span><span class=rvts41> </span><span class=rvts95>advert</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts94>{{</span><span class=rvts95>../adverts</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- if-blocks open a new context as well --&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>else</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>Check out our specials!</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>/if</span><span class=rvts94>}}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>#unless</span><span class=rvts41> </span><span class=rvts95>ordersArray</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- corresponsds to if (!...)--&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts41>There are no orders.</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>/unless</span><span class=rvts94>}}</span></p>
+<p><span class=rvts94><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Master layouts with multiple placeholders</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> handlebars = express_hbrs.create({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add a helper function instanciating the template engine</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; helpers: {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; section: </span><span class=rvts45>function</span><span class=rvts41> (name, options) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (!</span><span class=rvts45>this</span><span class=rvts41>._sections) </span><span class=rvts45>this</span><span class=rvts41>._sections = {};</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>._sections[name] = options.fn(</span><span class=rvts45>this</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>null</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}); </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>!doctype</span><span class=rvts41> </span><span class=rvts90>html</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- .</span><span class=rvts101>/views/layouts</span><span class=rvts91>/my-layout.handlebars&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{{</span><span class=rvts95>_sections.head</span><span class=rvts94>}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- use the helper function to insert sections anywhere in the layout --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>head</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts94>{{{</span><span class=rvts95>body</span><span class=rvts94>}}}</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>body</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>html</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>#section</span><span class=rvts41> </span><span class=rvts95>'head'</span><span class=rvts94>}}</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- define the section in </span><span class=rvts101>./views</span><span class=rvts91>/my-view.handlebars --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>meta</span><span class=rvts41> </span><span class=rvts90>name</span><span class=rvts45>="robots"</span><span class=rvts41> </span><span class=rvts90>content</span><span class=rvts45>="noindex"&gt;</span></p>
+<p><span class=rvts94>{{</span><span class=rvts103>/section</span><span class=rvts94>}}</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>h1</span><span class=rvts45>&gt;</span><span class=rvts94>{{</span><span class=rvts95>headline</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>h1</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- regular </span><span class=rvts94>{{</span><span class=rvts95>body</span><span class=rvts94>}}</span><span class=rvts91> content --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts45>&gt;</span><span class=rvts94>{{</span><span class=rvts95>content</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Client-side rendering</div>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="scripts/handlebars.min.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- load the handlebars client engine --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="scripts/jquery-2.0.2.min.js"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>id</span><span class=rvts45>="template"</span><span class=rvts41> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type</span><span class=rvts45>="text/x-handlebars-template"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the template itself is encapsulated in&nbsp; a script element --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Hello </span><span class=rvts45>&lt;</span><span class=rvts46>b</span><span class=rvts45>&gt;</span><span class=rvts41>\</span><span class=rvts94>{{</span><span class=rvts95>user</span><span class=rvts94>}}</span><span class=rvts45>&lt;/</span><span class=rvts46>b</span><span class=rvts45>&gt;</span><span class=rvts41>!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- curly brackets must be escaped --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> template = Handlebars.compile(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pre-compile the template</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(</span><span class=rvts42>'#template'</span><span class=rvts41>).html());</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> renderedHtml = template({user: </span><span class=rvts42>'David'</span><span class=rvts41>});&nbsp;&nbsp; </span><span class=rvts39>// apply current values to the template</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><br></p>
+<p><br></p>
+

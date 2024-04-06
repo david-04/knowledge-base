@@ -1,0 +1,53 @@
+
+<div id='nodeSection1'>Automatic properties</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> Age </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' read/write auto-implemented property</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>ReadOnly</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> IsOfAge </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' read-only auto-implemented property (can be assigned only once)</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Properties backed by fields</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> _name </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' source field</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> Name </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' read/write property</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Get</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> _name</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Get</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Set</span><span class=rvts183>(value </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _name = value</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Set</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Property</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> _country </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts50>ReadOnly</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> Country </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' read-only property</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Get</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> _country</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Get</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Property</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> _pin </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts50>WriteOnly</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> Pin </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' write-only auto-implemented property</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Set</span><span class=rvts183>(</span><span class=rvts58>ByVal</span><span class=rvts183> value </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _pin = value</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Set</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Property</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection3'>Default properties</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> data() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183> = {1, 2, 10, 20}</span></p>
+<p><span class=rvts50>Default</span><span class=rvts183> </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> _</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; GetData(</span><span class=rvts58>ByVal</span><span class=rvts183> index </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer&nbsp; </span><span class=rvts176>' passing parameters is possible for all properties (not only the default one)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Get</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> data(index)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Get</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Set</span><span class=rvts183>(</span><span class=rvts58>ByVal</span><span class=rvts183> value </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data(index) = value</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Set</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Property</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>myContainer(1) = 176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' the property name can be omitted in case of Default properties</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

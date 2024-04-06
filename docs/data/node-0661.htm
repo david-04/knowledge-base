@@ -1,0 +1,57 @@
+
+<div id='nodeSection1'>Arrays</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' no memory has been allocated (null pointer)</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' same as above but different syntax</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>ReDim</span><span class=rvts183> myArray(5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' drop the current array and create a new one</span></p>
+<p><span class=rvts58>ReDim</span><span class=rvts183> </span><span class=rvts58>Preserve</span><span class=rvts183> myArray(10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' resize the array and preserve its content</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray(10) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' define a fixed-size (pre-allocated) array</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>() = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>() {1, 2, 3}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' the array is sized automatically to accomodate the initialising values</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>() = {1, 2, 3}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' same as above but different syntax</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>myArray(3) = </span><span class=rvts184>"test"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts184>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' access the data (the index starts with 0)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray(2, 2) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; </span><span class=rvts176>' two-dimensional static array</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray(,) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183> = {{</span><span class=rvts184>"00"</span><span class=rvts183>, </span><span class=rvts184>"01"</span><span class=rvts183>}, {</span><span class=rvts184>"10"</span><span class=rvts183>, </span><span class=rvts184>"11"</span><span class=rvts183>}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' dimension derived from the intialiser list</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>myArray(1, 0) = </span><span class=rvts184>"10"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts184>&nbsp;&nbsp; </span><span class=rvts176>' access array elements</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> myArray(10)() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' two-dimensional dynamic array</span></p>
+<p><span class=rvts58>ReDim</span><span class=rvts183> myArray(5)(20)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' allocate the seond dimension for one row</span></p>
+<p><span class=rvts183>myArray(5)(15) = </span><span class=rvts184>"test"</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' access the element</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Standard collections</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts183>System.</span><span class=rvts110>Array</span></p>
+<p><span class=rvts183>System.Collections.</span><span class=rvts110>BitArray</span></p>
+<p><span class=rvts183>System.Collections.</span><span class=rvts110>ArrayList</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>Dictionary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' </span><span class=rvts176>hash table</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>HashSet</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>LinkedList</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>List</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>Queue</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>SortedDictionary</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>SortedList</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>SortedSet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' </span><span class=rvts176>self-balancing tree</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>Stack</span></p>
+<p><span class=rvts183>System.Collections.Generic.</span><span class=rvts110>SynchronizedCollection</span></p>
+<p><span class=rvts183>System.Collections.ObjectModel.</span><span class=rvts110>ObservableCollection</span></p>
+<p><span class=rvts183>System.Collections.Specialized.</span><span class=rvts110>StringCollection</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Initialising collections</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> listOfIntegers </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>List</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>) </span><span class=rvts58>From</span><span class=rvts183> {1, 2, 3, 4}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Converting untyped containers</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> list </span><span class=rvts58>as</span><span class=rvts183> </span><span class=rvts110>ArrayList</span><span class=rvts183> = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>ArrayList</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' contains untyped elements of type object</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> stringList </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>IEnumerable</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>) = list.OfType(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)()&nbsp; </span><span class=rvts176>' convert to a typed enumerable (discards all non-string list items)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

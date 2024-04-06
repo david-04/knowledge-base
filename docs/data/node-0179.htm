@@ -1,0 +1,28 @@
+
+<div id='nodeSection1'>Create and query the store</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ createStore } </span><span class=rvts130>from </span><span class=rvts128>'redux'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>var </span><span class=rvts127>store</span><span class=rvts149> </span><span class=rvts124>= createStore(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a new store instance (only one per application)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>myRootReducer,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the reducer function (can be a combined chain)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>myInitialState&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the initial state to use (optional)</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts127>store</span><span class=rvts124>.getState()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve the current state</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Dispatch and listen to actions</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts127>store</span><span class=rvts124>.dispatch(myAction)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// dispatch an action to the reducer(s)</span></p>
+<p class=rvps12><span class=rvts130><br></span></p>
+<p class=rvps12><span class=rvts130>var </span><span class=rvts127>unsubscribe</span><span class=rvts149> </span><span class=rvts124>= </span><span class=rvts127>store</span><span class=rvts124>.subscribe(() =&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// register an onChange event handler (returns an unsubscribe function)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>var </span><span class=rvts124>previousValue = </span><span class=rvts127>currentValue</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts127>currentValue</span><span class=rvts149> </span><span class=rvts124>= </span><span class=rvts127>store</span><span class=rvts124>.getState().prop;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve the current state from the store</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; //...</span></p>
+<p class=rvps12><span class=rvts124>});</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts127>unsubscribe</span><span class=rvts124>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// unsubscribe via the function returned by store.subscribe()</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,44 @@
+
+<div id='nodeSection1'>Generic classes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>Mapping</span><span class=rvts183>&lt;</span><span class=rvts110>T1</span><span class=rvts183>, </span><span class=rvts110>T2</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// can require types to fulfill certain prerequisites</span></p>
+<p><span class=rvts58>where</span><span class=rvts183> </span><span class=rvts110>T1</span><span class=rvts183> : </span><span class=rvts110>IComparable</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// must implement or be derived from</span></p>
+<p><span class=rvts58>where</span><span class=rvts183> </span><span class=rvts110>T2</span><span class=rvts183> : </span><span class=rvts58>new</span><span class=rvts183>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// must have default constructor</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts110>T1</span><span class=rvts183> key { </span><span class=rvts58>get</span><span class=rvts183>; </span><span class=rvts58>set</span><span class=rvts183>; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts110>T2</span><span class=rvts183> value { </span><span class=rvts58>get</span><span class=rvts183>; </span><span class=rvts58>set</span><span class=rvts183>; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Mapping</span><span class=rvts183>&lt;</span><span class=rvts58>string</span><span class=rvts183>, </span><span class=rvts58>int</span><span class=rvts183>&gt; mapping = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Mapping</span><span class=rvts183>&lt;</span><span class=rvts58>string</span><span class=rvts183>, </span><span class=rvts58>int</span><span class=rvts183>&gt;();&nbsp;&nbsp; </span><span class=rvts176>// instantiate</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div><table width="100%" border=1 cellpadding=1 cellspacing=-1 style="border-width: 0px; border-collapse: collapse;">
+<tr valign=top>
+<td width=1386 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #d2d2d2;"><div><table width="100%" border=0 cellpadding=0 cellspacing=0 style="border-width: 0px;">
+<tr valign=top>
+<td width="8%" valign=top><p class=rvps3><span class=rvts7>Generic methods</span></p>
+</td>
+<td width="50%" valign=top><p class=rvps4><span class=rvts129>cstemplatefunctions cstemplatemethods </span><span class=rvts40>csgenericfunctions csgenericmethods</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>class</span><span class=rvts183> </span><span class=rvts110>Utility</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Swap&lt;</span><span class=rvts110>T</span><span class=rvts183>&gt;(</span><span class=rvts58>ref</span><span class=rvts183> </span><span class=rvts110>T</span><span class=rvts183> x1, </span><span class=rvts58>ref</span><span class=rvts183> </span><span class=rvts110>T</span><span class=rvts183> x2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// only the method is generic</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>T</span><span class=rvts183> temp = x1; x1 = x2; x2 = temp;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Utility</span><span class=rvts183>.Swap&lt;</span><span class=rvts58>string</span><span class=rvts183>&gt;(</span><span class=rvts58>ref</span><span class=rvts183> string1, </span><span class=rvts58>ref</span><span class=rvts183> string2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// explicitely state the type or ...</span></p>
+<p><span class=rvts110>Utility</span><span class=rvts183>.Swap(</span><span class=rvts58>ref</span><span class=rvts183> string1, </span><span class=rvts58>ref</span><span class=rvts183> string2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts176>// the type is derived from the parameters</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,51 @@
+
+<div id='nodeSection1'>Run external programs</div>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>success = </span><span class=rvts265>system</span><span class=rvts262>(</span><span class=rvts266>'ls -1'</span><span class=rvts262>)                   </span><span class=rvts263># returns true if the program started and returned exit code 0</span></p>
+<p class=rvps12><span class=rvts262>output = `ls -1`                            </span><span class=rvts263># captures stdout (but not stderr) in a string</span></p>
+<p class=rvps12><span class=rvts262>output = </span><span class=rvts266>%x{ ls -1 }</span><span class=rvts262>                        </span><span class=rvts263># same as above</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>stream = </span><span class=rvts267>IO</span><span class=rvts262>.popen(</span><span class=rvts266>"ls -1"</span><span class=rvts262>, </span><span class=rvts266>"r"</span><span class=rvts262>)             </span><span class=rvts263># run a command and treat it like an input stream</span></p>
+<p class=rvps12><span class=rvts265>while</span><span class=rvts262> line = stream.</span><span class=rvts265>gets</span><span class=rvts262>                    </span><span class=rvts263># consume the program's standard output</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> line</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>stream.close                                </span><span class=rvts263># close the stream when done</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>stream = </span><span class=rvts267>IO</span><span class=rvts262>.popen(</span><span class=rvts266>"cat"</span><span class=rvts262>, </span><span class=rvts266>"r+"</span><span class=rvts262>)              </span><span class=rvts263># open the program as a bi-directional I/O stream</span></p>
+<p class=rvps12><span class=rvts262>2.times { stream.</span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"hello world"</span><span class=rvts262> }       </span><span class=rvts263># write to the process' standard input</span></p>
+<p class=rvps12><span class=rvts262>stream.close_write                          </span><span class=rvts263># close the process' standard input</span></p>
+<p class=rvps12><span class=rvts265>while</span><span class=rvts262> </span><span class=rvts265>!</span><span class=rvts262>stream.eof?                          </span><span class=rvts263># consume the process' standard output while it's open</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> stream.</span><span class=rvts265>gets</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>stream.close                                </span><span class=rvts263># close the read (and write) stream</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Replace current process</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>exec</span><span class=rvts262> </span><span class=rvts266>"ruby application.rb"</span><span class=rvts262>                  </span><span class=rvts263># replace the current process with the give program/command</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Fork (not on Windows)</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>if</span><span class=rvts262> </span><span class=rvts265>fork</span><span class=rvts262>.nil?                                </span><span class=rvts263># not implemented on Windows (use spawn instead)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>exec</span><span class=rvts262> </span><span class=rvts266>"ruby some_other_file.rb"</span><span class=rvts262>            </span><span class=rvts263># replace the child process with another process</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"parent process"</span><span class=rvts262>                       </span><span class=rvts263># this code is only reached in the parent process</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>child = </span><span class=rvts265>fork</span><span class=rvts262> </span><span class=rvts265>do</span><span class=rvts262>                             </span><span class=rvts263># create a fork that only runs part of the current script</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Child process"</span><span class=rvts262>                      </span><span class=rvts263># fork logic</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts267>Process</span><span class=rvts262>.wait(child)                         </span><span class=rvts263># wait for the child process to complete</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

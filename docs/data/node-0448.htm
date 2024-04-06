@@ -1,0 +1,142 @@
+
+<div id='nodeSection1'>Canvas</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>canvas</span><span class=rvts41> </span><span class=rvts90>id</span><span class=rvts45>="myCanvas"</span><span class=rvts41> </span><span class=rvts90>width</span><span class=rvts45>="500"</span><span class=rvts41> </span><span class=rvts90>height</span><span class=rvts45>="300"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- </span><span class=rvts101>always set the width and height</span><span class=rvts91> right here (not through CSS)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> canvas&nbsp; = document.getElementById(</span><span class=rvts42>"myCanvas"</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// retrieve the canvas object</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> context = canvas.getContext(</span><span class=rvts42>"2d"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the drawing context</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> dataUrl = canvas.toDataURL(</span><span class=rvts42>"image/png"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve the drawing as a "data:image/png;base64,..."</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Context</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>context.lineWidth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the line width in pixels</span></p>
+<p><span class=rvts41>context.lineCap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"{round|butt|square}"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// line endings are round or square ("square" extends the line's length by </span><span class=rvts93>½</span><span class=rvts39> square length</span></p>
+<p><span class=rvts41>context.lineJoin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"{miter|round|bevel}"</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts39>// bevel=cut off, round=rounded corner, miter=spiky edge</span></p>
+<p><span class=rvts41>context.strokeStyle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"#0000ff"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the stroke's colour (or use: context.strokeStyle="rgb(205,40,40)" or rgba for transparency)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.fillStyle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"yellow"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the fill colour</span></p>
+<p><span class=rvts41>context.globalAlpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 0.5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the default alpha for all drawing operations</span></p>
+<p><span class=rvts41>context.globalCompositionOperation = </span><span class=rvts42>"source-over"</span><span class=rvts41>; </span><span class=rvts39>// source-{over|in|out|atop}, destination-{in|over|out|atop}, lighter, copy, xor</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><img width=470 height=408 alt="" style="padding : 1px;" src="data/images/Img186.jpg"></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>context.font&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"bold 14px Arial"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the font for drawing text (can be many: "Arial, Calibri, sans-serif"), bold/italics are optional</span></p>
+<p><span class=rvts41>context.textAlign&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"center"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// text alignment (start, end, left, right, center); use rather start+end instead of left+right</span></p>
+<p><span class=rvts41>context.textBaseline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"middle"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// top, hanging, middle, alphabetic, ideographic, bottom</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.shadowColor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"black"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shadow color</span></p>
+<p><span class=rvts41>context.shadowOffset{X|Y} = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shadow position</span></p>
+<p><span class=rvts41>context.shadowBlur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pixels to blur</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>context.save();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// save the current settings on a stack (including transformation settings)</span></p>
+<p><span class=rvts41>context.restore();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// revert to the laste save()'d configuration</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<div id='nodeSection3'>Gradients</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> gradient = context.create</span><span class=rvts52>Linear</span><span class=rvts41>Gradient(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a linear gradient </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1, y1, x2, y2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the </span><span class=rvts44>positions are relative to the whole canvas</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> gradient = context.create</span><span class=rvts52>Radial</span><span class=rvts41>Gradient(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a radial radient by defining two independent circles</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1, y1, r1, x2, y2, r2);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 1=inner circle, 2=outer circle; usually: (x1,y1) = (x2,y2) and r1=0 and r2&gt;0</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>gradient.addColorStop(0.0, </span><span class=rvts42>"red"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set stops between 0.0 and 1.0</span></p>
+<p><span class=rvts41>gradient.addColorStop(0.5, </span><span class=rvts42>"yellow"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>gradient.addColorStop(1.0, </span><span class=rvts42>"green"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.fillStyle&nbsp;&nbsp; = gradient;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add the gradient to the current context</span></p>
+<p><span class=rvts41>context.strokeStyle = gradient;</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Patterns</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> img = document.getElementById(</span><span class=rvts42>"myImage"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve an HTML &lt;img&gt; as the source (or load an external file)</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> pattern = context.createPattern(img, </span><span class=rvts42>"repeat"</span><span class=rvts41>); </span><span class=rvts39>// repeat, repeat-x, repeat-y, no-repeat</span></p>
+<p><span class=rvts41>context.fillStyle = pattern;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach the pattern to the context</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection5'>Transformations</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>context.translate(x, y);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// move the coordinate system's origin (</span><span class=rvts44>affects only subsequent operations, not previously painted parts</span><span class=rvts39>)</span></p>
+<p><span class=rvts41>context.rotate(angle);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// rotate the coordinate system (the angle must be specified in radians, not degrees)</span></p>
+<p><span class=rvts41>context.scale(scaleX, scaleY);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// scale the image by a multiple of scaleX/scaleY (deault: 1/1)</span></p>
+<p><span class=rvts41>context.transform(m11, m12, m21, m22, dx, dy);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// change the transformation matrix directly</span></p>
+<p><span class=rvts41>context.setTransform(m11, m12, m21, m22, dx, dy);&nbsp;&nbsp; </span><span class=rvts39>// reset the transformation matrix to its default state and then call transform()</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection6'>Rectangles</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>context.fillRect(x, y, width, height);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// rectangle with background colour but without stroke (x,y,width,height)</span></p>
+<p><span class=rvts41>context.strokeRect(x, y, width, height);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// rectaangle with stroke but without background</span></p>
+<p><span class=rvts41>context.clearRect(x, y, width, height);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// acts like an eraser</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>context.rect(x, y, width, height);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// will not paint anything, </span><span class=rvts44>must call context.fill() and/or context.stroke() afterwards</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Lines and paths</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>context.beginPath();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional: start constructing a new path</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.moveTo(x, y);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// move the drawing cursor to the point (x, y) without drawing a line</span></p>
+<p><span class=rvts41>context.lineTo(x, y);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// draw a line from the last point to the point (x, y).</span></p>
+<p><span class=rvts41>context.arc(x, y, radius, angle1, angel2, ccw);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// draw an arc centered at (x, y) with a radius and between angle1 and angle2</span></p>
+<p><span class=rvts41>context.arcTo(x1, y1, x2, y2, radius);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// draw an arc from the last point to (x2, y2), passing through (x1, y1)</span></p>
+<p><span class=rvts41>context.bezierCurveTo(c1x, c1y, c2x, c2y, x, y);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// draws a curve from the last point to the point (x, y) using the control points (c1x, c1y) and (c2x, c2y)</span></p>
+<p><span class=rvts41>context.quadraticCurveTo(cx, cy, x, y);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// draw a quadratic curve from the last point to the point (x, y) using a control point of (cx, cy).</span></p>
+<p><span class=rvts41>context.rect(x, y, width, height);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// draw a rectangle at point (x, y) with the given width and height</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.closePath();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// connect the path's start and end points (can be omitted but context.fill() won't work)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.fill();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// fill the path with the fillStyle (</span><span class=rvts44>always call fill() before stroke()</span><span class=rvts39>)</span></p>
+<p><span class=rvts41>context.stroke();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>must call stroke()</span><span class=rvts39> (to make the lines visible, acts like a "flush" before changing the context)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Text</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>context.font&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"bold 14px Arial"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the font for drawing text (can be many: "Arial, Calibri, sans-serif"), bold/italics are optional</span></p>
+<p><span class=rvts41>context.textAlign&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"center"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// text alignment (start, end, left, right, center); use rather start+end instead of left+right</span></p>
+<p><span class=rvts41>context.textBaseline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts42>"middle"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// top, hanging, middle, alphabetic, ideographic, bottom</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.fillText(</span><span class=rvts42>"text"</span><span class=rvts41>, x, y, [maxWidth]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// fill but no stroke, if maxWith is set, the text is squeezed</span></p>
+<p><span class=rvts41>context.strokeText(</span><span class=rvts42>"text"</span><span class=rvts41>, x, y, [maxWidth]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// stroke but no fill, if maxWith is set, the text is squeezed</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.measureText(</span><span class=rvts42>"text"</span><span class=rvts41>).width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// calculate the width of text</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>Images</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> image = document.getElementById(</span><span class=rvts42>"myImage"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use an image that's already loaded as part of the HTML page</span></p>
+<p><span class=rvts41>context.drawImage(image, x, y</span><span class=rvts47>, w, h</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>context.drawImage(image, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; crop_x, crop_y, crop_w, crop_h,&nbsp;&nbsp; </span><span class=rvts39>// crop the original image before copying it to the canvas</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x, y</span><span class=rvts47>, w, h</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... at this location</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> image = </span><span class=rvts45>new</span><span class=rvts41> Image();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// load an external image file (that's not part of the HTML page)</span></p>
+<p><span class=rvts41>image.onload = </span><span class=rvts45>function</span><span class=rvts41> () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register a handler that's called when the image has been loaded</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; context.drawImage(image, </span><span class=rvts47>...,</span><span class=rvts41> 0, 0</span><span class=rvts47>, 10, 10</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy the loaded image to the canvas</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts41>image.src = </span><span class=rvts42>"my-image.png"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the image's source property to start loading it</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> canvas2 = document.getElementById(</span><span class=rvts42>"myCanvas"</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// another canvas can be used like an image as well</span></p>
+<p><span class=rvts41>context.drawImage(canvas2, x, y</span><span class=rvts47>, w, h</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> video = document.getElementById(</span><span class=rvts42>"myVideo"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// a &lt;video&gt; element can be used as image as well</span></p>
+<p><span class=rvts41>context.drawImage(video, x, y</span><span class=rvts47>, w, h</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// captures the video frame that is currently being played (like a screenshot)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> imageData = context.getImageData(x, y, w, h);&nbsp;&nbsp; </span><span class=rvts39>// retrieve raw pixel data from a canvas</span></p>
+<p><span class=rvts41>var imageData = context.createImageData(w, h);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// crate an empty raw pixel buffer with the given dimension</span></p>
+<p><span class=rvts41>imageData.{width|height]}</span></p>
+<p><span class=rvts41>imageData.data[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 1st pixel red&nbsp;&nbsp;&nbsp; (0 ... 255)</span></p>
+<p><span class=rvts41>imageData.data[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 1st pixel green</span></p>
+<p><span class=rvts41>imageData.data[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 1st pixel blue</span></p>
+<p><span class=rvts41>imageData.data[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 1st pixel alpha&nbsp; (0 ... 255)</span></p>
+<p><span class=rvts41>imageData.data[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 2ns pixel red</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>context.putImageData(imageData, x, y);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy the (modified) image back to the canvas</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

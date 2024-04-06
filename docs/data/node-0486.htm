@@ -1,0 +1,41 @@
+
+<div id='nodeSection1'>Compilation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>&gt; lessc input.less&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// compile to stdout</span></p>
+<p><span class=rvts113>&gt; lessc input.less output.css&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// compile into the specified output directory</span></p>
+<p><span class=rvts113>&gt; lessc --clean-css input.less output.min.css&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// create a minified version (requires the clean-css plugin to be installed)</span></p>
+<p><span class=rvts91><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>link</span><span class=rvts41> </span><span class=rvts90>rel</span><span class=rvts45>="stylesheet/less"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- include uncompiled less source files like regular CSS styles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>type</span><span class=rvts45>="text/css"</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="styles.less"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="less.js"</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="text/javascript"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- and add a runtime-compiler provided as JavaScript&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection2'>Comments</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts91>/* multi-line comment */&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // multi-line comments are copied to the output file</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts91>// inline comment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // inline comments are not copied to the output file</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection3'>Imports</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>"style-1.css"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// will be left untouched by Less (the final CSS contains the @include)</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>"style-2.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// embeds the content (like #include in C)</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>"style-2"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// same as above (defaults to .less if the file extension is missing)</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>"style-3.php"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// same as above (extensions other than .css are treted as Less files)</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(reference) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// import only the styles that are referenced (inherited or mixed in)</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(inline&nbsp;&nbsp; ) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// inline the file content but don't parse/process it (simple text replacement)</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(less&nbsp;&nbsp;&nbsp;&nbsp; ) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// treat the input file as Less, no matter what the extension is</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(css&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// treat the input file as CSS, no matter what the extension is</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(once&nbsp;&nbsp;&nbsp;&nbsp; ) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// this is the default: import the file only once (ignore subsequent @imports)</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(multiple ) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// import the file multiple times, as often as the @import occurs</span></p>
+<p><span class=rvts95>@import</span><span class=rvts41> </span><span class=rvts45>(optional ) "style.less"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>// if the referenced file does not exist, then silently skip this import</span></p>
+<p><span class=rvts91><br></span></p>
+<p><br></p>
+<p><br></p>
+

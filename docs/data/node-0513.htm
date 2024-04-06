@@ -1,0 +1,65 @@
+
+<div id='nodeSection1'>Forms</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>form</span><span class=rvts41> </span><span class=rvts90>method</span><span class=rvts45>="post"</span><span class=rvts41> </span><span class=rvts90>action</span><span class=rvts45>="/sign-up"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Name: </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="text"</span><span class=rvts41> </span><span class=rvts90>name</span><span class=rvts45>="name"&gt;&lt;</span><span class=rvts46>br</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Email: </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="text"</span><span class=rvts41> </span><span class=rvts90>name</span><span class=rvts45>="email"&gt;&lt;</span><span class=rvts46>br</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="submit"</span><span class=rvts41> </span><span class=rvts90>value</span><span class=rvts45>="Send"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>form</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> bodyParser = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'body-parser'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install --save body- parser</span></p>
+<p><span class=rvts41>app.use(bodyParser.json());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add a middleware that processes JSON</span></p>
+<p><span class=rvts41>app.use(bodyParser.text());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add a middleware that processes raw text data</span></p>
+<p><span class=rvts41>app.use(bodyParser.urlencoded({ extended: </span><span class=rvts45>true</span><span class=rvts41>}));&nbsp; </span><span class=rvts39>// add a middleware that processes urlencoded FORM data</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.post(</span><span class=rvts42>'/sign-up'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (request, response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; request.query[</span><span class=rvts42>'name'</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// GET or POST: query string parameters</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; request.body&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// POST ONLY:&nbsp;&nbsp; provided by bodyParser.text()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; request.body.email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; provided by bodyParser.{json|urlencoded}()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; request.body.property.property....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; provided by bodyParser.json()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (request.xhr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this detection is not very reliable (depends on header being set)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || request.accepts(</span><span class=rvts42>'json,html'</span><span class=rvts41>)===</span><span class=rvts42>'json'</span><span class=rvts41>) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.type(</span><span class=rvts42>'application/json'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// set the content type to JSON</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.send({ message = </span><span class=rvts42>'OK'</span><span class=rvts41> });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send the response JSON serialised in the body</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; } </span><span class=rvts45>else</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.redirect(303, </span><span class=rvts42>'/thank-you'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// after proessing: redirect the browser to a confirmation page</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>File uploads with formidable</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>form</span><span class=rvts41> </span><span class=rvts90>method</span><span class=rvts45>="post"</span><span class=rvts41> </span><span class=rvts90>action</span><span class=rvts45>="/sign-up"</span><span class=rvts41> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts97>enctype</span><span class=rvts50>="multipart/form-data"</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- the encoding type MUST be set to multipart --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Name: </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="text"</span><span class=rvts41> </span><span class=rvts90>name</span><span class=rvts45>="name"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Passport: </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="file"</span><span class=rvts41> </span><span class=rvts90>name</span><span class=rvts45>="passport"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>type</span><span class=rvts45>="submit"</span><span class=rvts41> </span><span class=rvts90>value</span><span class=rvts45>="Send"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>form</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> formidable = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'formidable'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install formidable</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.post(</span><span class=rvts42>'/sign-up*'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(request, response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; (</span><span class=rvts45>new</span><span class=rvts41> formidable.IncomingForm()).parse(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// extract the file data from the request</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (err, fields, files) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (err) </span><span class=rvts45>throw</span><span class=rvts41> err;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fields[</span><span class=rvts42>'name'</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// regular text fields are parsed as well</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; files[</span><span class=rvts42>'passport'</span><span class=rvts41>].path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// server-side path where the file was saved (temp folder)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; files[</span><span class=rvts42>'passport'</span><span class=rvts41>].size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// filesize in bytes</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; files[</span><span class=rvts42>'passport'</span><span class=rvts41>].name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// client-side name of the file (without path)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; files[</span><span class=rvts42>'passport'</span><span class=rvts41>].lastModifiedDate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// client-side last-modified timestamp</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection3'>jQuery file upload</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts8>Sebastian Tschan</span><span class=rvts154>’</span><span class=rvts8>s jQuery File Upload:</span></p>
+<p><span class=rvts12>See "Web Development with Node &amp; Express" =&gt; Chapter 7. Form Handling =&gt; jQuery File Upload</span></p>
+<p><span class=rvts12><br></span></p>
+<p><br></p>
+<p><br></p>
+

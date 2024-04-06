@@ -1,0 +1,114 @@
+
+<div id='nodeSection1'>if / unless</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>if</span><span class=rvts262> age &lt; 18                                 </span><span class=rvts263># if-else</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>'child'</span></p>
+<p class=rvps12><span class=rvts265>elsif</span><span class=rvts262> age &lt; 67</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>'adult'</span></p>
+<p class=rvps12><span class=rvts265>else</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>'pensioner'</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>unless</span><span class=rvts262> age &lt; 18                             </span><span class=rvts263># unless</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"minor"</span></p>
+<p class=rvps12><span class=rvts265>else</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"adult"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"child"</span><span class=rvts262> </span><span class=rvts265>if</span><span class=rvts262> age &lt;12                     </span><span class=rvts263># can be used inline</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"adult"</span><span class=rvts262> </span><span class=rvts265>unless</span><span class=rvts262> age &lt;= 18</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>switch</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>case</span><span class=rvts262> country</span></p>
+<p class=rvps12><span class=rvts265>when</span><span class=rvts262> </span><span class=rvts266>"German"</span></p>
+<p class=rvps12><span class=rvts262>  continent = </span><span class=rvts266>"Europe"</span><span class=rvts262>              </span><span class=rvts263># no break required</span></p>
+<p class=rvps12><span class=rvts265>when</span><span class=rvts262> </span><span class=rvts266>"China"</span></p>
+<p class=rvps12><span class=rvts262>  contient = </span><span class=rvts266>"Asia"</span></p>
+<p class=rvps12><span class=rvts265>else</span></p>
+<p class=rvps12><span class=rvts262>  contient = </span><span class=rvts266>"unknown"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>continent = </span><span class=rvts265>case</span><span class=rvts262> country            </span><span class=rvts263># reult expression can be assigned</span></p>
+<p class=rvps12><span class=rvts262>            </span><span class=rvts265>when</span><span class=rvts262> </span><span class=rvts266>"German"</span></p>
+<p class=rvps12><span class=rvts262>              </span><span class=rvts266>"Europe"</span><span class=rvts262>              </span><span class=rvts263># no break required</span></p>
+<p class=rvps12><span class=rvts262>            </span><span class=rvts265>when</span><span class=rvts262> </span><span class=rvts266>"China"</span></p>
+<p class=rvps12><span class=rvts262>              </span><span class=rvts266>"Asia"</span></p>
+<p class=rvps12><span class=rvts262>            </span><span class=rvts265>else</span></p>
+<p class=rvps12><span class=rvts262>              </span><span class=rvts266>"unknown"</span></p>
+<p class=rvps12><span class=rvts262>            </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>when</span><span class=rvts262> 0                                      </span><span class=rvts263># exact match</span></p>
+<p class=rvps12><span class=rvts265>when</span><span class=rvts262> 0..9                                   </span><span class=rvts263># in range</span></p>
+<p class=rvps12><span class=rvts265>when</span><span class=rvts262> </span><span class=rvts266>/[a-z]+/</span><span class=rvts262>                               </span><span class=rvts263># matching regular expression</span></p>
+<p class=rvps12><span class=rvts265>in</span><span class=rvts262> { error: message, no: code}              </span><span class=rvts263># object with properties error and no (accessible as variables message and code in the when block)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>for</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>for</span><span class=rvts262> i </span><span class=rvts265>in</span><span class=rvts262> 1..10                              </span><span class=rvts263># regular counter loop</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>redo</span><span class=rvts262>  </span><span class=rvts265>if</span><span class=rvts262> ...                              </span><span class=rvts263># repeat without incrementing i</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>break</span><span class=rvts262> </span><span class=rvts265>if</span><span class=rvts262> ...                              </span><span class=rvts263># exit the loop</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>5.times { </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"test"</span><span class=rvts262> }                     </span><span class=rvts263># does not pass any parameters to the code block</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>0.upto(5) { |index| </span><span class=rvts265>puts</span><span class=rvts262> index }            </span><span class=rvts263># from 0 to 5</span></p>
+<p class=rvps12><span class=rvts262>5.downto(0) { |index| </span><span class=rvts265>puts</span><span class=rvts262> index }          </span><span class=rvts263># from 5 to 0</span></p>
+<p class=rvps12><span class=rvts262>0.step(50, 5) { |index| </span><span class=rvts265>puts</span><span class=rvts262> index }        </span><span class=rvts263># from 0 to 50 in steps of 5</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>for</span><span class=rvts262> element </span><span class=rvts265>in</span><span class=rvts262> [1, 2]                       </span><span class=rvts263># iterate over all elements in the collection</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>redo</span><span class=rvts262> | </span><span class=rvts265>break</span><span class=rvts262>                              </span><span class=rvts263># (for hashes it iterates over all keys and values separately)</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>loop</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>loop</span><span class=rvts262> </span><span class=rvts265>do</span><span class=rvts262>                                     </span><span class=rvts263># infinite loop</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>break</span><span class=rvts262> </span><span class=rvts265>if</span><span class=rvts262> ...</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts264><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>while / until</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>while</span><span class=rvts262> x &lt; 100                               </span><span class=rvts263># while loop</span></p>
+<p class=rvps12><span class=rvts262>  x = x * 2</span></p>
+<p><span class=rvts265>&nbsp; break</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>until</span><span class=rvts262> x &lt; 1                                 </span><span class=rvts263># until loop</span></p>
+<p class=rvps12><span class=rvts262>  x = x / 2</span></p>
+<p><span class=rvts265>&nbsp; break</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>x = x * 2 </span><span class=rvts265>while</span><span class=rvts262> x &lt; 1000                    </span><span class=rvts263># can be used inline as well</span></p>
+<p class=rvps12><span class=rvts262>x = x / 2 </span><span class=rvts265>until</span><span class=rvts262> x &lt; 100</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Try catch</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>catch</span><span class=rvts262>(:finish) </span><span class=rvts265>do</span><span class=rvts262>                           </span><span class=rvts263># catch block can be exited by throwing the given symbol</span></p>
+<p class=rvps12><span class=rvts262>  1000.times </span><span class=rvts265>do</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>if</span><span class=rvts262> 123 == </span><span class=rvts265>rand</span><span class=rvts262>(1000)</span></p>
+<p class=rvps12><span class=rvts262>      </span><span class=rvts265>throw</span><span class=rvts262> :finish                         </span><span class=rvts263># throw the symbol to exit the catch block</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

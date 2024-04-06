@@ -1,0 +1,65 @@
+
+<p class=rvps12><span class=rvts143><br></span></p>
+<div id='nodeSection1'>Constructors</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@AllArgsConstructor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a constructor with all properties</span></p>
+<p class=rvps12><span class=rvts124>@NoArgsConstructor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a default constructor (no parameters)</span></p>
+<p class=rvps12><span class=rvts124>@RequiredArgsConstructor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a constructor for all @NonNull and final properties</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Accessors</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Getter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// automatically create a getter method</span></p>
+<p class=rvps12><span class=rvts124>@Setter(</span><span class=rvts137>AccessLevel</span><span class=rvts124>.</span><span class=rvts133>PROTECTED</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// automatically create a setter method</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>@Getter(lazy=</span><span class=rvts130>true</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a getter that lazy-loads and caches the result</span></p>
+<p class=rvps12><span class=rvts130>private final </span><span class=rvts124>string cached = myMethod();&nbsp;&nbsp; </span><span class=rvts125>// the field itself will not be exposed</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Generating other methods</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@ToString(exclude={</span><span class=rvts128>"id"</span><span class=rvts124>, </span><span class=rvts128>"name"</span><span class=rvts124>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a toString() that dumps all properties (apply this annotation to classes)</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>@EqualsAndHashCode(exclude={</span><span class=rvts128>"id"</span><span class=rvts124>, </span><span class=rvts128>"name"</span><span class=rvts124>})&nbsp; </span><span class=rvts125>// create an equals and hashCode method</span></p>
+<p class=rvps12><span class=rvts124>@EqualsAndHashCode(callSuper = </span><span class=rvts130>true</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// incorporate the data provided by the base class (required if a @Data class is inherited)</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<div id='nodeSection4'>Data classes and builder</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@Data&nbsp;</span><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // combines @ToString + @EqualsAndHashCode + @Getter + @Setter + @RequiredArgsConstructor</span></p>
+<p class=rvps12><span class=rvts124>@Value&nbsp;</span><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // like @Data but generates a non-mutable class (not generating setters)</span></p>
+<p class=rvps12><span class=rvts124>@Builder&nbsp;</span><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // create a builder API</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>@Data</span></p>
+<p class=rvps12><span class=rvts124>@Builder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// mark the whole class as builder</span></p>
+<p class=rvps12><span class=rvts130>private static class </span><span class=rvts138>Person </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><a class=rvts144 href="mailto:@Builder.Default">@Builder.Default</a><span class=rvts127>&nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// set defaults for properties (applied if not set by the builder's consumer)</span></p>
+<p class=rvps12><span class=rvts130>&nbsp;&nbsp;&nbsp; private final </span><span class=rvts138>String </span><span class=rvts124>myProperty = </span><span class=rvts128>"abc"</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts138>MyClass</span><span class=rvts124>.</span><span class=rvts138>MyClassBuilder </span><span class=rvts124>builder =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// obtain a builder instance for the class</span></p>
+<p class=rvps12><span class=rvts138>&nbsp;&nbsp;&nbsp; MyClass</span><span class=rvts124>.</span><span class=rvts134>builder</span><span class=rvts124>();</span></p>
+<p><span class=rvts124>builder.myProperty(</span><span class=rvts128>"myValue"</span><span class=rvts124>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// set the properties</span></p>
+<p class=rvps12><span class=rvts138>Person </span><span class=rvts124>person = builder.build();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// this will actually intantiate the object</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>@Builder(builderMethodName=</span><span class=rvts128>"greetBuilder"</span><span class=rvts124>)&nbsp; </span><span class=rvts125>// the @Builder annotation can be applied to methods as well&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts130>public static </span><span class=rvts138>String </span><span class=rvts124>greet(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>String </span><span class=rvts124>salutation, </span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>String </span><span class=rvts124>name</span></p>
+<p class=rvps12><span class=rvts124>) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts128>"Hi " </span><span class=rvts124>+ salutation + </span><span class=rvts128>" " </span><span class=rvts124>+ name;</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>return </span><span class=rvts138>Person</span><span class=rvts124>.</span><span class=rvts134>greetBuilder</span><span class=rvts124>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the invocation is the same as when building object instances</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .salutation(</span><span class=rvts128>"Mr"</span><span class=rvts124>).name(</span><span class=rvts128>"Smith"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .build();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

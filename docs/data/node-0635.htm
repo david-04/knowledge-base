@@ -1,0 +1,92 @@
+
+<div id='nodeSection1'>Private assemblies</div>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>class library projects are compiled to DLL files</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>DLL files can be referenced from other applications</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>during the application's build the referenced DLLs are copied into the bin folder</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>to move the DLLs into subfolders, add the following line to App.config:</span></li>
+</ul>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>probing</span><span class=rvts58> </span><span class=rvts185>privatePath</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>subfolder-1</span><span class=rvts183>"</span><span class=rvts58>/&gt; &lt;!--</span><span class=rvts176> multiple folders separated by semicolon </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Shared assemblies</div>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>class libraries become shared assemblies when they are digitally signed</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>shared libraries are installed in the global assembly cache (GAC)</span></li>
+</ul>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; below .NET 4.0: </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>C:\Windows\assembly</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starting from .NET 4.0: </span><span class=rvts8> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>C:\Windows\Microsoft.NET\assembly\GAC_MSIL</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>DLLs are installed into the GAC via the command line tool gacutil.exe</span></li>
+</ul>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -i Installs a strongly named (=signed) assembly into the GAC</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -u Uninstalls an assembly from the GAC</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -l Displays the assemblies (or a specific assembly) in the GAC</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>to retrieve a DLL remotely, add the following code to the client's App.config:</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>runtime</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>assemblyBinding</span><span class=rvts58> </span><span class=rvts185>xmlns</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>urn:schemas-microsoft-com:asm.v1</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>dependentAssembly</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>assemblyIdentity</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>ThirdPartyLibrary</span><span class=rvts183>"</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>publicKeyToken</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>33A2BC294331E8B9</span><span class=rvts183>"</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>culture</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>neutral</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>codeBase</span><span class=rvts58> </span><span class=rvts185>version</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>2.0.0.0</span><span class=rvts183>"</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>href</span><span class=rvts58>=</span><span class=rvts183>"</span><a class=rvts190 href="http://test.com/MyLibrary.dll">http://test.com/</a><span class=rvts191>ThirdPartyLibrary</span><a class=rvts190 href="http://test.com/MyLibrary.dll">.dll</a><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>dependentAssembly</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>assemblyBinding</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>runtime</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Versioning of shared assemblies</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>applications bind against a fixed version of the shared assembly</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>to also allow newer version, add the following to the client App.config</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>runtime</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>assemblyBinding</span><span class=rvts58> </span><span class=rvts185>xmlns</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>urn:schemas-microsoft-com:asm.v1</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>dependentAssembly</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>assemblyIdentity</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>PlaygroundClassLibrary</span><span class=rvts183>"</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>publicKeyToken</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>64ee9364749d8328</span><span class=rvts183>"</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>culture</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>neutral</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>bindingRedirect</span><span class=rvts58>&nbsp; </span><span class=rvts185>oldVersion</span><span class=rvts58>= </span><span class=rvts183>"</span><span class=rvts58>1.0.0.0</span><span class=rvts183>"</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>newVersion</span><span class=rvts58>= </span><span class=rvts183>"</span><span class=rvts58>2.0.0.0</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>dependentAssembly</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>assemblyBinding</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>runtime</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the version redirection can also be defined by the library (called "Publisher Policy")</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>they are created with the command line utility al.exe (assembly linker)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>the publisher policy can be disabled in the client's </span><span class=rvts192>App</span><span class=rvts8>.config</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>runtime</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>assemblyBinding</span><span class=rvts58> </span><span class=rvts185>xmlns</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>urn:schemas-microsoft-com:asm.v1</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>publisherPolicy</span><span class=rvts58> </span><span class=rvts185>apply</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>no</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>assemblyBinding</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>runtime</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Loading assemblies dynamically</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Assembly</span><span class=rvts183>.Load(</span><span class=rvts184>"MyClassLibrary"</span><span class=rvts183>)</span></p>
+<p><span class=rvts110>Assembly</span><span class=rvts183>.LoadFrom(</span><span class=rvts184>"C:\Temp\MyClassLibrary.dll"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts176>' the PublicKeyToken is mandatory to load from the GAC</span></p>
+<p><span class=rvts110>Assembly</span><span class=rvts183>.Load(@</span><span class=rvts184>"MyClassLibrary, Version=1.0.0.0, PublicKeyToken=null, Culture="""</span><span class=rvts183>)</span></p>
+<p><span class=rvts176>' or</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> asmName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>AssemblyName</span><span class=rvts183>()</span></p>
+<p><span class=rvts183>asmName.Name = </span><span class=rvts184>"MyClassLibrary"</span></p>
+<p><span class=rvts183>asmName.Version = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Version</span><span class=rvts183>(</span><span class=rvts184>"1.0.0.0"</span><span class=rvts183>)</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> a </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Assembly</span><span class=rvts183> = </span><span class=rvts110>Assembly</span><span class=rvts183>.Load(asmName)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

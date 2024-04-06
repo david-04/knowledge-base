@@ -1,0 +1,68 @@
+
+<p class=rvps12><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection1'>???</div>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>trait TwosComplement[N]:</span></p>
+<p><span class=rvts269>&nbsp; def equalsMinValue(n: N): Boolean</span></p>
+<p><span class=rvts269>&nbsp; def absOf(n: N): N</span></p>
+<p><span class=rvts269>&nbsp; def negationOf(n: N): N</span></p>
+<p><span class=rvts269>object TwosComplement:</span></p>
+<p><span class=rvts269>&nbsp; given tcOfByte: TwosComplement[Byte] with</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def equalsMinValue(n: Byte) = n == Byte.MinValue</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def absOf(n: Byte) = n.abs</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def negationOf(n: Byte) = (-n).toByte</span></p>
+<p><span class=rvts269>&nbsp; given tcOfShort: TwosComplement[Short] with</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def equalsMinValue(n: Short) = n == Short.MinValue</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def absOf(n: Short) = n.abs</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def negationOf(n: Short) = (-n).toShort</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>extension [N](n: N)(using tc: TwosComplement[N])</span></p>
+<p><span class=rvts269>&nbsp; def isMinValue: Boolean = tc.equalsMinValue(n)</span></p>
+<p><span class=rvts269>&nbsp; def absOption: Option[N] =</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; if !isMinValue then Some(tc.absOf(n)) else None</span></p>
+<p><span class=rvts269>&nbsp; def negateOption: Option[N] =</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; if !isMinValue then Some(tc.negationOf(n)) else None</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>plase in singleton object</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>object TwosComplementOps:</span></p>
+<p><span class=rvts269>&nbsp; extension [N](n: N)(using tc: TwosComplement[N])</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def isMinValue: Boolean = tc.equalsMinValue(n)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def absOption: Option[N] =</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if !isMinValue then Some(tc.absOf(n)) else None</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def negateOption: Option[N] =</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if !isMinValue then Some(tc.negationOf(n)) else None</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>then import</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>import TwosComplementOps.*</span></p>
+<p><span class=rvts269><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>trait Ord[T]:</span></p>
+<p><span class=rvts269>&nbsp; def compare(x: T, y: T): Int</span></p>
+<p><span class=rvts269>&nbsp; def lt(x: T, y: T): Boolean = compare(x, y) &lt; 0</span></p>
+<p><span class=rvts269>&nbsp; def lteq(x: T, y: T): Boolean = compare(x, y) &lt;= 0</span></p>
+<p><span class=rvts269>&nbsp; def gt(x: T, y: T): Boolean = compare(x, y) &gt; 0</span></p>
+<p><span class=rvts269>&nbsp; def gteq(x: T, y: T): Boolean = compare(x, y) &gt;= 0</span></p>
+<p><span class=rvts269>&nbsp; // (This is the best design)</span></p>
+<p><span class=rvts269>&nbsp; extension (lhs: T)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def &lt; (rhs: T): Boolean = lt(lhs, rhs)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def &lt;= (rhs: T): Boolean = lteq(lhs, rhs)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def &gt; (rhs: T): Boolean = gt(lhs, rhs)</span></p>
+<p><span class=rvts269>&nbsp;&nbsp;&nbsp; def &gt;= (rhs: T): Boolean = gteq(lhs, rhs)</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts269>can now use givens/using/implicit</span></p>
+<p><span class=rvts269>myFunction()(implicit Ord[T]) = // eanbles the extension methods of Ord[T] without requireing ani import</span></p>
+<p><span class=rvts269><br></span></p>
+<p><br></p>
+<p><br></p>
+

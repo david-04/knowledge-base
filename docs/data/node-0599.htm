@@ -1,0 +1,43 @@
+
+<div id='nodeSection1'>Packages</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>package </span><span class=rvts262>my.pkg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// global package declaration (applies to the whole file)</span></p>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>package object </span><span class=rvts274>my_package </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can define packages as a block (does not seem to work in conjunction with a global "package" declaration on file-level) </span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>val </span><span class=rvts275>helloWorld </span><span class=rvts262>= </span><span class=rvts266>"Hello world!"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// packages can have variables (but not statements like println)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>object </span><span class=rvts274>MyUtils </span><span class=rvts262>{</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>def </span><span class=rvts262>greeting: </span><span class=rvts277>String </span><span class=rvts262>= </span><span class=rvts275>helloWorld</span></p>
+<p class=rvps12><span class=rvts275>&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Imports</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// all objects from the package (can use "*" instead of "_" in Scala 3)</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.{ _ }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// same as above</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// single class</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.</span><span class=rvts274>MyClass</span><span class=rvts262>.</span><span class=rvts275>STATIC_PROPERTY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// static import</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.MyClass </span><span class=rvts265>as </span><span class=rvts262>MyFavouriteClass&nbsp;&nbsp; </span><span class=rvts263>// import under an alias name</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.{MyClass =&gt; MyFavouriteClass} </span><span class=rvts263>// can use =&gt; when using curly braces</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.{MyClass </span><span class=rvts265>as </span><span class=rvts262>MyFavouriteClass}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.{</span><span class=rvts274>MyClass1</span><span class=rvts262>, </span><span class=rvts274>MyClass2</span><span class=rvts262>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// "import selector"</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.{</span><span class=rvts274>MyClass1 </span><span class=rvts262>=&gt; MyClass, _}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// one class as alias and then import everything from the package ("_" can be replaced by "*" in Scala 3)</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg.{MyClass =&gt; _, _}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// exclude MyClass but import everything else</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>child_pkg.MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// the path is always relative</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>_root_.my.pkg.child_pkg.MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// _root_ represents the root package</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>my.pkg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// import the whole package as if it was a variable</span></p>
+<p class=rvps12><span class=rvts262>pkg.</span><span class=rvts274>MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can then access objects inside via the "pkg" variable</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>def </span><span class=rvts262>myFunction = {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>import </span><span class=rvts262>my.pkg.MyClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can import in nested scopes</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>new </span><span class=rvts262>MyClass()</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

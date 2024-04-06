@@ -1,0 +1,87 @@
+
+<div id='nodeSection1'>Required packages</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>PM&gt; Install-Package Microsoft.Aspnet.Mvc</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Usage</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>TestRouteMatch(</span><span class=rvts42>"~/Admin/Index"</span><span class=rvts41>, </span><span class=rvts42>"Admin"</span><span class=rvts41>, </span><span class=rvts42>"Index"</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// the given URL must resolve to the specified controller and action method</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>TestRouteMatch(</span><span class=rvts42>"~/User/Get/David"</span><span class=rvts41>, </span><span class=rvts42>"User"</span><span class=rvts41>, </span><span class=rvts42>"Get"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> { id = </span><span class=rvts42>"David"</span><span class=rvts41> });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check if the parameters were retrieved properly</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>TestRouteFail(</span><span class=rvts42>"~/Admin"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ensure that this URL does not resolve to any controller and action method</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection3'>Mocking the HTTP request/response</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts171>HttpContextBase</span><span class=rvts41> CreateHttpContext(</span><span class=rvts45>string</span><span class=rvts41> targetUrl = </span><span class=rvts45>null</span><span class=rvts41>, </span><span class=rvts45>string</span><span class=rvts41> httpMethod = </span><span class=rvts42>"GET"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Mock&lt;</span><span class=rvts171>HttpRequestBase</span><span class=rvts41>&gt; mockRequest = </span><span class=rvts45>new</span><span class=rvts41> Mock&lt;</span><span class=rvts171>HttpRequestBase</span><span class=rvts41>&gt;();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; mockRequest.Setup(m =&gt; m.AppRelativeCurrentExecutionFilePath)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Returns(targetUrl);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; mockRequest.Setup(m =&gt; m.HttpMethod).Returns(httpMethod);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Mock&lt;</span><span class=rvts171>HttpResponseBase</span><span class=rvts41>&gt; mockResponse = </span><span class=rvts45>new</span><span class=rvts41> Mock&lt;</span><span class=rvts171>HttpResponseBase</span><span class=rvts41>&gt;();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; mockResponse.Setup(m =&gt; m.ApplyAppPathModifier(It.IsAny&lt;</span><span class=rvts45>string</span><span class=rvts41>&gt;())).Returns&lt;</span><span class=rvts45>string</span><span class=rvts41>&gt;(s =&gt; s);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Mock&lt;</span><span class=rvts171>HttpContextBase</span><span class=rvts41>&gt; mockContext = </span><span class=rvts45>new</span><span class=rvts41> Mock&lt;</span><span class=rvts171>HttpContextBase</span><span class=rvts41>&gt;();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; mockContext.Setup(m =&gt; m.Request).Returns(mockRequest.Object);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; mockContext.Setup(m =&gt; m.Response).Returns(mockResponse.Object);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> mockContext.Object;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection4'>Testing the route matching</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> TestRouteMatch(</span><span class=rvts45>string</span><span class=rvts41> url, </span><span class=rvts45>string</span><span class=rvts41> controller, </span><span class=rvts45>string</span><span class=rvts41> action,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>object</span><span class=rvts41> routeProperties = </span><span class=rvts45>null</span><span class=rvts41>, </span><span class=rvts45>string</span><span class=rvts41> httpMethod = </span><span class=rvts42>"GET"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteCollection</span><span class=rvts41> routes = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>RouteCollection</span><span class=rvts41>();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteConfig</span><span class=rvts41>.RegisterRoutes(routes);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteData</span><span class=rvts41> result = routes.GetRouteData(CreateHttpContext(url, httpMethod));</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Assert.IsNotNull(result);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Assert.IsTrue(TestIncomingRouteResult(result, controller, action, routeProperties));</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>bool</span><span class=rvts41> TestIncomingRouteResult(</span><span class=rvts171>RouteData</span><span class=rvts41> routeResult, </span><span class=rvts45>string</span><span class=rvts41> controller, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>string</span><span class=rvts41> action, </span><span class=rvts45>object</span><span class=rvts41> propertySet = </span><span class=rvts45>null</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>Func</span><span class=rvts41>&lt;</span><span class=rvts45>object</span><span class=rvts41>, </span><span class=rvts45>object</span><span class=rvts41>, </span><span class=rvts45>bool</span><span class=rvts41>&gt; valCompare = (v1, v2) =&gt; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts171>StringComparer</span><span class=rvts41>.InvariantCultureIgnoreCase.Compare(v1, v2) == 0;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>bool</span><span class=rvts41>&nbsp;&nbsp;&nbsp; result = valCompare(routeResult.Values[</span><span class=rvts42>"controller"</span><span class=rvts41>], controller)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; valCompare(routeResult.Values[</span><span class=rvts42>"action"</span><span class=rvts41>], action);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (propertySet != </span><span class=rvts45>null</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>PropertyInfo</span><span class=rvts41>[] propInfo = propertySet.GetType().GetProperties();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>foreach</span><span class=rvts41> (</span><span class=rvts171>PropertyInfo</span><span class=rvts41> pi </span><span class=rvts45>in</span><span class=rvts41> propInfo)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (!(routeResult.Values.ContainsKey(pi.Name)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; valCompare(routeResult.Values[pi.Name],</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pi.GetValue(propertySet, </span><span class=rvts45>null</span><span class=rvts41>))))</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result = </span><span class=rvts45>false</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>break</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> result;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection5'>Test non-matching</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> TestRouteFail(</span><span class=rvts45>string</span><span class=rvts41> url)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteCollection</span><span class=rvts41> routes = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>RouteCollection</span><span class=rvts41>();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteConfig</span><span class=rvts41>.RegisterRoutes(routes);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteData</span><span class=rvts41> result = routes.GetRouteData(CreateHttpContext(url));</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Assert.IsTrue(result == </span><span class=rvts45>null</span><span class=rvts41> || result.Route == </span><span class=rvts45>null</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

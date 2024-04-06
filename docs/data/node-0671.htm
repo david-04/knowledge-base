@@ -1,0 +1,47 @@
+
+<div id='nodeSection1'>Functions and subroutines</div>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts58>Sub</span><span class=rvts183> MySubroutine()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' subroutines don't have return values</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' ...</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Function</span><span class=rvts183> MyFunction(input </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' functions return a value</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> input + 10</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Call by reference</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Sub</span><span class=rvts183> MySubroutine(</span><span class=rvts50>ByVal</span><span class=rvts183> x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>, </span><span class=rvts50>ByRef</span><span class=rvts183> x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>)&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' ByVal is the default</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' ...</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>MySubroutine(x1, x2)</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Variable argument list</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Function</span><span class=rvts183> Concat(</span><span class=rvts58>ParamArray</span><span class=rvts183> values() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Object</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Dim</span><span class=rvts183> result </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>StringBuilder</span><span class=rvts183> = </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>StringBuilder</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>For</span><span class=rvts183> </span><span class=rvts58>Each</span><span class=rvts183> obj </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Object</span><span class=rvts183> </span><span class=rvts58>In</span><span class=rvts183> values</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result.Append(obj.ToString()).Append(</span><span class=rvts184>" "</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Next</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> result.ToString()</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>Concat(1, 2, </span><span class=rvts184>"abc"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Optional and named parameters</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Function</span><span class=rvts183> Greet(firstName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>, </span><span class=rvts58>Optional</span><span class=rvts183> lastName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183> = </span><span class=rvts184>""</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> </span><span class=rvts184>"Hello "</span><span class=rvts183> &amp; firstName &amp; </span><span class=rvts184>" "</span><span class=rvts183> &amp; lastName</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>Greet(</span><span class=rvts184>"David"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>Greet(lastName:=</span><span class=rvts184>"Hofmann"</span><span class=rvts183>, firstName:=</span><span class=rvts184>"David"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

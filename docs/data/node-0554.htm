@@ -1,0 +1,60 @@
+
+<div id='nodeSection1'>JSON</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'json'</span><span class=rvts262>                              </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>json = </span><span class=rvts267>JSON</span><span class=rvts262>.generate(hash_or_array)         </span><span class=rvts263># convert a hash or array into a stringified json</span></p>
+<p class=rvps12><span class=rvts262>json = hash_or_array.to_json                </span><span class=rvts263># same as above</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>object = </span><span class=rvts267>JSON</span><span class=rvts262>.parse(                        </span></p>
+<p class=rvps12><span class=rvts262>  json, symbolize_names: </span><span class=rvts265>true</span><span class=rvts262>               </span><span class=rvts263># parse keys into symbols</span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>object[:name]</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>object = </span><span class=rvts267>JSON</span><span class=rvts262>.parse(                        </span></p>
+<p class=rvps12><span class=rvts262>  json, symbolize_names: </span><span class=rvts265>false</span><span class=rvts262>              </span><span class=rvts263># parse keys into strings</span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>object[</span><span class=rvts266>"name"</span><span class=rvts262>]</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>YAML</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'yaml'</span><span class=rvts262>                              </span><span class=rvts263># stanard libray</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>yaml = hash_object_or_array.to_yaml         </span><span class=rvts263># render an object/array/hash into a YAML string (includes reference to the Ruby classes)</span></p>
+<p class=rvps12><span class=rvts262>hash_object_or_array = </span><span class=rvts267>YAML</span><span class=rvts262>.</span><span class=rvts265>load</span><span class=rvts262>(yaml)      </span><span class=rvts263># parse a YAML into an object/array/hash (restores class intances)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>CSV</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'csv'</span><span class=rvts262>                               </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>array = </span><span class=rvts267>CSV</span><span class=rvts262>.parse(</span><span class=rvts267>File</span><span class=rvts262>.read(</span><span class=rvts266>'file.csv'</span><span class=rvts262>))    </span><span class=rvts263># read the whole file in to a 2-dimensional array</span></p>
+<p class=rvps12><span class=rvts262>array = </span><span class=rvts267>CSV</span><span class=rvts262>.read(</span><span class=rvts266>'file.csv'</span><span class=rvts262>)                </span><span class=rvts263># same as above</span></p>
+<p class=rvps12><span class=rvts267>CSV</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'file.csv'</span><span class=rvts262>).each { |columns| ... } </span><span class=rvts263># stream each line as an array of columns</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>CSV</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'file.txt'</span><span class=rvts262>, </span><span class=rvts266>'w'</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |csv|          </span><span class=rvts263># write a CSV file</span></p>
+<p class=rvps12><span class=rvts262>  array.each { |columns| csv &lt;&lt; columns }</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>PStore</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'pstore'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>store = </span><span class=rvts267>PStore</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>"file.pstore"</span><span class=rvts262>)           </span><span class=rvts263># open the store (for reading and writing)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>store.transaction </span><span class=rvts265>do</span><span class=rvts262>                        </span><span class=rvts263># write to a store</span></p>
+<p class=rvps12><span class=rvts262>  store[:people] ||= </span><span class=rvts267>Array</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>              </span><span class=rvts263># initialise the propery</span></p>
+<p class=rvps12><span class=rvts262>  store[:people] &lt;&lt; </span><span class=rvts266>"John"</span><span class=rvts262>                  </span><span class=rvts263># serialise objects</span></p>
+<p class=rvps12><span class=rvts262>  store[:people] &lt;&lt; </span><span class=rvts266>"Johanna"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>people = []                                 </span><span class=rvts263># reading from a store</span></p>
+<p class=rvps12><span class=rvts262>store.transaction </span><span class=rvts265>do</span></p>
+<p class=rvps12><span class=rvts262>  people = store[:people]</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

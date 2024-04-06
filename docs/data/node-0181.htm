@@ -1,0 +1,39 @@
+
+<div id='nodeSection1'>Mocking the store</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>configureMockStore&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// npm install redux-mock-store</span></p>
+<p class=rvps12><span class=rvts130>&nbsp; from </span><span class=rvts128>'redux-mock-store'</span><span class=rvts124>;&nbsp; </span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>thunk </span><span class=rvts130>from </span><span class=rvts128>'redux-thunk'</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// npm install redux-thunk</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>var </span><span class=rvts127>mockStore</span><span class=rvts151> </span><span class=rvts124>= configureMockStore([thunk]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a mock store factory</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>const </span><span class=rvts127>store = mockStore</span><span class=rvts124>({});&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// instantiate the mock store with the initial state</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Asynchronous actions</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>nock(</span><span class=rvts128>'http://example.com/'</span><span class=rvts124>).</span><span class=rvts127>get</span><span class=rvts124>(</span><span class=rvts128>'/todos'</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// mock the fetch request (requires nock to be installed)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>.reply(200, {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body: { payload: </span><span class=rvts128>'test' </span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; });</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>const </span><span class=rvts127>expectedActions</span><span class=rvts151> </span><span class=rvts124>= [</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; { type: </span><span class=rvts128>'ACTION_1' </span><span class=rvts124>},</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; { type: </span><span class=rvts128>'ACTION_2'</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body: { payload: </span><span class=rvts128>'test' </span><span class=rvts124>} }</span></p>
+<p class=rvps12><span class=rvts124>];</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts127>store</span><span class=rvts124>.dispatch(actions.fetchTodos())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .</span><span class=rvts127>then</span><span class=rvts124>(() =&gt; {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(</span><span class=rvts127>store</span><span class=rvts124>.getActions())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// get the actions that were dispatched</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>.toEqual(</span><span class=rvts127>expectedActions</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; });</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Testing components</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Wrap the component into a &lt;Provider/&gt; tag and provide a mock store to test the interaction between Redux and the component</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

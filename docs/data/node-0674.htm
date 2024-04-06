@@ -1,0 +1,50 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts8>Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Expose internal members</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts45>Assembly</span><span class=rvts41>: </span><span class=rvts171>InternalsVisibleTo</span><span class=rvts41>(</span><span class=rvts42>"UnitTests"</span><span class=rvts41>)&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Unit testing</div>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>TestClass</span><span class=rvts41>()&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' mark the class as test container</span></p>
+<p><span class=rvts45>Public</span><span class=rvts41> </span><span class=rvts45>Class</span><span class=rvts41> </span><span class=rvts171>UnitTest1</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts171>TestMethod</span><span class=rvts41>()&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' mark the method as test item</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Public</span><span class=rvts41> </span><span class=rvts45>Sub</span><span class=rvts41> TestMethod1()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Dim</span><span class=rvts41> x1 </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts45>Integer</span><span class=rvts41> = 10</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Dim</span><span class=rvts41> x2 </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts45>Integer</span><span class=rvts41> = 5</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Dim</span><span class=rvts41> result </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts45>Integer</span><span class=rvts41> = Package.</span><span class=rvts171>Module</span><span class=rvts41>.add(10, 5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' reference the corresponding package</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>Assert</span><span class=rvts41>.AreEqual(</span><span class=rvts45>Of</span><span class=rvts41> </span><span class=rvts45>Integer</span><span class=rvts41>)(x1 + x2, result, </span><span class=rvts42>"custom message"</span><span class=rvts41>)&nbsp; </span><span class=rvts39>' use Assert to check for conditions, pass optional failure message</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>End</span><span class=rvts41> </span><span class=rvts45>Sub</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts171>ClassInitialize</span><span class=rvts41>()&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' executed before the first test</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Public</span><span class=rvts41> </span><span class=rvts45>Shared</span><span class=rvts41> </span><span class=rvts45>Sub</span><span class=rvts41> MyClassInitialize(testContext </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts171>TestContext</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>End</span><span class=rvts41> </span><span class=rvts45>Sub</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts171>ClassCleanup</span><span class=rvts41>()&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' executed after the last tests</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Public</span><span class=rvts41> </span><span class=rvts45>Shared</span><span class=rvts41> </span><span class=rvts45>Sub</span><span class=rvts41> MyClassCleanup()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>End</span><span class=rvts41> </span><span class=rvts45>Sub</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts171>TestInitialize</span><span class=rvts41>()&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' executed before each test method</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Public</span><span class=rvts41> </span><span class=rvts45>Sub</span><span class=rvts41> MyTestInitialize()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>End</span><span class=rvts41> </span><span class=rvts45>Sub</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts171>TestCleanup</span><span class=rvts41>()&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' executed after each test method</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>Public</span><span class=rvts41> </span><span class=rvts45>Sub</span><span class=rvts41> MyTestCleanup()</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>End</span><span class=rvts41> </span><span class=rvts45>Sub</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>End</span><span class=rvts41> </span><span class=rvts45>Class</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45><br></span></p>
+<div id='nodeSection4'>Mocking with Moq</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>see C#</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,84 @@
+
+<div id='nodeSection1'>Type constraints</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts171>IMyInterface</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the type must implement the given interface</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts171>IMyClass</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the type must be the given class or a class derived from it</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts45>const </span><span class=rvts171>T</span><span class=rvts41> </span><span class=rvts45>extends readonly string</span><span class=rvts41>[]&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// infer type as narrow as possible (when using arrays, T must be a readonly array</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> { name: </span><span class=rvts171>String </span><span class=rvts41>}&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inline an interface</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>T1</span><span class=rvts43>,</span><span class=rvts171> T2</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts171>T1</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// T2 must be T1 or a subclass derived from it</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41>, </span><span class=rvts171>K</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts45>keyof</span><span class=rvts41> </span><span class=rvts171>T</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// K is a set of properties defined in type T</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts171>T1</span><span class=rvts43> =</span><span class=rvts171> </span><span class=rvts45>string</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can have a default</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts45>in</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>T1</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// type is only used as an input parameter</span></p>
+<p><span class=rvts41>&lt;&nbsp;&nbsp; </span><span class=rvts45>out</span><span class=rvts41> </span><span class=rvts171>T1</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// type is only used as a return value</span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts45>in out</span><span class=rvts41> </span><span class=rvts171>T1</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// type is used as both</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction&lt;</span><span class=rvts171>T1</span><span class=rvts41>, </span><span class=rvts171>T2</span><span class=rvts41>&gt;(x1: </span><span class=rvts171>T1</span><span class=rvts41>, x2: </span><span class=rvts171>T2</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// parameterise a function with generic types</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(x1.toString()+</span><span class=rvts42>" "</span><span class=rvts41>+x2.toString());&nbsp;&nbsp; </span><span class=rvts39>// without type constraints only functions provided by all objects types can be used</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myFunction&lt;</span><span class=rvts45>string</span><span class=rvts41>, </span><span class=rvts45>number</span><span class=rvts41>&gt;(</span><span class=rvts42>"David"</span><span class=rvts41>, 38);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// explicitely add type information when calling the function</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>const </span><span class=rvts41>stringNumberFn = myFunction&lt;</span><span class=rvts45>string</span><span class=rvts41>, </span><span class=rvts45>number</span><span class=rvts41>&gt;;&nbsp; </span><span class=rvts39>// can alias a generic function to preset the generic types</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myFunction(</span><span class=rvts42>"David"</span><span class=rvts41>, 38);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or have the types inferred automatically from the parameters</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Classes and interfaces</div>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts171>IMyStack</span><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41>&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// interfaces can be generic</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; push(element: </span><span class=rvts171>T</span><span class=rvts41>): </span><span class=rvts45>void</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; pop(): </span><span class=rvts171>T</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>MyContainer</span><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// generic classes can</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts171>MyBaseClass</span><span class=rvts41>&lt;</span><span class=rvts45>number</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... be derived from other generic classes and</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>implements</span><span class=rvts41> </span><span class=rvts171>IMyStack</span><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41>&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... implement generic interfaces as well</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; push(element: </span><span class=rvts171>T</span><span class=rvts41>): </span><span class=rvts45>void</span><span class=rvts41> { }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; pop(): </span><span class=rvts171>T</span><span class=rvts41> { </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>null</span><span class=rvts41>; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myContainer = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>MyContainer</span><span class=rvts41>&lt;</span><span class=rvts171>MyClass</span><span class=rvts41>&gt;();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate a generic class</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>const </span><span class=rvts41>StringContainer = MyContainer&lt;</span><span class=rvts45>string</span><span class=rvts41>&gt;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can alias a generic class to preset the generic types</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Constructors</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFactory&lt;</span><span class=rvts171>T</span><span class=rvts41>&gt;(constr: { </span><span class=rvts45>new</span><span class=rvts41>(): </span><span class=rvts171>T</span><span class=rvts41> }): </span><span class=rvts171>T</span><span class=rvts41> {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// to instantiate a generic type, the constructor must be</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>new</span><span class=rvts41> constr();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// passed in as a parameter</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myFactory&lt;</span><span class=rvts171>MyClass</span><span class=rvts41>&gt;(</span><span class=rvts171>MyClass</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// when calling the function, the class name is passed in as constructor</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>Function interfaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts171>IMyGenericFunction</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// generic functions can be described through interfaces</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts171>T</span><span class=rvts41>&gt;(arg1: </span><span class=rvts171>T</span><span class=rvts41>, arg2: </span><span class=rvts171>T</span><span class=rvts41>): </span><span class=rvts171>T</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myFunction: </span><span class=rvts171>IMyGenericFunction</span><span class=rvts41> = </span><span class=rvts47>...</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the interface type itself remains generic</span></p>
+<p><span class=rvts41>myFunction&lt;</span><span class=rvts45>number</span><span class=rvts41>&gt;(5, 12);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// typing occurs only when the function is called</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts171>IMyGenericFunction</span><span class=rvts41>&lt;</span><span class=rvts171>T</span><span class=rvts41>&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// alternatively the whole interface can be generic</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; (arg1: </span><span class=rvts171>T</span><span class=rvts41>, arg2: </span><span class=rvts171>T</span><span class=rvts41>): </span><span class=rvts171>T</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myFunction: </span><span class=rvts171>IMyGenericFunction</span><span class=rvts41>&lt;</span><span class=rvts45>number</span><span class=rvts41>&gt; = </span><span class=rvts47>...</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// typing takes place when referening the interface</span></p>
+<p><span class=rvts41>myFunction(5, 12);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the function call itself is already typed</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

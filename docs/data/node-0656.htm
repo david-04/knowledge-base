@@ -1,0 +1,87 @@
+
+<div id='nodeSection1'>Basic features</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Overrides</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> Equals(obj </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Object</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Overrides</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> GetHashCode() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Overrides</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> ToString() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' format: [Field1: value1; Field2: value2]</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection2'>Comparison</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IComparable</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> CompareTo(other </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183> </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IComparable</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>).CompareTo</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' return -1 / 0 / 1</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Shared</span><span class=rvts183> </span><span class=rvts58>Operator</span><span class=rvts183> =(x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>, x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> 0 = x1.CompareTo(x2)</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Operator</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Shared</span><span class=rvts183> </span><span class=rvts58>Operator</span><span class=rvts183> &lt;&gt;(x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>, x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> 0 &lt;&gt; x1.CompareTo(x2)</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Operator</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Shared</span><span class=rvts183> </span><span class=rvts58>Operator</span><span class=rvts183> &lt;(x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>, x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> x1.CompareTo(x2) &lt; 0</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Operator</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Shared</span><span class=rvts183> </span><span class=rvts58>Operator</span><span class=rvts183> &gt;(x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>, x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> 0 &lt; x1.CompareTo(x2)</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Operator</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Shared</span><span class=rvts183> </span><span class=rvts58>Operator</span><span class=rvts183> &lt;=(x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>, x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> x1.CompareTo(x2) &lt;= 0</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Operator</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Shared</span><span class=rvts183> </span><span class=rvts58>Operator</span><span class=rvts183> &gt;=(x1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>, x2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> 0 &lt;= x1.CompareTo(x2)</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Operator</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection3'>Cloning</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>ICloneable</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> Clone() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Dim</span><span class=rvts183> myObject </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183> = </span><span class=rvts58>CType</span><span class=rvts183>(</span><span class=rvts58>MyBase</span><span class=rvts183>.MemberwiseClone(), </span><span class=rvts110>SomeClass</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' additional deep-copy action</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> myObject</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> CloneUntyped() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Object</span><span class=rvts183> </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>ICloneable</span><span class=rvts183>.Clone</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> </span><span class=rvts58>Me</span><span class=rvts183>.Clone()</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection4'>Enumerators</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IEnumerable</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts191>Iterator</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> GetEnumerator() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>IEnumerator</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>) </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IEnumerable</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183>).GetEnumerator</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>For</span><span class=rvts183> </span><span class=rvts58>Each</span><span class=rvts183> element </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>SomeClass</span><span class=rvts183> </span><span class=rvts58>In</span><span class=rvts183> </span><span class=rvts58>Me</span><span class=rvts183>.MyArray</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Yield</span><span class=rvts183> element</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Next</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> GetEnumeratorUntyped() </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>IEnumerator</span><span class=rvts183> </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IEnumerable</span><span class=rvts183>.GetEnumerator</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> </span><span class=rvts58>Me</span><span class=rvts183>.GetEnumerator()</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection5'>Disposable</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IDisposable</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> hasBeenDisposed </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Boolean</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Dispose() </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IDisposable</span><span class=rvts183>.Dispose</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>If</span><span class=rvts183> </span><span class=rvts58>Not</span><span class=rvts183> hasBeenDisposed </span><span class=rvts58>Then</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' call properties' and fields' Dispose()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' relase and clean up unmanaged resources</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>If</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; hasBeenDisposed = </span><span class=rvts58>True</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

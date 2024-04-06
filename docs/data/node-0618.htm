@@ -1,0 +1,68 @@
+
+<div id='nodeSection1'>Enums</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>enum</span><span class=rvts41> </span><span class=rvts110>Season</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Spring,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 0</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Summer,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 1</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Autumn = 100,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 100</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Winter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 101</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps12><span class=rvts64>enum</span><span class=rvts251> </span><span class=rvts292>Season</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    Spring = </span><span class=rvts289>"SPRING"</span><span class=rvts251>,                              </span><span class=rvts252>// can also initialise as string</span></p>
+<p class=rvps12><span class=rvts251>    Summer = </span><span class=rvts289>"SUMMER"</span><span class=rvts251>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// </span><span class=rvts293>however, there's no reverse mapping "SUMMER" =&gt; "Summer"</span></p>
+<p class=rvps12><span class=rvts251>    Autumn = </span><span class=rvts289>"AUTUMN"</span><span class=rvts251>,</span></p>
+<p class=rvps12><span class=rvts251>    Winter = </span><span class=rvts289>"WINTER"</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>enum</span><span class=rvts41> </span><span class=rvts110>FileAccess</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1 &lt;&lt; 1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// computed value based on constants and literals</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Write&nbsp;&nbsp;&nbsp;&nbsp; = 1 &lt;&lt; 2,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ReadWrite = Read | Write,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// computed value based on other enumeration values</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Random&nbsp;&nbsp;&nbsp; = getRandomAccessValue()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or on function calls as well</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Label&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts289>"FILE_ACCESS"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... can also mix with strings</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Name mapping</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>type</span><span class=rvts251> </span><span class=rvts292>SeasonNames</span><span class=rvts251> = </span><span class=rvts64>keyof</span><span class=rvts251> </span><span class=rvts64>typeof</span><span class=rvts251> </span><span class=rvts292>Season</span><span class=rvts251>;             </span><span class=rvts252>// enum names, similar to property names for classes: "Spring" | "Summer" | "Autum" | "Winter"</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110>Season</span><span class=rvts41>.Spring;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 0 (the value assigned to the enum)</span></p>
+<p><span class=rvts110>Season</span><span class=rvts41>[</span><span class=rvts42>"Spring"</span><span class=rvts41>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// 0 (the value assigned to the enum)</span></p>
+<p><span class=rvts110>Season</span><span class=rvts41>[</span><span class=rvts110>Season</span><span class=rvts41>.Spring]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// "Spring" (the nam of the enum)</span></p>
+<p><span class=rvts110>Season</span><span class=rvts41>[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// "Spring" (the nam of the enum)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Static methods</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>enum</span><span class=rvts251> </span><span class=rvts288>Color</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    red = 1,</span></p>
+<p class=rvps12><span class=rvts251>    green = 2,</span></p>
+<p class=rvps12><span class=rvts251>    blue = 4,</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>namespace</span><span class=rvts251> Color {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>export</span><span class=rvts251> </span><span class=rvts64>function</span><span class=rvts251> fromString(name: </span><span class=rvts64>string</span><span class=rvts251>) {  &nbsp;&nbsp;&nbsp; </span><span class=rvts252>// inject a static (factory) method into the enum</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>switch</span><span class=rvts251> (name) {</span></p>
+<p class=rvps12><span class=rvts251>            </span><span class=rvts64>case</span><span class=rvts251> </span><span class=rvts289>"red"</span><span class=rvts251>: </span><span class=rvts64>return</span><span class=rvts251> Color.red;</span></p>
+<p class=rvps12><span class=rvts251>            </span><span class=rvts64>case</span><span class=rvts251> </span><span class=rvts289>"green"</span><span class=rvts251>: </span><span class=rvts64>return</span><span class=rvts251> Color.green;</span></p>
+<p class=rvps12><span class=rvts251>            </span><span class=rvts64>case</span><span class=rvts251> </span><span class=rvts289>"blue"</span><span class=rvts251>: </span><span class=rvts64>return</span><span class=rvts251> Color.blue;</span></p>
+<p class=rvps12><span class=rvts251>            </span><span class=rvts64>default</span><span class=rvts251>: </span><span class=rvts64>throw</span><span class=rvts251> </span><span class=rvts64>new</span><span class=rvts251> Error(</span><span class=rvts289>"???"</span><span class=rvts251>);</span></p>
+<p class=rvps12><span class=rvts251>        }</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Inlining</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts178>const</span><span class=rvts41> </span><span class=rvts45>enum</span><span class=rvts41> </span><span class=rvts110>NodeType</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// "const" works like the C preprocessor (used for performance reasons):</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Parent,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// #define NodeType.Parent 0</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Child&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// #define NodeType.Child&nbsp; 1</span></p>
+<p><span class=rvts41>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (can't retrieve the name via NodeType[NodeType.Child] at runtime)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

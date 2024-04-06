@@ -1,0 +1,21 @@
+
+<div id='nodeSection1'>REST services</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@RestController&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// use this class as a REST service handler </span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts138>HelloController </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @RequestMapping(</span><span class=rvts128>"/"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// map this method to the given path</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts138>String </span><span class=rvts124>index(@RequestParam </span><span class=rvts138>String </span><span class=rvts124>name){ </span><span class=rvts125>// REST parameters are marked as @RequestParam (or: @RequestParam("externalName"))</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts128>"Greetings from Spring Boot!"</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Annotations</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@NotEmpty(message = </span><span class=rvts128>"Website cannot be empty"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>@URL(message = </span><span class=rvts128>"Website is not a valid URL"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>@Length(min = 0, max = 60, message = </span><span class=rvts128>"Areas serviced cannot be longer than 60 characters"</span><span class=rvts124>)</span></p>
+<p><br></p>
+<p><br></p>
+

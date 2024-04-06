@@ -1,0 +1,44 @@
+
+<div id='nodeSection1'>Exception handling</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyException &lt; RuntimeError</span><span class=rvts262>            </span><span class=rvts263># custom exceptions are derived from Exception (or a child class)</span></p>
+<p class=rvps12><span class=rvts265>end</span><span class=rvts262>                                         </span><span class=rvts263># no need to implement a constructor</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>begin</span><span class=rvts262>                                       </span><span class=rvts263># exception handling requires a begin-end block</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>raise</span><span class=rvts262> MyException, </span><span class=rvts266>"Ooops"</span><span class=rvts262>                </span><span class=rvts263># raise an exception</span></p>
+<p class=rvps12><span class=rvts265>rescue</span><span class=rvts262> MyException =&gt; exception             </span><span class=rvts263># catch exception</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"MyException: #{exception}"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>retry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263># run the code again</span></p>
+<p class=rvps12><span class=rvts265>rescue</span><span class=rvts262> =&gt; exception</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Another exception #{exception}"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>1 / 0 </span><span class=rvts265>rescue</span><span class=rvts262> </span><span class=rvts265>nil</span><span class=rvts262>                            </span><span class=rvts263># inline "ignore" error handler</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Standard exception classes</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts262>Error</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ArgumentError</span></p>
+<p class=rvps12><span class=rvts262>IOError</span></p>
+<p class=rvps12><span class=rvts262>NoMemoryError</span></p>
+<p class=rvps12><span class=rvts262>NoMethodError</span></p>
+<p class=rvps12><span class=rvts262>RuntimeError</span></p>
+<p class=rvps12><span class=rvts262>SecurityError</span></p>
+<p class=rvps12><span class=rvts262>StandardError</span></p>
+<p class=rvps12><span class=rvts262>SyntaxError</span></p>
+<p class=rvps12><span class=rvts262>ZeroDivisionError</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Global variables</div>
+<p><span class=rvts269><br></span></p>
+<p class=rvps12><span class=rvts262>$!                                          </span><span class=rvts263># the last error object that was raised</span></p>
+<p class=rvps12><span class=rvts262>$ERROR_INFO                                 </span><span class=rvts263># same as above with require 'english'</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>$@                                          </span><span class=rvts263># the stacktrace of the last error</span></p>
+<p class=rvps12><span class=rvts262>$ERROR_POSITION                             </span><span class=rvts263># same as  with require 'english'</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

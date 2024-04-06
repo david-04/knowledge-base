@@ -1,0 +1,87 @@
+
+<div id='nodeSection1'>Initialisation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> values = </span><span class=rvts45>new</span><span class=rvts41> Array();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// step-by-step initialisation is costly</span></p>
+<p><span class=rvts41>values[0] = </span><span class=rvts42>"abc"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>values[1] = </span><span class=rvts42>"xyz"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> person = </span><span class=rvts45>new</span><span class=rvts41> Object();</span></p>
+<p><span class=rvts41>person.name = </span><span class=rvts42>"David"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>person.age = 37;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> values = [</span><span class=rvts42>"abc"</span><span class=rvts41>, </span><span class=rvts42>"xyz"</span><span class=rvts41>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>400x faster</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> person = { name: </span><span class=rvts42>"David"</span><span class=rvts41>, age: 37 };&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>500x faster</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>DOM iterations</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> elements = document.getElementsByTagName(</span><span class=rvts42>"p"</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// HTMLCollections are "live-objects" and very expensive</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> elements = document.childNodes;</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> elements = document.attributes;</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> elements = document.{forms|images|...};</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>var</span><span class=rvts41> i = 0; i &lt; elements.length; i++) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; elements[i].class = </span><span class=rvts42>"myStyle"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; elements[i].align = </span><span class=rvts42>"left"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> length = elements.length;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>150x faster</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>for</span><span class=rvts41> (i = 0; i &lt; length; i++) { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> element&nbsp;&nbsp; = elements[i];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>90,000x faster</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; element.class = </span><span class=rvts42>"myStyle"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; element.align = </span><span class=rvts42>"left"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>DOM manipulations</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>body.innerHTML += </span><span class=rvts42>"&lt;p&gt;&lt;/p&gt;"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// uses the browser's compiled parser and should in theory be fast</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>element.appendChild(document.createElement(</span><span class=rvts42>"p"</span><span class=rvts41>));&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>10x faster</span></p>
+<p><span class=rvts41>element.appendChild(document.createElement(</span><span class=rvts42>"p"</span><span class=rvts41>));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> fragment = document.createDocumentFragment();&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>10x faster</span><span class=rvts39> (no additional performance gain)</span></p>
+<p><span class=rvts41>fragment.appendChild(document.createElement(</span><span class=rvts42>"p"</span><span class=rvts41>));</span></p>
+<p><span class=rvts41>element.appendChild(fragment);</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Scope and property lookup</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> lookupCaching() {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; document.getElementById(</span><span class=rvts42>"..."</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// lookup through the context chain is costly</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> doc = document;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>no performance gain</span><span class=rvts39> (in FF)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; doc.getElementById(</span><span class=rvts42>"..."</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> phone = person.contactDetails.phone.work;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>no performance gain</span><span class=rvts39> (in FF)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; phone.countryCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; phone.areaCode</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Preventing cyclic references</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> addOnClickHandler() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>closures can potentially introduce memory leaks</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> element = document.getElementById(</span><span class=rvts42>"link"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> id = element.id;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy relevant data to a local variable</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; element.onclick = </span><span class=rvts45>function</span><span class=rvts41> () { alert(id); };&nbsp;&nbsp; </span><span class=rvts39>// DO NOT USE element.id (which woudl build a circular references)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; element = </span><span class=rvts45>null</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// dereference the element so that garbage collecion can recycle the function's context</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Caching function results</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> versionMajor = 5;</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> versionMinor = 1;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> getVersion() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> version = versionMajor+</span><span class=rvts42>"."</span><span class=rvts41>+versionMinor;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// carry out complicated calculations</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getVersion = </span><span class=rvts45>function</span><span class=rvts41> () { </span><span class=rvts45>return</span><span class=rvts41> version; };&nbsp;&nbsp; </span><span class=rvts39>// replace this function to always return the previously calculated value</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> version;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

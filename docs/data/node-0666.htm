@@ -1,0 +1,66 @@
+
+<div id='nodeSection1'>Custom delegates</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Delegate</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> </span><span class=rvts110>MyDelegate</span><span class=rvts183>(message </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' defined like a class, can be generic and/or have a return value</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> myMethod(myDelegate </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>MyDelegate</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Delegate Is passed Like a regular parameter</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; myDelegate(</span><span class=rvts184>"Hello world!"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' invoke the Delegate</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> callbackMethod(message </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' sample implementation matching the MyDelegate signature</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(message)</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts183>myMethod(</span><span class=rvts58>AddressOf</span><span class=rvts183> callbackMethod)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' call a method and pass another one as the delegate parameter</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Predefined delegates</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts110>Action</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>, </span><span class=rvts58>String, </span><span class=rvts196>...</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' predefined: void OnEvent(Integer, String, ...)</span></p>
+<p><span class=rvts110>Func</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>, </span><span class=rvts196>...</span><span class=rvts183>, </span><span class=rvts58>Integer</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' predefined: int OnEvent(string, ...), last type is the return value</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Event handlers</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Event</span><span class=rvts183> OnEvent </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Action</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' define the delegate as a property of the class</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>AddHandler</span><span class=rvts183> myObject.OnEvent, </span><span class=rvts191>AddressOf</span><span class=rvts183> myCallbackMethod&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' attach as many delegates as required</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>RaiseEvent</span><span class=rvts183> OnEvent(</span><span class=rvts184>"Hello world!"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' invoke all delegates that have been registered</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Lambda expressions</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> f1 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Func</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>, </span><span class=rvts58>Integer</span><span class=rvts183>)(</span><span class=rvts58>AddressOf</span><span class=rvts183> MyFunction)&nbsp; </span><span class=rvts176>' point to an existing function</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> f2 </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Func</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>, </span><span class=rvts58>Integer</span><span class=rvts183>) = </span><span class=rvts58>Function</span><span class=rvts183>(x) x * x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' inline lambda expression</span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> f3 = </span><span class=rvts58>Function</span><span class=rvts183>(x </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' multiline lambda expression</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> x * x</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(f1(3))</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Delegate design pattern</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>ParserErrorArgs</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Inherits</span><span class=rvts183> </span><span class=rvts110>EventArgs</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' define a custom event data class</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>ReadOnly</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> line </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>ReadOnly</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> message </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183>(line </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>, message </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Me</span><span class=rvts183>.line = line</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Me</span><span class=rvts183>.message = message</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>Parser</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Event</span><span class=rvts183> onError </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>EventHandler</span><span class=rvts183>(</span><span class=rvts58>Of</span><span class=rvts183> </span><span class=rvts110>ParserErrorArgs</span><span class=rvts183>)&nbsp;&nbsp; </span><span class=rvts176>' use the Default generic Delegate EventHandler</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Parse()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>RaiseEvent</span><span class=rvts183> onError(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' only invoke when a delegate Is registered</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Me</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' pass the current object instance as first parameter</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>ParserErrorArgs</span><span class=rvts183>(10, </span><span class=rvts184>"Invalid character"</span><span class=rvts183>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' combine all payload data in an EventsArgs object</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

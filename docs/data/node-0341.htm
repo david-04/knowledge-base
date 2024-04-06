@@ -1,0 +1,54 @@
+
+<div id='nodeSection1'>Define a template</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>namespace </span><span class=rvts124>my.package}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// all templates are assigned to namespaces</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p class=rvps12><span class=rvts125>/**</span></p>
+<p class=rvps12><span class=rvts125> * Short description ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // each template must be preceded by a JavaDoc comment block</span></p>
+<p class=rvps12><span class=rvts125> * @param name The name of the person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // parameters can be declared here in the comment section</span></p>
+<p class=rvps12><span class=rvts125> */</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>template </span><span class=rvts124>.sayHello}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the template resides in the namespace (my.package.sayHello}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; Hello {$name}!</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>template</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection2'>Render in Java</div>
+<p><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>com.google.template.soy.*;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>com.google.template.soy.data.*;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>com.google.template.soy.tofu.*;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>SoyFileSet sfs = SoyFileSet.builder()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// load and parse the template file</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .add(</span><span class=rvts130>new </span><span class=rvts124>File(</span><span class=rvts128>"my-templates.soy"</span><span class=rvts124>))</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .build();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>String result = tofu.newRenderer(</span></p>
+<p class=rvps12><span class=rvts128>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "my.package.sayHello"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// select a template by its name</span></p>
+<p class=rvps12><span class=rvts124>).setData(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// omit this if there are no parameters</span></p>
+<p class=rvps12><span class=rvts130>&nbsp;&nbsp;&nbsp; new </span><span class=rvts124>SoyMapData(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// pass parameters (omit for templates that don't require parameters)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>"name"</span><span class=rvts124>,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>"David"</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>"greeting"</span><span class=rvts124>, </span><span class=rvts128>"Hi"</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// pass repeatables via: new SoyListData("G'day", "Good morning") or use nested SoyMapData</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; )</span></p>
+<p class=rvps12><span class=rvts124>).render();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection3'>Generated constants</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Generate constats that represent the templates and their parameters:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>java -jar bin/SoyParseInfoGenerator.jar --outputDirectory generated --javaPackage generated --javaClassNameSource filename --srcs playground.SOY</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import static </span><span class=rvts124>generated.SimpleSoyInfo.SAY_HELLO;</span></p>
+<p class=rvps12><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>String result = tofu.newRenderer(</span></p>
+<p class=rvps12><span class=rvts128>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>SAY_HELLO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// use the generated symbolic names to reference templates and parameters</span></p>
+<p class=rvps12><span class=rvts124>).setData(</span></p>
+<p class=rvps12><span class=rvts130>&nbsp;&nbsp;&nbsp; new </span><span class=rvts124>SoyMapData(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAY_HELLO.NAME,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>"David"</span><span class=rvts124>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAY_HELLO.GREETING, </span><span class=rvts128>"Hi"</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; )</span></p>
+<p class=rvps12><span class=rvts124>).render();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

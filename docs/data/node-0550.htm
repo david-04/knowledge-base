@@ -1,0 +1,158 @@
+
+<div id='nodeSection1'>Classes</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span><span class=rvts262>                               </span><span class=rvts263># every class inherits from the class "Class"</span></p>
+<p class=rvps12><span class=rvts262>  </span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>attr_reader</span><span class=rvts262> :property                     </span><span class=rvts263># can auto-generate getters (and setters)</span></p>
+<p class=rvps12><span class=rvts262>  </span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize(property)                  </span><span class=rvts263># constructor</span></p>
+<p class=rvps12><span class=rvts262>    @property = property                    </span><span class=rvts263># properties are prefixed with @</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> dump                                  </span><span class=rvts263># methods are defined like regular functions</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> to_s</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>private</span><span class=rvts262>                                   </span><span class=rvts263># everyhting from here on is private (until the next public/protected/private</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> to_s</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>"property: #{@property}"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>my_object = </span><span class=rvts267>MyClass</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(123)                </span><span class=rvts263># instantiate the class</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> my_object.property                     </span><span class=rvts263># access properties</span></p>
+<p class=rvps12><span class=rvts262>my_object.dump                              </span><span class=rvts263># call methods</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<div id='nodeSection2'>Properties and accessors</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>attr_accessor</span><span class=rvts262> :property1, :property2      </span><span class=rvts263># auto-generate getters/setters via attr_accessor, attr_reader, attr_writer</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263># initialiation is performed in the constructor</span></p>
+<p class=rvps12><span class=rvts262>    @property1 = </span><span class=rvts266>"abc"</span></p>
+<p class=rvps12><span class=rvts262>    @property2 = 123</span></p>
+<p class=rvps12><span class=rvts262>    @property3 = :my_symbol                 </span><span class=rvts263># properties can be without generated accessors</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> property3                             </span><span class=rvts263># manually implemented getter</span></p>
+<p class=rvps12><span class=rvts262>    @property3</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> property3=(value)                     </span><span class=rvts263># manually implemented setter</span></p>
+<p class=rvps12><span class=rvts262>    @property3 = value</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Static properties and methods</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span><span class=rvts262>                               </span><span class=rvts263># every class inherits from the class "Class"</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  @@count = 0                               </span><span class=rvts263># static properties start with "@@" and can be initialised like in Java</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize</span></p>
+<p class=rvps12><span class=rvts262>    @@count += 1</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> self.report_stats                     </span><span class=rvts263># static methods are prefixed with "@@"</span></p>
+<p class=rvps12><span class=rvts262>    @@count = 0 </span><span class=rvts265>unless</span><span class=rvts262> </span><span class=rvts265>defined?</span><span class=rvts262>(@@count)    </span><span class=rvts263># initialisation can also occur elsewhere</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Created #{@@count} instances"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>MyClass</span><span class=rvts262>.report_stats</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Inheritance</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>BaseClass</span><span class=rvts262>                             </span><span class=rvts263># base class</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize(id)</span></p>
+<p class=rvps12><span class=rvts262>    @id = id</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> to_s</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>"id=#{@id}"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>ChildClass &lt; BaseClass</span><span class=rvts262>                </span><span class=rvts263># inherit from a base class</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize(name)                      </span><span class=rvts263># constructor is optional - otherwise it direclty calls the base class' constructor</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>super</span><span class=rvts262>(1)                                </span><span class=rvts263># can explicitly call the base class' construtor</span></p>
+<p class=rvps12><span class=rvts262>    @name = name</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> to_s                                  </span><span class=rvts263># overrides the base class' method with the same name</span></p>
+<p class=rvps12><span class=rvts262>    parent_string = </span><span class=rvts265>super</span><span class=rvts262>                   </span><span class=rvts263># could also explictly call "super.to_s", but it applies the current method name automatically</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>"#{parent_string},name=#{@name}"</span><span class=rvts262>        </span><span class=rvts263># can only use "super" instead of "super.to_s"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Operator overloading</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize(value)</span></p>
+<p class=rvps12><span class=rvts262>    @value = value</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> +(other)                              </span><span class=rvts263># use the operator as the function name</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts267>MyClass</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span></p>
+<p class=rvps12><span class=rvts262>      @value +</span></p>
+<p class=rvps12><span class=rvts262>      other.instance_eval { @value }        </span><span class=rvts263># can't access attributes without getter directly</span></p>
+<p class=rvps12><span class=rvts262>    )</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> &lt;=&gt;(other)                            </span><span class=rvts263># override the "compare" operator</span></p>
+<p class=rvps12><span class=rvts262>    @property &lt;=&gt; other.property</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>include</span><span class=rvts262> Comparable                        </span><span class=rvts263># ...and include Comparable to get &lt;, &lt;=, ==, &gt;=, &gt;, and between? for free</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Accessmodifiers</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>private</span><span class=rvts262>                                   </span><span class=rvts263># everything from here on is private</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> my_private_method</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>public</span><span class=rvts262>                                    </span><span class=rvts263># everything from here on is public</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> my_public_method</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> my_protected_method</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>protected</span><span class=rvts262> :my_protected_method            </span><span class=rvts263># can also retrospectively change visibility AFTER the method was defined</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Nested classes</div>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyOuterClass</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyInnerClass</span><span class=rvts262>                        </span><span class=rvts263># can define classes within other classes (they are always public)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> initialize</span></p>
+<p class=rvps12><span class=rvts262>    @my_property = </span><span class=rvts267>MyInnerClass</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>         </span><span class=rvts263># can access the nested class from within here</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>MyOuterClass</span><span class=rvts262>::</span><span class=rvts267>MyInnerClass</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>              </span><span class=rvts263># can also access the class from outside</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Code injection</div>
+<p><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>my_object.instance_eval(</span><span class=rvts266>"puts @property"</span><span class=rvts262>)   </span><span class=rvts263># run an eval in the context of a class</span></p>
+<p class=rvps12><span class=rvts262>my_object.instance_eval { </span><span class=rvts265>puts</span><span class=rvts262> @property }  </span><span class=rvts263># can also use a code block rather than stringified code</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

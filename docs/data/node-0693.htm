@@ -1,0 +1,31 @@
+
+<div id='nodeSection1'>Cascading includes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts183>%</span><span class=rvts58> </span><span class=rvts185>externalDTD</span><span class=rvts58> SYSTEM </span><span class=rvts183>"</span><span class=rvts58>file.dtd</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- load content from external file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>%externalDTD;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- inline the external file's content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Override named entities</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts183>%</span><span class=rvts58> </span><span class=rvts185>children</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>(child1|child2)+</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- DTD defines default for named entity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ELEMENT</span><span class=rvts58> </span><span class=rvts185>element</span><span class=rvts58> </span><span class=rvts183>%children;</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>DOCTYPE</span><span class=rvts58> </span><span class=rvts185>rootElementName</span><span class=rvts58> [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- XML can override the DTD's named entity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;!</span><span class=rvts184>ELEMENT</span><span class=rvts58> </span><span class=rvts185>% children</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>child1*</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>]&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Selective in- and excludes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts183>%</span><span class=rvts58> </span><span class=rvts185>elementRequired</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>INCLUDE</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;![</span><span class=rvts183>%elementRequired;</span><span class=rvts58>[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- elementRequired can be INCLUDE or EXCLUDE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;!</span><span class=rvts184>ELEMENT</span><span class=rvts58> </span><span class=rvts185>element</span><span class=rvts58> </span><span class=rvts183>(</span><span class=rvts58>#PCDATA</span><span class=rvts183>)</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>]]&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;!</span><span class=rvts184>DOCTYPE</span><span class=rvts58> </span><span class=rvts185>rootElementName</span><span class=rvts58> [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- XML can override the DTD's preset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;!</span><span class=rvts184>ENTITY</span><span class=rvts58> </span><span class=rvts183>%</span><span class=rvts58> </span><span class=rvts185>elementRequired</span><span class=rvts58> </span><span class=rvts183>"</span><span class=rvts58>EXCLUDE</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>]&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

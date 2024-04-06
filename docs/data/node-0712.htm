@@ -1,0 +1,30 @@
+
+<div id='nodeSection1'>Importing sub-schemas</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>xs:include</span><span class=rvts45> </span><span class=rvts90>schemaLocation</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>my-sub-schema.xsd</span><span class=rvts41>"</span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- include an XSD defined in the same namespace as the current file&nbsp; --&gt;</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Overriding sub-schema elements</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>xs:redefine</span><span class=rvts45> </span><span class=rvts90>schemaLocation</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>my-sub-schema.xsd</span><span class=rvts41>"</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- include this XSD but override some of its definitions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>xs:complexType</span><span class=rvts45> </span><span class=rvts90>name</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>myType</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>xs:complexContent</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>xs:extension</span><span class=rvts45> </span><span class=rvts90>base</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>xs:string</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>xs:attribute</span><span class=rvts45> </span><span class=rvts90>name</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>version</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>type</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>xs:int</span><span class=rvts41>"</span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>xs:extension</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>xs:complexContent</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>xs:complexType</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts42>xs:redefine</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Importing other namespaces</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>xs:import</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp; namespace</span><span class=rvts45>=</span><span class=rvts41>"</span><a class=rvts51 href="http://www.w3.org/2001/03/XMLSchema/TypeLibrary">http://my-domain.com/MyNamespace</a><span class=rvts41>"</span><span class=rvts45>&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- import all global types and elements into the current XSD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>schemaLocation</span><span class=rvts41>="</span><a class=rvts51 href="http://www.w3.org/2001/03/XMLSchema/TypeLibrary.xsd">./my-schema.xsd</a><span class=rvts41>"/&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,73 @@
+
+<div id='nodeSection1'>Menus</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>ContextMenu</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a pop-up menu</span></p>
+<p><span class=rvts233>MenuBar&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a window's main menu</span></p>
+<p><span class=rvts233>Menu&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// an entry in the main menu (e.g. File, Edit, Help)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>MenuItem&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a menu item (e.g. Open, Save As, Close)</span></p>
+<p><span class=rvts233>CheckMenuItem</span></p>
+<p><span class=rvts233>RadioMenuItem</span></p>
+<p><span class=rvts233>SeparatorMenuItem</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Menu bar</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>MenuBar</span><span class=rvts113> menuBar = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuBar</span><span class=rvts113>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a menu bar</span></p>
+<p><span class=rvts113>borderPane.setTop(menuBar);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>Menu</span><span class=rvts113> fileMenu = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Menu</span><span class=rvts113>(</span><span class=rvts217>"_File"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add main menus</span></p>
+<p><span class=rvts113>menuBar.getMenus().add(fileMenu);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>MenuItem</span><span class=rvts113> fileNew = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"_New"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add menu items</span></p>
+<p><span class=rvts113>fileMenu.getItems().add(fileNew);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>Menu</span><span class=rvts113> fileRecent = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Menu</span><span class=rvts113>(</span><span class=rvts217>"_Recent"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add submenus</span></p>
+<p><span class=rvts113>fileMenu.getItems().add(fileRecent);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>MenuItem</span><span class=rvts113> recent1 = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"1"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>fileRecent.getItems().add(recent1);</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>fileNew.setOnAction((</span><span class=rvts233>ActionEvent</span><span class=rvts113> event) -&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add an event handler</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; label.setText(</span><span class=rvts217>"New"</span><span class=rvts113>)</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>MenuItem</span><span class=rvts113> fileNew = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"_New"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// mark one character as the mnemonic</span></p>
+<p><span class=rvts113>fileNew.setMnemonicParsing(</span><span class=rvts64>true</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// disable the special meaning of the underscore</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>fileNew.setAccelerator(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// assign an accelerator (shortcut)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>KeyCombination</span><span class=rvts113>.keyCombination(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"shortcut+N"</span><span class=rvts113>));</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Context menu</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>ContextMenu</span><span class=rvts113> menu = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>ContextMenu</span><span class=rvts113>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create and populate a context menu</span></p>
+<p><span class=rvts113>menu.getItems().addAll(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"Copy"</span><span class=rvts113>),</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"Paste"</span><span class=rvts113>)</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>label.setContextMenu(menu);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// attach the context menu to a single component</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>scene.setOnContextMenuRequested(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a context menu can also be attached to a whole scene</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; (</span><span class=rvts233>ContextMenuEvent</span><span class=rvts113> ae) </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; -&gt; menu.show(scene.getRoot(),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... and must be mounted onto the scene's root pane</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ae.getScreenX(), </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ae.getScreenY())</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection4'>Toolbars</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>ToolBar</span><span class=rvts113> toolbar = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>ToolBar</span><span class=rvts113>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a toolbar</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Button</span><span class=rvts113>(</span><span class=rvts217>"1"</span><span class=rvts113>), </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Button</span><span class=rvts113>(</span><span class=rvts217>"2"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add buttons to it</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts113>borderPane.setTop(toolbar);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add the toobar to the root pane</span></p>
+<p><span class=rvts62><br></span></p>
+<p><br></p>
+<p><br></p>
+

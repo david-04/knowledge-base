@@ -1,0 +1,67 @@
+
+<div id='nodeSection1'>SQLite</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'sqlite3'</span><span class=rvts262>                           </span><span class=rvts263># gem install sqlite3</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>defined?</span><span class=rvts262>(</span><span class=rvts267>SQLite3</span><span class=rvts262>::Database)                 </span><span class=rvts263># check if the driver is installed</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>db = </span><span class=rvts267>SQLite3</span><span class=rvts262>::</span><span class=rvts267>Database</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>"my.sqlite"</span><span class=rvts262>)     </span><span class=rvts263># open a database</span></p>
+<p class=rvps12><span class=rvts262>db.results_as_hash = </span><span class=rvts265>true</span><span class=rvts262>                   </span><span class=rvts263># return result data as hash (rather than an array of columns)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>db.execute(</span><span class=rvts266>"CREATE TABLE ..."</span><span class=rvts262>)              </span><span class=rvts263># run a statement</span></p>
+<p class=rvps12><span class=rvts262>db.execute(</span><span class=rvts266>"INSERT ... VALUES (?)"</span><span class=rvts262>, 36)     </span><span class=rvts263># run a statement with parameters</span></p>
+<p class=rvps12><span class=rvts262>result = db.execute(</span><span class=rvts266>"SELECT * FROM ..."</span><span class=rvts262>)    </span><span class=rvts263># run a query</span></p>
+<p class=rvps12><span class=rvts262>result.each </span><span class=rvts265>do</span><span class=rvts262> |record|</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> record[</span><span class=rvts266>'column'</span><span class=rvts262>]                     </span><span class=rvts263># the record is a hashtable</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>db.close                                    </span><span class=rvts263># close the connection</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Sequel</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'sequel'</span><span class=rvts262>                            </span><span class=rvts263># gem install sequel - see https://sequel.jeremyevans.net/</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'pg'</span><span class=rvts262>                                </span><span class=rvts263># gem install  mysql2 or pg (PostgreSQL)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>DB = </span><span class=rvts267>Sequel</span><span class=rvts262>.connect(</span><span class=rvts266>'postgres://user:password@localhost/dbname'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>DB</span><span class=rvts262>.create_table :people </span><span class=rvts265>do</span><span class=rvts262>                  </span><span class=rvts263># create a table</span></p>
+<p class=rvps12><span class=rvts262>  primary_key :id</span></p>
+<p class=rvps12><span class=rvts262>  String :first_name</span></p>
+<p class=rvps12><span class=rvts262>  String :last_name</span></p>
+<p class=rvps12><span class=rvts262>  Integer :age</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>people = </span><span class=rvts267>DB</span><span class=rvts262>[:people]                        </span><span class=rvts263># obtain a proxy for a table</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>people.insert(                              </span><span class=rvts263># create a record</span></p>
+<p class=rvps12><span class=rvts262>  :first_name =&gt; </span><span class=rvts266>"John"</span><span class=rvts262>, </span></p>
+<p class=rvps12><span class=rvts262>  :last_name =&gt; </span><span class=rvts266>"Smith"</span><span class=rvts262>, </span></p>
+<p class=rvps12><span class=rvts262>  :age =&gt; 32 </span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>people.count                                </span><span class=rvts263># runs a SELECT COUNT(*) in the background</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>people.each </span><span class=rvts265>do</span><span class=rvts262> |person|                     </span><span class=rvts263># runs a SELECT * in teh background</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> person[:first_name]</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>DB</span><span class=rvts262>.fetch(</span><span class=rvts266>"SELECT * FROM people"</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |row|   </span><span class=rvts263># can also run arbitrary SQL statements</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> row[:first_name]</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p><span class=rvts264><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>ActiveRecord</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>Person &lt; ApplicationRecord</span><span class=rvts262>            </span><span class=rvts263># must extend ApplicationRecord</span></p>
+<p class=rvps12><span class=rvts262>  belongs_to :company                       </span><span class=rvts263># declare a many-to-one relationship</span></p>
+<p class=rvps12><span class=rvts262>  has_many :payslip                         </span><span class=rvts263># declare a one-to-many relationship</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>person = </span><span class=rvts267>Person</span><span class=rvts262>.where(name: </span><span class=rvts266>"David"</span><span class=rvts262>).first  </span><span class=rvts263># find the first matching record</span></p>
+<p class=rvps12><span class=rvts262>person.age = 50                             </span><span class=rvts263># modify the record</span></p>
+<p class=rvps12><span class=rvts262>person.save                                 </span><span class=rvts263># save the changes</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

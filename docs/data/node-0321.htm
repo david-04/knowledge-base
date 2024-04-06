@@ -1,0 +1,73 @@
+
+<div id='nodeSection1'>Formatting</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts171>Console</span><span class=rvts41>.WriteLine(</span><span class=rvts42>"Line 1"</span><span class=rvts41> + </span><span class=rvts171>Environment</span><span class=rvts41>.NewLine + </span><span class=rvts42>"Line 2"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// concatenate multiple strings / lines</span></p>
+<p><span class=rvts171>Console</span><span class=rvts41>.WriteLine(</span><span class=rvts42>"Line 1\nLine 2"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// escape sequences like in C, C++ and Java</span></p>
+<p><span class=rvts171>Console</span><span class=rvts41>.WriteLine(</span><span class=rvts46>@"Line 1\nLine 2""Line 3"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// literal string, escape character has not meaning, only " is masked as ""</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Parameter: {0}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"test"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// like printf in C</span></p>
+<p><span class=rvts58>string</span><span class=rvts183> text = </span><span class=rvts58>string</span><span class=rvts183>.Format(</span><span class=rvts184>"Parameter: {0}"</span><span class=rvts183>,&nbsp; </span><span class=rvts184>"test"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// like sprintf in C</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Mask&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ {0} }}"</span><span class=rvts183>, </span><span class=rvts184>"abc"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// {&nbsp; abc }</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Align right:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0,-5}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"abc"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp; </span><span class=rvts176>//&nbsp;&nbsp; abc&nbsp;&nbsp;&nbsp; (five characters, aligned to the right)</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Align left:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0,5}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts184>"abc"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (five characters, aligned to the right)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Currency:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0:C3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 1234.56);&nbsp; </span><span class=rvts176>// $1,234.560</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Decimal (int):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0:D3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 22);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 022</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Exponential:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0:E3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 22.5);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 2.250E+001</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Float:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0:F3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 22.5);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 22.500</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Numerical (int+float): {0:N3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 22);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 22.000</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Percent:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0:P3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 0.22);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 22.000 %</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Hex:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0:X3}"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp; 32);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// 020</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>$"Name: </span><span class=rvts183>{name}</span><span class=rvts184>"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// insert variable value without manual concatenation</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>$"Name: </span><span class=rvts183>{name.ToUpper()}</span><span class=rvts184>"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// expression syntax to call objects' methods</span></p>
+<p><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>$"Variable value: </span><span class=rvts183>{intVariable:</span><span class=rvts184>D3</span><span class=rvts183>}</span><span class=rvts184>"</span><span class=rvts183>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// use the given variable with the format string (as shown above)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Mutable strings</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>System.Text.</span><span class=rvts110>StringBuilder</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Checking for empty strings</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>String</span><span class=rvts183>.IsNullOrEmpty(variable)</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Parsing numbers</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>double</span><span class=rvts183> value = </span><span class=rvts58>double</span><span class=rvts183>.Parse(</span><span class=rvts184>"99.884"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>int</span><span class=rvts183> number;</span></p>
+<p><span class=rvts58>bool</span><span class=rvts183> successful = </span><span class=rvts58>int</span><span class=rvts183>.TryParse(</span><span class=rvts184>"12"</span><span class=rvts183>, </span><span class=rvts58>out</span><span class=rvts183> number);</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Regular expressions</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Regex</span><span class=rvts183> regex = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>Regex</span><span class=rvts183>(</span><span class=rvts184>"[a-z]+"</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// embed options into the search string: "(?im)[a-z]+"</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>RegexOptions</span><span class=rvts183>.IgnoreCase</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; | </span><span class=rvts110>RegexOptions</span><span class=rvts183>.Compiled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; | </span><span class=rvts110>RegexOptions</span><span class=rvts183>.Multiline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// also: Singleline</span></p>
+<p><span class=rvts183>);</span></p>
+<p><span class=rvts110>Match</span><span class=rvts183> match = regex.Match(</span><span class=rvts184>"I am David."</span><span class=rvts183>);</span></p>
+<p><span class=rvts58>if</span><span class=rvts183> (match.Success)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(match.Index);</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(match.Length);</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(match.Value);</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Character classification</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>char</span><span class=rvts183>.IsLetter(</span><span class=rvts184>'a'</span><span class=rvts183>)</span></p>
+<p><span class=rvts58>char</span><span class=rvts183>.IsDigit(</span><span class=rvts184>'1'</span><span class=rvts183>)</span></p>
+<p><span class=rvts58>char</span><span class=rvts183>.IsLetterOrDigit(</span><span class=rvts184>'1'</span><span class=rvts183>)</span></p>
+<p><span class=rvts58>char</span><span class=rvts183>.IsPunctuation(</span><span class=rvts184>"!"</span><span class=rvts183>)</span></p>
+<p><span class=rvts58>char</span><span class=rvts183>.IsWhiteSpace(</span><span class=rvts184>' '</span><span class=rvts183>)</span></p>
+<p><span class=rvts58>char</span><span class=rvts183>.IsWhiteSpace(</span><span class=rvts184>"Hello World!"</span><span class=rvts183>, 5)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

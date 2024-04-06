@@ -1,0 +1,27 @@
+
+<div id='nodeSection1'>Console output</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>process.stdout.write(</span><span class=rvts42>'stdout'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// log a message to stdout</span></p>
+<p><span class=rvts41>process.stderr.write(</span><span class=rvts42>'stderr'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// log a message to stderr</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>console.log(</span><span class=rvts42>'log'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// log messages to </span><span class=rvts44>stdout</span></p>
+<p><span class=rvts41>console.info(</span><span class=rvts42>'info'</span><span class=rvts41>) </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>console.error(</span><span class=rvts42>'error'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// log messages to </span><span class=rvts44>stderr</span></p>
+<p><span class=rvts41>console.warn(</span><span class=rvts42>'warning'</span><span class=rvts41>) </span></p>
+<p><span class=rvts41>console.trace(</span><span class=rvts42>'trace'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this method appends a stack trace to the output</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>console.log(</span><span class=rvts42>'%s -&gt; %j'</span><span class=rvts41>, </span><span class=rvts45>string</span><span class=rvts41>, json);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// supports printf-format placeholders (%j for JSON objects)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Console input</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>process.stdin.resume()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// make the process wait for user input (and never terminate)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>process.stdin.on(</span><span class=rvts42>'data'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (bufferData) {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// input from stdin is delivered as a Buffer object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(bufferData.toString()); </span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

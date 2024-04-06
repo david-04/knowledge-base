@@ -1,0 +1,44 @@
+
+<div id='nodeSection1'>Iteration</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts171>xsl:for-each</span><span class=rvts45> </span><span class=rvts90>select&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>library/book</span><span class=rvts41>"</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- for (select is an XPath that returns a set of nodes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts171>xsl:sort</span><span class=rvts45>&nbsp;&nbsp; </span><span class=rvts90>select&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>author</span><span class=rvts41>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- optionally: sort by a given (XPath) child node content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>data-type&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>{text|number}</span><span class=rvts41>"</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>lang&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>en-au</span><span class=rvts41>"</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>case-order </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>{lower|upper}-first</span><span class=rvts41>"</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>{ascending|descending}</span><span class=rvts41>"</span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp; Title: </span><span class=rvts45>&lt;</span><span class=rvts171>xsl:value-of</span><span class=rvts45> </span><span class=rvts90>select</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>title</span><span class=rvts41>"</span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- the template content is executed in the current book's context&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts171>xsl:for-each</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Conditional processing</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts171>xsl:if</span><span class=rvts45> </span><span class=rvts90>test</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>price </span><span class=rvts90>&amp;lt;</span><span class=rvts45> 10</span><span class=rvts41>"</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- if&nbsp; (test is an XPath that evaluates to a boolean value)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp; really cheap</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts171>xsl:if</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Switch-case</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts171>xsl:choose</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- switch case&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts171>xsl:when</span><span class=rvts45> </span><span class=rvts90>test</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>price </span><span class=rvts90>&amp;lt;</span><span class=rvts45> 10</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; really cheap</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts171>xsl:when</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts171>xsl:when</span><span class=rvts45> </span><span class=rvts90>test</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>price </span><span class=rvts90>&amp;lt;</span><span class=rvts45> 20</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; affordable</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts171>xsl:when</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts171>xsl:otherwise</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; quite expensive</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts171>xsl:otherwise</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts171>xsl:choose</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><br></p>
+<p><br></p>
+

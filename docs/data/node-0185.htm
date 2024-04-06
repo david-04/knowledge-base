@@ -1,0 +1,49 @@
+
+<div id='nodeSection1'>Spring modules</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Inversion of control / dependency injection</span></p>
+<p><span class=rvts8>REST Services</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Model</span><span class=rvts154>–</span><span class=rvts8>view</span><span class=rvts154>–</span><span class=rvts8>controller (servlet based)</span></p>
+<p><span class=rvts8>Spring Core Container (BeanFactory and ApplicationContext)</span></p>
+<p><span class=rvts8>Authentication and authorization</span></p>
+<p><span class=rvts8>Data access (databases)</span></p>
+<p><span class=rvts8>Messaging (JMS)</span></p>
+<p><span class=rvts8>Remote procedure call</span></p>
+<p><span class=rvts8>Transaction management</span></p>
+<p><span class=rvts8>Remote management (JMX)</span></p>
+<p><span class=rvts8>Convention over configuration</span></p>
+<p><span class=rvts8>Testing</span></p>
+<p><span class=rvts8>AOP</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Application</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>@SpringBootApplication&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// this is the main application</span></p>
+<p class=rvps12><span class=rvts130>public class </span><span class=rvts138>Application </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public static void </span><span class=rvts124>main(</span><span class=rvts138>String</span><span class=rvts124>[] args) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>SpringApplication</span><span class=rvts124>.</span><span class=rvts134>run</span><span class=rvts124>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// tell the Spring Boot framework to start the application</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>Application</span><span class=rvts124>.</span><span class=rvts130>class</span><span class=rvts124>, args</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; @Bean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// this method returns an object that is stored/managed by the container</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>public </span><span class=rvts137>CommandLineRunner</span></p>
+<p class=rvps12><span class=rvts137>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>commandLineRunner(</span><span class=rvts137>ApplicationContext </span><span class=rvts124>ctx) {</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>args -&gt; {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>String</span><span class=rvts124>[] beanNames = </span><span class=rvts137>ctx</span><span class=rvts124>.getBeanDefinitionNames();&nbsp; </span><span class=rvts125>// pre-bundled beans</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>Arrays</span><span class=rvts124>.</span><span class=rvts134>sort</span><span class=rvts124>(beanNames);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>for </span><span class=rvts124>(</span><span class=rvts138>String </span><span class=rvts124>beanName : beanNames) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts138>System</span><span class=rvts124>.</span><span class=rvts133>out</span><span class=rvts124>.println(beanName);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

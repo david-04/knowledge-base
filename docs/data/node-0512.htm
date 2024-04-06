@@ -1,0 +1,67 @@
+
+<div id='nodeSection1'>Cookies</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> cookieParser = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'cookie-parser'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install cookie- parser</span></p>
+<p><span class=rvts41>app.use(cookieParser(</span><span class=rvts42>'encryption_key'</span><span class=rvts41>));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>response.cookie(</span><span class=rvts42>'cookie_name'</span><span class=rvts41>, </span><span class=rvts42>'data'</span><span class=rvts41>, {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a cookie (the options are optional)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; signed&nbsp;&nbsp; : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// encrypt the value (defaults to false)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; maxAge&nbsp;&nbsp; : 60*1000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the cookie live for 60 seconds (default: until the browser is closed)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; domain&nbsp;&nbsp; : </span><span class=rvts42>'members.domain.com'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// limit the cookie to a subdomain</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; path&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'/myApp'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send only to all paths starting with /myApp*</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; secure&nbsp;&nbsp; : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// only send the cookie with when the request uses TLS</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; httpOnly : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// forbid client-side scripts to alter the cookie</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.cookies[</span><span class=rvts42>'cookie_name'</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access regular (non-encrypted) cookies</span></p>
+<p><span class=rvts41>request.signedCookies[</span><span class=rvts42>'cookie_name'</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access encrypted/signed cookies</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>response.clearCookie(</span><span class=rvts42>'cookie_name'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// delete a cookie</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Sessions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> cookieParser = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'cookie-parser'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install cookie-parser</span></p>
+<p><span class=rvts41>app.use(cookieParser(</span><span class=rvts42>'encryption_key'</span><span class=rvts41>));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>expressSession = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'express-session'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install express-session</span></p>
+<p><span class=rvts41>app.use(expressSession({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; key: </span><span class=rvts42>'sessionCookieName'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// name of the cookie to store the session ID</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; store : </span><span class=rvts47>...</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// where to store the session data</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; cookie: {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// configuration for the session cookie</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; signed&nbsp;&nbsp; : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// encrypt the value (defaults to false)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maxAge&nbsp;&nbsp; : 60 * 1000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the cookie live for 60 seconds (default: until the browser is closed)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain&nbsp;&nbsp; : </span><span class=rvts42>'members.domain.com'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// limit the cookie to a subdomain</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>'/myApp'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send only to all paths starting with /myApp*</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; secure&nbsp;&nbsp; : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// only send the cookie with when the request uses TLS</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; httpOnly : </span><span class=rvts45>true</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// forbid client-side scripts to alter the cookie</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.session.user = { name: </span><span class=rvts42>'David'</span><span class=rvts41>, age: 37 };&nbsp; </span><span class=rvts39>// set session data on the request object (not on the reponse)</span></p>
+<p><span class=rvts45>delete</span><span class=rvts41> request.session.user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// delete session data</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Persistent sessions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> connect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'connect'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install connect</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> sessionMongoose = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'session-mongoose'</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// npm install session-mongoose</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> cookieParser&nbsp;&nbsp;&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'cookie-parser'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install cookie- parser</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> expressSession&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'express-session'</span><span class=rvts41>);&nbsp;&nbsp; </span><span class=rvts39>// npm install express-session</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> MongoSessionStore = sessionMongoose(connect);&nbsp;&nbsp; </span><span class=rvts39>// create a session store object</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> sessionStore = </span><span class=rvts45>new</span><span class=rvts41> MongoSessionStore({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; url: </span><span class=rvts42>'mongodb://localhost/schema'</span><span class=rvts43>,</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// format: mongodb://username:password@hostname:port/database</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts47>...</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional further parameters (like above)</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>app.use(cookieParser(</span><span class=rvts42>'encryption_key'</span><span class=rvts41>));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add the cookie-parser middleware</span></p>
+<p><span class=rvts41>app.use(expressSession({ store: sessionStore }));&nbsp;&nbsp; </span><span class=rvts39>// add the session middletware using MongoDB </span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>request.session.user = { name: </span><span class=rvts42>'David'</span><span class=rvts41>, age: 37 };&nbsp; </span><span class=rvts39>// set session data on the request object (not on the reponse)</span></p>
+<p><span class=rvts45>delete</span><span class=rvts41> request.session.user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// delete session data</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

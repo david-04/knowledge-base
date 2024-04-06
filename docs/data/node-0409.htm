@@ -1,0 +1,91 @@
+
+<div id='nodeSection1'>XML binding (JAXB)</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts113>&gt; java com.sun.tools.xjc.Driver -p myPkg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the target package where the generated classes will be stored</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema.xsd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the schema file to bind</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -d ../..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the (root) directory from where to run the command</span></p>
+<p><span class=rvts62><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts233>JAXBContext</span><span class=rvts113> ctx = </span><span class=rvts233>JAXBContext</span><span class=rvts113>.newInstance(</span><span class=rvts217>"myPkg"</span><span class=rvts113>); </span><span class=rvts62>// obtain the JAXB context and the unmarhsaller (parser)</span></p>
+<p><span class=rvts233>Unmarshaller</span><span class=rvts113> um = ctx.createUnmarshaller();</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>FileInputStream</span><span class=rvts113> fis = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileInputStream</span><span class=rvts113>(</span><span class=rvts217>"my.xml"</span><span class=rvts113>);</span><span class=rvts62>// open the input file</span></p>
+<p><span class=rvts233>InputStream</span><span class=rvts113> bis = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>BufferedInputStream</span><span class=rvts113>(fis);</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>MyData</span><span class=rvts113> myData = (</span><span class=rvts233>MyData</span><span class=rvts113>) um.unmarshal(bis);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// parse the content</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>myData.getMyXmlElement();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// access the attributes and child nodes through getters</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>SAX parsing (JAXP)</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>SAXParserFactory</span><span class=rvts113> f =</span><span class=rvts233>SAXParserFactory</span><span class=rvts113>.newInstance(); </span><span class=rvts62>// configure the parser factory</span></p>
+<p><span class=rvts113>f.setValidating(</span><span class=rvts64>true</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>f.setNamespaceAware(</span><span class=rvts64>true</span><span class=rvts113>); </span></p>
+<p><span class=rvts113>f.setFeature(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"http://apache.org/xml/features/validation/schema"</span><span class=rvts113>, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>true</span><span class=rvts113>); </span></p>
+<p><span class=rvts113>f.setFeature(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"http://apache.org/xml/features/validation/schema-full-checking"</span><span class=rvts113>, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>true</span><span class=rvts113>); </span></p>
+<p><span class=rvts113>&nbsp;&nbsp; </span></p>
+<p><span class=rvts233>SAXParser</span><span class=rvts113> p = f.newSAXParser();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// configure the parser</span></p>
+<p><span class=rvts113>p.setProperty(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"http://java.sun.com/xml/jaxp/properties/schemaLanguage"</span><span class=rvts113>, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"</span><a class=rvts112 href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</a><span class=rvts217>"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts113>p.setProperty(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation"</span><span class=rvts113>, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"</span><span class=rvts221>my-schema.xsd</span><span class=rvts217>"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts113>p.setProperty(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"http://apache.org/xml/properties/schema/external-schemaLocation"</span><span class=rvts113>, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"</span><span class=rvts221>my-schema.xsd</span><span class=rvts217>"</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>p.parse(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// parse (i.e. validate) the XML document</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>InputSource</span><span class=rvts113>(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>StringReader</span><span class=rvts113>(</span><span class=rvts217>"&lt;?xml&gt;..."</span><span class=rvts113>)),</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MySaxHandler</span><span class=rvts113>(</span><span class=rvts217>"MyRootElement"</span><span class=rvts113>)</span></p>
+<p><span class=rvts113>);</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MySaxHandler</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>DefaultHandler</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the SAX callback functions are implemented in a handler class</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts64>boolean</span><span class=rvts113> isFirst = </span><span class=rvts64>true</span><span class=rvts113>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// state data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts233>String</span><span class=rvts113> rootElement;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// configuration data</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MySaxHandler(</span><span class=rvts233>String</span><span class=rvts113> rootElement) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.rootElement = rootElement;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> startElement(</span><span class=rvts233>String</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp; uri,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// this method is called whenever an XML start tag is encountered </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>String</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp; localName, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>String</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp; qName, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>Attributes</span><span class=rvts113> attributes) </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>throws</span><span class=rvts113> </span><span class=rvts233>SAXParseException</span><span class=rvts113> {</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (!</span><span class=rvts64>this</span><span class=rvts113>.isFirst) </span><span class=rvts64>return</span><span class=rvts113>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// in this example we're only interesed in the root element</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>else</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.isFirst = </span><span class=rvts64>false</span><span class=rvts113>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (!localName.equals(</span><span class=rvts64>this</span><span class=rvts113>.rootElement)) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>throw</span><span class=rvts113> </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>RuntimeException</span><span class=rvts113>(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"The root element must be "</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts64>this</span><span class=rvts113>.rootElement</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts217>", not "</span><span class=rvts113> + localName</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> error(</span><span class=rvts233>SAXParseException</span><span class=rvts113> exception)&nbsp;&nbsp; </span><span class=rvts62>// this method is called if the document violates the schema </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>throws</span><span class=rvts113> </span><span class=rvts233>SAXParseException</span><span class=rvts113> { </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>throw</span><span class=rvts113> exception;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><br></p>
+<p><br></p>
+

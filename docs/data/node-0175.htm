@@ -1,0 +1,31 @@
+
+<div id='nodeSection1'>Middleware</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts124>{ createStore, combineReducers, applyMiddleware } </span><span class=rvts130>from </span><span class=rvts128>'redux'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>const </span><span class=rvts124>logger</span><span class=rvts131> </span><span class=rvts124>= store =&gt; next =&gt; action =&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// each middleware has this signature</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>console.</span><span class=rvts127>log</span><span class=rvts124>(</span><span class=rvts128>'dispatching'</span><span class=rvts124>, action);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// middleware-specific processing</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>let </span><span class=rvts127>result</span><span class=rvts151> </span><span class=rvts124>= next(action);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// call the next middleware in the chain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>console.</span><span class=rvts127>log</span><span class=rvts124>(</span><span class=rvts128>'state'</span><span class=rvts124>, store.getState());</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts127>result</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124>};</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>const </span><span class=rvts124>crasher</span><span class=rvts131> </span><span class=rvts124>= store =&gt; next =&gt; action =&gt; {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts130>try </span><span class=rvts124>{</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>return </span><span class=rvts124>next(action);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; } </span><span class=rvts130>catch </span><span class=rvts124>(error) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.</span><span class=rvts127>error</span><span class=rvts124>(</span><span class=rvts128>'Error!'</span><span class=rvts124>, error);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts130>throw </span><span class=rvts124>error;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts124>};</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>let </span><span class=rvts127>store</span><span class=rvts151> </span><span class=rvts124>= createStore(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; myReducer,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; applyMiddleware(logger, crasher)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// add all middleware when creating the store</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts127>store</span><span class=rvts124>.dispatch(myAction(</span><span class=rvts128>'Do something'</span><span class=rvts124>));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// when dispatching an event, it passes through all middleware components</span></p>
+<p class=rvps12><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

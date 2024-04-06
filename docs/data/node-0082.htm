@@ -1,0 +1,57 @@
+
+<div id='nodeSection1'>Mocking</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { InMemoryWebApiModule } </span></p>
+<p><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"angular-in-memory-web-api"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { RestMockService } </span></p>
+<p><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./rest-mock.service"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>@NgModule({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; imports: [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>InMemoryWebApiModule</span><span class=rvts41>.forRoot(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// import the web API simulator into the root module</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>RestMockService</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; ]</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>AppModule</span><span class=rvts41> { }</span></p>
+<p><span class=rvts39><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { InMemoryDbService } </span></p>
+<p><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"angular-in-memory-web-api"</span><span class=rvts41>;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { Person } </span></p>
+<p><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./data-model"</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts110>RestMockService</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// implement the web API simulator as a service</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implements</span><span class=rvts41> </span><span class=rvts110>InMemoryDbService</span><span class=rvts41> { </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; createDb() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> people: </span><span class=rvts110>Person</span><span class=rvts41>[] = [</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { id: 1, name: </span><span class=rvts42>"David"&nbsp;&nbsp;&nbsp; </span><span class=rvts41>, age: 38 },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { id: 2, name: </span><span class=rvts42>"Edeltraud"</span><span class=rvts41>, age: 62 },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { id: 3, name: </span><span class=rvts42>"Daniel"&nbsp;&nbsp; </span><span class=rvts41>, age: 23 }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ];</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> { people };</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts39><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>get(): </span><span class=rvts110>Observable</span><span class=rvts41>&lt;</span><span class=rvts110>Person</span><span class=rvts41>[]&gt; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.http</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .get(</span><span class=rvts42>"</span><span class=rvts92>api</span><span class=rvts42>/people"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the simulator's URL seems to be hard-coded</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .map(</span><span class=rvts45>this</span><span class=rvts41>.extractData)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .catch(</span><span class=rvts45>this</span><span class=rvts41>.handleError);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> extractData(res: Response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>let</span><span class=rvts41> body = res.json();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> body</span><span class=rvts52>.data</span><span class=rvts41> || {};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the result array is not on top-level, but wrapped into a "data" property</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

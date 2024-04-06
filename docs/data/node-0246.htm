@@ -1,0 +1,70 @@
+
+<div id='nodeSection1'>Defining user controls</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts45>@</span><span class=rvts41> </span><span class=rvts46>Control</span><span class=rvts41> </span><span class=rvts90>Language</span><span class=rvts45>="C#"</span><span class=rvts41> </span><span class=rvts90>AutoEventWireup</span><span class=rvts45>="true"</span><span class=rvts41> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CodeBehind</span><span class=rvts45>="UserControl.ascx.cs"</span><span class=rvts41> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Inherits</span><span class=rvts45>="PlaygroundASP.UserControl"</span><span class=rvts41> </span><span class=rvts48>%&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts41> </span><span class=rvts45>if</span><span class=rvts41> (</span><span class=rvts45>this</span><span class=rvts41>.Format == PlaygroundASP.</span><span class=rvts171>Format</span><span class=rvts41>.Paragraph) { </span><span class=rvts48>%&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;!-- </span><span class=rvts39>access code-behind properties to customise the layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>p</span><span class=rvts41> </span><span class=rvts90>style</span><span class=rvts45>="</span><span class=rvts90>color</span><span class=rvts45>:</span><span class=rvts178>&lt;%</span><span class=rvts45>: this.Color&nbsp; </span><span class=rvts178>%&gt;</span><span class=rvts45>"&gt;</span><span class=rvts41>User Control</span><span class=rvts45>&lt;/</span><span class=rvts46>p</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- </span><span class=rvts39>use plain HTML or embed other controls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts41> } </span><span class=rvts45>else</span><span class=rvts41> { </span><span class=rvts48>%&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>h1</span><span class=rvts41> </span><span class=rvts90>style</span><span class=rvts45>="</span><span class=rvts90>color</span><span class=rvts45>:</span><span class=rvts178>&lt;%</span><span class=rvts45>: this.Color </span><span class=rvts178>%&gt;</span><span class=rvts45>"&gt;</span><span class=rvts41>User Control</span><span class=rvts45>&lt;/</span><span class=rvts46>h1</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts41> } </span><span class=rvts48>%&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>Name: </span><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>TextBox</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="NameTextBox"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"</span><span class=rvts41> </span><span class=rvts90>Text</span><span class=rvts45>=""</span><span class=rvts41> </span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- </span><span class=rvts39>predefined controls are not accessible from outside&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Adding properties</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>partial</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>UserControl</span><span class=rvts41> : System.Web.UI.</span><span class=rvts171>UserControl</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; public</span><span class=rvts41> </span><span class=rvts45>enum</span><span class=rvts41> </span><span class=rvts171>Format </span><span class=rvts41>{ Header, Paragraph }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enums integrate nicely with IntelliSense</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts171>Format</span><span class=rvts41> Format { </span><span class=rvts45>get</span><span class=rvts41>; </span><span class=rvts45>set</span><span class=rvts41>; } = </span><span class=rvts171>Format</span><span class=rvts41>.Paragraph;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// automatic properties do not survive postbacks</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Color&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// properties stored in the ViewState do survive postbacks</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>get</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>object</span><span class=rvts41> _color = ViewState[</span><span class=rvts42>"Colour"</span><span class=rvts41>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve the value from the ViewState</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (_color != </span><span class=rvts45>null</span><span class=rvts41>) </span><span class=rvts45>return</span><span class=rvts41> (</span><span class=rvts45>string</span><span class=rvts41>)_color;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts42>"black"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// provide a default value</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>set</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ViewState[</span><span class=rvts42>"Colour"</span><span class=rvts41>] = </span><span class=rvts45>value</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// push the value into the page's ViewState</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; public</span><span class=rvts41> </span><span class=rvts45>string</span><span class=rvts41> Name { </span><span class=rvts45>get</span><span class=rvts41> { </span><span class=rvts45>return</span><span class=rvts41> NameTextBox.Text ; } }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// embedded controls must be exposed as properties (if required)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Consuming user controls</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts45>@</span><span class=rvts41> </span><span class=rvts46>Register</span><span class=rvts41> </span><span class=rvts90>Src</span><span class=rvts45>="~/Controls/UserControl.ascx"</span><span class=rvts41> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TagPrefix</span><span class=rvts45>="uc"</span><span class=rvts41> </span><span class=rvts90>TagName</span><span class=rvts45>="UserControl"</span><span class=rvts41> </span><span class=rvts48>%&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;!-- </span><span class=rvts39>generated automatically when dragging an ascx into an aspx&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>uc</span><span class=rvts45>:</span><span class=rvts46>UserControl</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="UserControl"</span><span class=rvts41> </span><span class=rvts90>Format</span><span class=rvts45>="Header"</span><span class=rvts41> </span><span class=rvts45>/&gt;&nbsp; &lt;!-- </span><span class=rvts39>custom properties can be set here&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Page_Load(</span><span class=rvts45>object</span><span class=rvts41> sender, </span><span class=rvts171>EventArgs</span><span class=rvts41> e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// user controls can be added programatically as well</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Page.FindControl(</span><span class=rvts42>"Form1"</span><span class=rvts41>).Controls.Add(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach to the form or panels, placeholders, ...</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LoadControl(</span><span class=rvts42>"~/Controls/UserControl.ascx"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// intanciate the control by its virtual path</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Registering user controls globally</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.web</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>pages</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>controls</span><span class=rvts45>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>&lt;!-- controls defined here don't need a page-wise @Register&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>tagPrefix </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>uc</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tagName&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>UserControl</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; src&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>~/Controls/UserControl.ascx</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts48><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,134 @@
+
+<div id='nodeSection1'>Sharding</div>
+<p><span class=rvts12><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>sharding distributes a database across multiple shards (standalone MongoDB servers or replica sets)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>data is partitioned into chunks&nbsp; (64MB) based on a key and distributed evenly</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>when a chunk becomes too big, it is split and possibly migrated to other shards</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>config servers (which are regular mongod servers) keep track of the shards, chunks and their location</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>clients connect to a mongos server that does not contain any data but forwards requestst to the shards</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts12>each mongos becomes a balancer from time to time, migrating (balancing) chunks between the shards</span></li>
+</ul>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection2'>Setup</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; mongod --configsvr --dbpath data -f mongod.conf&nbsp;&nbsp; </span><span class=rvts39>// start as many config servers as required (they consume only 1kB per 200MB shard data)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create backups regularly (the config servers are the "brain of the shard")</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&gt; mongos --configdb host1:27019,host2:27019&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start as many mongos processes as required (default: port 27017)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -f mongos.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// usually there is one mongos per application server (running on the same machine)</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // recommendation: use at least 3 mongos (otherwise the overhead kills all performance gains)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&gt; mongo --nodb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// connect to the any mongos server (</span><span class=rvts44>not to the config servers</span><span class=rvts39>)</span></p>
+<p><span class=rvts45>var </span><span class=rvts41>connection = </span><span class=rvts45>new</span><span class=rvts41> Mongo(</span><span class=rvts42>"server-1:27017"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>db = connection.getDB(</span><span class=rvts42>"mydatabase"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>sh.addShard(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add the replica set as a shard (not all members need to be specified,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"myreplicaset/server1:27017,server2:27017"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// they will be discovered automatically)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>sh.addShard(</span><span class=rvts42>"myserver:27017"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>discouraged</span><span class=rvts39>: add a standalong mongod to the shard</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>sh.enableSharding(</span><span class=rvts42>"mydatabase"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable sharding for a database (by default it resides on only one shard)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>db.mycollection.ensureIndex({</span><span class=rvts42>"username"</span><span class=rvts41> : 1})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a regular index to act as the partion key (can't contain array fields)</span></p>
+<p><span class=rvts41>sh.shardCollection(</span><span class=rvts42>"mydatabase.mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// distribute the collection across all shards (or create a new collection if it does not exist)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"username"</span><span class=rvts41> : 1})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... using the specified fields as partition key (must be backed by a regular index)</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </span><span class=rvts44>fields used for partitioning can't be updated later</span><span class=rvts39> (have to be constant per document)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection3'>Controlling distribution</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.users.ensureIndex({</span><span class=rvts42>"username"</span><span class=rvts41> : </span><span class=rvts42>"hashed"</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// partition randomly by the username's hash key (instead of sorting it alphabetically)</span></p>
+<p><span class=rvts41>sh.shardCollection(</span><span class=rvts42>"mydatabase.mycollection"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"username"</span><span class=rvts41> : </span><span class=rvts42>"hashed"</span><span class=rvts41>})</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>sh.addShardTag(</span><span class=rvts42>"myshard1"</span><span class=rvts41>, </span><span class=rvts42>"mytag"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add tags to a selected shard</span></p>
+<p><span class=rvts41>sh.removeShardTag(</span><span class=rvts42>"shard1"</span><span class=rvts41>, </span><span class=rvts42>"mytag"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove a tag from a shard</span></p>
+<p><span class=rvts41>sh.addTagRange(</span><span class=rvts42>"mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// force all documents of the given collection</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"ip"</span><span class=rvts41> : </span><span class=rvts42>"017.000.000.000"</span><span class=rvts41>},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... that fall within the given partition range</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"ip"</span><span class=rvts41> : </span><span class=rvts42>"018.000.000.000"</span><span class=rvts41>}, </span><span class=rvts42>"mytag"</span><span class=rvts41>) </span><span class=rvts39>// ... to be stored only on shards with the given tag</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// useful to store data geographically close to the client</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>sh.addTagRange(</span><span class=rvts42>"mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can also be used to redirect all new documents to fast shards</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"mykey"</span><span class=rvts41> : MinKey},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// or to redirect low-value data (like logs) to slow shards</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"mykey"</span><span class=rvts41> : MaxKey}, </span><span class=rvts42>"myta"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (data can be rebalanced later by changing the tag range)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection4'>Balancing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.settings.update({</span><span class=rvts42>"_id"</span><span class=rvts41> : </span><span class=rvts42>"balancer"</span><span class=rvts41>}, {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// allow the balancer to only run within the given time frame</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"$set"</span><span class=rvts41> : {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"activeWindow"</span><span class=rvts41> : {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"start"</span><span class=rvts41> : </span><span class=rvts42>"13:00"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"stop"</span><span class=rvts41>&nbsp; : </span><span class=rvts42>"16:00"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}, </span><span class=rvts45>true</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>sh.setBalancerState(</span><span class=rvts45>false</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// disable the balancer for maintenance purposes (e.g. before migrating chunks)</span></p>
+<p><span class=rvts41>db.settings.update({</span><span class=rvts42>"_id"</span><span class=rvts41> : </span><span class=rvts42>"balancer"</span><span class=rvts41>},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// same as above, different syntax</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"enabled"</span><span class=rvts41> : </span><span class=rvts45>false</span><span class=rvts41>}, </span><span class=rvts45>true</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>db.settings.save({</span><span class=rvts42>"_id"</span><span class=rvts41> : </span><span class=rvts42>"chunksize"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// change the chunk size (default: 64 MB)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"value"</span><span class=rvts41> : 32}) </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>sh.splitAt(</span><span class=rvts42>"mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// manually split a chunk at the given position (this is required before</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"user_id"</span><span class=rvts41> : NumberLong(</span><span class=rvts42>"2315"</span><span class=rvts41>)})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// applying a "moveChunk" if the chunk exceeds a certain size)</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.locks.find({</span><span class=rvts42>"_id"</span><span class=rvts41> : </span><span class=rvts42>"balancer"</span><span class=rvts41>})[</span><span class=rvts42>"state"</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check that all balancers have stopped (the query returns 0 in this case)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>sh.moveChunk(</span><span class=rvts42>"mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// manually request that for the given collection</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><span class=rvts42>"user_id"</span><span class=rvts41>: NumberLong(</span><span class=rvts42>"-231515"</span><span class=rvts41>)},&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... the chunk that contains the specified partitioning key</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"myshard3"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... is moved to the selected shard</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection5'>Maintenance</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; mongo my-mongos-server-1:27017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts39>&nbsp;&nbsp;&nbsp; // </span><span class=rvts44>always connect to the mongos (not to the config server)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>use config&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// reference the config server's config database from within the mongos process</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>config.shards&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all shards in the cluster</span></p>
+<p><span class=rvts41>config.tags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// tag ranges</span></p>
+<p><span class=rvts41>config.databases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all databases (both sharded and residing on only one shard)</span></p>
+<p><span class=rvts41>config.collections&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// sharded collections only (non-sharded collections are not contained)</span></p>
+<p><span class=rvts41>config.chunks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// registry of all chunks (and their key ranges)</span></p>
+<p><span class=rvts41>config.changelog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// log history of all splits and chunk migratations</span></p>
+<p><span class=rvts41>config.config&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// configuration of the balancer and the chunk size</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>sh.help()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get a list of the commands provided by the shard helper</span></p>
+<p><span class=rvts41>sh.status()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// show statistics about the cluster (summarises chunks if there are too many)</span></p>
+<p><span class=rvts41>sh.status(</span><span class=rvts45>true</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// show the full (non-summarised) statistics (verbose mode)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"flushRouterConfig"</span><span class=rvts41> : 1})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// reload the configuration from the config servers</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"connPoolStats"</span><span class=rvts41> : 1})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shows the number of network connections of all mongos and mongod servers</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection6'>Removing shards</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"removeShard"</span><span class=rvts41> : </span><span class=rvts42>"myshard1"</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// request a shard to be removed (the balancer move all chunks to other chards)</span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"removeShard"</span><span class=rvts41> : </span><span class=rvts42>"myshard1"</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can be called repeatedly (shows the current draining statistics)</span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"movePrimary"</span><span class=rvts41> : </span><span class=rvts42>"mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// when the balancer is done: move the (empty) databases to another shard</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"to"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts42>"myshard2"</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (each database has a home chard, even if it doesn't contain any chunks)</span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"removeShard"</span><span class=rvts41> : </span><span class=rvts42>"myshard1"</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// call removeShard again once the databases habe been moved</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection7'>Test setup</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; mongo --nodb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start the shell without database connection</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>cluster = </span><span class=rvts45>new</span><span class=rvts41> ShardingTest({</span><span class=rvts42>"shards"</span><span class=rvts41>&nbsp;&nbsp;&nbsp; : 3,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create 3 shards (ports: 30000, 30001, 30002) and 1 mongos (port 30999)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"chunksize"</span><span class=rvts41> : 1})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// each chunk should be less than 1 MB</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>connection = </span><span class=rvts45>new</span><span class=rvts41> Mongo(</span><span class=rvts42>"localhost:30999"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// connect to the mongos process</span></p>
+<p><span class=rvts41>db = connection.getDB(</span><span class=rvts42>"mydatabase"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// connect to a database</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>cluster.stop()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shut down the test cluster</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,76 @@
+
+<div id='nodeSection1'>Declaring commands</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Window</span><span class=rvts185> </span><span class=rvts196>...</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Window.CommandBindings</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- commands are available in the whole window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>CommandBinding</span><span class=rvts185> Command&nbsp;&nbsp;&nbsp; </span><span class=rvts58>= "ApplicationCommands.Copy"/&gt;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- standard command handled completely by the system&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>CommandBinding</span><span class=rvts185> Command&nbsp;&nbsp;&nbsp; </span><span class=rvts58>= "ApplicationCommands.Undo"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- commands with a customised implementation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp; CanExecute </span><span class=rvts58>= "UndoCmdCanExecute"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- called to determine if the command can be executed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp; Executed&nbsp;&nbsp; </span><span class=rvts58>= "UndoCmdExecuted"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- called to actually execute the command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Button</span><span class=rvts185> Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>= "ApplicationCommands.Cut"</span><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- attach a commands to buttons, menu items, ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommandTarget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>= "{</span><span class=rvts184>Binding</span><span class=rvts185> ElementName</span><span class=rvts58>=textBox}"&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- redirect the command execution to another element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommandManager.CanExecute </span><span class=rvts58>= "CutCommandCanExecute"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- attach custom delegates to the command&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>MainWindow</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183>()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Dim</span><span class=rvts183> Binding </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>CommandBinding</span><span class=rvts183>(</span><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Help)&nbsp;&nbsp; </span><span class=rvts176>' create a new binding for the specific command</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>AddHandler</span><span class=rvts183> Binding.CanExecute, </span><span class=rvts58>AddressOf</span><span class=rvts183> CanHelpExecute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' optionally register the event delegates</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>AddHandler</span><span class=rvts183> Binding.Executed, </span><span class=rvts58>AddressOf</span><span class=rvts183> HelpExecuted</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Me</span><span class=rvts183>.CommandBindings.Add(Binding)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' register the command binding</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Implementing commands</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> CanExecute(sender </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Object</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' indicate If the command could be executed right now</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ea </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>CanExecuteRoutedEventArgs</span><span class=rvts183>)&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; ea.CanExecute = </span><span class=rvts58>True</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Private</span><span class=rvts183> </span><span class=rvts58>Sub</span><span class=rvts183> Executed(sender </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Object</span><span class=rvts183>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' perform the command sepcific actions</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ea </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>ExecutedRoutedEventArgs</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; ea.Handled = </span><span class=rvts58>True</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' prevent the event from further propagation</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Sub</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Predefined commands</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.CancelPrint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Cancel Print command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Close&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Close command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.ContextMenu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Context Menu command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Copy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Copy command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.CorrectionList&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Correction List command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Cut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Cut command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Delete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Delete command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Find&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Find command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Help command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.New&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the New command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.NotACommand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Represents a command which is always ignored. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Open&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Open command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Paste&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Paste command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Print&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Print command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.PrintPreview&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Print Preview command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Properties&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Properties command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Redo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Redo command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Replace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Replace command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Save command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.SaveAs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Save As command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.SelectAll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Select All command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Stop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Stop command. </span></p>
+<p><span class=rvts110>ApplicationCommands</span><span class=rvts183>.Undo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' Gets the value that represents the Undo command. </span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110>CommandBinding</span></p>
+<p><span class=rvts110>ComponentCommands</span></p>
+<p><span class=rvts110>EditingCommands</span></p>
+<p><span class=rvts110>MediaCommands</span></p>
+<p><span class=rvts110>NavigationCommands</span></p>
+<p><span class=rvts110>RoutedCommand</span></p>
+<p><span class=rvts110><br></span></p>
+<p><br></p>
+<p><br></p>
+

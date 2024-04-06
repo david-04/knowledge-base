@@ -1,0 +1,48 @@
+
+<div id='nodeSection1'>Using (sync)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts304><br></span></p>
+<p><span class=rvts295>class</span><span class=rvts296> </span><span class=rvts302>MyClass</span><span class=rvts296> </span><span class=rvts295>implements</span><span class=rvts296> </span><span class=rvts302>Disposable</span><span class=rvts296> {               </span><span class=rvts297>// requires  compilation target es2022 + lib "esnext" or "esnext.disposable"</span></p>
+<p><span class=rvts296>    [Symbol.dispose]() {                            </span><span class=rvts297>// perform clean-up</span></p>
+<p><span class=rvts296>        </span><span class=rvts295>throw</span><span class=rvts296> </span><span class=rvts295>new</span><span class=rvts296> Error(</span><span class=rvts298>"dispose error"</span><span class=rvts296>);</span></p>
+<p><span class=rvts296>     }                          </span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>try</span><span class=rvts296> {</span></p>
+<p><span class=rvts296>    </span><span class=rvts295>using</span><span class=rvts296> myObject = </span><span class=rvts295>new</span><span class=rvts296> MyClass();                 </span><span class=rvts297>// works like const, will call myObject[Symbol.dispose]() when myObject goes out of scope</span></p>
+<p><span class=rvts296>    </span><span class=rvts297>// ...</span></p>
+<p><span class=rvts296>    </span><span class=rvts295>throw</span><span class=rvts296> </span><span class=rvts295>new</span><span class=rvts296> Error(</span><span class=rvts298>"processing error"</span><span class=rvts296>);</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts295>catch</span><span class=rvts296> (e: </span><span class=rvts295>any</span><span class=rvts296>) {</span></p>
+<p><span class=rvts296>    e                                               </span><span class=rvts297>// SuppressedError("An error was suppressed during disposal.")</span></p>
+<p><span class=rvts296>    e.error                                         </span><span class=rvts297>// Error("processing error")</span></p>
+<p><span class=rvts296>    e.suppressed                                    </span><span class=rvts297>// Error("dispose error")</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts296><br></span></p>
+<div id='nodeSection2'>Using (async)</div>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>class</span><span class=rvts296> </span><span class=rvts302>MyAsyncClass</span><span class=rvts296> </span><span class=rvts295>implements</span><span class=rvts296> </span><span class=rvts302>AsyncDisposable</span><span class=rvts296> {</span></p>
+<p><span class=rvts296>    </span><span class=rvts295>async</span><span class=rvts296> [Symbol.asyncDispose]() { </span><span class=rvts297>/* ... */</span><span class=rvts296> }     </span><span class=rvts297>// can also be async</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>await using</span><span class=rvts296> myAsyncObject = </span><span class=rvts295>new</span><span class=rvts296> MyAsyncClass();     </span><span class=rvts297>// will "await" the disposal</span></p>
+<p><span class=rvts297><br></span></p>
+<p><span class=rvts297><br></span></p>
+<div id='nodeSection3'>Disposable stack</div>
+<p><span class=rvts297><br></span></p>
+<p><span class=rvts297><br></span></p>
+<p><span class=rvts295>using</span><span class=rvts296> cleanup = </span><span class=rvts295>new</span><span class=rvts296> DisposableStack();              </span><span class=rvts297>// built-in function for one-off clean-ups</span></p>
+<p><span class=rvts296>cleanup.defer(() =&gt; {                               </span><span class=rvts297>// pass clean-up actions as an arrow function</span></p>
+<p><span class=rvts296>    </span><span class=rvts297>// e.g. close files...</span></p>
+<p><span class=rvts296>});</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts296>cleanup.use</span></p>
+<p><span class=rvts296>cleanup.adopt</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>using</span><span class=rvts296> cleanup = </span><span class=rvts295>new</span><span class=rvts296> AsyncDisposableStack();         </span><span class=rvts297>// also works asynchronously</span></p>
+<p><span class=rvts297><br></span></p>
+<p><br></p>
+<p><br></p>
+

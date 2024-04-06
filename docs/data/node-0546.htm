@@ -1,0 +1,18 @@
+
+<div id='nodeSection1'>Require</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'net/http'</span><span class=rvts262>                          </span><span class=rvts263># require from GEM_PATH</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'./lib.rb'</span><span class=rvts262>                          </span><span class=rvts263># local files require a relative path</span></p>
+<p class=rvps12><span class=rvts265>require_relative</span><span class=rvts262> </span><span class=rvts266>'lib.rb'</span><span class=rvts262>                   </span><span class=rvts263># look for local files only</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>load</span><span class=rvts262> </span><span class=rvts266>'lib.rb'</span><span class=rvts262>                               </span><span class=rvts263># like require, but file can be loaded/executed multiple times</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts266>%w{file1 file2}</span><span class=rvts262>.each { |f| </span><span class=rvts265>require</span><span class=rvts262> f }      </span><span class=rvts263># can be invoked dynamically</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>$:                                          </span><span class=rvts263># contains the ruby-internal folders from where "require" loads</span></p>
+<p class=rvps12><span class=rvts262>$:.push    </span><span class=rvts266>'/home/david/gems'</span><span class=rvts262>               </span><span class=rvts263># add more directories at the end</span></p>
+<p class=rvps12><span class=rvts262>$:.unshift </span><span class=rvts266>'/home/david/gems'</span><span class=rvts262>               </span><span class=rvts263># add more directories at the beginning</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

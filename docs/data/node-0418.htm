@@ -1,0 +1,49 @@
+
+<div id='nodeSection1'>Strings</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>String</span></p>
+<p><span class=rvts233>StringBuilder</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>not thread-safe</span></p>
+<p><span class=rvts233>StringBuffer</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// thread-safe version of StringBuilder</span></p>
+<p><span class=rvts233>Formatter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// like printf, writes data somewhere (to files or a string buffer)</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts113>myString.length()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// string length</span></p>
+<p><span class=rvts113>myString.charAt(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the character at a given position</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>myString.equals(</span><span class=rvts217>"another string"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// comparison (</span><span class=rvts70>the == operator will not work</span><span class=rvts62>)</span></p>
+<p><span class=rvts113>myString.equalsIgnoreCase(</span><span class=rvts217>"another string"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>myString.compareTo(</span><span class=rvts217>"another string"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// returns -1/0/1</span></p>
+<p><span class=rvts113>myString.compareToIgnoreCase(</span><span class=rvts217>"another string"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// returns -1/0/1</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>myString.indexOf(</span><span class=rvts217>"another string"</span><span class=rvts73>, startIndex</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// simple text search (returns -1 if no match was found)</span></p>
+<p><span class=rvts113>myString.lastIndexOf(</span><span class=rvts217>"another string"</span><span class=rvts73>, startIndex</span><span class=rvts113>)</span></p>
+<p><span class=rvts113>myString.replace(</span><span class=rvts217>"this"</span><span class=rvts61>, </span><span class=rvts217>"that"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// simple text replacement</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>myString.concat(</span><span class=rvts217>"another string"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// concatenate strings</span></p>
+<p><span class=rvts113>myString.join(</span><span class=rvts217>";"</span><span class=rvts61>, </span><span class=rvts217>"David"</span><span class=rvts61>, </span><span class=rvts217>"38"</span><span class=rvts61>, </span><span class=rvts217>"Melbourne"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// concatenate with a separator (the first parameter)</span></p>
+<p><span class=rvts113>myString.substring(startIndex</span><span class=rvts73>, startIndex</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// extract a substring</span></p>
+<p><span class=rvts113>myString.trim()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// remove leading and trailing whitespace</span></p>
+<p><span class=rvts113>myString.toLowerCase()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// change the capitalisation</span></p>
+<p><span class=rvts113>myString.toUpperCase()</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>Pattern</span><span class=rvts113>.compile(</span><span class=rvts217>"[,;]"</span><span class=rvts113>).split(myString);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// split the string into an array</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Regular expressions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>if </span><span class=rvts113>(myString.matches(</span><span class=rvts217>"[0-9]+"</span><span class=rvts113>)) {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// check if the whole string matches the pattern</span></p>
+<p><span class=rvts113> </span></p>
+<p><span class=rvts233>Pattern</span><span class=rvts113> pattern&nbsp;&nbsp; = </span><span class=rvts233>Pattern</span><span class=rvts113>.compile(</span><span class=rvts217>"[0-9]+"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a pre-compiled regular expression pattern </span></p>
+<p><span class=rvts233>Matcher</span><span class=rvts113> matcher&nbsp;&nbsp; = pattern.matcher(</span><span class=rvts217>"1+2=3"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// apply the pattern to a string (a matcher works like an iterator)</span></p>
+<p><span class=rvts233>String&nbsp; </span><span class=rvts113>newString = matcher.replaceAll(</span><span class=rvts217>"***"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// replace all occurrances of the pattern and return a new string</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>if</span><span class=rvts113> (matcher.matches()) {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// check if the pattern matches the whole input text</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>while</span><span class=rvts113> (matcher.find()) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// check if another substring matches (and move the iterator to it)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; matcher.group()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the current match (substring of the input string)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; matcher.start()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the current match's start index</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; matcher.end()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the current match's end index (the position </span><span class=rvts70>behind</span><span class=rvts62> the match)</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts61><br></span></p>
+<p><br></p>
+<p><br></p>
+

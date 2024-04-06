@@ -1,0 +1,31 @@
+
+<p class=rvps2><span class=rvts7><br></span></p>
+<div id='nodeSection1'>Namespaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>node.name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: the node's name including the namespace prefix (if applicable)</span></p>
+<p><span class=rvts41>node.localName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: node name without namespace prefix</span></p>
+<p><span class=rvts41>node.prefix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: the namespace's prefix</span></p>
+<p><span class=rvts41>node.namespaceURI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: the node's namespace (or null)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>node.isDefaultNamespace(</span><span class=rvts42>"namespace"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L3: check if the given namesspace is the default one</span></p>
+<p><span class=rvts41>node.lookupNamespaceURI(</span><span class=rvts42>"prefix"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L3: return the full namespace for the given prefix</span></p>
+<p><span class=rvts41>node.lookupPrefix(</span><span class=rvts42>"namespace"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L3: get the prefix associated with the given namespace</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>document.createElementNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"div"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: create an element within the given namespace</span></p>
+<p><span class=rvts41>document.createAttributeNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"href"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: create an attribute within the given namespace</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>element.getAttributeNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"href"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: get the attribute</span></p>
+<p><span class=rvts41>element.getAttributeNodeNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"href"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: get the attribute node</span></p>
+<p><span class=rvts41>element.getElementsByTagNameNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"div"</span><span class=rvts41>)&nbsp; </span><span class=rvts39>// L2: find all &lt;div&gt; tags in the given namespace</span></p>
+<p><span class=rvts41>element.hasAttributeNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"href"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: check if the given attribute exists in the given namespace</span></p>
+<p><span class=rvts41>element.removeAttributeNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"href"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: remove an attribute</span></p>
+<p><span class=rvts41>element.setAttributeNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"ns:id"</span><span class=rvts41>, </span><span class=rvts42>"x1"</span><span class=rvts41>)&nbsp; </span><span class=rvts39>// L2: set a namesapce-bound attribute</span></p>
+<p><span class=rvts41>element.setAttributeNodeNS(attributeNode)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: add a namespace-bound attribute node</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>nodemap.getNamedItemNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"div"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: get the item with the specified local name and namespace</span></p>
+<p><span class=rvts41>nodemap.removeNamedItemNS(</span><span class=rvts42>"namespace"</span><span class=rvts41>, </span><span class=rvts42>"div"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: delete the item with the specified local name and namespace</span></p>
+<p><span class=rvts41>nodemap.setNamedItemNS(node)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// L2: add a node that already has a namespace attached</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

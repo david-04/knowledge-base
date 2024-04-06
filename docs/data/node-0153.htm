@@ -1,0 +1,50 @@
+
+<div id='nodeSection1'>Animations</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>.show&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// increase opacity and size</span></p>
+<p><span class=rvts41>.hide&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// decreate opacity and size</span></p>
+<p><span class=rvts41>.toggle&nbsp;&nbsp;&nbsp;&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// alternate between show() and hide()</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>.slideDown&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// increase the height</span></p>
+<p><span class=rvts41>.slideUp&nbsp;&nbsp;&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// decreate the height</span></p>
+<p><span class=rvts41>.slideToggle(milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// alternate between slideUp() and slideDown()</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>.fadeIn&nbsp;&nbsp;&nbsp;&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// increase the opacity</span></p>
+<p><span class=rvts41>.fadeOut&nbsp;&nbsp;&nbsp; (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// decreate the opacity</span></p>
+<p><span class=rvts41>.fadeToggle (milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// decreate the opacity</span></p>
+<p><span class=rvts41>.fadeTo&nbsp;&nbsp;&nbsp;&nbsp; (milliseconds, opacity</span><span class=rvts47>, ...</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// fade to the given opacity (0 ... 1)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>.animate({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// transition to the given CSS styles</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; opacity: 0.5,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// from the current opacity to 0.5</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; fontSize: </span><span class=rvts42>"20px"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// from the current front size to 20px</span></p>
+<p><span class=rvts41>}, milliseconds</span><span class=rvts47>, ...</span><span class=rvts41>);</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Settings</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>.anyAnimationFunction(</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {milliseconds|</span><span class=rvts42>"slow|normal|fast}"</span><span class=rvts41>},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instead of milliseconds the duratino can also be passed as "slow", "normal" or "fast"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"{linear|swing|...}"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// easing method (linear and swing are included, the others require jQueryUI)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> onComplete() { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called when the animation has been completed</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>.anyAnimationFunction({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; duration : 1000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// duration im milliseconds</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; easing&nbsp;&nbsp; : </span><span class=rvts42>"linear"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// easing method</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; queue&nbsp;&nbsp;&nbsp; : {</span><span class=rvts45>false</span><span class=rvts41>|</span><span class=rvts42>"queueName"</span><span class=rvts41>},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start animation immediately or add it to the queue (call dequeue("queueName") to start it)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; step&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>function</span><span class=rvts41>(now, tween) { },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called for each animated property of each animated element (use it to modify the Tween object)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; progress : </span><span class=rvts45>function</span><span class=rvts41>(anim, progress, msLeft){ }, </span><span class=rvts39>// called after each step of the animation, only once per animated element</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; complete : </span><span class=rvts45>function</span><span class=rvts41>() {},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called when the animation has been completed</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; start&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>function</span><span class=rvts41>(anim){},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called when the animation on an element begins</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; done&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>function</span><span class=rvts41>(anim, jumpedToTheEnd) { },&nbsp; </span><span class=rvts39>// called when the animation on an element completes (its Promise object is resolved)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; fail&nbsp;&nbsp;&nbsp;&nbsp; : </span><span class=rvts45>function</span><span class=rvts41>(anim, jumpedToTheEnd) { },&nbsp; </span><span class=rvts39>// called when the animation on an element fails to complete (its Promise object is rejected)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; always&nbsp;&nbsp; : </span><span class=rvts45>function</span><span class=rvts41>(anim,jumpedToTheEnd) { },&nbsp;&nbsp; </span><span class=rvts39>// called when the animation on an element completes or stops without completing (its Promise object is either resolved or rejected)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; specialEasing : {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// for .animate() only: set different easings for different CSS properties</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; size:</span><span class=rvts42>"linear"</span><span class=rvts41>, </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; margin:</span><span class=rvts42>"swing"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

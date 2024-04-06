@@ -1,0 +1,30 @@
+
+<div id='nodeSection1'>Authentication</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>requirepass myPassword&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// in redis.conf: set a password (</span><span class=rvts44>should be at least 64 bytes long</span><span class=rvts39>)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&gt; redis-server /home/~david/redis.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start the server with a given configuration file</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58>AUTH</span><span class=rvts41> myPassword&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the client sends the password </span><span class=rvts44>unencrypted</span><span class=rvts39> to the server</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection2'>Renaming commands</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a file "rename-commands.conf" to rename built-in commands:</span></p>
+<p><span class=rvts41>rename-command </span><span class=rvts45>FLUSHDB</span><span class=rvts41> e0cc96ad2eab73c2c34701180&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the FLUSHDB command is now called e0cc96ad2eab73c2c34701180</span></p>
+<p><span class=rvts41>rename-command </span><span class=rvts45>FLUSHALL</span><span class=rvts41> a31907b21c437f46808ea4932</span></p>
+<p><span class=rvts41>rename-command </span><span class=rvts45>CONFIG</span><span class=rvts41> </span><span class=rvts42>""</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the CONFIG command is no longer accessible at all</span></p>
+<p><span class=rvts41>rename-command </span><span class=rvts45>KEYS</span><span class=rvts41> </span><span class=rvts42>""</span></p>
+<p><span class=rvts41>rename-command </span><span class=rvts45>DEBUG</span><span class=rvts41> </span><span class=rvts42>""</span></p>
+<p><span class=rvts41>rename-command </span><span class=rvts45>SAVE</span><span class=rvts41> </span><span class=rvts42>""</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>include /home/~david/rename-commands.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// include the rename-commands.conf from within redis.conf</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection3'>Block external access</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>bind 127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// in redis.conf: listen only on the loopback interface</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,47 @@
+
+<div id='nodeSection1'>UPDATE</div>
+<p><span class=rvts140><br></span></p>
+<p class=rvps12><span class=rvts124>create.update(</span><span class=rvts141>AUTHOR</span><span class=rvts142>)</span></p>
+<p><span class=rvts142>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts124>&nbsp; .set(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.FIRST_NAME, </span><span class=rvts128>"Hermann"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// update selected columns with pre-defined values</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.LAST_NAME, </span><span class=rvts128>"Hesse"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID.eq(3))</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>create.update(</span><span class=rvts133>AUTHOR</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span></p>
+<p class=rvps12><span class=rvts133>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AUTHOR</span><span class=rvts124>.FIRST_NAME,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select(</span><span class=rvts133>PERSON</span><span class=rvts124>.FIRST_NAME).from(</span><span class=rvts133>PERSON</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve values from a sub-select</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>create.update(</span><span class=rvts133>AUTHOR</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; row(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.FIRST_NAME, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.LAST_NAME),&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// set multiples values from one sub-select</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select(</span><span class=rvts133>PERSON</span><span class=rvts124>.FIRST_NAME, </span><span class=rvts133>PERSON</span><span class=rvts124>.LAST_NAME)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .from(</span><span class=rvts133>PERSON</span><span class=rvts124>).where(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID.eq(3))</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>create.update(</span><span class=rvts133>BOOK</span><span class=rvts124>)</span></p>
+<p><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>BOOK</span><span class=rvts124>.TITLE, </span><span class=rvts128>"Animal Farm"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .returning(</span><span class=rvts133>BOOK</span><span class=rvts124>.TITLE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// select and return fields after performing the update</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .</span><span class=rvts136>fetchOne</span><span class=rvts124>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// use fetch instead of execute when returning data</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<div id='nodeSection2'>Field maps</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts137>Map</span><span class=rvts124>&lt;</span><span class=rvts137>Field</span><span class=rvts124>&lt;?&gt;, ?&gt; fieldMap = </span><span class=rvts138>ImmutableMap</span><span class=rvts124>.&lt;</span><span class=rvts137>Field</span><span class=rvts124>&lt;?&gt;, </span><span class=rvts138>Object</span><span class=rvts124>&gt;</span><span class=rvts134>builder</span><span class=rvts124>()</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .put(</span><span class=rvts133>RESELLERS</span><span class=rvts124>.SUPPORTEMAIL, supportData.getSupportEmail())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .put(</span><span class=rvts133>RESELLERS</span><span class=rvts124>.CONTACTEMAIL, supportData.getContactEmail())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .build();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>int </span><span class=rvts124>rows = dslContext.update(</span><span class=rvts133>RESELLERS</span><span class=rvts124>).set(fieldMap)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(...).execute();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

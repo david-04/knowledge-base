@@ -1,0 +1,78 @@
+
+<div id='nodeSection1'>JSX</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> </span><span class=rvts48>M</span><span class=rvts41>yHeader = (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom expressions and components must always be camelCased and multiline</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// expressions should be wrapped by parentheses to prevent the automatic </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello world!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// insertion of semicolons</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts43>/</span><span class=rvts41>h1&gt;</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts48>M</span><span class=rvts41>yHeader /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// local variables with JSX expressions can be used like HTML tags</span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts52>M</span><span class=rvts41>yComponent /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// custom components can be used like HTML tags</span></p>
+<p><span class=rvts41>&lt;</span><span class=rvts48>M</span><span class=rvts41>yModule.MyComponent /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// nested module objects can be referenced using the dot operator</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&lt;p&gt;Hello { getUserName() }</span><span class=rvts43>&lt;/p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// embed any JavaScript expression in curly braces</span></p>
+<p><span class=rvts41>{ MyHeader } &lt;p&gt;...&lt;/p&gt;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// embed other JSX expressions (classes or variables)</span></p>
+<p><span class=rvts41>{ &lt;h1&gt;Hello world&lt;/h1&gt; } &lt;p&gt;...&lt;/p&gt;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// embed other JSX expressions (as JSX literals)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection2'>Attributes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&lt;img src=</span><span class=rvts42>"my-image.jpg"</span><span class=rvts41>&nbsp; /&gt;</span><span class=rvts43>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can use quotes for literal attribute values</span></p>
+<p><span class=rvts41>&lt;img src={ getImageUrl() } /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>do not use quotes for attributes</span><span class=rvts39> that require evaluation</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>&lt;h1 className=</span><span class=rvts42>"greeting"</span><span class=rvts41>&gt;Hello worl</span><span class=rvts43>d!&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// "class" is a reserved keyword, use "className" instead</span></p>
+<p><span class=rvts41>&lt;div style={{color: </span><span class=rvts42>"red"</span><span class=rvts41>, fontWeight: "</span><span class=rvts42>bold"</span><span class=rvts41>}} /&gt;&nbsp; </span><span class=rvts39>// CSS inline styles can be passed as properties of an object (literal)</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts41>&lt;MyComponent header={ &lt;h1&gt;Hello world!&lt;/h1&gt; } /&gt;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// JSX expressions can be passed as properties to components</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&lt;MyComponent {...props} /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass all "props" as separate properties down to MyComponent</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection3'>Conditions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>{&nbsp;&nbsp;&nbsp; 0 &lt; messages.length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this fragment will only show up, if there is at least one message</span></p>
+<p><span class=rvts41>&nbsp; &amp;&amp; &lt;h1&gt;{messages.length} message(s)&lt;/h1&gt; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (otherwise the expression returns false and is ignored by React)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>{ authenticated ? &lt;a&gt;log out&lt;/a&gt; : &lt;a&gt;log in&lt;/a&gt; }&nbsp; </span><span class=rvts39>// use the ? operator for inline conditional processing</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection4'>Iterations</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>listItems = myArray.map((number) =&gt; (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the JavaScript map function to convert simple data into JSX elements</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; &lt;li key={number.toString()}&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>the key attribute is important</span><span class=rvts39>: React uses it to detect new and deleted</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {number}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// elements to prevent unnecessry re-renderings</span></p>
+<p><span class=rvts43>&nbsp;&nbsp;&nbsp; &lt;/li&gt;</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41>list = &lt;ul&gt;{listItems}</span><span class=rvts43>&lt;/ul&gt;;</span><span class=rvts46>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// insert all of the &lt;li&gt; JSX elements into the list</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>list = &lt;ul&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {numbers.map((number) =&gt; (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the mapping can also take place inline without temporary variable</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li key={number.toString()}&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts43>&lt;/li&gt;</span></p>
+<p><span class=rvts43>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )}</span></p>
+<p><span class=rvts43>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ul&gt;;</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts41><br></span></p>
+<div id='nodeSection5'>Transpilation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>const</span><span class=rvts41> element = (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// JSX input files</span></p>
+<p><span class=rvts41>&nbsp; &lt;h1 className=</span><span class=rvts42>"greeting"</span><span class=rvts41>&gt;Hello world!&lt;</span><span class=rvts46>/h1&gt;</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>const</span><span class=rvts41> element = React.createElement(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// transpiled output</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts42>"h1"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (root) element name</span></p>
+<p><span class=rvts41>&nbsp; {className: </span><span class=rvts42>"greeting"</span><span class=rvts41>},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attributes of the (root) element</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts42>"Hello world!"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// child content (each element can only have one child)</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>const</span><span class=rvts41> element = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the runtime representation of an element is a lightweight data object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; type: </span><span class=rvts42>"h1"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// and not resource-intensive DOM node</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; props: { className: </span><span class=rvts42>"greeting"</span><span class=rvts41> },</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp; "Hello world"</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

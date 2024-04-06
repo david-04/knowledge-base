@@ -1,0 +1,264 @@
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* The whole document                                                                                                 */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+body {
+    padding-top: 1.0em;
+    padding-right: 0.5em;
+    font-size: 10pt;
+    font-family: sans-serif;
+}
+
+td {
+    vertical-align: top;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('../fonts/Inconsolata.woff2') format('woff2'), url('../fonts/Inconsolata.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Office Code Pro Medium';
+    src: url('../fonts/OfficeCodePro-Medium.woff2') format('woff2'), url('../fonts/OfficeCodePro-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Tree                                                                                                               */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+#tree {
+    width: 27em;
+    max-width: 27em;
+    border-right: 1px solid black;
+}
+
+.tree {
+    width: 27em;
+    max-width: 27em;
+    border: 0;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+}
+
+.tree .indent {
+    position: relative;
+    top: -0.3em;
+    width: 1.6em;
+    height: 1.6em;
+    background-position: 0 0;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tree .last {
+    background-image: url("../images/line-last.svg");
+}
+
+.tree .intermediate {
+    background-image: url("../images/line-intermediate.svg");
+}
+
+.tree .skipped {
+    background-image: url("../images/line-skipped.svg");
+}
+
+.tree .collapse {
+    width: 0.70em;
+    height: 0.75em;
+    padding-bottom: 0.2em;
+}
+
+.tree .icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.25em;
+    margin-bottom: -0.25em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+.tree .label {
+    padding-left: 0.2em;
+}
+
+.tree .label a {
+    color: black;
+    text-decoration: none;
+}
+
+.tree .label.selected a {
+    border-bottom: 1px dotted black;
+    color: red;
+    background-color: #ffff77;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Divider                                                                                                            */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+#divider {
+    width: 1.2em;
+    max-width: 1.2em;
+}
+
+#divider>a {
+    text-decoration: none;
+    border: 0px;
+    outline: none;
+    color: black;
+}
+
+#showOrHideTree {
+    position: relative;
+    font-size: 1.25em;
+    left: -0.9em;
+    width: 1.35em;
+    height: 1.5em;
+    padding-left: 0.15em;
+    background-color: #f2f2f2;
+    color: #aaaaaa;
+    border: 1px solid #aaaaaa;
+    border-radius: 15%;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Search box and suggestions                                                                                         */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+#searchBox {
+    width: 100%;
+    padding: 0.3em;
+    margin-bottom: 1.5em;
+    border-radius: 0.3em;
+}
+
+#searchBox.uniqueMatch {
+    background-color: #d1ffb3;
+}
+
+#searchBox.noMatch {
+    background-color: #ffcec4;
+}
+
+.keywordMatchHighlight {
+    background-color: yellow;
+}
+
+.awesomplete li[aria-selected="true"] .keywordMatchHighlight {
+    color: black;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Content                                                                                                            */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+#content {
+    font-size: 0.95em;
+    white-space: nowrap;
+}
+
+.matchedSection,
+.unmatchedSection {
+    padding: 0.3em;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 0.3em;
+}
+
+.matchedSection {
+    background-color: yellow;
+}
+
+.unmatchedSection {
+    background-color: #d2d2d2;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Spinner                                                                                                            */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.spinner {
+    margin: 100px auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.spinner>div {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0)
+    }
+
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bouncedelay {
+
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* Print preview                                                                                                      */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+@media print {
+
+    #tree,
+    #searchBox,
+    #divider {
+        display: none;
+        width: 0;
+    }
+
+    #content {
+        font-size: 8px;
+    }
+
+}

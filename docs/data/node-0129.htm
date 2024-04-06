@@ -1,0 +1,33 @@
+
+<div id='nodeSection1'>Affix</div>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>nav</span><span class=rvts41> </span><span class=rvts90>class</span><span class=rvts45>="navbar navbar-inverse"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- this element will be fixed to the top of the screen when the user has&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp; data-spy</span><span class=rvts45>="affix"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- scrolled a certain distance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp; data-offset-top</span><span class=rvts45>="200"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- can be: data-offset, data-offset-top, data-offset-bottom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp; style</span><span class=rvts45>="width:100%;z-index:100;top:0px;"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- apply these styles when fixing the navbar (or set a CSS rule for .affix) --&gt;</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>ul</span><span class=rvts41> </span><span class=rvts90>class</span><span class=rvts45>="nav navbar-nav"&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>li</span><span class=rvts41> </span><span class=rvts90>class</span><span class=rvts45>="active"&gt;&lt;</span><span class=rvts46>a</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="#"&gt;</span><span class=rvts41>Intro</span><span class=rvts45>&lt;/</span><span class=rvts46>a</span><span class=rvts45>&gt;&lt;/</span><span class=rvts46>li</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>li</span><span class=rvts45>&gt;&lt;</span><span class=rvts46>a</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="#"&gt;</span><span class=rvts41>Chapter 1</span><span class=rvts45>&lt;/</span><span class=rvts46>a</span><span class=rvts45>&gt;&lt;/</span><span class=rvts46>li</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;</span><span class=rvts46>li</span><span class=rvts45>&gt;&lt;</span><span class=rvts46>a</span><span class=rvts41> </span><span class=rvts90>href</span><span class=rvts45>="#"&gt;</span><span class=rvts41>Chapter 2</span><span class=rvts45>&lt;/</span><span class=rvts46>a</span><span class=rvts45>&gt;&lt;/</span><span class=rvts46>li</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts41>&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>ul</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts46>nav</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts91><br></span></p>
+<div id='nodeSection2'>JavaScript API</div>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts41>$(</span><span class=rvts42>".navbar"</span><span class=rvts41>).affix({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// configure an affix element</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; offset: {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top: 10</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts47>on</span><span class=rvts41>affix.bs.affix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// before an element becomes affixed</span></p>
+<p><span class=rvts47>on</span><span class=rvts41>affixed.bs.affix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// after an element has been affixed</span></p>
+<p><span class=rvts47>on</span><span class=rvts41>affix-top.bs.affix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// before an element becomes affixed to the top of the screen</span></p>
+<p><span class=rvts47>on</span><span class=rvts41>affixed-top.bs.affix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// after an element has been affixed to the top of the screen</span></p>
+<p><span class=rvts47>on</span><span class=rvts41>affix-bottom.bs.affix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// before an element becomes affixed to the bottom of the screen</span></p>
+<p><span class=rvts47>on</span><span class=rvts41>affixed-bottom.bs.affix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// after an element has been affixed to the bottom of the screen</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

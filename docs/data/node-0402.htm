@@ -1,0 +1,48 @@
+
+<div id='nodeSection1'>RMI server</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>interface</span><span class=rvts113> </span><span class=rvts233>IMyServer</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>Remote</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create an interface that describes the server's API</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> add(</span><span class=rvts64>int</span><span class=rvts113> x1, </span><span class=rvts64>int</span><span class=rvts113> x2) </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>throws</span><span class=rvts113> </span><span class=rvts233>RemoteException</span><span class=rvts113>;</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyServer</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>UnicastRemoteObject</span><span class=rvts113>&nbsp;&nbsp; </span><span class=rvts62>// implement the server derived from the relevant RMI base class </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>implements</span><span class=rvts113> </span><span class=rvts233>IMyServer</span><span class=rvts113> {</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>protected</span><span class=rvts113> MyServer() </span><span class=rvts64>throws</span><span class=rvts113> </span><span class=rvts233>RemoteException</span><span class=rvts113> {&nbsp;&nbsp; </span><span class=rvts62>// the constructor must be declared expliciteyl as it throws an exception</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>();</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> add(</span><span class=rvts64>int</span><span class=rvts113> x1, </span><span class=rvts64>int</span><span class=rvts113> x2) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add the API methods declared by the interface </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> x1+x2;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts61>&gt; rmiregistry.exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>the RMI registry (object broker) daemon must be up and running</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>Naming</span><span class=rvts113>.rebind(</span><span class=rvts217>"MyServer"</span><span class=rvts113>, </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MyServer</span><span class=rvts113>());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// start up the server</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>RMI client</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>String</span><span class=rvts113> url = </span><span class=rvts217>"rmi://127.0.0.1/MyServer"</span><span class=rvts113>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// when running locally, then just "MyServer" will do as well</span></p>
+<p><span class=rvts233>IMyServer</span><span class=rvts113> server = (</span><span class=rvts233>IMyServer</span><span class=rvts113>)</span><span class=rvts233>Naming</span><span class=rvts113>.lookup(url);&nbsp;&nbsp; </span><span class=rvts62>// obtain a proxy class that represents the RMI server object</span></p>
+<p><span class=rvts233>System</span><span class=rvts113>.out.println(server.add(10, 25));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// invoke the method</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Stubs</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts61>&gt; rmic MyServer</span><span class=rvts233>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// this is only required for older versions of Java: generate a stub class</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // that contains all the data structures/classes needed for the client to</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // work with the complex input parameters and return values of RMI methods</span></p>
+<p><span class=rvts62><br></span></p>
+<p><br></p>
+<p><br></p>
+

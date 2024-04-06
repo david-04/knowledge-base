@@ -1,0 +1,15 @@
+
+<div id='nodeSection1'>Messaging</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>iFrame.postMessage(</span><span class=rvts42>"message"</span><span class=rvts41>, </span><span class=rvts42>"*"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// post a message to iFrame</span></p>
+<p><span class=rvts41>iFrame.postMessage(</span><span class=rvts42>"message"</span><span class=rvts41>, </span><span class=rvts42>"</span><a class=rvts51 href="http://domain.com">http://domain.com</a><span class=rvts42>"</span><span class=rvts41>); </span><span class=rvts39>// post the message only if it was loaded from mydomain.com</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> iFrame_onMessage(event) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; event.data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// contains the "message"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; event.origin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the origin URL (or domain?) from where the message came</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; event.source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the window that sent the message (only a few properties are accessible)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

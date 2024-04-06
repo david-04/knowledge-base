@@ -1,0 +1,104 @@
+
+<div id='nodeSection1'>Page life cycle</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div><table border=1 cellpadding=1 cellspacing=-1 style="border-width: 0px; border-collapse: collapse;">
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113><br></span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Page request: </span><span class=rvts8>A request to an ASPX page starts the life cycle of that page. When the web server is able and allowed to return a cached copy of the page, the entire life cycle is not executed. In all other situations, the page enters the start phase.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113>PreInit</span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Start: </span><span class=rvts8>In this phase, the page gets access to properties like Request and Response that are used to interact with the page</span><span class=rvts154>’</span><span class=rvts8>s environment. In addition, during this phase the PreInit event is raised to signal that the page is about to go into the initialization phase. You use this event later to set the theme of a page.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113>Init</span></p>
+<p class=rvps13><span class=rvts113>InitComplete</span></p>
+<p class=rvps13><span class=rvts113>PreLoad</span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Page initialization: </span><span class=rvts8>During this phase, the controls you have set up in your page or added programmatically become available. Additionally, the Page class fires three events: Init, InitComplete, and PreLoad. </span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113>Load</span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Load: </span><span class=rvts8>During this phase, the control properties are loaded from View State and Control State during a postback. For example, when you change the selected item in a DropDownList and then cause a postback, this is the moment where the correct item gets preselected in the drop-down list again, which you can then work with in your server-side code. Also, during this phase the page raises the Load event.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113><br></span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Validation: </span><span class=rvts8>In the validation phase, the Validation controls used to validate user input are processed. You learn about validators in Chapter 9.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113>LoadComplete</span></p>
+<p class=rvps13><span class=rvts113>PreRender</span></p>
+<p class=rvps13><span class=rvts113>SaveStateComplete</span></p>
+<p class=rvps13><span class=rvts113>PreRenderComplete</span></p>
+<p class=rvps13><span class=rvts113><br></span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Postback event handling: </span><span class=rvts8>During this phase, the controls in your page may raise their own events. For example, the DropDownList may raise a SelectedIndexChanged event when the user has chosen a different option in the list. Similarly, a TextBox may raise the TextChanged event when the user has changed the text before she posted back to the server. When all event processing is done, the page raises the LoadComplete event. Also during this phase the PreRender event is raised to signal that the page is about to render to the browser. Shortly after that,&nbsp; SaveStateComplete</span><span class=rvts179>&nbsp;</span><span class=rvts8> is raised to indicate that the page is done storing all the relevant data for the controls in View State.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113><br></span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Rendering: </span><span class=rvts8>Rendering is the phase where the controls (and the page itself) output their HTML to the browser.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113>Unload</span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Unload: </span><span class=rvts8>The unload phase is really a clean-up phase. This is the moment where the page and controls can release resources they were holding on to. During this phase, the Unload event is raised so you can handle any cleanup you may need to do.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=2 width=1003 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113><br></span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=173 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts113>AbortTransaction</span></p>
+<p class=rvps13><span class=rvts113>CommitTransaction</span></p>
+<p class=rvps13><span class=rvts113>DataBinding</span></p>
+<p class=rvps13><span class=rvts113>Disposed</span></p>
+<p class=rvps13><span class=rvts113>Error</span></p>
+</td>
+<td width=825 valign=top style="border-width : 1px; border-color: #000000; border-style: solid; background-color: #ffffff;"><p class=rvps13><span class=rvts179>Other events</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Global application class</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>Application_Start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called before serving any requests when the application starts</span></p>
+<p><span class=rvts41>Session_Start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called before each users's first request</span></p>
+<p><span class=rvts41>Application_BeginRequest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called before each and every request</span></p>
+<p><span class=rvts41>Application_AuthenticateRequest&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called during each request (can be used to set up custom authentication)</span></p>
+<p><span class=rvts41>Application_Error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called whenever an error occurs</span></p>
+<p><span class=rvts41>Session_End&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called only in InProc mode when a user leaves the application</span></p>
+<p><span class=rvts41>Application_End&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// called when the application is being shut down</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Event order for master and content pages</div>
+<p><span class=rvts8><br></span></p>
+<ol class=list4>
+<li value=1 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Initialization of master page child controls: All server controls contained within the master page are tirst initialized.</span></li>
+<li value=2 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Initialization of content page child controls: All server controls contained in the content page are initialized.</span></li>
+<li value=3 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Initialization of the master page: The master page itself is initialized.</span></li>
+<li value=4 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Initialization of the content page: The content page is initialized.</span></li>
+<li value=5 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Loading of the content page: The content page is loaded (this is the Page_Load event followed by the Page_LoadComplete event).</span></li>
+<li value=6 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Loading of the master page: The master page is loaded (this is also the Page_Load event followed by the Page_LoadComplete event).</span></li>
+<li value=7 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Loading of the master page</span><span class=rvts154>’</span><span class=rvts8>s child controls: The server controls on the master page are loaded onto the page.</span></li>
+<li value=8 class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>Loading of the content page</span><span class=rvts154>’</span><span class=rvts8>s child controls: The server controls on the content page are loaded onto the page.</span></li>
+</ol>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

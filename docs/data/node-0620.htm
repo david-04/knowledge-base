@@ -1,0 +1,121 @@
+
+<div id='nodeSection1'>Function typing</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> add(a: </span><span class=rvts45>number</span><span class=rvts41>, b: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add type annotations for the input parameters and the return type</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> a + b;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> doSomething(): </span><span class=rvts45>void</span><span class=rvts41> { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// functions with no return-value are declared as void</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> subtract(a, b) { </span><span class=rvts45>return</span><span class=rvts41> a - b; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// untyped functions are still valid (equals function add(a: any, b: any): any)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Optional and default parameters</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> Greet(name: </span><span class=rvts45>string</span><span class=rvts41>, city?: </span><span class=rvts45>string</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// optional parameters</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (city === undefined) </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts42>"Hi "</span><span class=rvts41> + name;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// omitted optional parameters are set to "undefined" by default</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span><span class=rvts41> </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts42>"Hi "</span><span class=rvts41> + name + </span><span class=rvts42>" in "</span><span class=rvts41> + city;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> Greet(name: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"there"</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// default parameters</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts42>"Hi "</span><span class=rvts41> + name;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Variable argument list</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> AddUser(name: </span><span class=rvts45>string</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...skills: </span><span class=rvts45>string</span><span class=rvts41>[]): </span><span class=rvts45>void</span><span class=rvts41> { }&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// variable arguments (the array is empty if the caller did not provide any values)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>AddUser(</span><span class=rvts42>"David"</span><span class=rvts41>, </span><span class=rvts42>"TypeScript"</span><span class=rvts41>, </span><span class=rvts42>"C#"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass the variable arguments as single parameters (not as an array)</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> fn(...params: [</span><span class=rvts64>number</span><span class=rvts251>, </span><span class=rvts64>string</span><span class=rvts251>, </span><span class=rvts64>boolean</span><span class=rvts251>])   </span><span class=rvts252>// can use tuples - similar to fn(p1: number, p2: string, p3: boolean)</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> fn(...params: [id: </span><span class=rvts64>number</span><span class=rvts251>, name: </span><span class=rvts64>string</span><span class=rvts251>])  </span><span class=rvts252>// tuple elements can be aliased - this is for documentation only</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts292><br></span></p>
+<div id='nodeSection4'>Parameter destructuring</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction([c1, c2]: [</span><span class=rvts45>string</span><span class=rvts41>, </span><span class=rvts45>string</span><span class=rvts41>]) {&nbsp;&nbsp; </span><span class=rvts39>// retrieve only the first two elements of the array</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(c1);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(c2);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41>myFunction([</span><span class=rvts42>"red"</span><span class=rvts41>, </span><span class=rvts42>"green"</span><span class=rvts41>, </span><span class=rvts42>"blue"</span><span class=rvts41>]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// pass data as array into the function</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>type</span><span class=rvts41> User = { user: </span><span class=rvts45>string</span><span class=rvts41>, age: </span><span class=rvts45>number</span><span class=rvts41> };</span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction({user, age}: User) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve only the given properties from passed-in object</span></p>
+<p><span class=rvts41>myFunction({ user: </span><span class=rvts42>"David"</span><span class=rvts41>, age: 38 });</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction({user, age = 66}: User) { }&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can assign default values for otional properties</span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction({user: id, age}: User) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// refer to User.user as "id" inside the function</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>Callback parameters</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> greet(name: </span><span class=rvts45>string</span><span class=rvts41>,</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; logger: (txt:</span><span class=rvts45>string</span><span class=rvts41>) =&gt; </span><span class=rvts45>void</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// require a function that receives a string and returns nothing</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; logger(</span><span class=rvts42>"Hi "</span><span class=rvts41> + name);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection6'>Overloading</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> log(data: </span><span class=rvts45>string</span><span class=rvts41>|</span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>string</span><span class=rvts41>|</span><span class=rvts45>number</span><span class=rvts41> {&nbsp; </span><span class=rvts39>// use the union type allow any of the specified types</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(data);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> data;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> compare(p1: </span><span class=rvts45>string</span><span class=rvts41>, p2: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// declare different signatures for the same function</span></p>
+<p><span class=rvts45>function</span><span class=rvts41> compare(p1: </span><span class=rvts45>number</span><span class=rvts41>, p2: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>order is important: sort from most specific to the most generic</span></p>
+<p><span class=rvts45>function</span><span class=rvts41> compare(p1: </span><span class=rvts45>any</span><span class=rvts41>, p2: </span><span class=rvts45>any</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the implemenation uses the "any" accomodate all signatures</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> -1;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection7'>Context preservation</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IMyInterface</span><span class=rvts41> {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; id: </span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getFunction(</span><span class=rvts50>this</span><span class=rvts41>: </span><span class=rvts110>IMyInterface</span><span class=rvts41>) : () =&gt; </span><span class=rvts45>number</span><span class=rvts41>; </span><span class=rvts39>// inside the callback "this" is accessible (it runs in the context of this class)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myObject: </span><span class=rvts110>IMyInterface</span><span class=rvts41> = {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; id: 22,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>"this" can only passed to "function", not arrow functions</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getFunction: </span><span class=rvts45>function</span><span class=rvts41> (</span><span class=rvts45>this</span><span class=rvts41>: </span><span class=rvts110>IMyInterface</span><span class=rvts41>) {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// treat "this" within this function like an instance of IMyInterface</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> () =&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the ()=&gt;{} syntax always runs the function the context of its creation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.id;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myFunction = myObject.getFunction();</span></p>
+<p><span class=rvts41>myFunction();</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection8'>Lambda expressions </div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> f = (x: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41> =&gt; x + 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can map to a simple expression</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> f = (x: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>number</span><span class=rvts41> =&gt; { </span><span class=rvts45>return</span><span class=rvts41> x + 1; };&nbsp;&nbsp; </span><span class=rvts39>// ... or contain a complete function body</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection9'>Hybrid functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> myFunction(): </span><span class=rvts45>void</span><span class=rvts41> { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a function that also has properties (applies to enums as well)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>namespace</span><span class=rvts41> myFunction {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and extend it with properties through a namespace with the same name</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>let</span><span class=rvts41> version = </span><span class=rvts42>"1.0"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps12><span class=rvts251>myFunction.myProperty = </span><span class=rvts289>"abc"</span><span class=rvts251>;                      </span><span class=rvts252>// can also just set properties</span></p>
+<p class=rvps12><span class=rvts296><br></span></p>
+<p><span class=rvts41>myFunction();</span></p>
+<p><span class=rvts41>console.log(myFunction.version);</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps12><span class=rvts64>type</span><span class=rvts251> myFunction = {                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span><span class=rvts252>// can also be declared as a type</span></p>
+<p class=rvps12><span class=rvts251>    version: </span><span class=rvts64>string</span><span class=rvts251>;</span></p>
+<p class=rvps12><span class=rvts251>    (): </span><span class=rvts64>boolean</span><span class=rvts251>;</span></p>
+<p class=rvps12><span class=rvts251>};</span></p>
+<p class=rvps12><span class=rvts296><br></span></p>
+<p><br></p>
+<p><br></p>
+

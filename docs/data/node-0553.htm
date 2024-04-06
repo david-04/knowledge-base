@@ -1,0 +1,44 @@
+
+<div id='nodeSection1'>Date and time</div>
+<p class=rvps12><span class=rvts267><br></span></p>
+<p class=rvps12><span class=rvts267>Time</span><span class=rvts262>.now                                    </span><span class=rvts263># get the current date/time</span></p>
+<p class=rvps12><span class=rvts267>Time</span><span class=rvts262>.local(2021, 12, 24, 18, 30, 00, 000)   </span><span class=rvts263># create a fixed date/time</span></p>
+<p class=rvps12><span class=rvts267>Time</span><span class=rvts262>.local(2021, 12, 24)                    </span><span class=rvts263># everything after the year is optional</span></p>
+<p class=rvps12><span class=rvts267>Time</span><span class=rvts262>.utc(2021, 12, 24)                      </span><span class=rvts263># UTC time</span></p>
+<p class=rvps12><span class=rvts267>Time</span><span class=rvts262>.gm(2021, 12, 24)                       </span><span class=rvts263># same as above (UTC)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>tomorrow = </span><span class=rvts267>Time</span><span class=rvts262>.now + 24 * 60 * 60          </span><span class=rvts263># can add/substract seconds</span></p>
+<p class=rvps12><span class=rvts262>seconds = tomorrow - </span><span class=rvts267>Time</span><span class=rvts262>.now               </span><span class=rvts263># returns seconds between the dates</span></p>
+<p class=rvps12><span class=rvts262>epochSeconds = tomorrow.to_i                </span><span class=rvts263># convert a Time to epoch seconds</span></p>
+<p class=rvps12><span class=rvts262>tmorrow= </span><span class=rvts267>Time</span><span class=rvts262>.at(epochSeconds)              </span><span class=rvts263># convert epoch seconds back to a Time object</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>time = </span><span class=rvts267>Time</span><span class=rvts262>.local(2021,05, 26, 16, 45, 59, 123456)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>                                            </span><span class=rvts263># 2021-05-26 16:45:59,123456</span></p>
+<p class=rvps12><span class=rvts262>time.year                                   </span><span class=rvts263># 2021</span></p>
+<p class=rvps12><span class=rvts262>time.month                                  </span><span class=rvts263>#      05</span></p>
+<p class=rvps12><span class=rvts262>time.day                                    </span><span class=rvts263>#         26</span></p>
+<p class=rvps12><span class=rvts262>time.mday                                   </span><span class=rvts263>#         26                    synonym for day</span></p>
+<p class=rvps12><span class=rvts262>time.hour                                   </span><span class=rvts263>#            16</span></p>
+<p class=rvps12><span class=rvts262>time.min                                    </span><span class=rvts263>#               45</span></p>
+<p class=rvps12><span class=rvts262>time.sec                                    </span><span class=rvts263>#                  59</span></p>
+<p class=rvps12><span class=rvts262>time.usec                                   </span><span class=rvts263>#                      123456   microseconds</span></p>
+<p class=rvps12><span class=rvts262>time.wday                                   </span><span class=rvts263>#                               0=Sunday ... 6=Saturday</span></p>
+<p class=rvps12><span class=rvts262>time.yday                                   </span><span class=rvts263>#                               146 (day of the year)</span></p>
+<p class=rvps12><span class=rvts262>time.utc?                                   </span><span class=rvts263>#                               indicates if timezone is UTC</span></p>
+<p class=rvps12><span class=rvts262>time.gmt?                                   </span><span class=rvts263>#                               same as utc?</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts264><br></span></p>
+<div id='nodeSection2'>chronic</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'chronic'</span><span class=rvts262>                           </span><span class=rvts263># gem install chronic</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Chronic</span><span class=rvts262>.parse(</span><span class=rvts266>'last tuesday 5am'</span><span class=rvts262>)           </span><span class=rvts263># returns a Time object</span></p>
+<p class=rvps12><span class=rvts267>Chronic</span><span class=rvts262>.parse(</span><span class=rvts266>'june 29th at 1am'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts267>Chronic</span><span class=rvts262>.parse(</span><span class=rvts266>'in 3 years'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts267>Chronic</span><span class=rvts262>.parse(</span><span class=rvts266>'sep 23 2033'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts267>Chronic</span><span class=rvts262>.parse(</span><span class=rvts266>'2003-11-10 01:02'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

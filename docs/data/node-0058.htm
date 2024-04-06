@@ -1,0 +1,38 @@
+
+<div id='nodeSection1'>DML Triggers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger </span><span class=rvts64>ON</span><span class=rvts61> my_table_or_view&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a trigger on the specified table or view</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts63>&lt;</span><span class=rvts61>dml_trigger_options</span><span class=rvts63>&gt;</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts63>{</span><span class=rvts64>FOR</span><span class=rvts63>|</span><span class=rvts64>AFTER</span><span class=rvts63>|</span><span class=rvts64>INSTEAD</span><span class=rvts61> </span><span class=rvts64>OF</span><span class=rvts63>}</span><span class=rvts61> </span><span class=rvts63>{</span><span class=rvts64>INSERT</span><span class=rvts63>|</span><span class=rvts67>UPDATE</span><span class=rvts63>|</span><span class=rvts64>DELETE</span><span class=rvts63>}</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts62>-- FOR is an alias for AFTER</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>APPEND</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts63>{</span><span class=rvts64>AS</span><span class=rvts61> </span><span class=rvts63>...</span><span class=rvts61> </span><span class=rvts63>|</span><span class=rvts61> </span><span class=rvts64>EXTERNAL</span><span class=rvts61> NAME my_procedure</span><span class=rvts63>}</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- define the code right here or reference another procedure</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- example: the trigger is called once for each SQL statement (not for each modified row)</span></p>
+<p><span class=rvts64>ON</span><span class=rvts61> my_table</span></p>
+<p><span class=rvts64>FOR</span><span class=rvts61> </span><span class=rvts67>UPDATE</span></p>
+<p><span class=rvts64>AS</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp; DECLARE</span><span class=rvts61> @total </span><span class=rvts64>INT</span><span class=rvts63>;</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp; SET</span><span class=rvts61> @total </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts64>select</span><span class=rvts61> </span><span class=rvts67>count</span><span class=rvts63>(*)</span><span class=rvts61> </span><span class=rvts64>from</span><span class=rvts61> inserted</span><span class=rvts63>;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- "inserted" and "deleted" contain the before/after values</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>ROLLBACK</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- call ROLLBACK to cancel the whole operation (raises an exception)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger </span><span class=rvts63>...;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- same syntax as CREATE TRIGGER</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- delete a trigger</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>DDL triggers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a DDL trigger</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>ON</span><span class=rvts61> </span><span class=rvts63>{ALL</span><span class=rvts61> </span><span class=rvts64>SERVER</span><span class=rvts63>|</span><span class=rvts64>DATABASE</span><span class=rvts63>}</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- for one database or the whole server</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts63>{</span><span class=rvts64>ENCRYPTION</span><span class=rvts63>|</span><span class=rvts64>EXECUTE</span><span class=rvts61> </span><span class=rvts64>AS</span><span class=rvts61> my_claue</span><span class=rvts63>}</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts63>{</span><span class=rvts64>FOR</span><span class=rvts63>|</span><span class=rvts64>AFTER</span><span class=rvts63>}</span><span class=rvts61> </span><span class=rvts63>{</span><span class=rvts61>event_group</span><span class=rvts63>|</span><span class=rvts61>event_type</span><span class=rvts63>|</span><span class=rvts61>LOGON</span><span class=rvts63>}</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- e.g. DROP_SYNONYM</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>AS</span><span class=rvts61> </span><span class=rvts63>{...|</span><span class=rvts64>EXTERNAL</span><span class=rvts61> NAME my_method</span><span class=rvts63>}</span></p>
+<p><span class=rvts63><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger </span><span class=rvts63>...;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- same syntax as CREATE TRIGGER</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>TRIGGER</span><span class=rvts61> my_trigger</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- delete a trigger</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><br></p>
+<p><br></p>
+

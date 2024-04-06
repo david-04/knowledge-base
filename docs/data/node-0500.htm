@@ -1,0 +1,45 @@
+
+<div id='nodeSection1'>Event patterns</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>request = http.request(opt, </span><span class=rvts45>function</span><span class=rvts41> (response) {&nbsp;&nbsp; </span><span class=rvts39>// continuation-passing style (CPS)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; response.on(</span><span class=rvts42>'data'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (data) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// event emitter pattern </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(data);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; response.on(</span><span class=rvts42>'end'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>'response ended'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Emitter interface</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>emitter.addListener(</span><span class=rvts42>'event_name'</span><span class=rvts41>, callback)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add an event listener to the chain</span></p>
+<p><span class=rvts41>emitter.on(</span><span class=rvts42>'event_name'</span><span class=rvts41>, callback)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// same as above</span></p>
+<p><span class=rvts41>emitter.once(</span><span class=rvts42>'event_name'</span><span class=rvts41>, callback)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add an event listener that is called only once</span></p>
+<p><span class=rvts41>emitter.removeEventListener(</span><span class=rvts42>'event_name'</span><span class=rvts41>, callback) </span><span class=rvts39>// remove a single event listener from the chain</span></p>
+<p><span class=rvts41>emitter.removeAllListeners(</span><span class=rvts42>'event_name'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove all event listeners</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection3'>Implementing emitters</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> util = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'util'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// contains class inheritance services&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts45>var</span><span class=rvts41> events = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'events'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// contains the emitter base class</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> MyClass() { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// define the custom emitter's constructor</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>util.inherits(MyClass, events.EventEmitter)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// inherit the prototype from the emitter's base class</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>MyClass.prototype.doSomething = </span><span class=rvts45>function</span><span class=rvts41> () {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// implement custom functions with the acutal program logic</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.emit(</span><span class=rvts42>'custom event'</span><span class=rvts41>, </span><span class=rvts42>'parameter1'</span><span class=rvts41>, </span><span class=rvts42>'...'</span><span class=rvts41>); </span><span class=rvts39>// emit events through the base class</span></p>
+<p><span class=rvts41>} ;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> myObject = </span><span class=rvts45>new</span><span class=rvts41> MyClass();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instantiate the custom emitter class</span></p>
+<p><span class=rvts41>myObject.on(</span><span class=rvts42>'custom event'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (p1, p2) {&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register for events</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>'received: %s, %s'</span><span class=rvts41>, p1, p1); </span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>myObject.doSomething()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// invoke functions that emit events</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

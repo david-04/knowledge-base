@@ -1,0 +1,45 @@
+
+<div id='nodeSection1'>Parse URLs</div>
+<p><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'uri'</span><span class=rvts262>                               </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>uri = URI(</span><span class=rvts266>'</span><a class=rvts272 href="https://test.com/1?a=1&b=2#top">https://test.com/1?a=1&amp;b=2#top</a><span class=rvts266>'</span><span class=rvts262>) </span><span class=rvts263># https://test.com/1?a=1&amp;b=2#top</span></p>
+<p class=rvps12><span class=rvts262>uri = </span><span class=rvts267>URI</span><span class=rvts262>.parse(</span><span class=rvts266>'</span><a class=rvts272 href="https://.">https://.</a><span class=rvts266>..'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>uri.scheme                                  </span><span class=rvts263># https</span></p>
+<p class=rvps12><span class=rvts262>uri.host                                    </span><span class=rvts263>#         test.com</span></p>
+<p class=rvps12><span class=rvts262>uri.port                                    </span><span class=rvts263>#              443</span></p>
+<p class=rvps12><span class=rvts262>uri.path                                    </span><span class=rvts263>#                 /1</span></p>
+<p class=rvps12><span class=rvts262>uri.query                                   </span><span class=rvts263>#                    a=1&amp;b=2</span></p>
+<p class=rvps12><span class=rvts262>uri.fragment                                </span><span class=rvts263>#                            top</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>array = </span><span class=rvts267>URI</span><span class=rvts262>.extract(                        </span><span class=rvts263># extrat all URLs from a text and return them as a array</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts266>"</span><a class=rvts272 href="https://mail.com/ or mailto:me@home.com">https://mail.com/ or mailto:me@home.com</a><span class=rvts266>"</span><span class=rvts262> </span><span class=rvts263># the text to extract the URLs from</span></p>
+<p class=rvps12><span class=rvts262>  [</span><span class=rvts266>'https'</span><span class=rvts262>, </span><span class=rvts266>'mailto'</span><span class=rvts262>]                       </span><span class=rvts263># optional: the protocols to consider</span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Construct URLs</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'uri'</span><span class=rvts262>                               </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>uri = </span><span class=rvts267>URI</span><span class=rvts262>::</span><span class=rvts267>HTTP</span><span class=rvts262>.build(                      </span><span class=rvts263># construct a URL from components</span></p>
+<p class=rvps12><span class=rvts262>  host: </span><span class=rvts266>'google.com'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  port: 80,</span></p>
+<p class=rvps12><span class=rvts262>  query: </span><span class=rvts266>'a=1'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  fragment: </span><span class=rvts266>'top'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  userinfo: </span><span class=rvts266>'user'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  path: </span><span class=rvts266>'/index.html'</span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> uri.to_s                               </span><span class=rvts263># http://user@google.com/index.html?a=1#top</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> uri.request_uri                        </span><span class=rvts263># /index.html?a=1</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>url = </span><span class=rvts267>URI</span><span class=rvts262>::</span><span class=rvts267>FTP</span><span class=rvts262>.build(                       </span><span class=rvts263># works for other protocols as well</span></p>
+<p class=rvps12><span class=rvts262>  userinfo: </span><span class=rvts266>'username:password'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  host: </span><span class=rvts266>'</span><a class=rvts272 href="ftp://ftp.example.com">ftp.example.com</a><span class=rvts266>'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  path: </span><span class=rvts266>'/pub/folder'</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>  typecode: </span><span class=rvts266>'a'</span></p>
+<p class=rvps12><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,50 @@
+
+<p class=rvps2><span class=rvts7><br></span></p>
+<div id='nodeSection1'>Configuration file</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts131>&lt;?</span><span class=rvts124>xml version=</span><span class=rvts128>"1.0" </span><span class=rvts124>encoding=</span><span class=rvts128>"UTF-8" </span><span class=rvts124>standalone=</span><span class=rvts128>"yes"</span><span class=rvts131>?&gt;</span></p>
+<p class=rvps12><span class=rvts124>&lt;</span><span class=rvts130>configuration </span><span class=rvts124>xmlns=</span><span class=rvts128>"</span><a class=rvts132 href="http://www.jooq.org/xsd/jooq-codegen-3.9.2.xsd">http://www.jooq.org/xsd/jooq-codegen-3.9.2.xsd</a><span class=rvts128>"</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>jdbc</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- the JDBC connection to the source database&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;</span><span class=rvts130>driver</span><span class=rvts124>&gt;com.mysql.jdbc.Driver&lt;/</span><span class=rvts130>driver</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>url</span><span class=rvts124>&gt;jdbc:mysql://127.0.0.1/pcinternal&lt;/</span><span class=rvts130>url</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>user</span><span class=rvts124>&gt;root&lt;/</span><span class=rvts130>user</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>password</span><span class=rvts124>&gt;&lt;/</span><span class=rvts130>password</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts130>jdbc</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>generator</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>name</span><span class=rvts124>&gt;org.jooq.util.JavaGenerator&lt;/</span><span class=rvts130>name</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- also available: ScalaGenerator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;</span><span class=rvts130>database</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>name</span><span class=rvts124>&gt;org.jooq.util.mysql.MySQLDatabase&lt;/</span><span class=rvts130>name</span><span class=rvts124>&gt;&nbsp; </span><span class=rvts125>&lt;!-- database type: org.util.[database].[database]Database&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;</span><span class=rvts130>inputSchema</span><span class=rvts124>&gt;pcinternal&lt;/</span><span class=rvts130>inputSchema</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- database source schema&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;</span><span class=rvts130>includes</span><span class=rvts124>&gt;(customers|licenses)&lt;/</span><span class=rvts130>includes</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- elements to include (regular expression, can be .*)&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;</span><span class=rvts130>excludes</span><span class=rvts124>&gt;&lt;/</span><span class=rvts130>excludes</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- excluded elements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;/</span><span class=rvts130>database</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>target</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts130>packageName</span><span class=rvts124>&gt;jooq.generated&lt;/</span><span class=rvts130>packageName</span><span class=rvts124>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- target package for generated classes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;</span><span class=rvts130>directory</span><span class=rvts124>&gt;C:/David/PaperCut/jooq&lt;/</span><span class=rvts130>directory</span><span class=rvts124>&gt;&nbsp;&nbsp; </span><span class=rvts125>&lt;!-- target folder for generated files&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>&lt;/</span><span class=rvts130>target</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts130>generator</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124>&lt;/</span><span class=rvts130>configuration</span><span class=rvts124>&gt;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Generate code</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Requires the following libraries:</span></p>
+<p><span class=rvts8>jooq-3.9.5.jar</span></p>
+<p><span class=rvts8>jooq-codegen-3.9.5.jar</span></p>
+<p><span class=rvts8>jooq-meta-3.9.5.jar</span></p>
+<p><span class=rvts8>mysql-connector-java-5.1.43-bin.jar</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>run the following command:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>&gt; java -classpath ./libs/jooq-3.9.5.jar;./libs/jooq-codegen-3.9.5.jar;./libs/jooq-meta-3.9.5.jar;./libs/mysql-connector-java-5.1.43-bin.jar;. org.jooq.util.GenerationTool my-jooq-config.xml</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>or more generic:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>&gt; java -classpath `find . -name "*.jar" | sed -z -E "s/\s+/;/g;s/$/;./g"` org.jooq.util.GenerationTool jooq-codegen.xml</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

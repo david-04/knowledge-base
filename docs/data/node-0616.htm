@@ -1,0 +1,89 @@
+
+<div id='nodeSection1'>Static decorators</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts295>class</span><span class=rvts296> </span><span class=rvts302>MyClass</span><span class=rvts296> {</span></p>
+<p><span class=rvts296>    @bind                                           </span><span class=rvts297>// replace this method with decorated method</span></p>
+<p><span class=rvts296>    @logStart                                       </span><span class=rvts297>// nesting: bind(logStart(doSomething))</span></p>
+<p><span class=rvts296>    print(parameter: </span><span class=rvts295>string</span><span class=rvts296>) {</span></p>
+<p><span class=rvts296>        console.log(parameter);</span></p>
+<p><span class=rvts296>    }</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>function</span><span class=rvts296> logStart&lt;                                  </span><span class=rvts297>// function to produce a method wrapper</span></p>
+<p><span class=rvts296>    </span><span class=rvts302>THIS</span><span class=rvts296>, </span><span class=rvts302>ARGS</span><span class=rvts296> </span><span class=rvts295>extends</span><span class=rvts296> </span><span class=rvts295>unknown</span><span class=rvts296>[], </span><span class=rvts302>RETURN</span></p>
+<p><span class=rvts296>&gt;(</span></p>
+<p><span class=rvts296>    target: (</span><span class=rvts295>this</span><span class=rvts296>: </span><span class=rvts302>THIS</span><span class=rvts296>, ...args: </span><span class=rvts302>ARGS</span><span class=rvts296>) =&gt; </span><span class=rvts302>RETURN</span><span class=rvts296>,  </span><span class=rvts297>// the method to wrap</span></p>
+<p><span class=rvts296>    ctx: </span><span class=rvts302>ClassMethodDecoratorContext</span><span class=rvts296>&lt;               </span><span class=rvts297>// context information</span></p>
+<p><span class=rvts296>        </span><span class=rvts302>THIS</span><span class=rvts296>, (</span><span class=rvts295>this</span><span class=rvts296>: </span><span class=rvts302>THIS</span><span class=rvts296>, ...args: </span><span class=rvts302>ARGS</span><span class=rvts296>) =&gt; </span><span class=rvts302>RETURN</span></p>
+<p><span class=rvts296>    &gt;</span></p>
+<p><span class=rvts296>) {</span></p>
+<p><span class=rvts296>    </span><span class=rvts295>return</span><span class=rvts296> </span><span class=rvts295>function</span><span class=rvts296>(                                </span><span class=rvts297>// create and return a wrapper function</span></p>
+<p><span class=rvts296>        </span><span class=rvts295>this</span><span class=rvts296>: </span><span class=rvts302>THIS</span><span class=rvts296>, ...args: </span><span class=rvts302>ARGS</span><span class=rvts296>                   </span><span class=rvts297>// receive the target object and the method's parameters</span></p>
+<p><span class=rvts296>    ) {</span></p>
+<p><span class=rvts296>        console.log(</span><span class=rvts298>`</span><span class=rvts296>${String(ctx.name)}</span><span class=rvts298>`</span><span class=rvts296>)          </span><span class=rvts297>// perform extra actions</span></p>
+<p><span class=rvts296>        </span><span class=rvts295>return</span><span class=rvts296> target.call(</span><span class=rvts295>this</span><span class=rvts296>, ...args);          </span><span class=rvts297>// call the original method and return it's return value</span></p>
+<p><span class=rvts296>    }</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>function</span><span class=rvts296> bind&lt;                                      </span><span class=rvts297>// function to inject code into the constructor</span></p>
+<p><span class=rvts296>    </span><span class=rvts302>THIS</span><span class=rvts296>, </span><span class=rvts302>ARGS</span><span class=rvts296> </span><span class=rvts295>extends</span><span class=rvts296> </span><span class=rvts295>unknown</span><span class=rvts296>[], </span><span class=rvts302>RETURN</span></p>
+<p><span class=rvts296>&gt;(</span></p>
+<p><span class=rvts296>    target: (</span><span class=rvts295>this</span><span class=rvts296>: </span><span class=rvts302>THIS</span><span class=rvts296>, ...args: </span><span class=rvts302>ARGS</span><span class=rvts296>) =&gt; </span><span class=rvts302>RETURN</span><span class=rvts296>,</span></p>
+<p><span class=rvts296>    ctx: </span><span class=rvts302>ClassMethodDecoratorContext</span></p>
+<p><span class=rvts296>) {</span></p>
+<p><span class=rvts296>    </span><span class=rvts295>const</span><span class=rvts296> method = String(ctx.name);</span></p>
+<p><span class=rvts296>    </span><span class=rvts295>if</span><span class=rvts296> (ctx.private) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts297>// context has private, static, name (== target)</span></p>
+<p><span class=rvts296>        </span><span class=rvts295>throw</span><span class=rvts296> </span><span class=rvts295>new</span><span class=rvts296> Error(</span><span class=rvts298>"Can't bind private methods"</span><span class=rvts296>);</span></p>
+<p><span class=rvts296>    }</span></p>
+<p><span class=rvts296>    ctx.addInitializer(</span><span class=rvts295>function</span><span class=rvts296> () {                </span><span class=rvts297>// inject code into the constructor</span></p>
+<p><span class=rvts296>        </span><span class=rvts297>// @ts-expect-error</span></p>
+<p><span class=rvts296>        </span><span class=rvts295>this</span><span class=rvts296>[method] = </span><span class=rvts295>this</span><span class=rvts296>[method].bind(t);</span></p>
+<p><span class=rvts296>    });                                             </span><span class=rvts297>// no return value</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Dynamic decorators</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts295>function</span><span class=rvts296> requirePermission&lt;                           </span><span class=rvts297>// Dynamically create the decorator function</span></p>
+<p><span class=rvts296>    </span><span class=rvts302>THIS</span><span class=rvts296>, </span><span class=rvts302>ARGS</span><span class=rvts296> </span><span class=rvts295>extends</span><span class=rvts296> </span><span class=rvts295>unknown</span><span class=rvts296>[], </span><span class=rvts302>RETURN</span></p>
+<p><span class=rvts296>&gt;(</span></p>
+<p><span class=rvts296>    permission: </span><span class=rvts295>string</span></p>
+<p><span class=rvts296>) {         </span></p>
+<p><span class=rvts296>    </span><span class=rvts295>return</span><span class=rvts296> </span><span class=rvts295>function</span><span class=rvts296>(                                </span><span class=rvts297>// injected via @createDecorator("...")</span></p>
+<p><span class=rvts296>        target:  (</span><span class=rvts295>this</span><span class=rvts296>: </span><span class=rvts302>THIS</span><span class=rvts296>, ...args: </span><span class=rvts302>ARGS</span><span class=rvts296>) =&gt; </span><span class=rvts302>RETURN</span><span class=rvts296>, </span></p>
+<p><span class=rvts296>        ctx: </span><span class=rvts302>ClassMethodDecoratorContext</span></p>
+<p><span class=rvts296>    ) {</span></p>
+<p><span class=rvts296>        </span><span class=rvts295>return</span><span class=rvts296> </span><span class=rvts295>function</span><span class=rvts296>(</span><span class=rvts295>this</span><span class=rvts296>: </span><span class=rvts302>THIS</span><span class=rvts296>, ...args: </span><span class=rvts302>ARGS</span><span class=rvts296>) {</span></p>
+<p><span class=rvts296>            </span><span class=rvts297>// ...</span></p>
+<p><span class=rvts296>        }</span></p>
+<p><span class=rvts296>    }</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts296><br></span></p>
+<div id='nodeSection3'>Decorator metadata</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts295>interface</span><span class=rvts296> </span><span class=rvts302>Context</span><span class=rvts296> {                                 </span><span class=rvts297>// requires target es2022, lib "esnext" or "esnext.decorators" and polyfill for "Symbol.metadata"</span></p>
+<p><span class=rvts296>    name: </span><span class=rvts295>string</span><span class=rvts296>;</span></p>
+<p><span class=rvts296>    metadata: </span><span class=rvts302>Record</span><span class=rvts296>&lt;</span><span class=rvts302>PropertyKey</span><span class=rvts296>, </span><span class=rvts295>unknown</span><span class=rvts296>&gt;;         </span><span class=rvts297>// context can contain metadata</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>function</span><span class=rvts296> marked(_target: </span><span class=rvts295>any</span><span class=rvts296>, context: </span><span class=rvts302>Context</span><span class=rvts296>) {</span></p>
+<p><span class=rvts296>    context.metadata[context.name] = </span><span class=rvts295>true</span><span class=rvts296>;          </span><span class=rvts297>// store metadata, e.g. { property : true }</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>class</span><span class=rvts296> </span><span class=rvts302>SomeClass</span><span class=rvts296> {</span></p>
+<p><span class=rvts296>    @marked</span></p>
+<p><span class=rvts296>    property = 123;</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts296>    @marked</span></p>
+<p><span class=rvts296>    baz() { }</span></p>
+<p><span class=rvts296>}</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts295>const</span><span class=rvts296> metadata1 = SomeClass[Symbol.metadata];       </span><span class=rvts297>// can extract metadata from class</span></p>
+<p><span class=rvts295>const</span><span class=rvts296> instance : </span><span class=rvts295>object</span><span class=rvts296> = </span><span class=rvts295>new</span><span class=rvts296> SomeClass();</span></p>
+<p><span class=rvts296><br></span></p>
+<p><span class=rvts296>instance.constructor[Symbol.metadata];              </span><span class=rvts297>// can also extract from speicific instance</span></p>
+<p><span class=rvts303><br></span></p>
+<p><br></p>
+<p><br></p>
+

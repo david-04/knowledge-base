@@ -1,0 +1,27 @@
+
+<div id='nodeSection1'>Console output and formatting</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>println(</span><span class=rvts266>"Hello world!"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// print to stdout with a trailing line break</span></p>
+<p class=rvps12><span class=rvts262>print(</span><span class=rvts266>"Hello world!"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// print to stdout without line break</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>(3.1415).formatted(</span><span class=rvts266>"%.2f"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// all value classes have a formatted() method that works like sprintf</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>(3.1415).formatted(</span><span class=rvts266>s"%.</span><span class=rvts276>$</span><span class=rvts262>{precision}</span><span class=rvts266>f"</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can use interpolation to create dynamic format strings</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<div id='nodeSection2'>Main programs</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>MyApp </span><span class=rvts265>extends </span><span class=rvts274>App </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// extend a singleton object from App</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>println(</span><span class=rvts266>"Hello world!"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>MyApp </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ...or (in IntelliJ) create a regular singleton class and...</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>main(args: </span><span class=rvts274>Array</span><span class=rvts262>[</span><span class=rvts277>String</span><span class=rvts262>]) = { ... }&nbsp;&nbsp; </span><span class=rvts263>// implement a main method</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>@main </span><span class=rvts265>def </span><span class=rvts262>main(</span><span class=rvts277>args</span><span class=rvts262>: </span><span class=rvts277>String</span><span class=rvts262>*)= { ... }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// Scala 3: annotate the main method with "@main"</span></p>
+<p class=rvps12><span class=rvts262>@main </span><span class=rvts265>def </span><span class=rvts262>m</span><span class=rvts277>ain(x: String, y: Int</span><span class=rvts262>) = { ... } </span><span class=rvts263>// can also have typed parameters (which Scala converts on-the-fly automatically)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><br></p>
+<p><br></p>
+

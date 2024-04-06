@@ -1,0 +1,54 @@
+
+<div id='nodeSection1'>Authentication (server login)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>LOGIN</span><span class=rvts61> </span><span class=rvts67>user_name</span><span class=rvts61> </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>PASSWORD</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'***'</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a new user account</span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>LOGIN</span><span class=rvts61> [domain\user] </span><span class=rvts64>FROM</span><span class=rvts61> </span><span class=rvts64>WINDOWS</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a user account for an existing windows user</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>LOGIN</span><span class=rvts61> </span><span class=rvts63>...</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>LOGIN</span><span class=rvts61> </span><span class=rvts63>...</span></p>
+<p><span class=rvts63><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Authentication (database users)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>USER</span><span class=rvts61> database_user </span><span class=rvts64>FOR</span><span class=rvts61> </span><span class=rvts64>LOGIN</span><span class=rvts61> server_login&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a database user based on an existing server account</span></p>
+<p><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>DEFAULT_SCHEMA</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> my_schema</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- optionally set the default schema for the user</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>USER</span><span class=rvts61> database_user&nbsp; </span><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>PASSWORD</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts66>'***'</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp; </span><span class=rvts62>-- create a standalone user in a contained database</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>USER</span><span class=rvts61> </span><span class=rvts63>...;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- modify or delete a database user</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>USER</span><span class=rvts61> </span><span class=rvts63>...;</span></p>
+<p><span class=rvts63><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Roles</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>SERVER</span><span class=rvts61> </span><span class=rvts64>ROLE</span><span class=rvts61> my_role</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a new server-wide role</span></p>
+<p><span class=rvts64>ALTER</span><span class=rvts61> </span><span class=rvts64>SERVER</span><span class=rvts61> </span><span class=rvts64>ROLE</span><span class=rvts61> my_role </span><span class=rvts64>ADD</span><span class=rvts61> MEMBER my_user</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- add/remove members from a role</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>SERVER</span><span class=rvts61> </span><span class=rvts64>ROLE</span><span class=rvts61> my_role</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- delete a server-wide role</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>ROLE</span><span class=rvts61> my_role</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- create a new database-specific role</span></p>
+<p><span class=rvts64>ALTER ROLE</span><span class=rvts61> my_role </span><span class=rvts64>ADD</span><span class=rvts61> MEMBER my_user</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- add/remove members from a role</span></p>
+<p><span class=rvts64>DROP</span><span class=rvts61> </span><span class=rvts64>ROLE</span><span class=rvts61> my_role</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- delete a database-specific role</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Authorisation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>GRANT</span><span class=rvts61> </span><span class=rvts63>{</span><span class=rvts61> </span><span class=rvts64>SELECT</span><span class=rvts63>|</span><span class=rvts64>INSERT</span><span class=rvts63>|</span><span class=rvts67>UPDATE</span><span class=rvts63>|</span><span class=rvts64>DELETE</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- grant a permission</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>|</span><span class=rvts64>REFERENCES</span><span class=rvts63>|</span><span class=rvts64>EXECUTE</span><span class=rvts63>|</span><span class=rvts64>CONTROL</span><span class=rvts63>|</span><span class=rvts64>ALTER</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>|</span><span class=rvts64>TAKE</span><span class=rvts61> </span><span class=rvts64>OWNERSHIP</span><span class=rvts63>|</span><span class=rvts64>VIEW</span><span class=rvts61> </span><span class=rvts64>DEFINITION</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts63>|</span><span class=rvts64>CREATE</span><span class=rvts61> </span><span class=rvts64>TABLE</span><span class=rvts63>/</span><span class=rvts64>PROCEDURE</span><span class=rvts63>/...}</span><span class=rvts61> </span></p>
+<p><span class=rvts64>ON</span><span class=rvts61> my_object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- for the given object (can also be my_table(col1, col2))</span></p>
+<p><span class=rvts64>TO</span><span class=rvts61> user_or_role_1</span><span class=rvts63>,</span><span class=rvts61> user_or_role_2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- to the given user</span></p>
+<p><span class=rvts64>WITH</span><span class=rvts61> </span><span class=rvts64>GRANT</span><span class=rvts61> </span><span class=rvts64>OPTION</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- allow the user to grant the permission to a third user</span></p>
+<p><span class=rvts64>AS</span><span class=rvts61> principal</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>DENY</span><span class=rvts61> permission </span><span class=rvts64>ON</span><span class=rvts61> my_object </span><span class=rvts64>TO</span><span class=rvts61> my_user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- deny a permission</span></p>
+<p><span class=rvts64>CASCADE</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- also deny it from any other user that was granted the right by this user</span></p>
+<p><span class=rvts64>AS</span><span class=rvts61> principal</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>REVOKE</span><span class=rvts61> persmission </span><span class=rvts64>ON</span><span class=rvts61> my_object </span><span class=rvts64>FROM</span><span class=rvts61> my_user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- revoke a previously granted permission</span></p>
+<p><span class=rvts64>CASCADE</span></p>
+<p><span class=rvts64>AS</span><span class=rvts61> principal</span></p>
+<p><span class=rvts61><br></span></p>
+<p><br></p>
+<p><br></p>
+

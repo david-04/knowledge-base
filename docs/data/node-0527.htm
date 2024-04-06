@@ -1,0 +1,76 @@
+
+<div id='nodeSection1'>Socket.IO WebSocket server</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> socketIo = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'socket.io'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install socket.io</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> wsServer = socketIo.listen(4000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start up the WebSocket server and listen for connections</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>wsServer.sockets.on(</span><span class=rvts42>'connection'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(socket){ </span><span class=rvts39>// emitted when a client connects</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket.on(</span><span class=rvts42>'myRequest'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(content) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// event names can be chosen freely</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.emit(</span><span class=rvts42>'myReponse'</span><span class=rvts41>, </span><span class=rvts42>'Hi there'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send a resonse to the client (the event name can be chosen freely)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.broadcast.emit(</span><span class=rvts42>'myReponse'</span><span class=rvts41>, </span><span class=rvts42>'...'</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// send a message to all connected clients</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.join(</span><span class=rvts42>'myRoom'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add the socket/client to a virtual room</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.broadcast.to(</span><span class=rvts42>'myRoom'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send a message to all clients connected to the given virtual room</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .emit(</span><span class=rvts42>'myResponse'</span><span class=rvts41>, </span><span class=rvts42>'...'</span><span class=rvts41>); </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.leave(</span><span class=rvts42>'myRoom'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove the socket/client from the virtual room</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.set(</span><span class=rvts42>'key'</span><span class=rvts41>, value, </span><span class=rvts45>function</span><span class=rvts41>(err) { });</span><span class=rvts39>// set a property for the current socket (e.g. username) and call the function when done</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket.get(</span><span class=rvts42>'key'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(err, value) { });</span><span class=rvts39>// get a property from the current socket and call the function when it is available</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket.on(</span><span class=rvts42>'disconnect'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> () { });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// emitted when a client disconnects</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>wsServer.of(</span><span class=rvts42>'/chat'</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// handle only client connections to 127.0.0.1:4000/chat</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .on(</span><span class=rvts42>'connection'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (socket) { });</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Client implementation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="</span><span class=rvts180>localhost:4000</span><a class=rvts51 href="http://localhost:4000/socket.io/socket.io.js">/socket.io/socket.io.js</a><span class=rvts45>"&gt;</span><span class=rvts91>&lt;!-- load the client library --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> socket = io.connect(</span><span class=rvts42>'http://localhost:4000'</span><span class=rvts41>);&nbsp;&nbsp; </span><span class=rvts39>// open a WebSockets connection</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>socket.on(</span><span class=rvts42>'myResponse'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (content) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// subscribe to server messages (the event name can be chosen freely)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; alert(content);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>socket.emit(</span><span class=rvts42>'myRequest'</span><span class=rvts41>, </span><span class=rvts42>'...'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send data to the server (the event name can be chosen freely)</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Running Socket.IO on top of a regular HTTP server</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> http = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'http'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP server library</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> socketIo = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'socket.io'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install socket.io</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>server = http.createServer(</span><span class=rvts45>function</span><span class=rvts41>(req, resp){});&nbsp; </span><span class=rvts39>// instantiate a regular HTTP server</span></p>
+<p><span class=rvts41>server.listen(4000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// start up the server and listen to requests</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> wsServer = socketIo.listen(server);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// attach the WebSocket server to the HTTP server (it intercepts requests to /socket.io/*)</span></p>
+<p><span class=rvts41>wsServer.sockets.on(</span><span class=rvts42>'connection'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(socket){ </span><span class=rvts39>// process requests</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; socket.on(</span><span class=rvts42>'clientMessage'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (data) { });</span><span class=rvts39>// process WebSocket requests in the usual way</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45><br></span></p>
+<div id='nodeSection4'>Storing session data in a separate process using Redis</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> redis&nbsp; = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'redis'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install redis</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> sRedis = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'socket.io/lib/stores/redis'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> host = </span><span class=rvts42>'my.host.name'</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the host and port to run Redis on</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> port = 6379;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>socketIoServer.set(</span><span class=rvts42>'store'</span><span class=rvts41>, </span><span class=rvts45>new</span><span class=rvts41> sRedis({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// assign Redis as the data store</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; redisPub: redis.createClient(port, host),</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; redisSub: redis.createClient(port, host),</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; redisClient: redis.createClient(port, host)</span></p>
+<p><span class=rvts41>}));</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

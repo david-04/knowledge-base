@@ -1,0 +1,136 @@
+
+<div id='nodeSection1'>Select syntax</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts137>Result</span><span class=rvts124>&lt;</span><span class=rvts137>Record</span><span class=rvts124>&gt; result =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// a simple select() returns a generic (untyped) record</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; create.select().from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).fetch();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts137>Result</span><span class=rvts124>&lt;</span><span class=rvts137>Record2</span><span class=rvts124>&lt;</span><span class=rvts138>Long</span><span class=rvts124>, </span><span class=rvts138>String</span><span class=rvts124>&gt;&gt; result =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// typed projections of up to 22 fields are supported</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>create.select(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID, </span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CRN)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).fetch();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts137>Result</span><span class=rvts124>&lt;</span><span class=rvts138>EndcustomersRecord</span><span class=rvts124>&gt; result&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// when using the selectFrom(), the result is strongly typed</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>create.selectFrom(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).fetch();</span></p>
+<p class=rvps12><span class=rvts7><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>SELECT</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.select()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// SELECT *</span></p>
+<p><span class=rvts124><br></span></p>
+<p><span class=rvts124>.select(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID, </span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CRN)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// projections</span></p>
+<p><span class=rvts124>.selec</span><span class=rvts116>tDistinct</span><span class=rvts124>(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CRN)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>.selectCount()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// SELECT count(*)</span></p>
+<p><span class=rvts124>.selectZero()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// SELECT 0</span></p>
+<p><span class=rvts124>.selectOne()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// SELECT 1</span></p>
+<p><span class=rvts116><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>FROM</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>.from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// from one table</span></p>
+<p><span class=rvts124>.from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts139>,</span><span class=rvts133> LICENSES</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// from multiple tables</span></p>
+<p class=rvps12><span class=rvts124>.from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.as(</span><span class=rvts128>"ec"</span><span class=rvts124>), </span><span class=rvts133>LICENSES</span><span class=rvts124>.as(</span><span class=rvts128>"l"</span><span class=rvts124>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// aliasing tables</span></p>
+<p><span class=rvts75><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>JOIN</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.join(</span><span class=rvts133>LICENSES</span><span class=rvts124>).on(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// join within the FROM clause (joins can be nested)</span></p>
+<p class=rvps12><span class=rvts133>&nbsp;&nbsp;&nbsp; ENDCUSTOMERS</span><span class=rvts124>.CURRENTLICENSEID.eq(</span><span class=rvts133>LICENSES</span><span class=rvts124>.ID)</span></p>
+<p class=rvps12><span class=rvts124>))</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).join(</span><span class=rvts133>LICENSES</span><span class=rvts124>).on(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// alternative syntax</span></p>
+<p class=rvps12><span class=rvts133>&nbsp;&nbsp;&nbsp; ENDCUSTOMERS</span><span class=rvts124>.CURRENTLICENSEID.eq(</span><span class=rvts133>LICENSES</span><span class=rvts124>.ID)</span></p>
+<p class=rvps12><span class=rvts124>)</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.join(</span><span class=rvts133>LICENSES</span><span class=rvts124>).onKey()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// join based on the foreign keys extracted during the code generation</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.join(</span><span class=rvts133>LICENSES</span><span class=rvts124>).using(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.LICENSEID_ID)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// join on a field that is present (with the same name) in both tables</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>.naturalJoin(</span><span class=rvts133>LICENSES</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// join on all fields that have the same name in both tables</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.leftSemiJoin(</span><span class=rvts133>LICENSES</span><span class=rvts124>).on(</span><span class=rvts135>...</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// simulates a SELECT ... WHERE EXISTS (...)</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.leftAntiJoin(</span><span class=rvts133>LICENSES</span><span class=rvts124>).on(</span><span class=rvts135>...</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// simulates a SELECT ... WHERE NOT EXISTS (...)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>WHERE</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.where(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID.lt(250l))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// SQL style conditions</span></p>
+<p class=rvps12><span class=rvts124>.and(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CRN.isNotNull())</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.where(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// compound conditions (can be nested)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID.lt(250l).and(...)</span></p>
+<p class=rvps12><span class=rvts124> )</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>GROUP BY</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.select(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY, </span><span class=rvts134>count</span><span class=rvts124>())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; .groupBy(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>.groupBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// condense all records into one result row</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.having(</span><span class=rvts134>count</span><span class=rvts124>().ge(2))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// HAVING clause</span></p>
+<p><span class=rvts75><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>ORDER BY</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.orderBy(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID.asc(),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// order by selected fields</span></p>
+<p class=rvps12><span class=rvts133>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ENDCUSTOMERS</span><span class=rvts124>.CITY.desc())</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>.orderBy(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID.asc().nullsLast())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// sort NULL values to the end</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.orderBy(</span></p>
+<p class=rvps12><span class=rvts134>&nbsp;&nbsp;&nbsp; choose</span><span class=rvts124>(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY).when(</span><span class=rvts128>"Melbourne"</span><span class=rvts124>, 0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// creates a CASE statement (Melbourne first, then Geelong, then the rest)</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .when(</span><span class=rvts128>"Geelong"</span><span class=rvts124>, 1)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .otherwise(2).asc()</span></p>
+<p class=rvps12><span class=rvts124>)</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.orderBy(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY.sort(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// establish the sort order programatically</span></p>
+<p class=rvps12><span class=rvts130>&nbsp;&nbsp;&nbsp; new </span><span class=rvts138>HashMap</span><span class=rvts124>&lt;</span><span class=rvts138>String</span><span class=rvts124>, </span><span class=rvts138>Integer</span><span class=rvts124>&gt;() {{</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; put(</span><span class=rvts128>"Melbourne"</span><span class=rvts124>, 1);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; put(</span><span class=rvts128>"Geelong"</span><span class=rvts124>, 2);</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; }}</span></p>
+<p class=rvps12><span class=rvts124>))</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.orderBy(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY.sortAsc(</span><span class=rvts128>"Melbourne"</span><span class=rvts124>, </span><span class=rvts135>...</span><span class=rvts124>))&nbsp;&nbsp; </span><span class=rvts125>// shortcut for the above (Melbourne first, ...)</span></p>
+<p class=rvps12><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Other</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.limit(10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// retrieve only so many records</span></p>
+<p class=rvps12><span class=rvts124>.offset(20)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// start retrieving records at this position</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>.forUpdate()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// lock the (whole) record for writing</span></p>
+<p class=rvps12><span class=rvts124>.forUpdate().of(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY)</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// only supported by some databases</span></p>
+<p class=rvps12><span class=rvts124>.forUpdate().nowait()</span></p>
+<p class=rvps12><span class=rvts124>.forUpdate().wait(5)</span></p>
+<p class=rvps12><span class=rvts124>.forUpdate().skipLocked()</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>.hint()</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// compiler hints (for the optimizer)</span></p>
+<p><span class=rvts75><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>UNION</div>
+<p><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>.select().from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).union(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// UNION</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; create.selectFrom(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>)</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.union(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.unionAll(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.intersect(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.intersectAll(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.except(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.exceptAll(</span><span class=rvts135>...</span><span class=rvts124>)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection10'>Fetch</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>.fetch()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// returns Result&lt;Record&gt;</span></p>
+<p class=rvps12><span class=rvts124>.fetchOne()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// fetches only one matching record</span></p>
+<p class=rvps12><span class=rvts124>.fetchAny()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts124>.fetchArray()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// returns Record[]</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

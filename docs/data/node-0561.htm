@@ -1,0 +1,46 @@
+
+<div id='nodeSection1'>POP3</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'net/pop'</span><span class=rvts262>                           </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>begin</span></p>
+<p class=rvps12><span class=rvts262>  mail_server = </span><span class=rvts267>Net</span><span class=rvts262>::</span><span class=rvts267>POP3</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>'mail.com'</span><span class=rvts262>)   </span><span class=rvts263># connect to a POP3 server</span></p>
+<p class=rvps12><span class=rvts262>  mail_server.start(</span><span class=rvts266>'username'</span><span class=rvts262>, </span><span class=rvts266>'password'</span><span class=rvts262>) </span><span class=rvts263># authenticate the user</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>unless</span><span class=rvts262> mail_server.mails.empty?           </span><span class=rvts263># check if there are mails</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> mail_server.mails.length           </span><span class=rvts263># count the number of pending emails</span></p>
+<p class=rvps12><span class=rvts262>    mail_server.mails.each </span><span class=rvts265>do</span><span class=rvts262> |mail|</span></p>
+<p class=rvps12><span class=rvts262>      header = item.header                  </span><span class=rvts263># get the email header (only)</span></p>
+<p class=rvps12><span class=rvts262>      message = item.pop                    </span><span class=rvts263># download the whole message with headers, body and attachments</span></p>
+<p class=rvps12><span class=rvts262>      item.delete                           </span><span class=rvts263># delete email</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>rescue</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Mail error"</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>SMTP</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'net/smtp'</span><span class=rvts262>                          </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Net</span><span class=rvts262>::</span><span class=rvts267>SMTP</span><span class=rvts262>.start(                            </span><span class=rvts263># open connection to the SMTP server</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts266>'smtp.mail.com'</span><span class=rvts262>, 25,                      </span><span class=rvts263># SMTP server name</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts266>'localhost'</span><span class=rvts262>,                              </span><span class=rvts263># identifies the client</span><span class=rvts273>’</span><span class=rvts263>s hostname (reported to the server?)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts266>'user'</span><span class=rvts262>, </span><span class=rvts266>'password'</span><span class=rvts262>,                       </span><span class=rvts263># credentials</span></p>
+<p class=rvps12><span class=rvts262>  :plain                                    </span><span class=rvts263># plain text (?)</span></p>
+<p class=rvps12><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |smtp|</span></p>
+<p class=rvps12><span class=rvts262>  smtp.send_message(                        </span><span class=rvts263># send a message</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>%q{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263># the message including from/to/subject headers</span></p>
+<p class=rvps12><span class=rvts266>      From: Me &lt;</span><a class=rvts272 href="mailto:me@home.com">me@home.com</a><span class=rvts266>&gt;</span></p>
+<p class=rvps12><span class=rvts266>      To: You &lt;</span><a class=rvts272 href="mailto:you@home.com">you@home.com</a><span class=rvts266>&gt;</span></p>
+<p class=rvps12><span class=rvts266>      Subject: SMTP email test</span></p>
+<p class=rvps12><span class=rvts266>      This is a test email message.</span></p>
+<p class=rvps12><span class=rvts266>    }</span><span class=rvts262>,</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>'</span><a class=rvts272 href="mailto:me@home.com">me@home.com</a><span class=rvts266>'</span><span class=rvts262>,                          </span><span class=rvts263># the sender address (the one from the message above is not being used)</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>'</span><a class=rvts272 href="mailto:you@home.com">you@home.com</a><span class=rvts266>'</span><span class=rvts262>                          </span><span class=rvts263># the recipient address (the one from the message above is not being used)</span></p>
+<p class=rvps12><span class=rvts262>  )</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

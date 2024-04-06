@@ -1,0 +1,44 @@
+
+<div id='nodeSection1'>Profiling</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.setProfilingLevel(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable profiling (2=log everything, 1=log only slow operations [&gt;100ms])</span></p>
+<p><span class=rvts41>db.setProfilingLevel(1, 500)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable profiling for all operatins that take longer than 500ms</span></p>
+<p><span class=rvts41>db.setProfilingLevel(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// disable profiling</span></p>
+<p><span class=rvts41>db.getProfilingLevel()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check the current profiling level (it's reset upon each server restart)</span></p>
+<p><span class=rvts41>db.system.profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// contains profiling information for every command (capped collection)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection2'>Pre-caching data</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>&gt; </span><span class=rvts45>for</span><span class=rvts41> file </span><span class=rvts45>in</span><span class=rvts41> </span><span class=rvts46>/data/</span><span class=rvts41>db/mydatabase.*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// preload all database files into the RAM, so that the server</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>do</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can quickly access it once it has been started</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dd </span><span class=rvts45>if</span><span class=rvts41>=$file of=</span><span class=rvts46>/dev/</span><span class=rvts45>null</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>db.runCommand({</span><span class=rvts42>"touch"</span><span class=rvts41> : </span><span class=rvts42>"mycollection"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// load the given collection into the RAM</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"data"</span><span class=rvts41> : </span><span class=rvts45>true</span><span class=rvts41>, </span><span class=rvts42>"index"</span><span class=rvts41> : </span><span class=rvts45>true</span><span class=rvts41>})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// include the data and its indexes</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>db.mycollection.find({}, {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// force a certain index to be loaded into the RAM</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"_id"</span><span class=rvts41> : 0, </span><span class=rvts42>"friends"</span><span class=rvts41> : 1, </span><span class=rvts42>"date"</span><span class=rvts41> : 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// request NOT to return the _id as this would cause a document lookup</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }).hint({</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"friends"</span><span class=rvts41> : 1, </span><span class=rvts42>"date"</span><span class=rvts41> : 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// request that the given index should be used</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }).explain()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// apply explain to force MongoDB to iterate through the whole result cursor</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>lastWeek = (</span><span class=rvts45>new</span><span class=rvts41> Date(2016, 10, 5)).getTime()/1000&nbsp;&nbsp; </span><span class=rvts39>// calculate a date in the past (e.g. one week ago)</span></p>
+<p><span class=rvts41>hexSecs = lastWeek.toString(16)</span></p>
+<p><span class=rvts41>minId = ObjectId(hexSecs+</span><span class=rvts42>"0000000000000000"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create the slowest possible object ID</span></p>
+<p><span class=rvts41>db.logs.find({</span><span class=rvts42>"_id"</span><span class=rvts41> : {</span><span class=rvts42>"$gt"</span><span class=rvts41> : minId}}).explain()&nbsp;&nbsp; </span><span class=rvts39>// load all documents with a higher object ID (e.g. created last week)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection3'>Capture and replay</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"diagLogging"</span><span class=rvts41> : 2})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enable "capture reads" (2), "capture writes" (1), "capture both" (3)</span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"diagLogging"</span><span class=rvts41> : 0})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// disable all capturing when done</span></p>
+<p><span class=rvts41>&gt; nc myhost 27017 &lt; </span><span class=rvts46>/data/</span><span class=rvts41>db/diaglog* | hexdump -c&nbsp; </span><span class=rvts39>// send the captured requests to a mongod server (replay)</span></p>
+<p><span class=rvts41>db.adminCommand({</span><span class=rvts42>"diagLogging"</span><span class=rvts41> : 0})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the replay will re-enable diaglog captures, deactivate them afterwards</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

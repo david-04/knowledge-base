@@ -1,0 +1,47 @@
+
+<div id='nodeSection1'>If</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>if </span><span class=rvts124>$name == </span><span class=rvts128>'David'</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; ...</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>elseif </span><span class=rvts124>$id == 170}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; ...</span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>else</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; ...</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>if</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Switch</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>switch </span><span class=rvts124>$numMarbles}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>case </span><span class=rvts124>0}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You have no marbles.</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>case </span><span class=rvts124>1, 2, 3}</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You have a few marbles.</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; {</span><span class=rvts130>default</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>You have many marbles.</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>switch</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>For</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts124>{</span><span class=rvts130>for </span><span class=rvts124>$i in range(10)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... {/</span><span class=rvts130>for</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// 0...9</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p><span class=rvts124>{</span><span class=rvts130>for </span><span class=rvts124>$i in range(5, 10)}&nbsp;&nbsp;&nbsp; ... {/</span><span class=rvts130>for</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// 5...9</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p><span class=rvts124>{</span><span class=rvts130>for </span><span class=rvts124>$i in range(5, 10, 2)} ... {/</span><span class=rvts130>for</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// 5, 7, 9</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Foreach</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>{</span><span class=rvts130>foreach </span><span class=rvts124>$item in $collection}</span></p>
+<p><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>{</span><span class=rvts130>if </span><span class=rvts124>isFirst($item)} ... {/</span><span class=rvts130>if</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// only during the first iteration</span></p>
+<p><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>{</span><span class=rvts130>if </span><span class=rvts124>isLast($item)} ... {/</span><span class=rvts130>if</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// only during the last iteration</span></p>
+<p><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>index($item)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// zero-based iteration counter</span></p>
+<p><span class=rvts124>{</span><span class=rvts130>ifempty</span><span class=rvts124>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=rvts163> </span><span class=rvts125>// use the below content if the collection is empty</span></p>
+<p class=rvps12><span class=rvts163>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>...</span></p>
+<p class=rvps12><span class=rvts124>{/</span><span class=rvts130>foreach</span><span class=rvts124>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

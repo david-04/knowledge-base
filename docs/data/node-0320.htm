@@ -1,0 +1,47 @@
+
+<div id='nodeSection1'>Output parameters</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Add(</span><span class=rvts58>int</span><span class=rvts183> x1, </span><span class=rvts58>int</span><span class=rvts183> x2, </span><span class=rvts50>out</span><span class=rvts183> </span><span class=rvts58>int</span><span class=rvts183> sum)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; sum = x1 + x2;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>Add(1, 2, </span><span class=rvts50>out</span><span class=rvts183> sum);</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Call by reference</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Square(</span><span class=rvts58>ref</span><span class=rvts183> </span><span class=rvts58>int</span><span class=rvts183> x)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; x *= 2;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>Square(</span><span class=rvts58>ref</span><span class=rvts183> x);</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Variable argument list</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>string</span><span class=rvts183> Concat(</span><span class=rvts58>params</span><span class=rvts183> </span><span class=rvts110>Object</span><span class=rvts183>[] values)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>StringBuilder</span><span class=rvts183> result = </span><span class=rvts58>new</span><span class=rvts183> </span><span class=rvts110>StringBuilder</span><span class=rvts183>();</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts110>Object</span><span class=rvts183> obj </span><span class=rvts58>in</span><span class=rvts183> values)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result.Append(obj.ToString()).Append(</span><span class=rvts184>" "</span><span class=rvts183>);</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> result.ToString();</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>Concat(1, 2, </span><span class=rvts184>"abc"</span><span class=rvts183>);</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Optional and named parameters</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>string</span><span class=rvts183> Greet(</span><span class=rvts58>string</span><span class=rvts183> firstName, </span><span class=rvts58>string</span><span class=rvts183> lastName = </span><span class=rvts184>""</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> </span><span class=rvts184>"Hello "</span><span class=rvts183> + firstName + </span><span class=rvts184>" "</span><span class=rvts183> + lastName;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>Greet(firstName: </span><span class=rvts184>"David"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183>Greet(lastName:&nbsp; </span><span class=rvts184>"Hofmann"</span><span class=rvts183>, firstName: </span><span class=rvts184>"David"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

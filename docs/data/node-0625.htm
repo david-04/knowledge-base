@@ -1,0 +1,105 @@
+
+<div id='nodeSection1'>Defining modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>const</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; MY_VARIABLE: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"1.0"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can export variables, constants, functions, classes, interfaces, ...</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41>&nbsp; myFunction() { }</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IMyInterface</span><span class=rvts41> { }</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MyClass</span><span class=rvts41> { }</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>enum</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MyEnum</span><span class=rvts41> { }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>default</span><span class=rvts41> </span><span class=rvts43>myFunction</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// export this object as the (main and single) default (see import syntax below)</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> = {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>discouraged</span><span class=rvts39>: this syntax is exclusive and can't be combined with the</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; VERSION: </span><span class=rvts42>"1.0"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// above ones; only one element (which also becomes the default) is exported</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; myFunction() { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// (it </span><span class=rvts44>must be imported via the require() syntax</span><span class=rvts39>, see below)</span></p>
+<p><span class=rvts41>};</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> { myFunction, MY_VARIABLE }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can export objects defined (but not necessarily exported) before</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> { myFunction </span><span class=rvts45>as</span><span class=rvts41> myImprovedFunction }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// objects can be exported under an alias</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> { run </span><span class=rvts45>as</span><span class=rvts41> execute } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./another-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// re-export selected elements from another module (without importing it here)</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> * </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./another-module"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// re-export all elements from another module (without importing them into the current one)</span></p>
+<p><span class=rvts45>export</span><span class=rvts41> * as alias </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./another-module"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// re-export all elements from another module combined in one name export</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>export </span><span class=rvts178>type</span><span class=rvts41> { </span><span class=rvts110>MyClass</span><span class=rvts41> };&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// only export the type</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Importing modules</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { VERSION, myFunction } </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// import selected elements only</span></p>
+<p><span class=rvts45>import</span><span class=rvts41> { VERSION </span><span class=rvts45>as</span><span class=rvts41> version }&nbsp; </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// import elements under an alias name</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> * </span><span class=rvts45>as</span><span class=rvts41> myModule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// import everything into a namespace; synonym to the require() syntax (see below)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// run the module for side effects only, don't import anything</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> myDefaultImport&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// import the element that was exported as default (</span><span class=rvts44>no curly braces</span><span class=rvts39>)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> myModule = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>"./my-module"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the only supported import mechanism for modules using the export= syntax</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>import </span><span class=rvts178>type</span><span class=rvts41> { myFunction }&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// import only the type (is erased during transpiling - makes it easier for babel/webpack to ignore it)</span></p>
+<p><span class=rvts45>import </span><span class=rvts178>type</span><span class=rvts41> * as myTypes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// import all types</span></p>
+<p><span class=rvts45>import </span><span class=rvts41>{ x, </span><span class=rvts45>type </span><span class=rvts41>myFunction }&nbsp; </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./my-module"</span><span class=rvts41>;&nbsp; </span><span class=rvts39>// can be applied to individual import members only</span></p>
+<p><span class=rvts45><br></span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> module = </span><span class=rvts64>await</span><span class=rvts251> import(</span><span class=rvts289>"./module"</span><span class=rvts251>);            </span><span class=rvts252>// lazy-load a module (only) when needed</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> json </span><span class=rvts45>from</span><span class=rvts41> </span><span class=rvts42>"./a.json" </span><span class=rvts45>with</span><span class=rvts41> { </span><span class=rvts64>type</span><span class=rvts41>: </span><span class=rvts289>"json"</span><span class=rvts251> </span><span class=rvts41>}&nbsp;&nbsp; </span><span class=rvts39>// prevent malicious JavaScript in a.jsaon from being executed</span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> json = </span><span class=rvts64>await</span><span class=rvts251> import(</span><span class=rvts289>"./a.json"</span><span class=rvts251>, {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// also works with dynamic imports</span></p>
+<p><span class=rvts45>&nbsp; with</span><span class=rvts41>: { </span><span class=rvts64>type</span><span class=rvts41>: </span><span class=rvts289>"json"</span><span class=rvts251> </span><span class=rvts41>}</span></p>
+<p class=rvps12><span class=rvts251>});</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Importing JSON</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>import</span><span class=rvts251> settings </span><span class=rvts64>from</span><span class=rvts251> </span><span class=rvts289>"./settings.json"</span><span class=rvts251>;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// compiles object literal from JSON, requires --resolveJsonModule switch</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts45><br></span></p>
+<div id='nodeSection4'>Conditional loading</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>import</span><span class=rvts251> { MyClass </span><span class=rvts64>as</span><span class=rvts251> MyClassTmp } </span><span class=rvts64>from</span><span class=rvts251> </span><span class=rvts289>"./module"</span><span class=rvts251>;   </span><span class=rvts252>// import the class under an alias name</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>if</span><span class=rvts251> (needZipValidation) {                            </span><span class=rvts252>// only if the class is really needed...</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>type</span><span class=rvts251> </span><span class=rvts288>MyClassType</span><span class=rvts251> = </span><span class=rvts64>typeof</span><span class=rvts251> MyClassTmp;           </span><span class=rvts252>// infer the type from the alias import</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>let</span><span class=rvts251> MyClass: </span><span class=rvts288>MyClassType</span><span class=rvts251> = require(</span><span class=rvts289>"./module"</span><span class=rvts251>); </span><span class=rvts252>// load the module via "require"</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>let</span><span class=rvts251> myClass = </span><span class=rvts64>new</span><span class=rvts251> MyClass();                    </span><span class=rvts252>// use the class</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts296><br></span></p>
+<p><span class=rvts45><br></span></p>
+<div id='nodeSection5'>AMD with RequireJS</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>PM&gt; install RequireJS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// install RequireJS and the corresponding typings</span></p>
+<p><span class=rvts41>PM&gt; install requirejs.TypeScript.DefinitelyTyped</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>tsc --module amd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// switch the compiler to AMD mode</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> sayHello(name: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts45>void</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>mylib.ts</span><span class=rvts39>: export symbols from</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>"Hello "</span><span class=rvts41> + name);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> mylib = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>"./mylib"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>app.ts</span><span class=rvts39>: import the module into the main program</span></p>
+<p><span class=rvts41>mylib.sayHello(</span><span class=rvts42>"David"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>require</span><span class=rvts41>.config({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>module-config.ts</span><span class=rvts39>: configre the libraries and dependencies</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; baseUrl: </span><span class=rvts42>"."</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all modules are found at or below this base path</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; paths: {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"mylib"</span><span class=rvts41>: </span><span class=rvts42>"/mymodules/mylib"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the file ./mymodules/mylib.js is aliased as "mylib"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; shim: {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mylib: {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// provide further configuration for the modules</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deps: [</span><span class=rvts42>"myotherlib"</span><span class=rvts41>],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// dependency: mylib requires myotherlib to be loaded first</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exports: </span><span class=rvts42>"mylib"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the namespace under which the library exposes its exports</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts45>require</span><span class=rvts41>([</span><span class=rvts42>"mylib"</span><span class=rvts41>], (jb) =&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>module-config.ts</span><span class=rvts39>: load all the required libraries</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>require</span><span class=rvts41>([</span><span class=rvts42>"app.js"</span><span class=rvts41>], () =&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and then load the main application file(s)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (&lt;</span><span class=rvts45>any</span><span class=rvts41>&gt;window).onload();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... and then trigger some code executed (this version doesn't work)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>script</span><span class=rvts41> </span><span class=rvts90>src</span><span class=rvts45>="Scripts/require.js"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- load only require.js and neither modules nor the main applicaiton --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>data-main</span><span class=rvts45>="/module-config.ts"&gt;&lt;/</span><span class=rvts46>script</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- require will load this file and process the require commands&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

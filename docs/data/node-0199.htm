@@ -1,0 +1,54 @@
+
+<div id='nodeSection1'>Transactions</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Savepoint sp = Database.setSavepoint();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a restore point within the running transaction</span></p>
+<p class=rvps12><span class=rvts124>Database.rollback(sp);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// revert back to the previously set restore point</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Bulk operations</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>for</span><span class=rvts124>(Contact contact : contacts) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// each Apex transaction can process a maximum of 150 DML statements</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>contact.Description__c = </span><span class=rvts128>'New description'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; update contact;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// </span><span class=rvts126>not recommended</span><span class=rvts125>: performing each statement individually is likely to hit the limit</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>List&lt;Contact&gt; updatedList = </span><span class=rvts130>new </span><span class=rvts124>List&lt;Contact&gt;();&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// </span><span class=rvts126>better</span><span class=rvts125>: use a list to cache all updates</span></p>
+<p class=rvps12><span class=rvts130>for</span><span class=rvts124>(Contact contact : contacts) {</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; contact.Description=</span><span class=rvts128>'New description'</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; updatedList.add(contact);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// queue the changes</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>update updatedList;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// a bulk update counts as 1 DML transaction only</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>DML vs Database</div>
+<p class=rvps12><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>update updatedList;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// even if only one record's update fails, an exception is thrown</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts124>Database.SaveResult[] result = Database.update(&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// alternative: use the built-in Database class</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts124>updatedList, </span><span class=rvts130>false</span><span class=rvts124>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ... and set the 2nd parameter to false to continue even if errors occurred</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>for</span><span class=rvts124>(Database.Error err : result.getErrors()) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// access errors that might have occurred</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>System.debug(err.getMessage());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// and err.getStatusCode()</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Query options</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Database.DMLOptions options = </span><span class=rvts130>new </span><span class=rvts124>Database.DMLOptions();</span></p>
+<p class=rvps12><span class=rvts125>// configure the options</span></p>
+<p class=rvps12><span class=rvts124>Account account = </span><span class=rvts130>new </span><span class=rvts124>Account(...);</span></p>
+<p class=rvps12><span class=rvts124>account.setOptions(options);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// set the options for this particular object</span></p>
+<p class=rvps12><span class=rvts124>insert account;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// run the DML command with the options</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts124>options.allowFieldTruncation = </span><span class=rvts130>true</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// silently truncate values that are too long</span></p>
+<p class=rvps12><span class=rvts124>options.optAllOrNone = </span><span class=rvts130>true</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// run in one transaction, all succeed or all fail</span></p>
+<p class=rvps12><span class=rvts124>options.DuplicateRuleHeader.AllowSave = </span><span class=rvts130>true</span><span class=rvts124>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// even save if the record is considered a duplicate</span></p>
+<p class=rvps12><span class=rvts124>options.EmailHeader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// configure the email notification sent to those who follow the record</span></p>
+<p class=rvps12><span class=rvts124>options.assignmentRuleHeader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// </span><a class=rvts132 href="https://developer.salesforce.com/docs/atlas.en-us.apexcode">https://developer.salesforce.com/docs/atlas.en-us.apexcode</a><span class=rvts125> .meta/apexcode/langCon_apex_dml_database_dmloptions.htm</span></p>
+<p class=rvps12><span class=rvts124>options.localeOptions</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><br></p>
+<p><br></p>
+

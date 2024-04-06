@@ -1,0 +1,38 @@
+
+<div id='nodeSection1'>Configuring the SMTP server in Web.config</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.net</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>mailSettings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>smtp</span><span class=rvts45> </span><span class=rvts90>deliveryMethod</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>Network</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>from</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>David </span><span class=rvts90>&amp;lt;</span><span class=rvts180>me@my-domain.com</span><span class=rvts90>&amp;gt;</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>network</span><span class=rvts45> </span><span class=rvts90>host</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>127.0.0.1</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>userName</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>UserName</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>password</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>Password</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>port</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>587</span><span class=rvts41>" </span><span class=rvts90>enableSsl</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>true</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>smtp</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>mailSettings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>system.net</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Creating files instead of sending messages</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.net</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>mailSettings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>smtp</span><span class=rvts45> </span><span class=rvts90>deliveryMethod</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>SpecifiedPickupDirectory</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>from</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>David </span><span class=rvts90>&amp;lt;</span><span class=rvts180>me@my-domain.com</span><span class=rvts90>&amp;gt;</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>specifiedPickupDirectory</span><span class=rvts45> </span><span class=rvts90>pickupDirectoryLocation</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>R:\Temp</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>smtp</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>mailSettings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>system.net</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Sending mails</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts171>MailMessage</span><span class=rvts41> myMessage = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>MailMessage</span><span class=rvts41>();</span></p>
+<p><span class=rvts41>myMessage.Subject = </span><span class=rvts42>"Test Message"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>myMessage.Body = </span><span class=rvts42>"Hello world!"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>myMessage.From = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>MailAddress</span><span class=rvts41>(</span><span class=rvts42>"</span><a class=rvts51 href="mailto:admin@my-domain.com">admin@my-domain.com</a><span class=rvts42>"</span><span class=rvts41>, </span><span class=rvts42>"Admin"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>myMessage.To.Add(</span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>MailAddress</span><span class=rvts41>(</span><span class=rvts42>"</span><a class=rvts51 href="mailto:user@my-domain.com">user@my-domain.com</a><span class=rvts42>"</span><span class=rvts41>, </span><span class=rvts42>"User"</span><span class=rvts41>));</span></p>
+<p><span class=rvts171>SmtpClient</span><span class=rvts41> mySmtpClient = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>SmtpClient</span><span class=rvts41>();</span></p>
+<p><span class=rvts41>mySmtpClient.Send(myMessage);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

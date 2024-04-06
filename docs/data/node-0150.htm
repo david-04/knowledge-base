@@ -1,0 +1,49 @@
+
+<div id='nodeSection1'>Use jOOQ</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>org.jooq.</span><span class=rvts137>DSLContext</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>org.jooq.</span><span class=rvts137>Record</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>org.jooq.</span><span class=rvts137>Result</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>org.jooq.</span><span class=rvts137>SQLDialect</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>org.jooq.impl.DSL</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>java.sql.</span><span class=rvts137>Connection</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts130>import </span><span class=rvts138>java.sql.DriverManager</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>import static </span><span class=rvts138>jooq.generated.tables.Endcustomers</span><span class=rvts124>.</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>;</span></p>
+<p class=rvps12><span class=rvts137><br></span></p>
+<p class=rvps12><span class=rvts137>Connection </span><span class=rvts124>conn = </span><span class=rvts138>DriverManager</span><span class=rvts124>.</span><span class=rvts134>getConnection</span><span class=rvts124>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// connect to the database</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>"jdbc:mysql://localhost:3306/pcinternal"</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>"root"</span><span class=rvts124>,</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts128>""</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts137>DSLContext </span><span class=rvts124>create = </span><span class=rvts138>DSL</span><span class=rvts124>.</span><span class=rvts134>using</span><span class=rvts124>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a context (named "create" the subsequent statements read more naturally)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; conn, </span><span class=rvts137>SQLDialect</span><span class=rvts124>.</span><span class=rvts133>MYSQL</span></p>
+<p class=rvps12><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p class=rvps12><span class=rvts137>Result</span><span class=rvts124>&lt;</span><span class=rvts137>Record</span><span class=rvts124>&gt; result =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the returned result of a generic type</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts124>create.select().from(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).fetch();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>for </span><span class=rvts124>(</span><span class=rvts137>Record </span><span class=rvts124>record : result) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// iterate over the results</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts138>String </span><span class=rvts124>crn = record.getValue(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CRN); </span><span class=rvts125>// retrieve fields</span></p>
+<p class=rvps12><span class=rvts125>&nbsp;&nbsp;&nbsp; </span><span class=rvts138>System</span><span class=rvts124>.</span><span class=rvts133>out</span><span class=rvts124>.println(</span><span class=rvts128>"CRN: " </span><span class=rvts124>+ crn);</span></p>
+<p class=rvps12><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>context.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// might not be needed</span></p>
+<p class=rvps12><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Field maps</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts137>Map</span><span class=rvts124>&lt;</span><span class=rvts137>Field</span><span class=rvts124>&lt;?&gt;, ?&gt; fieldMap = </span><span class=rvts138>ImmutableMap</span><span class=rvts124>.&lt;</span><span class=rvts137>Field</span><span class=rvts124>&lt;?&gt;, </span><span class=rvts138>Object</span><span class=rvts124>&gt;</span><span class=rvts134>builder</span><span class=rvts124>()</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .put(</span><span class=rvts133>RESELLERS</span><span class=rvts124>.SUPPORTEMAIL, supportData.getSupportEmail())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .put(</span><span class=rvts133>RESELLERS</span><span class=rvts124>.CONTACTEMAIL, supportData.getContactEmail())</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .build();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts130>int </span><span class=rvts124>rows = dslContext.update(</span><span class=rvts133>RESELLERS</span><span class=rvts124>).set(fieldMap)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .where(...).execute();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

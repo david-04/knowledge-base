@@ -1,0 +1,24 @@
+
+<div id='nodeSection1'>Timers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>timeout&nbsp; = setTimeout(</span><span class=rvts45>function</span><span class=rvts41> () { }, 1000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// schedule a one-off timer</span></p>
+<p><span class=rvts41>clearTimeout(timeout);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// cancel a one-off timer</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>interval = setInterval(</span><span class=rvts45>function</span><span class=rvts41> () { }, 1000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// schedule a repeating timer</span></p>
+<p><span class=rvts41>clearInterval(interval);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// cancel a repeating timer</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>process.nextTick(</span><span class=rvts45>function</span><span class=rvts41> () {&nbsp; });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// schedule a one-off timer during the next event loop (i.e. ASAP)</span></p>
+<p><span class=rvts9><br></span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<div id='nodeSection2'>Self-rescheduling timers</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>(</span><span class=rvts45>function</span><span class=rvts41> schedule() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an anoymous context</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; setTimeout(</span><span class=rvts45>function</span><span class=rvts41>() {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>'hello world'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// do the actual work</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schedule();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// reschedule the next run by accessing the anoynmous context wrapper function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }, 1000);</span></p>
+<p><span class=rvts41>}());</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

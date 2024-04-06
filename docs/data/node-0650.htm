@@ -1,0 +1,37 @@
+
+<div id='nodeSection1'>Enumerations</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Enum</span><span class=rvts183> </span><span class=rvts110>Season</span><span class=rvts183> </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>Integer</span><span class=rvts183>&nbsp; </span><span class=rvts176>' Integer is also de default and shouldn't be changed</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Spring&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' 0</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Summer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' 1</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Autumn = 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' 100</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Winter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' 101</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Enum</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> season </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Season</span><span class=rvts183> = </span><span class=rvts110>Season</span><span class=rvts183>.Summer</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection2'>Iterating over enum values</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>For</span><span class=rvts183> </span><span class=rvts58>Each</span><span class=rvts183> season </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Season</span><span class=rvts183> </span><span class=rvts58>In</span><span class=rvts183> </span><span class=rvts110>Season</span><span class=rvts183>.Spring.GetType().GetEnumValues()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(season.ToString())</span></p>
+<p><span class=rvts58>Next</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection3'>Parsing strings</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>Dim</span><span class=rvts183> season </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Season</span><span class=rvts183> = </span><span class=rvts58>CType</span><span class=rvts183>(System.</span><span class=rvts110>Enum</span><span class=rvts183>.Parse(</span><span class=rvts58>GetType</span><span class=rvts183>(</span><span class=rvts110>Season</span><span class=rvts183>), </span><span class=rvts184>"Winter"</span><span class=rvts183>, </span><span class=rvts58>True</span><span class=rvts183>), </span><span class=rvts110>Season</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Enums as bit flags</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>Flags</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' enable the bitwise or operator</span></p>
+<p><span class=rvts58>Public Enum</span><span class=rvts183> </span><span class=rvts110>SearchOptions</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; IgnoreCase = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' values must be values of type 2^x</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; UseRegexp&nbsp; = 2</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; Multiline&nbsp; = 4</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Enum</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

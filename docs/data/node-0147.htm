@@ -1,0 +1,50 @@
+
+<div id='nodeSection1'>INSERT</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span></p>
+<p class=rvps12><span class=rvts133>&nbsp;&nbsp;&nbsp; AUTHOR</span><span class=rvts124>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the table to insert to</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp; </span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.FIRST_NAME, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.LAST_NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// the fields to populate</span></p>
+<p class=rvps12><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.values(100, </span><span class=rvts128>"Celine"</span><span class=rvts124>, </span><span class=rvts128>"Dion"</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// multipe values can be inserted at once</span></p>
+<p class=rvps12><span class=rvts124>.values(101, </span><span class=rvts128>"Sarah"</span><span class=rvts124>, "</span><span class=rvts128>Brightman"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>.execute();</span></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span><span class=rvts133>AUTHOR</span><span class=rvts124>).defaultValues().execute();&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create a record with default values only</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span></p>
+<p class=rvps12><span class=rvts133>&nbsp;&nbsp;&nbsp; AUTHOR</span><span class=rvts124>, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.FIRST_NAME</span></p>
+<p class=rvps12><span class=rvts124>).values(</span></p>
+<p><span class=rvts124>&nbsp;&nbsp;&nbsp; 100, </span><span class=rvts134>defaultValue</span><span class=rvts124>(FIRST_NAME.ID)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// use the default value for some fields only</span></p>
+<p class=rvps12><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID, 100l)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// set fields individually</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY, </span><span class=rvts128>"Melbourne"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .newRecord()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// create multiple records in one go</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.ID, 100l)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>.CITY, </span><span class=rvts128>"Geelong"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p><span class=rvts116><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .select(</span><span class=rvts134>selectFrom</span><span class=rvts124>(</span><span class=rvts133>ENDCUSTOMERS</span><span class=rvts124>).where(</span><span class=rvts135>...</span><span class=rvts124>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// insert from a select</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span><span class=rvts133>AUTHOR</span><span class=rvts124>, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.LAST_NAME)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .values(3, </span><span class=rvts128>"Smith"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .onDuplicateKeyUpdate()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// separate UPSERT/UPDATE commands for pre-existing records</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .set(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.LAST_NAME, </span><span class=rvts128>"Smith"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span><span class=rvts133>AUTHOR</span><span class=rvts124>, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.LAST_NAME)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .values(3, </span><span class=rvts128>"Smith"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .onDuplicateKeyIgnore()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// ignore the whole command if the record already exists</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .execute();</span></p>
+<p><span class=rvts75><br></span></p>
+<p class=rvps12><span class=rvts124>create.insertInto(</span><span class=rvts133>AUTHOR</span><span class=rvts124>, </span><span class=rvts133>AUTHOR</span><span class=rvts124>.NAME)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .values(</span><span class=rvts128>"John Smith"</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .returning(</span><span class=rvts133>AUTHOR</span><span class=rvts124>.ID)</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// in the same transaction, select and return the auto-assigned values</span></p>
+<p class=rvps12><span class=rvts124>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .</span><span class=rvts136>fetchOne</span><span class=rvts124>();</span></p>
+<p><span class=rvts75><br></span></p>
+<p><br></p>
+<p><br></p>
+

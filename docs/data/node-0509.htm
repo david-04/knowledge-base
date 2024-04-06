@@ -1,0 +1,76 @@
+
+<div id='nodeSection1'>Unittest with tap</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> test = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'tap'</span><span class=rvts41>).test;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>must be installed separately</span><span class=rvts39> (&gt; npm install tap)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>test(</span><span class=rvts42>'addition'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (t) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// runs the given test (they will be executed sequentially)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// run the test</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.ok(value, message);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// value must be true (i.e. not 0, '', null or false)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.notOk(value, message);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.equal(actual, expected, message)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ==</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.notEqual(actual, expected, message)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.similar(actual, expected, message);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ??? allows comparisons of integer == string</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.type(object, prototype, message);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// typeof / instanceof</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; t.end();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// must be called explicitely as test might end after async action</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Unittest with mocha</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> expect = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'chai'</span><span class=rvts41>).expect;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>suite(</span><span class=rvts42>'My test suite'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; test(</span><span class=rvts42>'My test case'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> () {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expect(myFunction() === </span><span class=rvts42>'string'</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; });</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8>&gt; mocha -u tdd -R spec ./my-unit-tests.js</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Assertions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> assert = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'assert'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Node's built-in assertion feature</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>assert(value</span><span class=rvts214>, message</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// must be true (i.e. not 0, '', null or false)</span></p>
+<p><span class=rvts41>assert.ok(value</span><span class=rvts214>, message</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// same as above</span></p>
+<p><span class=rvts41>assert.equal(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ==</span></p>
+<p><span class=rvts41>assert.notEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// !=</span></p>
+<p><span class=rvts41>assert.strictEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ===</span></p>
+<p><span class=rvts41>assert.notStrictEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// !==</span></p>
+<p><span class=rvts41>assert.deepEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all (recursive) properties must be equal (==), prototype may differ</span></p>
+<p><span class=rvts41>assert.notDeepEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>assert.deepStrictEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)&nbsp;&nbsp; </span><span class=rvts39>// prototype and all (recursive) properties must be strictly equal (===)</span></p>
+<p><span class=rvts41>assert.notDeepStrictEqual(actual, expected</span><span class=rvts214>, message</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>assert.ifError(value)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts41>assert.fail(actual, expected</span><span class=rvts43>, message, operator</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>assert.doesNotThrow(block, error</span><span class=rvts214>, message</span><span class=rvts41>)</span></p>
+<p><span class=rvts41>assert.throws(block, error</span><span class=rvts214>, message</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>REST API test client with restler</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> http = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'http'</span><span class=rvts41>);</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> rest = </span><span class=rvts45>require</span><span class=rvts41>(</span><span class=rvts42>'restler'</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// npm install restler</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> request = rest.post(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// send a get, put, post, ... request</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>'</span><a class=rvts51 href="http://127.0.0.1:3000/api/test">http://127.0.0.1:3000/api/test</a><span class=rvts42>'</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// URL to send the request to</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; { data: { name: </span><span class=rvts42>'David'</span><span class=rvts41>, age: 37 } }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// body data (use only for post requests)</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'success'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41> (data, response) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>'Response:\n'</span><span class=rvts41> + data.greeting);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'fail'</span><span class=rvts41>,&nbsp; </span><span class=rvts45>function</span><span class=rvts41>(data,&nbsp; response) {});&nbsp; </span><span class=rvts39>// HTTP status codes 4xx and 5xx</span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'error'</span><span class=rvts41>, </span><span class=rvts45>function</span><span class=rvts41>(error, response) {});&nbsp; </span><span class=rvts39>// the connection was interrupted, parsing the resonse failed, ...</span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'3XX'</span><span class=rvts41>,&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41>(data,&nbsp; response) {});&nbsp; </span><span class=rvts39>// any 3xx status code is received (300, 301, 302, ...)</span></p>
+<p><span class=rvts41>request.on(</span><span class=rvts42>'404'</span><span class=rvts41>,&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41>(data,&nbsp; response) {});&nbsp; </span><span class=rvts39>// a specific status code is received (404 in this example)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

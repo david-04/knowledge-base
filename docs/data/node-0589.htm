@@ -1,0 +1,86 @@
+
+<div id='nodeSection1'>Operator overloading</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>MyNumber</span><span class=rvts262>(x : Int) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>+(y : Int) = MyNumber(x + y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// any operator can be overridden</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>add(y: Int) = MyNumber(x + y)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>unary_! = MyNumber(-x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// unary operators start with "unary_" and can only be + - ! ~</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>::(y : Int) = </span><span class=rvts266>s"</span><span class=rvts276>$</span><span class=rvts262>y</span><span class=rvts266>::</span><span class=rvts276>$</span><span class=rvts262>x</span><span class=rvts266>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ":" operators are evaluated right-to-left, the invocation is myInt :: myNumber</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>MyNumber(1) + 1</span></p>
+<p class=rvps12><span class=rvts262>MyNumber(1) add 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// any method with a single parameter can be used like an operator</span></p>
+<p class=rvps12><span class=rvts262>!MyNumber(1)</span></p>
+<p class=rvps12><span class=rvts262>1 :: MyNumber(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ":" operators are evaluated right-to-left, i.e. MyNumber(2).::(1)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts269><br></span></p>
+<div id='nodeSection2'>Comparison and equality</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>MyNumber</span><span class=rvts262>(</span><span class=rvts265>val </span><span class=rvts262>x: Int)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>extends </span><span class=rvts277>Ordered</span><span class=rvts262>[</span><span class=rvts274>MyNumber</span><span class=rvts262>] {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// mix in the "Ordered" trait</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>compare(other: </span><span class=rvts274>MyNumber</span><span class=rvts262>) =&nbsp;&nbsp; </span><span class=rvts263>// implement the "compare" method to get &lt;, &lt;=, &gt;, &gt;= for free</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>this</span><span class=rvts262>.x.compare(other.x)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>equals(o: Any): Boolean = {&nbsp; </span><span class=rvts263>// implement the "equals" method to get == and != for free (not required for case classes)</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>o </span><span class=rvts265>match </span><span class=rvts262>{</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts265>case </span><span class=rvts262>other: </span><span class=rvts274>MyNumber </span><span class=rvts262>=&gt; x == other.x</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts265>case </span><span class=rvts262>_ =&gt; </span><span class=rvts265>false</span></p>
+<p class=rvps12><span class=rvts265>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>MyNumber</span><span class=rvts262>(</span><span class=rvts265>val </span><span class=rvts262>x: Int)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// case classes don't need to override the equals method</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>extends </span><span class=rvts277>Ordered</span><span class=rvts262>[</span><span class=rvts274>MyNumber</span><span class=rvts262>] {</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>override def </span><span class=rvts262>compare(other: </span><span class=rvts274>MyNumber</span><span class=rvts262>) =</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>this</span><span class=rvts262>.x.compare(other.x)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts269><br></span></p>
+<div id='nodeSection3'>Auto-rewrites</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts262>a += b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; a = a + b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// only if "a" does not override the += operator</span></p>
+<p class=rvps12><span class=rvts262>obj(key)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&gt; obj.apply(key)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// usually used for retrieving a value (from a collection) </span></p>
+<p class=rvps12><span class=rvts262>obj(key) = value =&gt; obj.update(key, value)&nbsp; </span><span class=rvts263>// usually used for updating a value (in a collection)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p><span class=rvts269><br></span></p>
+<div id='nodeSection4'>Extension methods</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>case class </span><span class=rvts274>Rational</span><span class=rvts262>(n:Int, d: Int) {</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>add(n2: Int, d2: Int): </span><span class=rvts274>Rational </span><span class=rvts262>=</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; Rational(n * d2 + n2 * d, d * d2)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>+(that: </span><span class=rvts274>Rational</span><span class=rvts262>): </span><span class=rvts274>Rational&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// Rational + Rational</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>= add(that.n, that.d)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>+(that: Int): </span><span class=rvts274>Rational&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// Rational + Int</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>= add(that, 1)</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>RationalExtensions </span><span class=rvts262>{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// extensions related to Rational</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>implicit class </span><span class=rvts274>IntExt</span><span class=rvts262>(</span><span class=rvts265>val value</span><span class=rvts262>: Int)&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// add an extension method to Int</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>extends </span><span class=rvts262>AnyVal {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts265>def </span><span class=rvts262>+(y: </span><span class=rvts274>Rational</span><span class=rvts262>): </span><span class=rvts274>Rational </span><span class=rvts262>=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// override Int + Rational</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts262>Rational(value, 1) + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// ... and just delegate it to Rational + Rational</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts274>RationalExtensions</span><span class=rvts262>._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// import all extension methods</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>1 + Rational(1, 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// can now call 1.+(Rational) </span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps11><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>extension</span><span class=rvts262> (x: Int)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263>// Scala 3 shortcut syntax</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>+ (y: Rational) = Rational(x, 1) + y</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts265>def </span><span class=rvts262>- (y: Rational) = Rational(x, 1) - y</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

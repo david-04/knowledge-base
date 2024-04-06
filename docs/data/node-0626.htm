@@ -1,0 +1,45 @@
+
+<div id='nodeSection1'>Namespaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>namespace</span><span class=rvts41> </span><span class=rvts110>MyNamespace</span><span class=rvts41> {</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>const</span><span class=rvts41> VERSION: </span><span class=rvts45>string</span><span class=rvts41> = </span><span class=rvts42>"1.0"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// everyhting that's not exported is internal (private)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts50>export</span><span class=rvts41> </span><span class=rvts45>function</span><span class=rvts41> getVersion() : </span><span class=rvts45>string</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>to be visible from outside, objects have to be exported</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> </span><span class=rvts45>this</span><span class=rvts41>.VERSION;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>MyNamespace.getVersion();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access the namespace like a static class</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>import</span><span class=rvts41> myFunction = </span><span class=rvts110>MyNamespace</span><span class=rvts41>.getVersion;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ... or import elements and give them a local alias</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Nested namespaces</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>namespace</span><span class=rvts251> tools {</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>export</span><span class=rvts251> </span><span class=rvts64>namespace</span><span class=rvts251> string {                       </span><span class=rvts252>// nested namespaces</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>export</span><span class=rvts251> </span><span class=rvts64>function</span><span class=rvts251> doSomething() { </span></p>
+<p class=rvps12><span class=rvts251>            </span></p>
+<p class=rvps12><span class=rvts251>        }</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>import</span><span class=rvts251> stringTools = tools.string;                  </span><span class=rvts252>// import a nested namespace</span></p>
+<p class=rvps12><span class=rvts251>stringTools.doSomething();</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Multi-file namespaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts39>/// &lt;reference path="my-namespace-file-1.ts" /&gt;&nbsp;&nbsp;&nbsp;&nbsp; // list all files that this file depends on</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>namespace</span><span class=rvts41> </span><span class=rvts110>MyNamesapce</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// enhance the namespace with additional properties and functions</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>export</span><span class=rvts41> </span><span class=rvts45>let</span><span class=rvts41> x = 1;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts203>&gt; </span><span class=rvts113>tsc --outFile result.js input.ts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// compile into one JavaScript file (follows the reference paths)</span></p>
+<p><span class=rvts296><br></span></p>
+<p><br></p>
+<p><br></p>
+

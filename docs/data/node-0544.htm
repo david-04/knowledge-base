@@ -1,0 +1,49 @@
+
+<div id='nodeSection1'>Modules</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>module</span><span class=rvts262> </span><span class=rvts267>Module1</span><span class=rvts262>                              </span><span class=rvts263># module can be structured/used like a (static) class</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> self.my_function                      </span><span class=rvts263># all methods must be bound to "self"</span></p>
+<p class=rvps12><span class=rvts262>    my_helper</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> self.my_helper</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Module 1"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Module1</span><span class=rvts262>.my_function                         </span><span class=rvts263># access like a static class</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>module</span><span class=rvts262> </span><span class=rvts267>Module2</span><span class=rvts262>                              </span><span class=rvts263># modules can be structure for import</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> my_function                           </span><span class=rvts263># methods must not be bound to "self"</span></p>
+<p class=rvps12><span class=rvts262>    my_helper</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> my_helper</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"Module 2"</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>include</span><span class=rvts262> Module2                             </span><span class=rvts263># import the module into the current scope</span></p>
+<p class=rvps12><span class=rvts262>my_function                                 </span><span class=rvts263># all elements are directly accessible</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Mixins</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>module</span><span class=rvts262> </span><span class=rvts267>MyFeatures</span><span class=rvts262>                           </span><span class=rvts263># modules can be structured to be injected into classes</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>public</span><span class=rvts262>                                    </span><span class=rvts263># can set visibility (it's public by default)</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>def</span><span class=rvts262> dump                                  </span><span class=rvts263># functions are not bound to "self"</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts265>self</span><span class=rvts262>.class.to_s                    </span><span class=rvts263># ...but needs to use "self" when calling other methods of the class</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class</span><span class=rvts262> </span><span class=rvts267>MyClass</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>include</span><span class=rvts262> MyFeatures                        </span><span class=rvts263># inject the module into the class</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>myObject = </span><span class=rvts267>MyClass</span><span class=rvts262>.</span><span class=rvts265>new</span></p>
+<p class=rvps12><span class=rvts262>myObject.dump                               </span><span class=rvts263># the module's method can now be called</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

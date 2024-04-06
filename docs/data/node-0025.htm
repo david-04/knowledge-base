@@ -1,0 +1,38 @@
+
+<div id='nodeSection1'>Hash tables</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts58>HSET</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable </span><span class=rvts42>"name"</span><span class=rvts41> </span><span class=rvts42>"David"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add a key-value pair to a hashtable</span></p>
+<p><span class=rvts58>HMSET</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable </span><span class=rvts42>"name"</span><span class=rvts41> </span><span class=rvts42>"David"</span><span class=rvts41> </span><span class=rvts42>"age"</span><span class=rvts41> 38&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add multiple key-value pairs to a hashtable</span></p>
+<p><span class=rvts58>HINCRBY</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable </span><span class=rvts42>"age"</span><span class=rvts41> 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// increment a hash item's value by the given integer amount</span></p>
+<p><span class=rvts58>HINCRBYFLOAT</span><span class=rvts41> myHashtable </span><span class=rvts42>"age"</span><span class=rvts41> 1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// increment a hash item's value by the given decimal amount</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts58>HGET</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable </span><span class=rvts42>"name"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve a hash item's value</span></p>
+<p><span class=rvts58>HMGET</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable </span><span class=rvts42>"name"</span><span class=rvts41> </span><span class=rvts42>"age"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve multiple hash items' values</span></p>
+<p><span class=rvts58>HGETALL</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve all hash items (as array [key1, value1, key2, value2, ...])</span></p>
+<p><span class=rvts58>HKEYS</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve all hash keys (without value)</span></p>
+<p><span class=rvts58>HVALS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts41>myHashtable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve all hash values (without key)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts58>HDEL</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myHashtable </span><span class=rvts42>"name"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// delete a hash item</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection2'>Node</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>client.hmset(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add hash items</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp; "myHashtable"</span><span class=rvts41>, </span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp; "name"</span><span class=rvts41>, </span><span class=rvts42>"David"</span><span class=rvts41>, </span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp; "age"</span><span class=rvts41>, 38</span></p>
+<p><span class=rvts41>); </span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.hincrby(</span><span class=rvts42>"myHashtable"</span><span class=rvts41>, </span><span class=rvts42>"age"</span><span class=rvts41>, 1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// increment a hash item's value</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>client.hgetall(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve all hash items</span></p>
+<p><span class=rvts42>&nbsp;&nbsp;&nbsp; "myHashtable"</span><span class=rvts41>, </span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; function</span><span class=rvts41> (err, replies) {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>"Name:"</span><span class=rvts41>, replies[</span><span class=rvts42>"name"</span><span class=rvts41>]);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(</span><span class=rvts42>"Age:"</span><span class=rvts41>, replies[</span><span class=rvts42>"age"</span><span class=rvts41>]);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

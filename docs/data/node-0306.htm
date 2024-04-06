@@ -1,0 +1,70 @@
+
+<div id='nodeSection1'>Basic features</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>override</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> Equals(</span><span class=rvts58>object</span><span class=rvts183> obj)</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>override</span><span class=rvts183> </span><span class=rvts58>int</span><span class=rvts183> GetHashCode()</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>override</span><span class=rvts183> </span><span class=rvts58>string</span><span class=rvts183> ToString()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// format: [Field1: value1; Field2: value2]</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Comparison</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Implement </span><span class=rvts110>IComparable</span><span class=rvts183>&lt;</span><span class=rvts110>MyClass</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>int</span><span class=rvts183> CompareTo(</span><span class=rvts110>MyClass</span><span class=rvts183> myObject)</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// return -1 / 0 / 1</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> ==(MyClass o1, MyClass o2) { </span><span class=rvts58>return</span><span class=rvts183> (0 == o1.CompareTo(o2)&nbsp;&nbsp;&nbsp;&nbsp; ); }</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> !=(MyClass o1, MyClass o2) { </span><span class=rvts58>return</span><span class=rvts183> (0 != o1.CompareTo(o2)&nbsp;&nbsp;&nbsp;&nbsp; ); }</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> &lt; (MyClass o1, MyClass o2) { </span><span class=rvts58>return</span><span class=rvts183> (&nbsp;&nbsp;&nbsp;&nbsp; o1.CompareTo(o2) &lt; 0 ); }</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> &gt; (MyClass o1, MyClass o2) { </span><span class=rvts58>return</span><span class=rvts183> (0 &lt;&nbsp; o1.CompareTo(o2)&nbsp;&nbsp;&nbsp;&nbsp; ); }</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> &lt;=(MyClass o1, MyClass o2) { </span><span class=rvts58>return</span><span class=rvts183> (&nbsp;&nbsp;&nbsp;&nbsp; o1.CompareTo(o2) &lt;= 0); }</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>static</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> </span><span class=rvts58>operator</span><span class=rvts183> &gt;=(MyClass o1, MyClass o2) { </span><span class=rvts58>return</span><span class=rvts183> (0 &lt;= o1.CompareTo(o2)&nbsp;&nbsp;&nbsp;&nbsp; ); }</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Cloning</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Implement </span><span class=rvts110>ICloneable</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts110>MyClass</span><span class=rvts183> Clone()</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>MyClass</span><span class=rvts183> myObject = (</span><span class=rvts110>MyClass</span><span class=rvts183>) </span><span class=rvts58>base</span><span class=rvts183>.MemberwiseClone();</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// additional deep-copy action</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>return</span><span class=rvts183> myObject;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts58>object</span><span class=rvts183> </span><span class=rvts110>ICloneable</span><span class=rvts183>.Clone() =&gt; Clone();</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Enumerators</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Impelement </span><span class=rvts110>IEnumerable</span><span class=rvts183>&lt;</span><span class=rvts110>MyClass</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts110>IEnumerator</span><span class=rvts183>&lt;</span><span class=rvts110>MyClass</span><span class=rvts183>&gt; GetEnumerator()</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>foreach</span><span class=rvts183> (</span><span class=rvts110>MyClass</span><span class=rvts183> currentElement </span><span class=rvts58>in</span><span class=rvts183> </span><span class=rvts58>this</span><span class=rvts183>.MyClassArray)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>yield</span><span class=rvts183> </span><span class=rvts58>return</span><span class=rvts183> currentElement;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts110>IEnumerator</span><span class=rvts183> </span><span class=rvts110>IEnumerable</span><span class=rvts183>.GetEnumerator() =&gt; GetEnumerator();</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Disposable</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Impelement</span><span class=rvts183> </span><span class=rvts110>IDisposable</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>private</span><span class=rvts183> </span><span class=rvts58>bool</span><span class=rvts183> hasBeenDisposed = </span><span class=rvts58>false</span><span class=rvts183>;</span></p>
+<p><span class=rvts58>public</span><span class=rvts183> </span><span class=rvts58>void</span><span class=rvts183> Dispose()</span></p>
+<p><span class=rvts183>{</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>if</span><span class=rvts183> (!hasBeenDisposed)</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// call properties' and fields' Dispose()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// relase and clean up unmanaged resources</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>this</span><span class=rvts183>.hasBeenDisposed = </span><span class=rvts58>true</span><span class=rvts183>;</span></p>
+<p><span class=rvts183>}</span></p>
+<p><span class=rvts183><br></span></p>
+<p><br></p>
+<p><br></p>
+

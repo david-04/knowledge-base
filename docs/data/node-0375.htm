@@ -1,0 +1,60 @@
+
+<div id='nodeSection1'>Calculations</div>
+<p><span class=rvts219><br></span></p>
+<p><span class=rvts45>int</span><span class=rvts113>(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># round to an integer towards zero</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts45>sqrt</span><span class=rvts113>(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># square root</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts45>atan2</span><span class=rvts113>(y, x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># trigoniometric functios</span></p>
+<p><span class=rvts45>cos</span><span class=rvts113>(x)</span></p>
+<p><span class=rvts45>sin</span><span class=rvts113>(x)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts45>exp</span><span class=rvts113>(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># e^x</span></p>
+<p><span class=rvts45>log</span><span class=rvts113>(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># ln</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection2'>Random numbers</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts45>rand</span><span class=rvts113>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># returns a number between 0 (inclusive) and 1 (exclusive)</span></p>
+<p><span class=rvts45>srand</span><span class=rvts113>([seed])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># set the seed (default: current time if no parameter is passed); returns the previous seed</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection3'>Parsing numbers</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>number = </span><span class=rvts45>strtonum</span><span class=rvts113>(</span><span class=rvts42>"1.52"</span><span class=rvts113>)&nbsp;&nbsp; </span><span class=rvts39># parse a numeric string into a numeric value</span></p>
+<p><span class=rvts113>number = </span><span class=rvts45>strtonum</span><span class=rvts113>(</span><span class=rvts42>"0xFF"</span><span class=rvts113>)&nbsp;&nbsp; </span><span class=rvts39># supports octal (0...) and hexadecimal (0x...) notation</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection4'>Bitwise operators</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts45>and</span><span class=rvts113>(v1, v2, [v3, ...])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># bitwise AND</span></p>
+<p><span class=rvts45>or</span><span class=rvts113>( v1, v2, [v3, ...])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># bitwise OR</span></p>
+<p><span class=rvts45>xor</span><span class=rvts113>(v1, v2, [v3, ...])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># bitwise XOR</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>compl</span><span class=rvts113>(val)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># bitwise complement / negation</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>lshift</span><span class=rvts113>(val, count)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># &lt;&lt; left shift</span></p>
+<p><span class=rvts45>rshift</span><span class=rvts113>(val, count)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># &gt;&gt; right shift</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113><br></span></p>
+<div id='nodeSection5'>Arbitrary-precision arithmetic</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&gt; gawk </span><span class=rvts220>-M</span><span class=rvts113> ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># enable arbitrary-precision arithmetic [if supported] (integers are stored full length)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts113>PREC=53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># set the precision in bits (defaults to 53)</span></p>
+<p><span class=rvts39>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # does not affect literals in the AWK program, set PREC via command line -v or use strings: "0.1"+0</span></p>
+<p><span class=rvts113>PREC=</span><span class=rvts42>"half"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># 16-bit half-precision</span></p>
+<p><span class=rvts113>PREC=</span><span class=rvts42>"single"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># 32-bit single precision</span></p>
+<p><span class=rvts113>PREC=</span><span class=rvts42>"double"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># 64-bit double precision</span></p>
+<p><span class=rvts113>PREC=</span><span class=rvts42>"quad"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># 128-bit quadruple precision</span></p>
+<p><span class=rvts113>PREC=</span><span class=rvts42>"oct"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># 256-bit octuple precision</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>ROUNDMODE=</span><span class=rvts42>"N"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># roundTiesToEven (</span><span class=rvts44>preset default</span><span class=rvts39>)</span></p>
+<p><span class=rvts113>ROUNDMODE=</span><span class=rvts42>"A"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># roundTiesToAway</span></p>
+<p><span class=rvts113>ROUNDMODE=</span><span class=rvts42>"Z"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># roundTowardZero</span></p>
+<p><span class=rvts113>ROUNDMODE=</span><span class=rvts42>"U"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># roundTowardPositive</span></p>
+<p><span class=rvts113>ROUNDMODE=</span><span class=rvts42>"U"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># roundTowardNegative</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

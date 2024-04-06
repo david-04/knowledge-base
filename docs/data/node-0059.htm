@@ -1,0 +1,94 @@
+
+<div id='nodeSection1'>Console output</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>PRINT</span><span class=rvts61> </span><span class=rvts66>'Message'</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- print a message</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Variables</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>DECLARE</span><span class=rvts61> @variable </span><span class=rvts64>INT</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> 10</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- initialisation is optional</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>SET</span><span class=rvts61> @variable </span><span class=rvts63>=</span><span class=rvts61> 20</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- set a variable's value</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>SELECT</span><span class=rvts61> @variable </span><span class=rvts63>=</span><span class=rvts61> </span><span class=rvts67>MAX</span><span class=rvts63>(</span><span class=rvts61>col</span><span class=rvts63>)</span><span class=rvts61> </span><span class=rvts64>FROM</span><span class=rvts61> tab </span><span class=rvts64>GROUP</span><span class=rvts61> </span><span class=rvts64>BY</span><span class=rvts63>();</span><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- save the results of a SELECT statement into a variable</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts66>'string'</span><span class=rvts61> </span><span class=rvts63>+</span><span class=rvts61> </span><span class=rvts67>CONVERT</span><span class=rvts63>(</span><span class=rvts64>VARCHAR</span><span class=rvts63>(</span><span class=rvts61>10</span><span class=rvts63>),</span><span class=rvts61> @my_number</span><span class=rvts63>)</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- string concateation (numbers must be converted to varchar)</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Control structures</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>BEGIN</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- block</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts73>...</span></p>
+<p><span class=rvts64>END</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>IF </span><span class=rvts63>(</span><span class=rvts64>SELECT</span><span class=rvts61> </span><span class=rvts67>COUNT</span><span class=rvts63>(*)</span><span class=rvts61> </span><span class=rvts64>FROM</span><span class=rvts61> tab</span><span class=rvts63>)</span><span class=rvts61> </span><span class=rvts63>&lt;</span><span class=rvts61> 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- conditional processing</span></p>
+<p><span class=rvts64>BEGIN</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts63>...</span></p>
+<p><span class=rvts64>END</span></p>
+<p><span class=rvts64>ELSE</span><span class=rvts61> </span></p>
+<p><span class=rvts64>BEGIN</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts63>...</span></p>
+<p><span class=rvts64>END</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>WHILE</span><span class=rvts61> condition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- loop</span></p>
+<p><span class=rvts64>BEGIN</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts73>...</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>BREAK</span><span class=rvts61> </span><span class=rvts63>/</span><span class=rvts61> </span><span class=rvts64>CONTINUE</span></p>
+<p><span class=rvts64>END</span><span class=rvts63>;</span></p>
+<p><span class=rvts63><br></span></p>
+<p><span class=rvts64>RETURN</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- exit the batch</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>GOTO</span><span class=rvts61> label</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- jump to a label (define as "label:")</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Exceptions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>BEGIN</span><span class=rvts61> </span><span class=rvts64>TRY</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- try-catch-block</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp; </span><span class=rvts73>....</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp; IF</span><span class=rvts61> </span><span class=rvts67>@@error</span><span class=rvts61> </span><span class=rvts63>&lt;&gt;</span><span class=rvts61> 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- check if the previous statement caused an error</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>RAISERROR</span><span class=rvts63>(</span><span class=rvts61>50001</span><span class=rvts63>,</span><span class=rvts61>16</span><span class=rvts63>,-</span><span class=rvts61>1</span><span class=rvts63>);</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- raise an error, parameters: error number (must&nbsp; be &gt;50,000), level and state</span></p>
+<p><span class=rvts64>END</span><span class=rvts61> </span><span class=rvts64>TRY</span></p>
+<p><span class=rvts64>BEGIN</span><span class=rvts61> </span><span class=rvts64>CATCH</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- catch block</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>THROW</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- rethrow the exception</span></p>
+<p><span class=rvts64>END</span><span class=rvts61> </span><span class=rvts64>CATCH</span><span class=rvts63>;</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Cursors</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>DECLARE</span><span class=rvts61> @col1 </span><span class=rvts64>INT</span><span class=rvts63>,</span><span class=rvts61> @col2 </span><span class=rvts64>INT</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- declare variables to store the current row's data</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>DECLARE</span><span class=rvts61> my_cursor </span><span class=rvts64>CURSOR</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- declare the cursor with its SELECT statement</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FOR</span><span class=rvts61> </span><span class=rvts64>SELECT</span><span class=rvts61> col1</span><span class=rvts63>,</span><span class=rvts61> col2 </span><span class=rvts64>FROM</span><span class=rvts61> my_table</span><span class=rvts63>;</span></p>
+<p><span class=rvts64>OPEN</span><span class=rvts61> my_cursor</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- open the cursor and try to fetch the first record</span></p>
+<p><span class=rvts64>FETCH</span><span class=rvts61> </span><span class=rvts64>NEXT</span><span class=rvts61> </span><span class=rvts64>FROM</span><span class=rvts61> my_cursor </span><span class=rvts64>INTO</span><span class=rvts61> @col1</span><span class=rvts63>,</span><span class=rvts61> @col2</span><span class=rvts63>;</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>WHILE</span><span class=rvts61> </span><span class=rvts67>@@FETCH_STATUS</span><span class=rvts61> </span><span class=rvts63>=</span><span class=rvts61> 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- loop until there are no more records to retrieve</span></p>
+<p><span class=rvts64>BEGIN</span><span class=rvts61>&nbsp; </span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>print</span><span class=rvts61> @name</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- process the current row</span></p>
+<p><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>FETCH</span><span class=rvts61> </span><span class=rvts64>NEXT</span><span class=rvts61> </span><span class=rvts64>FROM</span><span class=rvts61> my_cursor </span><span class=rvts64>INTO</span><span class=rvts61> @col1</span><span class=rvts63>,</span><span class=rvts61> @col2</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- load the next record</span></p>
+<p><span class=rvts64>END</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>CLOSE</span><span class=rvts61> my_cursor</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- close and deallocate the curspor</span></p>
+<p><span class=rvts64>DEALLOCATE</span><span class=rvts61> my_cursor</span><span class=rvts63>;</span><span class=rvts61> </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Retrieving modified records</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>DECLARE</span><span class=rvts61> @records </span><span class=rvts64>TABLE </span><span class=rvts63>(</span><span class=rvts61>col1 </span><span class=rvts64>INT</span><span class=rvts63>,</span><span class=rvts61> col2 </span><span class=rvts64>INT</span><span class=rvts63>)</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- declare a local table variable to store the affected records</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64>DELETE</span><span class=rvts61> </span><span class=rvts64>FROM</span><span class=rvts61> tab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- perform a delete</span></p>
+<p><span class=rvts64>OUTPUT</span><span class=rvts61> DELETED</span><span class=rvts63>.</span><span class=rvts61>col1</span><span class=rvts63>,</span><span class=rvts61> DELETED</span><span class=rvts63>.</span><span class=rvts61>col2 </span><span class=rvts64>into</span><span class=rvts61> @records&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- copy all deleted records into the local table variable</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts67>UPDATE</span><span class=rvts61> tab </span><span class=rvts64>SET</span><span class=rvts61> </span><span class=rvts63>...</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- perform a delete</span></p>
+<p><span class=rvts64>OUTPUT</span><span class=rvts61> DELETED</span><span class=rvts63>.</span><span class=rvts61>col1</span><span class=rvts63>,</span><span class=rvts61> INSERTED</span><span class=rvts63>.</span><span class=rvts61>col1 </span><span class=rvts64>into</span><span class=rvts61> @records&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- copy the old and new values into the local table variable</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Timeouts and delays</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>WAITFOR</span><span class=rvts61> </span><span class=rvts64>TIME</span><span class=rvts61> </span><span class=rvts66>'22:20'</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- wait for a given point in time</span></p>
+<p><span class=rvts64>WAITFOR</span><span class=rvts61> </span><span class=rvts64>DELAY</span><span class=rvts61> </span><span class=rvts66>'01:45'</span><span class=rvts63>;</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>-- wait 1 hour and 45 minutes</span></p>
+<p><span class=rvts62><br></span></p>
+<p><br></p>
+<p><br></p>
+

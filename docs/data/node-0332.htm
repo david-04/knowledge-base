@@ -1,0 +1,34 @@
+
+<div id='nodeSection1'>Layout managers</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110>Canvas</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// fixed layout with absolute positioning</span></p>
+<p><span class=rvts110>WrapPanel</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// re-flowing layout with automatic line wrapping</span></p>
+<p><span class=rvts110>StackPanel</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// show elements in rows (above one another) or in columns (side-by-side)</span></p>
+<p><span class=rvts110>Grid</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// a table with cells organised in rows and columns</span></p>
+<p><span class=rvts110>DockPanel</span><span class=rvts183> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// position content at the top, left, right or bottom</span></p>
+<p><span class=rvts110>ViewBox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// scale the whole content to fit into (and completeley fill) the client are</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts110>ScrollViewer&nbsp;&nbsp;&nbsp; </span><span class=rvts176>// used as a wrapper for any of the above layout managers</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Tables</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>Grid</span><span class=rvts185> Height</span><span class=rvts58>="Auto"</span><span class=rvts185> Width</span><span class=rvts58>="Auto"&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Grid.ColumnDefinitions</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- Define the required columns&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ColumnDefinition</span><span class=rvts185> Width</span><span class=rvts58>="Auto"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- size automatically&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ColumnDefinition</span><span class=rvts185> Width</span><span class=rvts58>="200*"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- set to a fixed width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>ColumnDefinition</span><span class=rvts185> Width</span><span class=rvts58>="258*"/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Grid.ColumnDefinitions</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Grid.RowDefinitions</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- define the required rows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>RowDefinition</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>RowDefinition</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>RowDefinition</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;/</span><span class=rvts184>Grid.RowDefinitions</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>GridSplitter</span><span class=rvts185> Grid.Column</span><span class=rvts58>="0"</span><span class=rvts185> Grid.Row</span><span class=rvts58>="0"/&gt;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- a splitter so the user can change the column width&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>&lt;</span><span class=rvts184>Button</span><span class=rvts185> x</span><span class=rvts58>:</span><span class=rvts185>Name</span><span class=rvts58>="button"</span><span class=rvts185> Content</span><span class=rvts58>="Button"</span><span class=rvts185> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Grid.Column</span><span class=rvts58>="0"</span><span class=rvts185> Grid.Row</span><span class=rvts58>="0"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- position content with Grid.Column + Grid.Row&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>Grid</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

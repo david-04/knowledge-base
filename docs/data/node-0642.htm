@@ -1,0 +1,116 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts183>System.ServiceModel.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' WCF namespace</span><span class=rvts176> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts176> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p><span class=rvts183>System.Runtime.Serialization.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' serialistaion and data contracts</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts176><br></span></p>
+<div id='nodeSection2'>Service implementation library</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>DataContract</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' data classes used as in- and output</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>Person</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts110>DataMember</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> FirstName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts110>DataMember</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Property</span><span class=rvts183> LastName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>ServiceContract</span><span class=rvts183>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' service interface</span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Interface</span><span class=rvts183> </span><span class=rvts110>IWCFService</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts110>OperationContract</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Function</span><span class=rvts183> Greet(name </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts110>OperationContract</span><span class=rvts183>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Function</span><span class=rvts183> GreetPerson(persona </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Person</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Interface</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>WCFService</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' service implementation</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Implements</span><span class=rvts183> </span><span class=rvts110>IWCFService</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> Greet(name </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183> </span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Implements</span><span class=rvts183> </span><span class=rvts110>IWCFService</span><span class=rvts183>.Greet</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> </span><span class=rvts184>"Hello "</span><span class=rvts183> &amp; name</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Public</span><span class=rvts183> </span><span class=rvts58>Function</span><span class=rvts183> GreetPerson(person </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts110>Person</span><span class=rvts183>) </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span><span class=rvts183> </span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Implements</span><span class=rvts183> </span><span class=rvts110>IWCFService</span><span class=rvts183>.GreetPerson</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Return</span><span class=rvts183> </span><span class=rvts184>$"Hello </span><span class=rvts183>{person.FirstName}</span><span class=rvts184> </span><span class=rvts183>{person.LastName}</span><span class=rvts184>"</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Function</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection3'>Service host</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8>Configure the service to be hosted in the App.config:</span></p>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>system.serviceModel</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>services</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>service</span><span class=rvts58>&nbsp;&nbsp;&nbsp; </span><span class=rvts185>name</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts183>"</span><span class=rvts58>WCFLibrary.WCFService</span><span class=rvts183>"</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>behaviorConfiguration </span><span class=rvts58>= </span><span class=rvts183>"</span><span class=rvts58>WCFServiceMEXBehavior</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>endpoint</span><span class=rvts58> </span><span class=rvts185>address</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts183>"</span><span class=rvts58>http://localhost:8080/WCFService</span><span class=rvts183>"&nbsp; </span><span class=rvts58>&lt;!--</span><span class=rvts176> if empty the baseAddresses from below are used&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>binding</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts183>"</span><span class=rvts58>basicHttpBinding</span><span class=rvts183>"</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>contract</span><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts183>"</span><span class=rvts58>WCFLibrary.IWCFService</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>host</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>baseAddresses</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>baseAddress</span><span class=rvts58> = </span><span class=rvts183>"</span><span class=rvts58>http://localhost:8080/WCFService</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>baseAddresses</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>host</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>service</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>services</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>behaviors</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>serviceBehaviors</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>behavior</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58> = </span><span class=rvts183>"</span><span class=rvts58>WCFServiceMEXBehavior</span><span class=rvts183>"</span><span class=rvts58> &gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>serviceMetadata</span><span class=rvts58> </span><span class=rvts185>httpGetEnabled</span><span class=rvts58> = </span><span class=rvts183>"</span><span class=rvts58>true</span><span class=rvts183>"</span><span class=rvts58> /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts176> web browser to </span><a class=rvts190 href="http://localhost:8080/WCFService%20">http://localhost:8080/WCFService</a><span class=rvts176>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>behavior</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>behavior</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>serviceMetadata</span><span class=rvts58> </span><span class=rvts185>httpGetEnabled</span><span class=rvts58> = </span><span class=rvts183>"</span><span class=rvts58>true</span><span class=rvts183>"</span><span class=rvts58>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts176> same as above but valid for all services definied above </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>behavior</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>serviceBehaviors</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>behaviors</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>system.serviceModel</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts8>Host the configured services from within the application:</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>Using</span><span class=rvts183> serviceHost </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>ServiceHost</span><span class=rvts183>(</span><span class=rvts58>GetType</span><span class=rvts183>(</span><span class=rvts110>WCFService</span><span class=rvts183>))</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; serviceHost.Open()</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.ReadLine()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' prevent server from terminating</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; serviceHost.Close()</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Using</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts8>Must be run as adminstrator, e.g. by adding the following line to the assembly's manifest:</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>requestedExecutionLevel</span><span class=rvts58> </span><span class=rvts185>level</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>requireAdministrator</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>uiAccess</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>false</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58><br></span></p>
+<div id='nodeSection4'>Service client</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Generate the client proxy:</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>start the host application</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>run via commandline: svcutil http://localhot:8080/MagicEightBallService /out:myProxy.cs /config:app.config</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>or select Project -&gt; Add Service Reference in Visual Studio</span></li>
+</ul>
+<p class=rvps10><span class=rvts8><br></span></p>
+<p class=rvps10><span class=rvts8>Utilise the generated proxy:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>using</span><span class=rvts183> WCFClient.ServiceReference1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' namespace with the generated proxy classes</span></p>
+<p><span class=rvts58>Using</span><span class=rvts183> client </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>New</span><span class=rvts183> WCFServiceClient()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' can pass the endpoint name from app.config as string</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(client.Greet(</span><span class=rvts184>"David"</span><span class=rvts183>))</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(client.GreetPerson(</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>Person</span><span class=rvts183>() </span><span class=rvts58>With</span><span class=rvts183> {</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .FirstName = </span><span class=rvts184>"David"</span><span class=rvts183>,</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .LastName = </span><span class=rvts184>"Hofmann"</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }))</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Using</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>The endpoint must be configured in app.config (is done automatically when the proxy is generated)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

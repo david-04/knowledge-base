@@ -1,0 +1,61 @@
+
+<div id='nodeSection1'>Defining themes</div>
+<p><span class=rvts8><br></span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>need to be placed in the App_Themes folder</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>a separate subfolder is required for each theme</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>contains CSS, images and maybe a skin file</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Types of themes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>StyleSheetThemes</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>provide a default look and feel</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>are applied early in the page life cycle (the &lt;link&gt; node is place at the beginning of the &lt;head&gt;)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>can be overridden by the page</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Themes</span></p>
+<ul class=list2>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>enforce the look and feel</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>are applied late in the page life cycle</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>can't be overridden by the page (the &lt;link&gt; node is added at the bottom of the &lt;head&gt;)</span></li>
+<li class=rvps10 style="margin-left: 0px; text-indent: 0px"><span class=rvts8>exception: set EnableTheming=false for a control to disable theming</span></li>
+</ul>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Applying themes</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>Globally via web.config:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.web</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>pages</span><span class=rvts45> </span><span class=rvts90>theme</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>MyTheme</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>styleSheetTheme</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>MyTheme</span><span class=rvts41>"</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>pages</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts8>On page level via declaration:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts45>@</span><span class=rvts41> </span><span class=rvts46>Page</span><span class=rvts41> </span><span class=rvts47>...</span><span class=rvts41> </span><span class=rvts90>Theme</span><span class=rvts45>="MyTheme"</span><span class=rvts41> </span><span class=rvts90>StyleSheetTheme</span><span class=rvts45>="MyTheme"</span><span class=rvts41> </span><span class=rvts48>%&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts8>On page level via code:</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Page_PreInit(</span><span class=rvts45>object</span><span class=rvts41> sender, </span><span class=rvts171>EventArgs</span><span class=rvts41> e)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>string</span><span class=rvts41> theme = </span><span class=rvts42>"MyTheme"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>string</span><span class=rvts41> folder = Server.MapPath(</span><span class=rvts42>"~/App_Themes/"</span><span class=rvts41> + theme);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41> (System.IO.</span><span class=rvts171>Directory</span><span class=rvts41>.Exists(folder))</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page.Theme = theme;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Disabling themes</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>Button</span><span class=rvts41> </span><span class=rvts90>ID</span><span class=rvts45>="Submit"</span><span class=rvts41> </span><span class=rvts90>runat</span><span class=rvts45>="server"</span><span class=rvts41> </span><span class=rvts90>Text</span><span class=rvts45>="Submit"</span><span class=rvts41> </span><span class=rvts90>EnableTheming</span><span class=rvts45>="False"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><br></p>
+<p><br></p>
+

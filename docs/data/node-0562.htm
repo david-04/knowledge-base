@@ -1,0 +1,51 @@
+
+<div id='nodeSection1'>FTP (open-uri)</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'open-uri'</span><span class=rvts262>                        </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>URI</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'</span><a class=rvts272 href="ftp://host/a.txt">ftp://host/a.txt</a><span class=rvts266>'</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |stream|  </span><span class=rvts263># open a stream to read a file</span></p>
+<p class=rvps12><span class=rvts262>  stream.read                             </span><span class=rvts263># read the content</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>FTP (net/ftp)</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'net/ftp'</span><span class=rvts262>                         </span><span class=rvts263># standard libraries</span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'uri'</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Net</span><span class=rvts262>::</span><span class=rvts267>FTP</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'cygwin.com'</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |ftp|</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts263># ...                                   # work with the ftp connection</span></p>
+<p class=rvps12><span class=rvts265>end</span><span class=rvts262>                                       </span><span class=rvts263># closes the connection automatically</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ftp = </span><span class=rvts267>Net</span><span class=rvts262>::</span><span class=rvts267>FTP</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>'cygwin.com'</span><span class=rvts262>)          </span><span class=rvts263># ...or manually open and close the connection</span></p>
+<p class=rvps12><span class=rvts263># ...                                     # work with the ftp connection</span></p>
+<p class=rvps12><span class=rvts262>ftp.close</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ftp.passive = </span><span class=rvts265>true</span><span class=rvts262>                        </span><span class=rvts263># set to passive (required when running behind a firewall)</span></p>
+<p class=rvps12><span class=rvts262>ftp.login                                 </span><span class=rvts263># anonymous login</span></p>
+<p class=rvps12><span class=rvts262>ftp.login(</span><span class=rvts266>'anonymous'</span><span class=rvts262>, </span><span class=rvts266>'</span><a class=rvts272 href="mailto:me@privacy.net">me@privacy.net</a><span class=rvts266>'</span><span class=rvts262>)  </span><span class=rvts263># log in with username/password</span></p>
+<p class=rvps12><span class=rvts262>ftp.list(</span><span class=rvts266>'*'</span><span class=rvts262>) { |file| </span><span class=rvts265>puts</span><span class=rvts262> file }        </span><span class=rvts263># list all files</span></p>
+<p class=rvps12><span class=rvts262>ftp.chdir(</span><span class=rvts266>'packages'</span><span class=rvts262>)                     </span><span class=rvts263># change directory</span></p>
+<p class=rvps12><span class=rvts262>ftp.mkdir(</span><span class=rvts266>'test'</span><span class=rvts262>)                         </span><span class=rvts263># create a directory</span></p>
+<p class=rvps12><span class=rvts262>ftp.rename(</span><span class=rvts266>'file-1.txt'</span><span class=rvts262>, </span><span class=rvts266>'file-2.txt'</span><span class=rvts262>)    </span><span class=rvts263># rename a file</span></p>
+<p class=rvps12><span class=rvts262>ftp.delete(</span><span class=rvts266>'file.txt'</span><span class=rvts262>)                    </span><span class=rvts263># delete a file</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ftp.getbinaryfile(                        </span><span class=rvts263># download file in binary mode</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>'README'</span><span class=rvts262>,                             </span><span class=rvts263># name of the remote README file on the server</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>'index.txt'</span><span class=rvts262>,                          </span><span class=rvts263># optional: save locally as index.txt</span></p>
+<p class=rvps12><span class=rvts262>    1024                                  </span><span class=rvts263># optional: download in chunks of 1024 byes</span></p>
+<p class=rvps12><span class=rvts262>  ) { |block| </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"downloaded +1KB"</span><span class=rvts262> }    </span><span class=rvts263># optional: callback for chunk-arrival notifications</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ftp.gettextfile(...)                      </span><span class=rvts263># same as above but with text-mode transfer</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ftp.putbinaryfile(                        </span><span class=rvts263># upload file in binary mode</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>'index.txt'</span><span class=rvts262>,                          </span><span class=rvts263># local file name</span></p>
+<p class=rvps12><span class=rvts262>    </span><span class=rvts266>'README'</span><span class=rvts262>,                             </span><span class=rvts263># optional: save as README on the server</span></p>
+<p class=rvps12><span class=rvts262>    1024                                  </span><span class=rvts263># optional: upload in chunks of 1024 byes</span></p>
+<p class=rvps12><span class=rvts262>) { |block| </span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"uploaded +1KB"</span><span class=rvts262> }        </span><span class=rvts263># optional: callback for chunk-uploaded notifications</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>ftp.puttextfile(...)                      </span><span class=rvts263># same as above but with text-mode transfer</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

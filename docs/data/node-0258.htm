@@ -1,0 +1,45 @@
+
+<div id='nodeSection1'>Required assemblies</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts183>MySql.Data.dll</span></p>
+<p><span class=rvts183>MySql.Data.Entity for EF6.dll</span></p>
+<p><span class=rvts183>System.ComponentModel.DataAnnotations.dll</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts183>PM&gt;install-package EntityFramework</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>MySQL workardound</div>
+<p><span class=rvts110><br></span></p>
+<p><span class=rvts12>Delete MySqlSiteMapProvider from machine.config</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Configuration</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>connectionStrings</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts50>CustomerDbContext</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>providerName</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>" </span><span class=rvts185>connectionString</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts50>server=127.0.0.1;port=3306;database=db;uid=user;password=pwd</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>connectionStrings</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts91>&nbsp; &lt;!-- this part is only required for the entity framework --&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>configSections</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>section</span><span class=rvts45> </span><span class=rvts90>name</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>entityFramework</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>type</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>requirePermission</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>false</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>configSections</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>entityFramework </span><span class=rvts185>codeConfigurationType</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.Entity.MySqlEFConfiguration, MySql.Data.Entity.EF6</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>defaultConnectionFactory</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>providers</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>provider</span><span class=rvts58> </span><span class=rvts185>invariantName</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient.MySqlProviderServices, MySql.Data.Entity.EF6</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>provider</span><span class=rvts58> </span><span class=rvts185>invariantName</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Data.SqlClient</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>providers</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>entityFramework</span><span class=rvts58>&gt;&nbsp; </span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>system.data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>DbProviderFactories</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>remove</span><span class=rvts58> </span><span class=rvts185>invariant</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySQL Data Provider</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>invariant</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient</span><span class=rvts183>"</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; description</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>.Net Framework Data Provider for MySQL</span><span class=rvts183>"</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d</span><span class=rvts183>"</span><span class=rvts58> /&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>DbProviderFactories</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>system.data</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts45>&lt;/</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><br></p>
+<p><br></p>
+

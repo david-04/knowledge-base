@@ -1,0 +1,43 @@
+
+<div id='nodeSection1'>Arrays</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Integer[] myArray = Integer[100];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// partially interoperable with List (but doesn't grow)</span></p>
+<p class=rvps12><span class=rvts124>myArray[0] = 22;</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Lists</div>
+<p><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>List&lt;Integer&gt; myList = </span><span class=rvts130>new </span><span class=rvts124>List&lt;Integer&gt;();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// test</span></p>
+<p class=rvps12><span class=rvts124>List&lt;Integer&gt; myList = </span><span class=rvts130>new </span><span class=rvts124>List&lt;Integer&gt;{1, 2, 3};&nbsp; </span><span class=rvts125>// can be used in array notation</span></p>
+<p class=rvps12><span class=rvts124>myList.get(0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_list.htm#apex_methods_system_list</span></p>
+<p class=rvps12><span class=rvts124>myList.add(47);</span></p>
+<p class=rvps12><span class=rvts124>myList.set(0, 1);</span></p>
+<p class=rvps12><span class=rvts124>myList.clear();</span></p>
+<p class=rvps12><span class=rvts124>list.sort()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts125>// sort based on value ascending (implement Comparable in the data classes)</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Sets</div>
+<p><span class=rvts124><br></span></p>
+<p class=rvps12><span class=rvts124>Set&lt;String&gt; mySet = </span><span class=rvts130>new </span><span class=rvts124>Set&lt;String&gt;();</span></p>
+<p class=rvps12><span class=rvts124>Set&lt;String&gt; mySet = </span><span class=rvts130>new </span><span class=rvts124>List&lt;String&gt;{</span><span class=rvts128>'abc'</span><span class=rvts124>, </span><span class=rvts128>'xyz'</span><span class=rvts124>};</span></p>
+<p class=rvps12><span class=rvts124>mySet.add(</span><span class=rvts128>'xxx'</span><span class=rvts124>);</span></p>
+<p class=rvps12><span class=rvts124>mySet.remove(</span><span class=rvts128>'xxx;'</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Maps</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Map&lt;Integer,String&gt; map = </span><span class=rvts130>new </span><span class=rvts124>Set&lt;Integer,String&gt;();</span><span class=rvts125>// key objects must implement equals() and hashCode()</span></p>
+<p class=rvps12><span class=rvts124>Map&lt;Integer,String&gt; map = </span><span class=rvts130>new </span><span class=rvts124>Set&lt;Integer,String&gt;{1 =&gt; </span><span class=rvts128>'a'</span><span class=rvts124>, 2 =&gt; </span><span class=rvts128>'b'</span><span class=rvts124>, 3 =&gt; </span><span class=rvts128>'c'</span><span class=rvts124>}</span></p>
+<p class=rvps12><span class=rvts124>Set&lt;Integer&gt; keys = map.keySet()</span></p>
+<p class=rvps12><span class=rvts124>map.containsKey(1)</span></p>
+<p class=rvps12><span class=rvts124>map.put(26, </span><span class=rvts128>'z'</span><span class=rvts124>)</span></p>
+<p class=rvps12><span class=rvts124>map.get(3)</span></p>
+<p class=rvps12><span class=rvts124>map.remove(3);</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Customise iteration order</div>
+<p><span class=rvts8><br></span></p>
+<p><a class=rvts164 href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_iterable.htm">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_iterable.htm</a></p>
+<p><br></p>
+<p><br></p>
+

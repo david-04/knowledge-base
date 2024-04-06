@@ -1,0 +1,82 @@
+
+<div id='nodeSection1'>Arrays</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>array = </span><span class=rvts45>new</span><span class=rvts41> Array()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an empty array</span></p>
+<p><span class=rvts41>array = </span><span class=rvts45>new</span><span class=rvts41> Array(20)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an array for 20 items</span></p>
+<p><span class=rvts41>array = Array(3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// shortcut (same as above)</span></p>
+<p><span class=rvts41>array = </span><span class=rvts45>new</span><span class=rvts41> Array(</span><span class=rvts42>"day"</span><span class=rvts41>, </span><span class=rvts42>"night"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an array with the given items</span></p>
+<p><span class=rvts41>array = [</span><span class=rvts42>"red"</span><span class=rvts41>, </span><span class=rvts42>"green"</span><span class=rvts41>, </span><span class=rvts42>"blue"</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create an array with the given items</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>array[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access the first array element</span></p>
+<p><span class=rvts41>array[array.length] = </span><span class=rvts42>"test"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// append an element at the end</span></p>
+<p><span class=rvts41>array.length = 10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// redim the array (paricularly used for shortening)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>if</span><span class=rvts41> (variable </span><span class=rvts45>instanceof</span><span class=rvts41> Array)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check if it's an array (does not work with iFrames)</span></p>
+<p><span class=rvts45>if</span><span class=rvts41> (Array.isArray(variable))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 5</span><span class=rvts39>: same as above</span></p>
+<p><span class=rvts9><br></span></p>
+<p class=rvps12><span class=rvts251>[1, [2, [3, 4, 5]]].flat();                         </span><span class=rvts252>// creates a new array [1, 2, [3, 4, 5]]</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Array functions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>itemCount&nbsp;&nbsp;&nbsp; = array.push(</span><span class=rvts42>"Mo"</span><span class=rvts41>, </span><span class=rvts42>"Tu"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add items to the end of the array and return array length</span></p>
+<p><span class=rvts41>item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = array.pop()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// stack: remove and return the array's last element</span></p>
+<p><span class=rvts41>item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = array.shift()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// queue: remove and return the array's first element</span></p>
+<p><span class=rvts41>itemCount&nbsp;&nbsp;&nbsp; = array.unshift(</span><span class=rvts42>"Mo"</span><span class=rvts41>, </span><span class=rvts42>"Tu"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// add items to the beginning of the array and return the array length</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>newArray&nbsp;&nbsp;&nbsp;&nbsp; = array.concat(</span><span class=rvts42>"gray"</span><span class=rvts41>, </span><span class=rvts42>"blue"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy the array and append the given elements (</span><span class=rvts44>does NOT alter the array itself</span><span class=rvts39>)</span></p>
+<p><span class=rvts41>newArray&nbsp;&nbsp;&nbsp;&nbsp; = array.concat(array1, array2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy the array and append all elements from the other arrays</span></p>
+<p><span class=rvts41>removedItems = array.splice(5, 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return 2 elements starting from array[5] and removed them from original array</span></p>
+<p><span class=rvts41>removedItems = array.splice(-5, 2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return 2 elements starting from array[array.length-5] and removed them from the array</span></p>
+<p><span class=rvts41>removedItems = array.splice(5, 2, </span><span class=rvts42>"white"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove 2 elements starting from array[5] and insert "white" instead</span></p>
+<p><span class=rvts41>removedItems = array.splice(5, 0, </span><span class=rvts42>"white"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// insert "white" between array[4] and array[5]</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>clonedArray&nbsp; = array.slice(0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a shallow clone of the array</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>concatString = array.toString()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// returns "item1,item2,item3,..."</span></p>
+<p><span class=rvts41>concatString = array.join(</span><span class=rvts42>"&gt;"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// returns "item1&gt;item2&gt;item3"</span></p>
+<p class=rvps2><span class=rvts41><br></span></p>
+<p><span class=rvts41>array.reverse()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// reverse the array (</span><span class=rvts44>alters the array itself</span><span class=rvts39> and returns it as well)</span></p>
+<p><span class=rvts41>array.sort()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// sort an array based on string comparison (10 &lt; 2) </span></p>
+<p><span class=rvts41>array.sort(function(value1, value2) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// sort an array using the given compare function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>if</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (value1 &lt; value2) </span><span class=rvts45>return</span><span class=rvts41> -1;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span><span class=rvts41> </span><span class=rvts45>if</span><span class=rvts41> (value1 &gt; value2) </span><span class=rvts45>return</span><span class=rvts41> +1;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>else</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41>&nbsp; 0;</span></p>
+<p><span class=rvts41>})</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Iterators (ECMAScript 5)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> index = array.indexOf(</span><span class=rvts42>"red"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 5</span><span class=rvts39>: get the first index of the given array element</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> index = array.lastIndexOf(</span><span class=rvts42>"red"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the last index of the given array element</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> index = array.indexOf(</span><span class=rvts42>"red"</span><span class=rvts41>, 4);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the first index but start searching from array[4] (inclusive)</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> index = array.lastIndexOf(</span><span class=rvts42>"red"</span><span class=rvts41>, 4);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// get the last index but search only to array[4] (inclusive)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts39>/* void */</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; array.forEach(voidFunction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 5</span><span class=rvts39>: run the method for each item (no return value)</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> boolResult = array.every(boolFunction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check if boolFunction returns true for each and every array element</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> boolResult = array.some(boolFunction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// check if boolFunction returns true for at least one array element</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> newArray&nbsp;&nbsp; = array.filter(boolFunction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return a new array with all array elements for wihch boolFunction returns true</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> newArray&nbsp;&nbsp; = array.map(objectFunction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// return a new array with the return values of objectFunction</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> iteratorFunction (item, index, array) {&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 5</span><span class=rvts39>: this is the singature for boolFunction, voidFunction and objectFunction</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> (item &gt; 2);</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> sum = array.reduce(aggregateFunc);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 5</span><span class=rvts39>: calculate some kind of result over all array elements</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> sum = array.reduceRight(aggregateFunc);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// same as above but iterate backwards through the array</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>function</span><span class=rvts41> aggregateFunc(prev, cur, index, array) {&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 5</span><span class=rvts39>: signature for the aggregation function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> prev + cur;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>ECMAScript 6 extensions</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>var</span><span class=rvts41> [x1,x2] = pointArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>ECMAScript 6</span><span class=rvts39>: component-wise array assignment</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> [,x1]&nbsp;&nbsp; = pointArray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// extract only some elements</span></p>
+<p><span class=rvts41>[x1, x2]&nbsp;&nbsp;&nbsp; = [x2, x1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// swap</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> { userName: name, userAge: age } = person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// assign single object properties to variables</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

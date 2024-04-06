@@ -1,0 +1,43 @@
+
+<div id='nodeSection1'>Simple enums</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>enum</span><span class=rvts113> </span><span class=rvts233>Season</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// simple enumeration</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; Spring, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; Summer,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; Autumn,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; Winter</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>Season</span><span class=rvts113> season&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts233>Season</span><span class=rvts113>.Spring&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// reference an enumeration value directly</span></p>
+<p><span class=rvts233>Season</span><span class=rvts113> season&nbsp;&nbsp;&nbsp;&nbsp; = </span><span class=rvts233>Season</span><span class=rvts113>.valueOf(</span><span class=rvts217>"Spring"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get an enumeration value by its name</span></p>
+<p><span class=rvts64>int&nbsp;</span><span class=rvts61>&nbsp;&nbsp; position&nbsp;&nbsp; = </span><span class=rvts233>Season</span><span class=rvts113>.Spring.ordinal()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get the index of the enumeration item amongst all items</span></p>
+<p><span class=rvts233>Season</span><span class=rvts113> seasons[]&nbsp; = </span><span class=rvts233>Season</span><span class=rvts113>.values()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// get an array of all available enumeration values</span></p>
+<p><span class=rvts248><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>if</span><span class=rvts113> (season == </span><span class=rvts233>Season</span><span class=rvts113>.Spring) {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// compare enumeration values</span></p>
+<p><span class=rvts64>if </span><span class=rvts61>(season.compareTo(</span><span class=rvts233>Season</span><span class=rvts113>.Summer)) {</span><span class=rvts73>...</span><span class=rvts113>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// compares the enumeration items' index and resturns -1/0/1</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Complex enums</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>enum</span><span class=rvts113> </span><span class=rvts233>City</span><span class=rvts113> </span><span class=rvts64>implements</span><span class=rvts113> </span><span class=rvts233>MyInterface</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// enums can implement interfaces (but not inherit from classes) </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; Melbourne(</span><span class=rvts217>"Melbourne"</span><span class=rvts113>, </span><span class=rvts217>"Australia"</span><span class=rvts113>),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the enum values are written as constructor calls</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; Berlin&nbsp;&nbsp; (</span><span class=rvts217>"Berlin"</span><span class=rvts113>,&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"Germany"&nbsp; </span><span class=rvts113>);</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts233>String</span><span class=rvts113> city;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// enums can have properties, methods and constructors</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts233>String</span><span class=rvts113> country;</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> City(</span><span class=rvts233>String</span><span class=rvts113> city, </span><span class=rvts233>String</span><span class=rvts113> country) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.city = city;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.country = country;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts233>String</span><span class=rvts113> toString() {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>return</span><span class=rvts113> </span><span class=rvts64>this</span><span class=rvts113>.city + </span><span class=rvts217>" "</span><span class=rvts113> + </span><span class=rvts64>this</span><span class=rvts113>.country;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,117 @@
+
+<div id='nodeSection1'>Folders</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>App_Browsers</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// .browser </span><span class=rvts93>ﬁ</span><span class=rvts39>les identifying client browsers</span></p>
+<p><span class=rvts113>App_Code</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>only for website projects, not for web applications!</span><span class=rvts39> classes + wsdl </span></p>
+<p><span class=rvts113>App_Data </span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// .mdf (sql server express), xml, text files, ...</span></p>
+<p><span class=rvts113>App_GlobalResources </span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Assembly Resource Files (.resx) (like localisation)</span></p>
+<p><span class=rvts113>App_LocalResources</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// resources per page (Default.aspx.resx, Default.aspx.en-gb.resx, ...)</span></p>
+<p class=rvps2><span class=rvts174>App_Themes</span></p>
+<p><span class=rvts113>App_WebReferences</span><span class=rvts113> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remote web services references</span></p>
+<p class=rvps2><span class=rvts174>Controls</span></p>
+<p class=rvps2><span class=rvts174>Master_Pages</span></p>
+<p class=rvps2><span class=rvts174>Scripts</span></p>
+<p class=rvps2><span class=rvts174>Web_Services</span></p>
+<p class=rvps2><span class=rvts174><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Generating client-side IDs</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts90>ClientIDMode</span><span class=rvts45>="AutoId"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- generate names as it was done up to .NET 3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts90>ClientIDMode</span><span class=rvts45>="Inherit"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- inherit the mode from the encapsulating parent control&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts90>ClientIDMode</span><span class=rvts45>="Predictable"&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- used for repeating data controls along with ClientIDRowSuffix&nbsp; --&gt;</span></p>
+<p><span class=rvts90>ClientIDMode</span><span class=rvts45>="Static"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- use the ID as it was set on the ASPX page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Encrypting web.config sections</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts113>aspnet_regiis.exe&nbsp; -p</span><span class=rvts175>e</span><span class=rvts113>f "connectionStrings"&nbsp; "E:\Programs\Playground\PlaygroundASP\PlaygroundASP"</span></p>
+<p><span class=rvts113>aspnet_regiis.exe&nbsp; -p</span><span class=rvts175>d</span><span class=rvts113>f "connectionStrings"&nbsp; "E:\Programs\Playground\PlaygroundASP\PlaygroundASP"</span></p>
+<p class=rvps2><span class=rvts174><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'> Retrieving request data</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts41>Request.QueryString.Get(</span><span class=rvts42>"id"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP GET request parameter ...?id=...</span></p>
+<p><span class=rvts41>Request.Form&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access the HTML form's elements</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Configuration in web.config</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>appSettings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>key</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>MyEmail</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>value</span><span class=rvts45>=</span><span class=rvts41>"</span><a class=rvts51 href="mailto:david@example.com">david@example.com</a><span class=rvts41>"</span><span class=rvts45> /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> define configuration parameters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>appSettings</span><span class=rvts45>&gt;</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>asp</span><span class=rvts45>:</span><span class=rvts46>Literal</span><span class=rvts41> </span><span class=rvts47>...</span><span class=rvts41> </span><span class=rvts90>Text</span><span class=rvts45>="</span><span class=rvts48>&lt;%</span><span class=rvts45>$ AppSettings:MyEmail </span><span class=rvts48>%&gt;</span><span class=rvts45>"</span><span class=rvts41> </span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- bind controls to configuration parameters&nbsp;&nbsp; --&gt;</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts171>WebConfigurationManager</span><span class=rvts41>.AppSettings.Get(</span><span class=rvts42>"MyEmail"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// retrieve parameters programatically</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>URL mapping and redirects</div>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.web</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>urlMappings</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>~/Content.aspx</span><span class=rvts41>"</span><span class=rvts45> </span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mappedUrl </span><span class=rvts45>= </span><span class=rvts41>"</span><span class=rvts45>~/News.aspx?categoryid=5</span><span class=rvts41>"</span><span class=rvts45> /&gt;</span></p>
+<p class=rvps2><span class=rvts8><br></span></p>
+<p><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Page_Load(</span><span class=rvts45>object</span><span class=rvts41> sender, </span><span class=rvts171>EventArgs</span><span class=rvts41> e)</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Response.RedirectPermanent(</span><span class=rvts42>"Contact.aspx"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP 301 moved permanently</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Response.Redirect(</span><span class=rvts42>"Contact.aspx"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// HTTP 302 moved temporarily</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; Server.Transfer(</span><span class=rvts42>"Contact.aspx"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// internal rewrite (not visible in the browser URL)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts41>Response.Redirect(Request.Url.ToString());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// force a reload</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Friendly URLs</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts113>PM&gt;Install-Package Microsoft.AspNet.FriendlyUrls.Core</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>RouteConfig</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// implement a new class in App_Code</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>static</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> RegisterRoutes(</span><span class=rvts171>RouteCollection</span><span class=rvts41> routes)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>var</span><span class=rvts41> settings = </span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>FriendlyUrlSettings</span><span class=rvts41>();</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; settings.AutoRedirectMode = </span><span class=rvts171>RedirectMode</span><span class=rvts41>.Permanent;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes.EnableFriendlyUrls(settings);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>public</span><span class=rvts41> </span><span class=rvts45>class</span><span class=rvts41> </span><span class=rvts171>Global</span><span class=rvts41> : System.Web.</span><span class=rvts171>HttpApplication</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// Create a "Global Application Class" Global.asax </span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Application_Start(</span><span class=rvts45>object</span><span class=rvts41> sender, </span><span class=rvts171>EventArgs</span><span class=rvts41> e)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; {</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts171>RouteConfig</span><span class=rvts41>.RegisterRoutes(System.Web.Routing.</span><span class=rvts171>RouteTable</span><span class=rvts41>.Routes);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts8>Request for .../page.aspx are now redirected to .../page (the extension is not shown in the browser url)</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection8'>Asynchronous processing</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts48>&lt;%</span><span class=rvts45>@</span><span class=rvts41> </span><span class=rvts46>Page</span><span class=rvts41> </span><span class=rvts47>... </span><span class=rvts90>Async&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= "true"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- enable asynchronous processing on page level --&gt;</span></p>
+<p><span class=rvts90>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AsyncTimeout </span><span class=rvts45>= "1"&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts48>%&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- set the timeout to 1 second --&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts45>protected</span><span class=rvts41> </span><span class=rvts45>void</span><span class=rvts41> Page_Load(</span><span class=rvts45>object</span><span class=rvts41> sender, </span><span class=rvts171>EventArgs</span><span class=rvts41> e)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// not recommended as it blocks the page life cycle</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; RegisterAsyncTask(</span><span class=rvts45>new</span><span class=rvts41> </span><span class=rvts171>PageAsyncTask</span><span class=rvts41>(GetCustomersAsync));&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// register tasks for asynchronous execution</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>private</span><span class=rvts41> </span><span class=rvts45>async</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41> GetCustomersAsync()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the PreRender event will wait until this task is completed</span></p>
+<p><span class=rvts41>{</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>int</span><span class=rvts41> result = </span><span class=rvts45>await</span><span class=rvts41> </span><span class=rvts171>Task</span><span class=rvts41>.Run&lt;</span><span class=rvts45>int</span><span class=rvts41>&gt;(() =&gt; { </span><span class=rvts45>return</span><span class=rvts41> 0; });&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// execute the asynchronous call via await</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>this</span><span class=rvts41>.TexBox = </span><span class=rvts42>"..."</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// access the controls like in Page_Load (when running synchronously)</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection9'>Collapsing CSS sections</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts91>/*#region Name Of Region</span><span class=rvts41> </span><span class=rvts91>*/</span></p>
+<p><span class=rvts41> </span><span class=rvts46>...</span><span class=rvts41> </span><span class=rvts46>Your</span><span class=rvts41> </span><span class=rvts46>CSS</span><span class=rvts41> </span><span class=rvts46>code</span><span class=rvts41> </span><span class=rvts46>here</span></p>
+<p><span class=rvts91>/*#endregion*/</span></p>
+<p><span class=rvts91><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,44 @@
+
+<div id='nodeSection1'>Assertions</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts140>System.</span><span class=rvts160>assert</span><span class=rvts140>(s &lt; </span><span class=rvts161>'b'</span><span class=rvts140>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// condition-base assertions</span></p>
+<p class=rvps12><span class=rvts140>System.assertEquals(expected, current, msg);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// assert equality</span></p>
+<p class=rvps12><span class=rvts162><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Enums</div>
+<p><span class=rvts140><br></span></p>
+<p class=rvps12><span class=rvts160>public enum </span><span class=rvts140>Season {WINTER, SPRING, SUMMER, FALL}</span></p>
+<p><span class=rvts75><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Annotations</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts140>@Deprecated</span></p>
+<p class=rvps12><span class=rvts140>@Future&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// queue for asynchronous execeution (no executed straight away)</span></p>
+<p class=rvps12><span class=rvts140>@ReadOnly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// allow unrestricted queries but limited to read-only</span></p>
+<p class=rvps12><span class=rvts140>@RemoteAction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// can be called by JavaScript (must be static and public)</span></p>
+<p class=rvps12><span class=rvts140>@SuppressWarnings</span></p>
+<p class=rvps12><span class=rvts113><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Namespace</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts140>System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// the system namespace (only requried if system classes are overloaded, e.g. System.URL)</span></p>
+<p class=rvps12><span class=rvts140>Schema&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts162>// data schema of the instance (e.g. Schema.Account)</span></p>
+<p class=rvps12><span class=rvts125><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Comments</div>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts125>// end of line</span></p>
+<p class=rvps12><span class=rvts125>/* inline */</span></p>
+<p class=rvps12><span class=rvts163><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Reflections</div>
+<p><span class=rvts8><br></span></p>
+<p><a class=rvts164 href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dynamic.htm">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dynamic.htm</a></p>
+<p><span class=rvts8><br></span></p>
+<p class=rvps12><span class=rvts124>Schema.DescribeSObjectResult dsr = Account.sObjectType.getDescribe();</span></p>
+<p class=rvps12><span class=rvts124>Schema.DescribeFieldResult dfr = Schema.sObjectType.Account.fields.Name;</span></p>
+<p class=rvps12><span class=rvts124>dfr = dfr.getSObjectField().getDescribe();</span></p>
+<p class=rvps12><span class=rvts124><br></span></p>
+<p><br></p>
+<p><br></p>
+

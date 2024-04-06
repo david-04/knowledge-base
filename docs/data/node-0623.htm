@@ -1,0 +1,65 @@
+
+<div id='nodeSection1'>Iterable</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts288>MyContainer</span><span class=rvts251> </span><span class=rvts64>implements</span><span class=rvts251> </span><span class=rvts288>Iterable</span><span class=rvts251>&lt;</span><span class=rvts64>string</span><span class=rvts251>&gt; {     </span><span class=rvts252>// implement Iterable&lt;T&gt;</span></p>
+<p class=rvps12><span class=rvts251>    [Symbol.iterator]():                            </span><span class=rvts252>// must have an iterator factory called "Symbol.iterator"</span></p>
+<p class=rvps12><span class=rvts251>        Iterator&lt;string, any, </span><span class=rvts64>undefined</span><span class=rvts251>&gt; {</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts252>// produce iterator</span></p>
+<p class=rvps12><span class=rvts251>    } </span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>const</span><span class=rvts251> myContainer = </span><span class=rvts64>new</span><span class=rvts251> MyContainer();</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>[...myContainer];                                   </span><span class=rvts252>// iterate and put everything into an array</span></p>
+<p class=rvps12><span class=rvts251>Array.from(myContainer);                            </span><span class=rvts252>// same as above</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>for</span><span class=rvts251> (</span><span class=rvts64>const</span><span class=rvts251> string of myContainer) { }               </span><span class=rvts252>// iterate via a for-of loop</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Async iterators</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts106>class</span><span class=rvts299> </span><span class=rvts305>MyContainer</span><span class=rvts299> {</span></p>
+<p class=rvps12><span class=rvts299>    [Symbol.asyncIterator]():                       </span><span class=rvts300>// can also be asynchronous</span></p>
+<p class=rvps12><span class=rvts299>        AsyncIterator&lt;string&gt; {</span></p>
+<p class=rvps12><span class=rvts299>        </span><span class=rvts300>// produce iterator</span></p>
+<p class=rvps12><span class=rvts299>    }</span></p>
+<p class=rvps12><span class=rvts299>}</span></p>
+<p class=rvps12><span class=rvts299><br></span></p>
+<p class=rvps12><span class=rvts106>interface</span><span class=rvts299> </span><span class=rvts305>AsyncIterator</span><span class=rvts299>&lt;</span><span class=rvts305>T</span><span class=rvts299>&gt; {                        </span><span class=rvts300>// the iterator returns promises instead of values  </span></p>
+<p class=rvps12><span class=rvts299>    next(value?: </span><span class=rvts106>any</span><span class=rvts299>): </span><span class=rvts305>Promise</span><span class=rvts299>&lt;</span><span class=rvts305>IteratorResult</span><span class=rvts299>&lt;</span><span class=rvts305>T</span><span class=rvts299>&gt;&gt;;</span></p>
+<p class=rvps12><span class=rvts299>    return?(value?: </span><span class=rvts106>any</span><span class=rvts299>): </span><span class=rvts305>Promise</span><span class=rvts299>&lt;</span><span class=rvts305>IteratorResult</span><span class=rvts299>&lt;</span><span class=rvts305>T</span><span class=rvts299>&gt;&gt;;</span></p>
+<p class=rvps12><span class=rvts299>    throw?(e?: </span><span class=rvts106>any</span><span class=rvts299>): </span><span class=rvts305>Promise</span><span class=rvts299>&lt;</span><span class=rvts305>IteratorResult</span><span class=rvts299>&lt;</span><span class=rvts305>T</span><span class=rvts299>&gt;&gt;;</span></p>
+<p class=rvps12><span class=rvts299>}</span></p>
+<p class=rvps12><span class=rvts299><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Generators</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251>* g(): </span><span class=rvts288>Iterable</span><span class=rvts251>&lt;</span><span class=rvts64>string</span><span class=rvts251>&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// the return type can also be inferred automatically</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>for</span><span class=rvts251> (</span><span class=rvts64>var</span><span class=rvts251> i = 0; i &lt; 100; i++) {</span></p>
+<p class=rvps12><span class=rvts251>        </span><span class=rvts64>yield</span><span class=rvts251> </span><span class=rvts289>""</span><span class=rvts251>;                                   </span><span class=rvts252>// return the next value</span></p>
+<p class=rvps12><span class=rvts251>    }</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>yield</span><span class=rvts251>* otherStringGenerator();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// must return another Iterable&lt;string&gt;</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts299><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Async generators</div>
+<p><span class=rvts61><br></span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>async</span><span class=rvts251> </span><span class=rvts64>function</span><span class=rvts251>* generator() {                       </span><span class=rvts252>// can be async</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>yield</span><span class=rvts251> 1;</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>await</span><span class=rvts251> sleep(100);                               </span><span class=rvts252>// use await like in regular async functions</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>yield</span><span class=rvts251>* [2, 3];</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>yield</span><span class=rvts251>* (</span><span class=rvts64>async</span><span class=rvts251> </span><span class=rvts64>function</span><span class=rvts251>*() {</span></p>
+<p class=rvps12><span class=rvts251>      </span><span class=rvts64>await</span><span class=rvts251> sleep(100);</span></p>
+<p class=rvps12><span class=rvts251>      </span><span class=rvts64>yield</span><span class=rvts251> 4;</span></p>
+<p class=rvps12><span class=rvts251>    })();</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>for</span><span class=rvts251> </span><span class=rvts64>await</span><span class=rvts251> (</span><span class=rvts64>const</span><span class=rvts251> x </span><span class=rvts64>of</span><span class=rvts251> generator()) {                </span><span class=rvts252>// iterate over an asynchronous generator</span></p>
+<p class=rvps12><span class=rvts251>    console.log(x);</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p><br></p>
+<p><br></p>
+

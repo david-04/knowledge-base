@@ -1,0 +1,33 @@
+
+<div id='nodeSection1'>Documentation</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>xs:schema</span><span class=rvts58> </span></p>
+<p><span class=rvts185>&nbsp;&nbsp;&nbsp; xmlns:xs</span><span class=rvts58>=</span><span class=rvts183>"</span><a class=rvts190 href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</a><span class=rvts183>"</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; </span><span class=rvts185>xml:lang</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>en-au</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- optionally set the default language for all annotations&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>xs:annotation</span><span class=rvts58> </span><span class=rvts185>xml:lang</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>en-us</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- must be the first child and may override the natural language&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>xs:documentation</span><span class=rvts58> </span><span class=rvts185>xml:lang</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>en-us</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- human readable documentation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Documentation for the whole schema</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>xs:documentation</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>xs:appinfo</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- application specific data, e.g. user promts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts196>...</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>xs:appinfo</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>xs:annotation</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>xs:element</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>root</span><span class=rvts183>"</span><span class=rvts58> </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>xs:string</span><span class=rvts183>"</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- documentation can be attached to a single element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>xs:annotation</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>&lt;!-- the annoation must always be the first child&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>xs:documentation</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Documentation for the root element</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>xs:documentation</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>xs:appinfo</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter the person's full name.</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>xs:appinfo</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>xs:annotation</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; </span><span class=rvts196>...</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>xs:element</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>xs:schema</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

@@ -1,0 +1,73 @@
+
+<div id='nodeSection1'>Debug-specific code</div>
+<p><span class=rvts200><br></span></p>
+<p><span class=rvts200>#Const</span><span class=rvts183> DEBUG = </span><span class=rvts58>True</span><span class=rvts183>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' or set via compiler switch</span></p>
+<p><span class=rvts176><br></span></p>
+<p><span class=rvts200>#If</span><span class=rvts183> DEBUG </span><span class=rvts200>Then</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts110>Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Debug mode"</span><span class=rvts183>)</span></p>
+<p><span class=rvts200>#Else</span></p>
+<p><span class=rvts110>&nbsp;&nbsp;&nbsp; Console</span><span class=rvts183>.WriteLine(</span><span class=rvts184>"Not in debug mode"</span><span class=rvts183>)</span></p>
+<p><span class=rvts200>#End</span><span class=rvts183> </span><span class=rvts200>If</span></p>
+<p><span class=rvts200><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Asserts, debug and trace messages</div>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Debug</span><span class=rvts183>.Assert(counter = 1, </span><span class=rvts184>"Error: Counter &lt;&gt; 1"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' activated when the DEBUG flag is set (only in debug mode)</span></p>
+<p><span class=rvts110>Debug</span><span class=rvts183>.Fail(</span><span class=rvts184>"Error message"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts110>Trace</span><span class=rvts183>.Assert(counter = 1, </span><span class=rvts184>"Error: Counter &lt;&gt; 1"</span><span class=rvts183>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' activated when the TRACE flag is set (even in release mode)</span></p>
+<p><span class=rvts110>Trace</span><span class=rvts183>.Fail(</span><span class=rvts184>"Error message"</span><span class=rvts183>)</span></p>
+<p><span class=rvts110>Trace</span><span class=rvts183>.TraceInformation(</span><span class=rvts184>"plain log messages"</span><span class=rvts183>)</span></p>
+<p><span class=rvts110>Trace</span><span class=rvts183>.WriteLineIf(counter = 1, </span><span class=rvts184>"Warning: Counter &lt;&gt; 1"</span><span class=rvts183>)</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Configuring trace listeners</div>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts110>Trace</span><span class=rvts183>.Listeners.Clear()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' remove the default handler(s)</span></p>
+<p><span class=rvts110>Trace</span><span class=rvts183>.Listeners.Add(</span><span class=rvts58>New</span><span class=rvts183> </span><span class=rvts110>TextWriterTraceListener</span><span class=rvts183>(</span><span class=rvts184>"trace.log"</span><span class=rvts183>))&nbsp;&nbsp; </span><span class=rvts176>' redirect all trace messages to a logfile</span></p>
+<p><span class=rvts183><br></span></p>
+<p><span class=rvts58>&lt;</span><span class=rvts184>system.diagnostics</span><span class=rvts58>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts176> the same can be configured in App.config&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts58>--&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;</span><span class=rvts184>trace</span><span class=rvts58> </span><span class=rvts185>autoflush</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>true</span><span class=rvts183>"</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>listeners</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>add</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>Logwriter</span><span class=rvts183>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>type</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>System.Diagnostics.TextWriterTraceListener</span><span class=rvts183>"</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts185>initializeData</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>trace.log</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts184>remove</span><span class=rvts58> </span><span class=rvts185>name</span><span class=rvts58>=</span><span class=rvts183>"</span><span class=rvts58>Default</span><span class=rvts183>"</span><span class=rvts58>/&gt;</span></p>
+<p><span class=rvts58>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts184>listeners</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&nbsp; &lt;/</span><span class=rvts184>trace</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58>&lt;/</span><span class=rvts184>system.diagnostics</span><span class=rvts58>&gt;</span></p>
+<p><span class=rvts58><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Configuring switches</div>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts42>configuration</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;</span><span class=rvts42>system.diagnostics</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>switches</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>name</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>ShowErrors</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>value</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>1</span><span class=rvts41>"</span><span class=rvts45> /&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> 0=false, 1=true&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>name</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>TraceLevel</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>value</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>1</span><span class=rvts41>"</span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> 0=off, 1=error, 2=warning, 3=info, 4=verbose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span class=rvts42>add</span><span class=rvts45> </span><span class=rvts90>name</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>Threshold</span><span class=rvts41>"</span><span class=rvts45> </span><span class=rvts90>value</span><span class=rvts45>=</span><span class=rvts41>"</span><span class=rvts45>4</span><span class=rvts41>"</span><span class=rvts45>/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</span><span class=rvts39> like above but has more levels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>--&gt;</span></p>
+<p><span class=rvts45>&nbsp;&nbsp;&nbsp; &lt;/</span><span class=rvts42>switches</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45>&nbsp; &lt;/</span><span class=rvts42>system.diagnostics</span><span class=rvts45>&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>Dim</span><span class=rvts41> se </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts45>New</span><span class=rvts41> </span><span class=rvts171>BooleanSwitch</span><span class=rvts41>(</span><span class=rvts42>"ShowErrors"</span><span class=rvts41>, </span><span class=rvts42>"descr"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>'&nbsp; interpret a switch as boolean</span></p>
+<p><span class=rvts171>Trace</span><span class=rvts41>.WriteIf(se.Enabled, </span><span class=rvts42>"error message"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>Dim</span><span class=rvts41> tl </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts45>New</span><span class=rvts41> </span><span class=rvts171>TraceSwitch</span><span class=rvts41>(</span><span class=rvts42>"TraceLevel"</span><span class=rvts41>, </span><span class=rvts42>"Trace level"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' interpret a switch as a 0...4 trace level</span></p>
+<p><span class=rvts171>Trace</span><span class=rvts41>.WriteIf(tl.TraceInfo, </span><span class=rvts42>"info message"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>Dim</span><span class=rvts41> th </span><span class=rvts45>As</span><span class=rvts41> </span><span class=rvts45>New</span><span class=rvts41> </span><span class=rvts171>SourceSwitch</span><span class=rvts41>(</span><span class=rvts42>"Threshold"</span><span class=rvts41>, </span><span class=rvts42>"threshold"</span><span class=rvts41>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>' interpret a switch As a threshold With more than 5 levels</span></p>
+<p><span class=rvts171>Trace</span><span class=rvts41>.WriteIf(th.ShouldTrace(</span><span class=rvts171>TraceEventType</span><span class=rvts41>.Warning),</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"The switch is &gt;= 4"</span><span class=rvts41>)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Debugger annotations</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts183>&lt;</span><span class=rvts110>DebuggerDisplay</span><span class=rvts183>(</span><span class=rvts184>"{FirstName} {LastName}"</span><span class=rvts183>)&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts176>' format how a person is shown in debugger tooltips</span></p>
+<p><span class=rvts58>Class</span><span class=rvts183> </span><span class=rvts110>Person</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Property</span><span class=rvts183> FirstName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts183>&nbsp;&nbsp;&nbsp; </span><span class=rvts58>Property</span><span class=rvts183> LastName </span><span class=rvts58>As</span><span class=rvts183> </span><span class=rvts58>String</span></p>
+<p><span class=rvts58>End</span><span class=rvts183> </span><span class=rvts58>Class</span></p>
+<p><span class=rvts58><br></span></p>
+<p><br></p>
+<p><br></p>
+

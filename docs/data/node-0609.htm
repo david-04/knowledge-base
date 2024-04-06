@@ -1,0 +1,69 @@
+
+<div id='nodeSection1'>Arrays</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myArray: </span><span class=rvts45>number</span><span class=rvts41>[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = [1, 2, 3];&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// uniformly typed array</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myArray: </span><span class=rvts110>Array</span><span class=rvts41>&lt;</span><span class=rvts45>number</span><span class=rvts41>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = [1, 2, 3];&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// same as above (different syntax)</span></p>
+<p><span class=rvts45><br></span></p>
+<p class=rvps12><span class=rvts64>let</span><span class=rvts251> </span><span class=rvts287>myArray</span><span class=rvts251>: </span><span class=rvts64>readonly</span><span class=rvts251> </span><span class=rvts64>number</span><span class=rvts251>[]&nbsp;&nbsp;&nbsp;&nbsp; = [</span><span class=rvts41>1, 2, 3</span><span class=rvts251>];&nbsp;&nbsp;&nbsp;  </span><span class=rvts252>// </span><span class=rvts39>array that does not allow mutations (not a separate class/constructur, just a tye wrapper for a regular array)</span></p>
+<p class=rvps12><span class=rvts45>let</span><span class=rvts41> myArray: </span><span class=rvts110>ReadonlyArray</span><span class=rvts41>&lt;</span><span class=rvts45>number</span><span class=rvts41>&gt; = [1, 2, 3];&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts252>same as above</span></p>
+<p class=rvps12><span class=rvts252><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Tuples</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myArray: [</span><span class=rvts45>string</span><span class=rvts41>, </span><span class=rvts45>number</span><span class=rvts41>] = [</span><span class=rvts42>"David"</span><span class=rvts41>, 38];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// tuple: individual types per element index (myArray[2+] can be string|number)</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myArray = [</span><span class=rvts42>"David"</span><span class=rvts41>, 38] as </span><span class=rvts45>const</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// similar as above, but creates the tuple as ["David", 38]</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>let </span><span class=rvts41>User = [id: </span><span class=rvts45>number</span><span class=rvts41>, name: </span><span class=rvts45>string</span><span class=rvts41>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// labels can be assigned (only for readability/tooltips</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts41>[</span><span class=rvts45>string</span><span class=rvts41>, </span><span class=rvts45>number</span><span class=rvts178>?</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can contain optional elements</span></p>
+<p><span class=rvts41>[</span><span class=rvts45>string</span><span class=rvts41>, ...</span><span class=rvts45>number</span><span class=rvts41>[], </span><span class=rvts45>boolean</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// one element can be a "rest" parameter (it doesn't need to be the last one)</span></p>
+<p><span class=rvts45>readonly</span><span class=rvts41> [</span><span class=rvts45>string</span><span class=rvts41>, </span><span class=rvts45>number</span><span class=rvts41>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can be readonly (just like ReadonlyArray)</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps12><span class=rvts64>interface</span><span class=rvts251> </span><span class=rvts288>MyTuple</span><span class=rvts251> {            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts252>// can also be defined as an interface</span></p>
+<p class=rvps12><span class=rvts251>    length: 2;</span></p>
+<p class=rvps12><span class=rvts251>    0: </span><span class=rvts64>string</span><span class=rvts251>;</span></p>
+<p class=rvps12><span class=rvts251>    1: </span><span class=rvts64>number</span><span class=rvts251>;</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Iterators</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> myArray = [</span><span class=rvts42>"David"</span><span class=rvts41>, </span><span class=rvts42>"Melbourne"</span><span class=rvts41>];</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>let</span><span class=rvts41> value </span><span class=rvts45>of</span><span class=rvts41> myArray) { console.log(value); }&nbsp; </span><span class=rvts39>// "David", "Melbourne" (values returned by an iterator)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>for</span><span class=rvts41> (</span><span class=rvts45>let</span><span class=rvts41> index </span><span class=rvts45>in</span><span class=rvts41> myArray) { console.log(index); }&nbsp; </span><span class=rvts39>// 0, 1 (properties of the object, applicable to any object, not only collections)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Destructuring</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts64>let</span><span class=rvts251> [item1, item2] = arrayOrTuple;                  </span><span class=rvts252>// destructure an array or tuple into new variables</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts251>[a, b] = [b, a];                                    </span><span class=rvts252>// re-assign pre-existing variables</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>let</span><span class=rvts251> [first, ...other] = arrayOrTuple;               </span><span class=rvts252>// assign all non-destructured items to the rest parameter</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>let</span><span class=rvts251> [, second, , fourth] = arrayOrTuple;            </span><span class=rvts252>// exclude some elements</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>let</span><span class=rvts251> [val1, val2 = </span><span class=rvts289>"default"</span><span class=rvts251>, val3] = arrayOrTuple;  </span><span class=rvts252>// use a default for missing items</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts64>function</span><span class=rvts251> myFunction(                                </span><span class=rvts252>// destructuring function parameters</span></p>
+<p class=rvps12><span class=rvts251>    [ item1, item2 = </span><span class=rvts289>"default"</span><span class=rvts251>, ...rest ]           </span><span class=rvts252>// can use the same features as when destructuring into variables</span></p>
+<p class=rvps12><span class=rvts251>        : </span><span class=rvts288>MyArrayOrTuple</span></p>
+<p class=rvps12><span class=rvts251>        = [1, 2]                                    </span><span class=rvts252>// default value if the parameter is omitted completely</span></p>
+<p class=rvps12><span class=rvts251>) { }</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection5'>Spread</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> person&nbsp;&nbsp; = { name: </span><span class=rvts42>"David"</span><span class=rvts41>, age: 38 };</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> employee = { ...person, employeeId: 21321 };&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// copy </span><span class=rvts44>own enumerable properties (not functions)</span><span class=rvts39> and other values into a new object</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> witness&nbsp; = { ...person, name: </span><span class=rvts42>"D**"</span><span class=rvts41> };&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can also be used to overwrite pre-existing values</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>let</span><span class=rvts41> array1 = [1, 2];</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> array2 = [3, 4];</span></p>
+<p><span class=rvts45>let</span><span class=rvts41> arrayCombined = [0, ...array1, ...array2, 5];&nbsp;&nbsp; </span><span class=rvts39>// add all array elements into another array (shallow copy)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><br></p>
+<p><br></p>
+

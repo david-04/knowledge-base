@@ -1,0 +1,55 @@
+
+<p class=rvps2><span class=rvts39><br></span></p>
+<div id='nodeSection1'>Automatic input</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>FILENAME</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># name of the current file ("-" for stdin)</span></p>
+<p><span class=rvts45>FNR</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># current line number in the current file</span></p>
+<p><span class=rvts45>NR</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># current line number accross all input files</span></p>
+<p><span class=rvts64>RT</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># current record separator</span></p>
+<p><span class=rvts64>NF</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># number of fields contained in the current record</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts45>RS</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># record separator ("\n|\r\n"); </span><span class=rvts44>does not guarantee to find the longest match</span><span class=rvts39> (set to "^$" to read the whole file at once)</span></p>
+<p><span class=rvts45>FS</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># field separator (" " or "[,;/]") =&gt; better performance with single-character FS when LC_ALL=C</span></p>
+<p><span class=rvts45>FPAT</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># opposite of FS, describes field contents "[a-z0-9]+"</span></p>
+<p><span class=rvts45>FIELDWIDTHS</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># fields with fixed length ("10 5 8 15")</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts64>RS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts113>= </span><span class=rvts217>""</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># records are separated by one or more newlines</span></p>
+<p><span class=rvts64>RS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts113>= </span><span class=rvts217>"\0"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># treat the whole file as one record</span></p>
+<p><span class=rvts64>FPAT&nbsp;&nbsp;&nbsp; </span><span class=rvts113>= </span><span class=rvts217>"[^,]*|\"[^\"]+\""</span><span class=rvts113>&nbsp; </span><span class=rvts62># opposite of FS: this regexp describes field values (every non-match is a separator)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>CONVFMT</span><span class=rvts113> = </span><span class=rvts217>"%.6g"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># format string used for the implicit conversion of strings to numbers</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts8><br></span></p>
+<div id='nodeSection2'>Explicit input</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>next</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># skip the current record and process the next one</span></p>
+<p><span class=rvts45>nextfile</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># skip the current record and process the next one</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>getline</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># return value:</span></p>
+<p><span class=rvts45>getline</span><span class=rvts113> var&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>#&nbsp; 1 =&gt; record was read</span></p>
+<p><span class=rvts45>getline</span><span class=rvts113> &lt; </span><span class=rvts42>"filename"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>#&nbsp; 0 =&gt; end of file</span></p>
+<p><span class=rvts45>getline</span><span class=rvts113> var &lt; </span><span class=rvts42>"filename"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># -1 =&gt; error (ERRNO is set)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts45>getline</span><span class=rvts113> </span><span class=rvts42>"/dev/stdin"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># get interactive user input (with timeout: PROCINFO["/dev/stdin", "READ_TIMEOUT"] = 1000)</span></p>
+<p class=rvps2><span class=rvts7><br></span></p>
+<p><span class=rvts45>close</span><span class=rvts113>(</span><span class=rvts42>"filename"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39># close the file so that it can be reopened later</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection3'>Output</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>OFS</span><span class=rvts113>&nbsp; = </span><span class=rvts217>" "</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># applied when rebuilding $0 and for the comma in print value1, value, ...</span></p>
+<p><span class=rvts64>ORS</span><span class=rvts113>&nbsp; = </span><span class=rvts217>"\n"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># output record separator (applied to all print statements)</span></p>
+<p><span class=rvts64>OFMT</span><span class=rvts113> = </span><span class=rvts217>"%.6g"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># how to format decimal numbers (not integers) in print statements</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>print</span><span class=rvts113> </span><span class=rvts217>"a"</span><span class=rvts61>,</span><span class=rvts113> </span><span class=rvts217>"b" "c"&nbsp;&nbsp;&nbsp;</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># prints "ab c"</span></p>
+<p><span class=rvts64>printf</span><span class=rvts113>(</span><span class=rvts217>"%s"</span><span class=rvts113>, variable)</span><span class=rvts217>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># format output with a format string (see below)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>print</span><span class=rvts113> </span><span class=rvts217>"text"</span><span class=rvts113> &gt; </span><span class=rvts217>"filename"</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># redirect output to a file (overwrite)</span></p>
+<p><span class=rvts64>print</span><span class=rvts113> </span><span class=rvts217>"text"</span><span class=rvts113> &gt;&gt; </span><span class=rvts217>"filename"&nbsp;&nbsp;&nbsp; </span><span class=rvts62># redirect output to a file (append)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>fflush</span><span class=rvts113>([</span><span class=rvts217>"filename"</span><span class=rvts113>])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># flush all buffered output (flush all files if no parameter is passed)</span></p>
+<p><span class=rvts64>close</span><span class=rvts113>(</span><span class=rvts217>"filename"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># close the file</span></p>
+<p><span class=rvts105><br></span></p>
+<p><br></p>
+<p><br></p>
+

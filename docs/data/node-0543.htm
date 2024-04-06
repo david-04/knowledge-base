@@ -1,0 +1,140 @@
+
+<div id='nodeSection1'>Console</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>print</span><span class=rvts262> </span><span class=rvts266>"without newline"</span><span class=rvts262>                     </span><span class=rvts263># print without a line break</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262>  </span><span class=rvts266>"with newline"</span><span class=rvts262>                        </span><span class=rvts263># print with a line break</span></p>
+<p class=rvps12><span class=rvts265>p</span><span class=rvts262> my_object                                 </span><span class=rvts263># dump/debug, same as puts ...inspect</span></p>
+<p class=rvps12><span class=rvts262>pp my_object                                </span><span class=rvts263># require 'pp', a better formatted version of p "my_object"</span></p>
+<p class=rvps12><span class=rvts265>printf</span><span class=rvts262>(</span><span class=rvts266>"%s (%s)"</span><span class=rvts262>, </span><span class=rvts266>"David"</span><span class=rvts262>, </span><span class=rvts266>"Melbourne"</span><span class=rvts262>)     </span><span class=rvts263># print with format string (no trailing \n)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>line = </span><span class=rvts265>gets</span><span class=rvts262>                                 </span><span class=rvts263># read a single line as string</span></p>
+<p class=rvps12><span class=rvts262>array = </span><span class=rvts265>readlines</span><span class=rvts262>                           </span><span class=rvts263># read all lines until EOF into an array</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>while</span><span class=rvts262> input = </span><span class=rvts265>gets</span><span class=rvts262>                          </span><span class=rvts263># read lines until EOF</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts263># ...</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts263>#   require 'english'</span></p>
+<p class=rvps12><span class=rvts263>#   vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>$&lt;  $DEFAULT_INPUT                          </span><span class=rvts263># default input channel</span></p>
+<p class=rvps12><span class=rvts262>$&gt;  $DEFAULT_OUTPUT                         </span><span class=rvts263># default output channel (defaults to $stdout)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>$,  $OUTPUT_FIELD_SEPARATOR   $OFS          </span><span class=rvts263># field (column) separator, nil for none (aka  with require 'english') </span></p>
+<p class=rvps12><span class=rvts262>$\  $OUTPUT_RECORD_SEPARATOR  $ORS          </span><span class=rvts263># output record separator, default to nil(aka  with require 'english') </span></p>
+<p class=rvps12><span class=rvts262>$;  $FIELD_SEPARATOR          $FS           </span><span class=rvts263># input field separator (aka  with require 'english')</span></p>
+<p class=rvps12><span class=rvts262>$/  $INPUT_RECORD_SEPARATOR   $RS           </span><span class=rvts263># input record separator, defaults to \n (aka with require 'english')</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Files</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts262>lines = </span><span class=rvts267>File</span><span class=rvts262>.</span><span class=rvts265>readlines</span><span class=rvts262>(</span><span class=rvts266>"file.txt"</span><span class=rvts262>)          </span><span class=rvts263># get all lines from the givne file as an array</span></p>
+<p class=rvps12><span class=rvts262>content = </span><span class=rvts267>File</span><span class=rvts262>.read(</span><span class=rvts266>"file.txt"</span><span class=rvts262>)             </span><span class=rvts263># read the whole file a a string</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>"file.txt"</span><span class=rvts262>)                       </span><span class=rvts263># open a file</span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>"file.txt"</span><span class=rvts262>,</span><span class=rvts266>"r+b"</span><span class=rvts262>)                 </span><span class=rvts263># specifiy the mode [r]read, [w]rite, [a]ppend with optional [+] and [b]inary</span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>"file.txt"</span><span class=rvts262>,</span><span class=rvts266>"r:utf-8:iso-8859-1"</span><span class=rvts262>)  </span><span class=rvts263># read file as UTF-8 but store in-memory as ISO-8859-1</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>file = </span><span class=rvts267>File</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>"file.txt"</span><span class=rvts262>, </span><span class=rvts266>"r"</span><span class=rvts262>)           </span><span class=rvts263># manually open and close the file</span></p>
+<p class=rvps12><span class=rvts263># ...</span></p>
+<p class=rvps12><span class=rvts262>file.close()</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>"file.txt"</span><span class=rvts262>) { |file| ... }        </span><span class=rvts263># or pass a block at which end the file is closed automatically</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>file.eof?                                   </span><span class=rvts263># check if the end fo the file has been reached</span></p>
+<p class=rvps12><span class=rvts262>file.fileexternal_encoding                  </span><span class=rvts263># get the file's encoding</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>file.</span><span class=rvts265>gets</span><span class=rvts262>                                   </span><span class=rvts263># read one line</span></p>
+<p class=rvps12><span class=rvts262>file.getc                                   </span><span class=rvts263># read one character</span></p>
+<p class=rvps12><span class=rvts262>file.read(3)                                </span><span class=rvts263># read 3 byes</span></p>
+<p class=rvps12><span class=rvts262>file.</span><span class=rvts265>readlines</span><span class=rvts262>                              </span><span class=rvts263># read all lines and return them as an array</span></p>
+<p class=rvps12><span class=rvts262>file.each { |line| ... }                    </span><span class=rvts263># iterate over all lines</span></p>
+<p class=rvps12><span class=rvts262>file.each(</span><span class=rvts266>' '</span><span class=rvts262>) { |record| ... }             </span><span class=rvts263># iterate over custom-split fragments</span></p>
+<p class=rvps12><span class=rvts262>file.each_byte { |byte| ... }               </span><span class=rvts263># iterate over all bytes</span></p>
+<p class=rvps12><span class=rvts262>file.each_char { |char| ... }               </span><span class=rvts263># iterate ver all chars</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>file.write </span><span class=rvts266>"123"</span><span class=rvts262>                            </span><span class=rvts263># write without a line break</span></p>
+<p class=rvps12><span class=rvts262>file.</span><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts266>"This is a test"</span><span class=rvts262>                  </span><span class=rvts263># write with a line break</span></p>
+<p class=rvps12><span class=rvts262>file.</span><span class=rvts265>putc</span><span class=rvts262> </span><span class=rvts266>"X"</span><span class=rvts262>                               </span><span class=rvts263># write a single character</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts262>file.flush                                  </span><span class=rvts263># flush buffer</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>file.pos                                    </span><span class=rvts263># get the current position (initially zero)</span></p>
+<p class=rvps12><span class=rvts262>file.pos = 0                                </span><span class=rvts263># set the current position</span></p>
+<p class=rvps12><span class=rvts262>file.seek(-5, </span><span class=rvts267>IO</span><span class=rvts262>::SEEK_END)                 </span><span class=rvts263># 5 positions from the end</span></p>
+<p class=rvps12><span class=rvts262>file.seek(5, </span><span class=rvts267>IO</span><span class=rvts262>::SEEK_CUR)                  </span><span class=rvts263># fast forward 5 positions</span></p>
+<p class=rvps12><span class=rvts262>file.seek(36, </span><span class=rvts267>IO</span><span class=rvts262>::</span><span class=rvts267>IO</span><span class=rvts262>::SEEK_SET)             </span><span class=rvts263># go to position 36</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Paths</div>
+<p><span class=rvts264><br></span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts267>File</span><span class=rvts262>.join(</span><span class=rvts266>'resources'</span><span class=rvts262>, </span><span class=rvts266>'style.css'</span><span class=rvts262>)    </span><span class=rvts263># resources/style.css</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts267>File</span><span class=rvts262>::SEPARATOR                        </span><span class=rvts263># /</span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts267>File</span><span class=rvts262>.expand_path(</span><span class=rvts266>"text.txt"</span><span class=rvts262>)           </span><span class=rvts263># e:/Programs/ruby-playground/text.txt</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>File system</div>
+<p class=rvps12><span class=rvts267><br></span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.exist?(</span><span class=rvts266>"file.txt"</span><span class=rvts262>)                     </span><span class=rvts263># check if file exits</span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.size(</span><span class=rvts266>"file.txt"</span><span class=rvts262>)                       </span><span class=rvts263># get the file size</span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.mtime(</span><span class=rvts266>"file.txt"</span><span class=rvts262>)                      </span><span class=rvts263># get the last modified time (returned as a Time object)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.rename(</span><span class=rvts266>"file1"</span><span class=rvts262>, </span><span class=rvts266>"file2"</span><span class=rvts262>)               </span><span class=rvts263># rename a file</span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.delete(</span><span class=rvts266>"file2"</span><span class=rvts262>, </span><span class=rvts266>"file3"</span><span class=rvts262>, </span><span class=rvts266>"file4"</span><span class=rvts262>)      </span><span class=rvts263># delete files</span></p>
+<p class=rvps12><span class=rvts267>File</span><span class=rvts262>.unlink(</span><span class=rvts266>"file1"</span><span class=rvts262>)                        </span><span class=rvts263># same as above (?)</span></p>
+<p class=rvps12><span class=rvts263><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>.pwd                                     </span><span class=rvts263># the current working directory</span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>.entries(</span><span class=rvts266>"/usr/bin"</span><span class=rvts262>)                     </span><span class=rvts263># returns an array of files/directories (relative)</span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>.foreach(</span><span class=rvts266>"/usr/bin"</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |entry|          </span><span class=rvts263># ...can also pass them directly to a code block</span></p>
+<p class=rvps12><span class=rvts262>  </span><span class=rvts265>puts</span><span class=rvts262> entry</span></p>
+<p class=rvps12><span class=rvts265>end</span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>[</span><span class=rvts266>"/usr/bin/*"</span><span class=rvts262>]                           </span><span class=rvts263># returns all children with absolute paths</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>.chdir(</span><span class=rvts266>"/usr/bin"</span><span class=rvts262>)                       </span><span class=rvts263># change to the given directory</span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>.mkdir(</span><span class=rvts266>"dir"</span><span class=rvts262>)                            </span><span class=rvts263># create a directory</span></p>
+<p class=rvps12><span class=rvts267>Dir</span><span class=rvts262>.delete(</span><span class=rvts266>"dir"</span><span class=rvts262>)                           </span><span class=rvts263># delete an empty directory</span></p>
+<p class=rvps12><span class=rvts267>FileUtils</span><span class=rvts262>.rm_f(</span><span class=rvts266>"dir"</span><span class=rvts262>)                       </span><span class=rvts263># require 'fileutils' - delete a directory recursively</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Temporary files</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'tmpdir'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>puts</span><span class=rvts262> </span><span class=rvts267>Dir</span><span class=rvts262>.tmpdir                             </span><span class=rvts263># contains the path to the temp folder</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps18><span class=rvts268><br></span></p>
+<p><span class=rvts268><br></span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'tempfile'</span><span class=rvts262>                          </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts263># Tempfile.new('myapp')                       # create a temp file in the temp folder</span></p>
+<p class=rvps12><span class=rvts263># Tempfile.new('myapp', '/home/david')        # create a temp file in the given folder</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>file = </span><span class=rvts267>Tempfile</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>'myapp'</span><span class=rvts262>)                </span><span class=rvts263># ceate a temp file</span></p>
+<p class=rvps12><span class=rvts262>file.path                                   </span><span class=rvts263># get the absolute path</span></p>
+<p class=rvps12><span class=rvts262>file.close                                  </span><span class=rvts263># close (but don't delete) the file - can be reopened while the program runs</span></p>
+<p class=rvps12><span class=rvts262>file.close!                                 </span><span class=rvts263># close and delete the file</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts267>Tempfile</span><span class=rvts262>.</span><span class=rvts265>open</span><span class=rvts262>(</span><span class=rvts266>'myapp'</span><span class=rvts262>) </span><span class=rvts265>do</span><span class=rvts262> |file|</span></p>
+<p class=rvps12><span class=rvts263># ...</span></p>
+<p class=rvps12><span class=rvts265>end</span><span class=rvts262>                                         </span><span class=rvts263># automatically closes and deletes the file</span></p>
+<p class=rvps12><span class=rvts269><br></span></p>
+<p><br></p>
+<p><br></p>
+

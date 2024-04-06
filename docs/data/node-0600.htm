@@ -1,0 +1,88 @@
+
+<div id='nodeSection1'>Unit tests - AnyFunSuite</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.funsuite.AnyFunSuite</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>ElementSuite </span><span class=rvts265>extends </span><span class=rvts262>AnyFunSuite {</span></p>
+<p class=rvps12><span class=rvts263>&nbsp; </span><span class=rvts262>test(</span><span class=rvts266>"0 should be 0"</span><span class=rvts262>) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; assert(0 == 0)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>(</span><span class=rvts265>new </span><span class=rvts262>ElementSuite).execute()</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Unit tests - AnyFlatSpec</div>
+<p><span class=rvts12><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.flatspec.AnyFlatSpec</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.matchers.should.Matchers</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>ElementSpec </span><span class=rvts265>extends </span><span class=rvts262>AnyFlatSpec </span><span class=rvts265>with </span><span class=rvts262>Matchers {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts266>"0 should be 0" </span><span class=rvts262>in {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; 0 should be(0)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; it should </span><span class=rvts266>"be zero" </span><span class=rvts262>in {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; 0 should be(0)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; it should </span><span class=rvts266>"throw an exception" </span><span class=rvts262>in {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; an[</span><span class=rvts277>IllegalArgumentException</span><span class=rvts262>] should be thrownBy {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 / 0</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Unit tests - specs2</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.specs2.*</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>object </span><span class=rvts274>ElementSpecification </span><span class=rvts265>extends </span><span class=rvts262>Specification {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts266>"Zero" </span><span class=rvts262>should {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts266>"be 0" </span><span class=rvts262>in {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 must be_==(0)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts266>"throw an exception" </span><span class=rvts262>in {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (0 / 0) must throwA[</span><span class=rvts277>IllegalArgumentException</span><span class=rvts262>]</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p><span class=rvts269><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Unit tests - AnyFeatureSpec</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.*</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.featurespec.AnyFeatureSpec</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>TVSetSpec </span><span class=rvts265>extends </span><span class=rvts262>AnyFeatureSpec </span><span class=rvts265>with </span><span class=rvts262>GivenWhenThen {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; Feature(</span><span class=rvts266>"Calculation"</span><span class=rvts262>) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; Scenario(</span><span class=rvts266>"Divide one integer by another"</span><span class=rvts262>) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Given(</span><span class=rvts266>"a dividend and a divisor"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When(</span><span class=rvts266>"the dividend is divided by the divisor"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Then(</span><span class=rvts266>"the result is rounded down"</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pending </span><span class=rvts263>// placeholder indicating that test &amp; feature have not been implemented yet</span></p>
+<p class=rvps12><span class=rvts263>&nbsp;&nbsp;&nbsp; </span><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p><span class=rvts9><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Unit tests - AnyWordSpec</div>
+<p class=rvps12><span class=rvts265><br></span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.wordspec.AnyWordSpec</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatestplus.scalacheck.ScalaCheckPropertyChecks</span></p>
+<p class=rvps12><span class=rvts265>import </span><span class=rvts262>org.scalatest.matchers.must.Matchers.*</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts265>class </span><span class=rvts274>ElementSpec </span><span class=rvts265>extends </span><span class=rvts262>AnyWordSpec </span><span class=rvts265>with </span><span class=rvts262>ScalaCheckPropertyChecks {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; </span><span class=rvts266>"list.add" </span><span class=rvts262>must {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; </span><span class=rvts266>"have passed width" </span><span class=rvts262>in {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; forAll { (w: Int) =&gt;</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; whenever(w &gt; 0) {</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elem(</span><span class=rvts266>'x'</span><span class=rvts262>, w % 100, 3).width must equal(w % 100)</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>&nbsp; }</span></p>
+<p class=rvps12><span class=rvts262>}</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

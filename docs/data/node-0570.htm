@@ -1,0 +1,29 @@
+
+<div id='nodeSection1'>Logging</div>
+<p><span class=rvts263><br></span></p>
+<p class=rvps12><span class=rvts265>require</span><span class=rvts262> </span><span class=rvts266>'logger'</span><span class=rvts262>                            </span><span class=rvts263># standard library</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>logger = </span><span class=rvts267>Logger</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(STDERR)                 </span><span class=rvts263># create a logger (writing to stderr)</span></p>
+<p class=rvps12><span class=rvts262>logger = </span><span class=rvts267>Logger</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>'app.log'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>logger = </span><span class=rvts267>Logger</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>'app.log'</span><span class=rvts262>, </span><span class=rvts266>'daily'</span><span class=rvts262>)     </span><span class=rvts263># rotate the logfile daily, weekly or monthly</span></p>
+<p class=rvps12><span class=rvts262>logger = </span><span class=rvts267>Logger</span><span class=rvts262>.</span><span class=rvts265>new</span><span class=rvts262>(</span><span class=rvts266>'app.log'</span><span class=rvts262>, 10, 99999)   </span><span class=rvts263># rotate 10 log files of 99999 bytes each</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>logger.sev_threshold = </span><span class=rvts267>Logger</span><span class=rvts262>::DEBUG        </span><span class=rvts263># set the log level threshold</span></p>
+<p class=rvps12><span class=rvts262>logger.sev_threshold = </span><span class=rvts267>Logger</span><span class=rvts262>::INFO</span></p>
+<p class=rvps12><span class=rvts262>logger.sev_threshold = </span><span class=rvts267>Logger</span><span class=rvts262>::WARN</span></p>
+<p class=rvps12><span class=rvts262>logger.sev_threshold = </span><span class=rvts267>Logger</span><span class=rvts262>::ERROR</span></p>
+<p class=rvps12><span class=rvts262>logger.sev_threshold = </span><span class=rvts267>Logger</span><span class=rvts262>::FATAL</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>logger.debug(</span><span class=rvts266>'messsage'</span><span class=rvts262>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts263># write a log message</span></p>
+<p class=rvps12><span class=rvts262>logger.info(</span><span class=rvts266>'messsage'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>logger.warn(</span><span class=rvts266>'messsage'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>logger.error(</span><span class=rvts266>'messsage'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262>logger.fatal(</span><span class=rvts266>'messsage'</span><span class=rvts262>)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>logger.add(</span><span class=rvts267>Logger</span><span class=rvts262>::FATAL) { </span><span class=rvts266>'message'</span><span class=rvts262> }     </span><span class=rvts263># generate message via code block (lazy evaluation?)</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p class=rvps12><span class=rvts262>logger.close                                </span><span class=rvts263># close the logger</span></p>
+<p class=rvps12><span class=rvts262><br></span></p>
+<p><br></p>
+<p><br></p>
+

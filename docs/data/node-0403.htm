@@ -1,0 +1,40 @@
+
+<div id='nodeSection1'>Serialisation</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyClass</span><span class=rvts113> </span><span class=rvts64>implements</span><span class=rvts113> </span><span class=rvts233>Serializable</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the class must be marked with the Serializable interface</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>final</span><span class=rvts113> </span><span class=rvts64>long</span><span class=rvts113> serialVersionUID = 123;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the class should define a version ID to check for compatibility</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>private</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> myProperty;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// instance properties are serialised</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>static</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> instanceCount = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// static properties are not serialised</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>transient</span><span class=rvts113> </span><span class=rvts64>int</span><span class=rvts113> myTransientProperty;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ... nor are transient instance properties</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyClass(</span><span class=rvts64>int</span><span class=rvts113> property) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>this</span><span class=rvts113>.myProperty = property;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>FileOutputStream</span><span class=rvts113> fs = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileOutputStream</span><span class=rvts113>(</span><span class=rvts217>"file"</span><span class=rvts113>);</span></p>
+<p><span class=rvts233>ObjectOutputStream</span><span class=rvts113> os = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>ObjectOutputStream</span><span class=rvts113>(fs); </span><span class=rvts62>// create an object stream that writes into another stream (file in this case)</span></p>
+<p><span class=rvts113>os.writeObject(myClassInstance);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// serialise the object and write it into the stream</span></p>
+<p><span class=rvts62><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts233>FileInputStream</span><span class=rvts113> fs = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>FileInputStream</span><span class=rvts113>(</span><span class=rvts217>"file"</span><span class=rvts113>);</span></p>
+<p><span class=rvts233>ObjectInputStream</span><span class=rvts113> os = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>ObjectInputStream</span><span class=rvts113>(fs);&nbsp;&nbsp; </span><span class=rvts62>// create an object stream that reads from another stream</span></p>
+<p><span class=rvts113>myClassInstance = (</span><span class=rvts233>MyClass</span><span class=rvts113>) os.readObject();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// read the object and deserialise it (requires a cast)</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts62><br></span></p>
+<div id='nodeSection2'>Serial version UID</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>long</span><span class=rvts113> id = </span><span class=rvts233>ObjectStreamClass</span><span class=rvts113>.lookup(</span><span class=rvts233>MyClass</span><span class=rvts113>.</span><span class=rvts64>class</span><span class=rvts113>)&nbsp;&nbsp; </span><span class=rvts62>// determine the current (auto-generated) serial version UID</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .getSerialVersionUID();</span></p>
+<p><span class=rvts113><br></span></p>
+<p><br></p>
+<p><br></p>
+

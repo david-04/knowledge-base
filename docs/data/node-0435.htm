@@ -1,0 +1,124 @@
+
+<div id='nodeSection1'>Menus (AWT)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>MenuBar</span><span class=rvts113> menuBar = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuBar</span><span class=rvts113>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a menu bar</span></p>
+<p><span class=rvts64>this</span><span class=rvts113>.setMenuBar(menuBar);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>Menu</span><span class=rvts113> fileMenu = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Menu</span><span class=rvts113>(</span><span class=rvts217>"File"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a menu section</span></p>
+<p><span class=rvts113>menuBar.add(fileMenu);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>MenuItem</span><span class=rvts113> openFile = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"open"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add items to the menu</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fileMenu.add(openFile);</span></p>
+<p><span class=rvts113>&nbsp; </span></p>
+<p><span class=rvts113>openFile.addActionListener(event -&gt; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add an event handler</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (event.getSource() == openFile) {</span><span class=rvts73>...</span><span class=rvts113>}</span></p>
+<p><span class=rvts113>});</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>Menu</span><span class=rvts113> recentFiles = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Menu</span><span class=rvts113>(</span><span class=rvts217>"recent"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add nested items to the menu</span></p>
+<p><span class=rvts113>recentFiles.add(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MenuItem</span><span class=rvts113>(</span><span class=rvts217>"file.txt"</span><span class=rvts113>));</span></p>
+<p><span class=rvts113>fileMenu.add(recentFiles);</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection2'>Menus (Swing)</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>JMenuBar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the program's main menu bar (contains JMenu elements)</span></p>
+<p><span class=rvts233>JMenuItem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a bottom-level entry like Open, Save, Close</span></p>
+<p><span class=rvts61>+-- </span><span class=rvts233>JMenu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a top-level entry like File, Edit and Help (contains JMenuItem)</span></p>
+<p><span class=rvts233>JCheckBoxMenuItem</span></p>
+<p><span class=rvts233>JRadioButtonMenuItem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// </span><span class=rvts70>must be wrapped into a button group (which itself is not added to the menu)</span></p>
+<p><span class=rvts233>JSeparator</span></p>
+<p><span class=rvts233>JPopupMenu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// context menu (contains JMenuItem elements)</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection3'>Menu bar</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>JMenuBar</span><span class=rvts113> menuBar = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenuBar</span><span class=rvts113>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create the menu bar</span></p>
+<p><span class=rvts113>frame.setJMenuBar(menuBar);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// menu bars are added via setJMenuBar(), not via add()</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>JMenu</span><span class=rvts113> file = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenu</span><span class=rvts113>(</span><span class=rvts217>"File"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create and add a main menu item</span></p>
+<p><span class=rvts113>menuBar.add(file);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>JMenuItem</span><span class=rvts113> fileNew = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenuItem</span><span class=rvts113>(</span><span class=rvts217>"New"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// attach a menu entry to the main menu item</span></p>
+<p><span class=rvts113>file.add(fileNew);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>file.add(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JSeparator</span><span class=rvts113>());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// insert a separator line</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>JMenu</span><span class=rvts113> fileRecent = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenu</span><span class=rvts113>(</span><span class=rvts217>"Recent"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a nested sub-menu</span></p>
+<p><span class=rvts113>file.add(fileRecent);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>JMenuItem</span><span class=rvts113> fileRecent1 = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenuItem</span><span class=rvts113>(</span><span class=rvts217>"Recent 1"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>fileRecent.add(fileRecent1);</span></p>
+<p><span class=rvts61><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>fileNew.addActionListener((</span><span class=rvts233>ActionEvent</span><span class=rvts113> ae) -&gt;</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; label.setText(</span><span class=rvts217>"File -&gt; New"</span><span class=rvts113>)</span></p>
+<p><span class=rvts113>); </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>fileNew.setMnemonic(</span><span class=rvts233>KeyEvent</span><span class=rvts113>.VK_N);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set a mnemonic (should be a letter from the text)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>fileNew.setAccelerator(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add an accelerator (hotkey)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>KeyStroke</span><span class=rvts113>.getKeyStroke(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>KeyEvent</span><span class=rvts113>.VK_N,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>InputEvent</span><span class=rvts113>.CTRL_DOWN_MASK));</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>fileNew.setToolTipText(</span><span class=rvts217>"Create a new file"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add a tooltip</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection4'>Context menus</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts113>myFrame.addMouseListener(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>MouseAdapter</span><span class=rvts113>() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// the pop-up menu is activated via a right-click</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> mousePressed(</span><span class=rvts233>MouseEvent</span><span class=rvts113> me) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>if</span><span class=rvts113> (me.getButton() == </span><span class=rvts233>MouseEvent</span><span class=rvts113>.BUTTON3) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>JPopupMenu</span><span class=rvts113> menu = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JPopupMenu</span><span class=rvts113>();&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create and populate the pop-up menu</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.add(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenuItem</span><span class=rvts113>(</span><span class=rvts217>"action 1"</span><span class=rvts113>));</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.add(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JMenuItem</span><span class=rvts113>(</span><span class=rvts217>"action 2"</span><span class=rvts113>));</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.setInvoker(myFrame);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// attach the menu to the parent container</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.setLocation(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// position the menu relative to the click location </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; me.getX()</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + menu.getPreferredSize().width, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; me.getY()</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; menu.setVisible(</span><span class=rvts64>true</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// show the menu</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>});</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection5'>Toolbars</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts233>JToolBar</span><span class=rvts113> toolbar = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JToolBar</span><span class=rvts113>(</span><span class=rvts217>"toolbar"</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a toolbar and add it to the window</span></p>
+<p><span class=rvts113>frame.add(toolbar, </span><span class=rvts233>BorderLayout</span><span class=rvts113>.NORTH);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// (use the BorderLayout to enable moving the toolbox to other edges)</span></p>
+<p><span class=rvts113>toolbar.add(</span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>JButton</span><span class=rvts113>(</span><span class=rvts217>"1"</span><span class=rvts113>));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// add buttons to the toolbar</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts12><br></span></p>
+<div id='nodeSection6'>Actions / commands</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts64>class</span><span class=rvts113> </span><span class=rvts233>MyAction</span><span class=rvts113> </span><span class=rvts64>extends</span><span class=rvts113> </span><span class=rvts233>AbstractAction</span><span class=rvts113> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// a command is encapsulated by an action class</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> MyAction() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// optionally: add a text label and/or an icon</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts64>super</span><span class=rvts113>(</span><span class=rvts217>"Copy"</span><span class=rvts113>, </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>ImageIcon</span><span class=rvts113>(</span><span class=rvts217>"cut.png"</span><span class=rvts113>));</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts64>public</span><span class=rvts113> </span><span class=rvts64>void</span><span class=rvts113> actionPerformed(</span><span class=rvts233>ActionEvent</span><span class=rvts113> e) {&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// this code is executed when the action is triggered</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// ...</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts62><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts113>action.setEnabled(</span><span class=rvts64>true</span><span class=rvts113>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// enable or disable the action</span></p>
+<p><span class=rvts113>action.putValue(</span><span class=rvts233>Action</span><span class=rvts113>.ACCELERATOR_KEY,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// set properties (only a selection is shown here)</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>KeyStroke</span><span class=rvts113>.getKeyStroke(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>KeyEvent</span><span class=rvts113>.VK_N,</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts233>InputEvent</span><span class=rvts113>.CTRL_DOWN_MASK));</span></p>
+<p><span class=rvts113>action.putValue(</span><span class=rvts233>Action</span><span class=rvts113>.MNEMONIC_KEY, </span><span class=rvts233>KeyEvent</span><span class=rvts113>.VK_N);</span></p>
+<p><span class=rvts113>action.putValue(</span><span class=rvts233>Action</span><span class=rvts113>.SHORT_DESCRIPTION, </span><span class=rvts217>"tooltip"</span><span class=rvts113>);</span></p>
+<p><span class=rvts62><br></span></p>
+<p><br></p>
+<p><br></p>
+

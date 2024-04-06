@@ -1,0 +1,35 @@
+
+<div id='nodeSection1'>Shell commands</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>errorlevel = </span><span class=rvts64>system</span><span class=rvts113>(</span><span class=rvts217>"command"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># open a shell, run the command and close the shell</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>print</span><span class=rvts113> </span><span class=rvts217>"text"</span><span class=rvts113> | </span><span class=rvts217>"command"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># pipe text into shell command</span></p>
+<p><span class=rvts217>"command"&nbsp;&nbsp;&nbsp; </span><span class=rvts113>| </span><span class=rvts64>getline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># run a shell command and read its output</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>print</span><span class=rvts61> </span><span class=rvts217>"text"</span><span class=rvts61> |&amp; </span><span class=rvts217>"command"</span><span class=rvts61>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># pipe text into a </span><span class=rvts70>bidrectional</span><span class=rvts62> shell command</span></p>
+<p><span class=rvts217>"command"</span><span class=rvts113>&nbsp;&nbsp;&nbsp; |&amp; </span><span class=rvts64>getline</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># read the output of a </span><span class=rvts70>bidrectional</span><span class=rvts62> shell command</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>fflush</span><span class=rvts113>([</span><span class=rvts217>"command"</span><span class=rvts113>])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># flush all pending input into the command (or all commands if no parameter is passed)</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts64>close</span><span class=rvts113>(</span><span class=rvts217>"command"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># close the specified command</span></p>
+<p><span class=rvts64>close</span><span class=rvts113>(</span><span class=rvts217>"command"</span><span class=rvts113>, </span><span class=rvts217>"to"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># </span><span class=rvts70>bidrectional only</span><span class=rvts62>: close the pipe feeding input into the command</span></p>
+<p><span class=rvts64>close</span><span class=rvts113>(</span><span class=rvts217>"command"</span><span class=rvts113>, </span><span class=rvts217>"from"</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># </span><span class=rvts70>bidrectional only</span><span class=rvts62>: close the pipe delivering output from the command</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts39><br></span></p>
+<div id='nodeSection2'>Shell commands</div>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>service = </span><span class=rvts217>"/inet/tcp/0/127.0.0.1/100"&nbsp; </span><span class=rvts62># the format is: /type/protocol/local-port/remote-host/remote-port</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # type .......... inet4 (IP4), inet6 (IP6) or inet (use system default)</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # protocol ...... tcp or udp</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # local-port .... local (outgoing) port (0 for auto-select)</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # remote-host ... remote server IP address or host name</span></p>
+<p><span class=rvts62>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # remote-port ... remote server port</span></p>
+<p><span class=rvts62><br></span></p>
+<p><span class=rvts64>print</span><span class=rvts61> </span><span class=rvts217>"text"</span><span class=rvts61> |&amp; service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># send data to the remote service</span></p>
+<p><span class=rvts113>service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&amp; </span><span class=rvts64>getline</span><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># receive data from the remote service</span></p>
+<p><span class=rvts64>close</span><span class=rvts113>(</span><span class=rvts61>service</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62># close the connection</span></p>
+<p><span class=rvts64><br></span></p>
+<p><br></p>
+<p><br></p>
+

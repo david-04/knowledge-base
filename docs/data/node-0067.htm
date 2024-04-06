@@ -1,0 +1,85 @@
+
+<div id='nodeSection1'>Binding content</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>There are </span><span class=rvts94>{{</span><span class=rvts95>todos.length</span><span class=rvts94>}}</span><span class=rvts41> items&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- one-way binding via inline-syntax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>span&nbsp;</span><span class=rvts41> </span><span class=rvts90>ng-bind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= "todos.length"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- one-way binding via the ng-bind directive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>span&nbsp;</span><span class=rvts41> </span><span class=rvts90>ng-bind-template </span><span class=rvts45>= "</span><span class=rvts96>{{</span><span class=rvts95>name</span><span class=rvts96>}}</span><span class=rvts45>, </span><span class=rvts96>{{</span><span class=rvts95>age</span><span class=rvts96>}}</span><span class=rvts45>" /&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- wrap the in line-binding syntax into attribute-format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>span&nbsp;</span><span class=rvts41> </span><span class=rvts90>ng-bind-html&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= "htmlCode"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- allow HTML (requires angular-sanitize.js to be downloaded separately) --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>input</span><span class=rvts41> </span><span class=rvts90>ng-model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>= "age"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>/&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- two-way binding (applicable to form elements only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>span&nbsp;</span><span class=rvts41> </span><span class=rvts90>ng-non-bindable</span><span class=rvts45>&gt;&nbsp;&nbsp; </span><span class=rvts94>{{</span><span class=rvts41> </span><span class=rvts95>...</span><span class=rvts41> </span><span class=rvts94>}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts45>&lt;/</span><span class=rvts46>span</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- disable the inline-binding syntax for the given element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>div</span><span class=rvts41>&nbsp;&nbsp; </span><span class=rvts90>ng-cloak</span><span class=rvts45>/&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- hide this element until all data bindings have been applied&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts91><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection2'>Binding attributes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>a</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>ng-href</span><span class=rvts45>="getLinkUrl()"&gt;...&lt;/</span><span class=rvts46>a</span><span class=rvts45>&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- set the href attribute on an a element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>img</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>ng-src</span><span class=rvts45>="getImgUrl()"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- set the src attribute on an img element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>img</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts90>ng-srcset</span><span class=rvts45>="getImgeUrls()" /&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- set the srcset attribute on an img element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>details</span><span class=rvts41> </span><span class=rvts90>ng-open</span><span class=rvts45>="mustBeOpened()"</span><span class=rvts41> </span><span class=rvts45>/&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- set the open attribute on a details elements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts45><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection3'>Binding CSS styles and classes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>&lt;</span><span class=rvts46>td</span><span class=rvts41> </span><span class=rvts90>ng-style</span><span class=rvts45>="{'background-color': settings.color}"</span><span class=rvts41> </span><span class=rvts91>&lt;!-- set a single CSS property as inline-style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>ng-class</span><span class=rvts45>="getDefaultBaseClass()"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- set the CSS class (name)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>ng-class-even</span><span class=rvts45>="getEvenClass()"</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- apply this CSS class name during event iterations&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts90>ng-class-odd</span><span class=rvts45>="getOddClass()"&gt;</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts91>&lt;!-- apply this CSS class name during odd iterations&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection4'>Propagating changes</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts41>$scope.myProp = </span><span class=rvts42>"text"</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the scope's property to be monitored for changes</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>$scope.$watch(</span><span class=rvts42>"myProp"</span><span class=rvts41>, </span><span class=rvts45>function </span><span class=rvts41>(newValue, old) {&nbsp; </span><span class=rvts39>// register event handler on the property (</span><span class=rvts44>name must be passed as a string</span><span class=rvts39>)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; document.body.innerHTML += newValue;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// propagate the change (e.g. to a document region not covered by AngularJS)</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>$scope.$watch(</span><span class=rvts45>function</span><span class=rvts41> (watchScope) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// instead of targetting a property, a watch can also be set on an expression</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>return</span><span class=rvts41> watchScope.$eval(</span><span class=rvts42>"price | currency"</span><span class=rvts41>,&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the expression to evaluate</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $scope.products[0]);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the object that the expression it to be applied to</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; },</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>function</span><span class=rvts41> (newValue, oldValue) { }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the function to trigger when the expression's result changes</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection5'>Sanitisation</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts41>scriptlessHtml = $sanitize(sourceHtml);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// remove JavaScript but leave the remaining HTML characters untouched</span></p>
+<p><span class=rvts41>trustedHtml&nbsp;&nbsp;&nbsp; = $sce.trustAsHtml(userInput);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// allow the userInput/trustedHTML to be displayed without sanitisation</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection6'>Manual binding</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts41>expressionFunction = $parse(</span><span class=rvts42>"price | currency"</span><span class=rvts41>);&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a function to </span><span class=rvts44>evaluate expressions</span><span class=rvts39> (might throw an exception)</span></p>
+<p><span class=rvts41>result = expressionFunction(scope);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// evaluate the pre-parsed expression within the given scope</span></p>
+<p><span class=rvts41>result = expressionFunction(scope, {key:</span><span class=rvts42>"value"</span><span class=rvts41>});&nbsp; </span><span class=rvts39>// additional data (scope-overlay) can be passed as a second argument</span></p>
+<p><span class=rvts45>if</span><span class=rvts41> (result == undefined) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// no result might be returned if the context lacks the required properties</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; result = </span><span class=rvts42>"No result"</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>interpolateFunction = $interpolate(</span><span class=rvts42>"sum={{sum}}"</span><span class=rvts41>);&nbsp; </span><span class=rvts39>// create a function to </span><span class=rvts44>interpolate strings</span></p>
+<p><span class=rvts41>result = interpolateFunction(scope);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// apply the interpolation (supports one parameter only, no scope-overlay)</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts41>ul = angular.element(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a jqLite object by parsing AngularJS code (can include directives)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts42>"&lt;ul&gt;&lt;li ng-repeat='city in cities'&gt;"</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; + </span><span class=rvts42>"{{city}}&lt;/li&gt;&lt;/ul&gt;"</span></p>
+<p><span class=rvts41>);</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> compilerFunction = $compile(ul);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// create a compiler function to </span><span class=rvts44>apply directives and data bindings</span></p>
+<p><span class=rvts41>compilerFunction(scope);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// run the compiler function to exapnd all directives and data bindings</span></p>
+<p><span class=rvts41>element.append(ul);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// use the resulting (expanded) jqLite object</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts9><br></span></p>
+<div id='nodeSection7'>Configuring inline delimiters</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts41>myModule.config(</span><span class=rvts45>function</span><span class=rvts41> ($interpolateProvider) {&nbsp;&nbsp; </span><span class=rvts39>// change the interpolation delimiter (&lt;p&gt;{{user.name}}&lt;/p&gt;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $interpolateProvider.startSymbol(</span><span class=rvts42>"{{"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; $interpolateProvider.endSymbol(</span><span class=rvts42>"}}"</span><span class=rvts41>);</span></p>
+<p><span class=rvts41>});</span></p>
+<p><span class=rvts41><br></span></p>
+<p><br></p>
+<p><br></p>
+

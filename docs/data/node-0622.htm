@@ -1,0 +1,79 @@
+
+<div id='nodeSection1'>Interfaces</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IBook</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts110>IMedia</span><span class=rvts41>, </span><span class=rvts110>ICataloguable</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// an interface can extend (inherit from) other interfaces</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; title: </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// all properties and functions are public (and that can't be changed)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>readonly</span><span class=rvts41> isbn?: </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// properties can be read-only and/or optional (useful for option bags)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; getTitle(): </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IMyInterface</span><span class=rvts41> </span><span class=rvts45>extends</span><span class=rvts41> </span><span class=rvts110>MyClass</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// interfaces can be derived from classes, they inherit private members as</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // well and can only be implemented by the base class itself or its children</span><span class=rvts41>&nbsp; </span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection2'>Object literals</div>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IPerson</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>strict interface definition</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; age: </span><span class=rvts45>number</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> person: </span><span class=rvts110>IPerson</span><span class=rvts41> = { age: 35, name: </span><span class=rvts42>"David"</span><span class=rvts41> };&nbsp;&nbsp; </span><span class=rvts39>// object literals must have exactly the same properties (neither more nor less)</span></p>
+<p><span class=rvts39><br></span></p>
+<p class=rvps12><span class=rvts106>interface</span><span class=rvts299> </span><span class=rvts305>IPerson</span><span class=rvts299> { name: </span><span class=rvts106>string</span><span class=rvts299>; }</span></p>
+<p class=rvps12><span class=rvts106>interface</span><span class=rvts299> </span><span class=rvts305>IPerson</span><span class=rvts299> { age: </span><span class=rvts106>number</span><span class=rvts299>; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts300>// multiple definitions of the same interface are merged (intersection type)</span></p>
+<p><span class=rvts39><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IPerson</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>lax interface definition</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; name: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; age?: </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// mark selected properties as optional (useful for configuration bags)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [propName: </span><span class=rvts45>string</span><span class=rvts41>]: </span><span class=rvts45>any</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// allow additional parameters in object literals</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts45>var</span><span class=rvts41> person: </span><span class=rvts110>IPerson</span><span class=rvts41> = { name: </span><span class=rvts42>"David"</span><span class=rvts41>, id: 21513 }; </span><span class=rvts39>// object literals can omit optional properties and add extra ones</span></p>
+<p><span class=rvts12><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection3'>Function interfaces</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>ISearchFunction</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>functions</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; (source: </span><span class=rvts45>string</span><span class=rvts41>, subString: </span><span class=rvts45>string</span><span class=rvts41>): </span><span class=rvts45>boolean</span><span class=rvts41>;&nbsp;&nbsp; </span><span class=rvts39>// include only the function signature</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; (source: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>boolean</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// may contain multiple signatures if describing an overloaded function</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IConstructor</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>constructors</span><span class=rvts39> (can't be implemented by classes)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>new</span><span class=rvts41> (name: </span><span class=rvts45>string</span><span class=rvts41>, age: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts110>IPerson</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the return type can be a more generic interface</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IHybridObject</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>hybrid functions</span><span class=rvts39> (combined function + object)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; (start: </span><span class=rvts45>number</span><span class=rvts41>): </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// this signature applies when invoking the object like a function</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; interval: </span><span class=rvts45>number</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// these properties and methods must exist in the context of the object</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; reset(): </span><span class=rvts45>void</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts47>function getCounter(): IHybridObject {</span><span class=rvts41>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// sample implementation of the above interface</span></p>
+<p><span class=rvts47>&nbsp;&nbsp;&nbsp; let c = &lt;IHybridObject&gt;function (s: number) { };</span></p>
+<p><span class=rvts47>&nbsp;&nbsp;&nbsp; c.interval = 123;</span></p>
+<p><span class=rvts47>&nbsp;&nbsp;&nbsp; c.reset = function () { };</span></p>
+<p><span class=rvts47>&nbsp;&nbsp;&nbsp; return c;</span></p>
+<p><span class=rvts47>}</span></p>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts110><br></span></p>
+<div id='nodeSection4'>Index signature</div>
+<p><span class=rvts8><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IStringArray</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>indexable container</span><span class=rvts39> (like an array)</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [index: </span><span class=rvts45>number</span><span class=rvts41>]: </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the index can only be a string or a number, the result can be anything</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; [index: </span><span class=rvts45>string</span><span class=rvts41>]: </span><span class=rvts45>string</span><span class=rvts41>;</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; length: </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// can have explicitly named/known properties but they must have the same type as the indexer</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p><span class=rvts45>interface</span><span class=rvts41> </span><span class=rvts110>IStringArray</span><span class=rvts41> {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// </span><span class=rvts44>read-only indexable container</span></p>
+<p><span class=rvts41>&nbsp;&nbsp;&nbsp; </span><span class=rvts45>readonly</span><span class=rvts41> [index: </span><span class=rvts45>number</span><span class=rvts41>]: </span><span class=rvts45>string</span><span class=rvts41>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts39>// the readonly mark prevents the (re-) assignment of array elements</span></p>
+<p><span class=rvts41>}</span></p>
+<p><span class=rvts41><br></span></p>
+<p class=rvps12><span class=rvts64>class</span><span class=rvts251> </span><span class=rvts292>MyClass</span><span class=rvts251> {</span></p>
+<p class=rvps12><span class=rvts251>    [index: </span><span class=rvts64>number</span><span class=rvts251>]: </span><span class=rvts64>boolean</span><span class=rvts251>;                       </span><span class=rvts252>// the index signature can also be used on classes</span></p>
+<p class=rvps12><span class=rvts251>    </span><span class=rvts64>static</span><span class=rvts251> [index: </span><span class=rvts64>number</span><span class=rvts251>]: </span><span class=rvts64>string</span><span class=rvts251>;                 </span><span class=rvts252>// ...and be static as well</span></p>
+<p class=rvps12><span class=rvts251>}</span></p>
+<p class=rvps12><span class=rvts251><br></span></p>
+<p class=rvps12><span class=rvts296><br></span></p>
+<p><br></p>
+<p><br></p>
+

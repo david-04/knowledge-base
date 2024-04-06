@@ -1,0 +1,79 @@
+
+<div id='nodeSection1'>JMS setup</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts64>import</span><span class=rvts113> java.util.Hashtable;</span></p>
+<p><span class=rvts64>import</span><span class=rvts113> javax.jms.*;</span></p>
+<p><span class=rvts64>import</span><span class=rvts113> javax.naming.*;</span></p>
+<p><span class=rvts113><br></span></p>
+<p class=rvps11><span class=rvts111><br></span></p>
+<p><span class=rvts111><br></span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233>Hashtable</span><span class=rvts113>&lt;</span><span class=rvts233>String</span><span class=rvts113>, </span><span class=rvts233>String</span><span class=rvts113>&gt; env = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>Hashtable</span><span class=rvts113>&lt;&gt;();&nbsp; </span><span class=rvts62>// configure the context (factories, providers, ...)</span></p>
+<p><span class=rvts113>env.put(</span><span class=rvts233>Context</span><span class=rvts113>.INITIAL_CONTEXT_FACTORY, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"weblogic.jndi.WLInitialContextFactory"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>env.put(</span><span class=rvts233>Context</span><span class=rvts113>.PROVIDER_URL, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"t3://localhost:7001"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>env.put(</span><span class=rvts233>Context</span><span class=rvts113>.SECURITY_AUTHENTICATION, </span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts217>"simple"</span><span class=rvts113>);</span></p>
+<p><span class=rvts233>Context</span><span class=rvts113> ctx = </span><span class=rvts64>new</span><span class=rvts113> </span><span class=rvts233>InitialContext</span><span class=rvts113>(env);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>QueueConnectionFactory</span><span class=rvts113> qcf=(</span><span class=rvts233>QueueConnectionFactory</span><span class=rvts113>) </span><span class=rvts62>// obtain and start a connection</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; ctx.lookup(</span></p>
+<p><span class=rvts217>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "weblogic.jws.jms.QueueConnectionFactory"</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts233>QueueConnection</span><span class=rvts113> qc = qcf.createQueueConnection(); </span></p>
+<p><span class=rvts113>qc.start();</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>QueueSession</span><span class=rvts113> qs = (</span><span class=rvts233>QueueSession</span><span class=rvts113>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create a new session</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; qc.createQueueSession(</span></p>
+<p><span class=rvts64>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; false</span><span class=rvts113>, </span><span class=rvts233>Session</span><span class=rvts113>.AUTO_ACKNOWLEDGE</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>Queue</span><span class=rvts113> q = (</span><span class=rvts233>Queue</span><span class=rvts113>) ctx.lookup(</span><span class=rvts217>"queues.david.test"</span><span class=rvts113>);&nbsp; </span><span class=rvts62>// connect to a queue</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts62>// ... send and receive messages here ...</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>qs.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// close the session and the connection</span></p>
+<p><span class=rvts113>qc.close();</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection2'>Sending messages</div>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>TextMessage</span><span class=rvts113>&nbsp; msgOut = qs.createTextMessage();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// create and configure the message</span></p>
+<p><span class=rvts113>msgOut.setJMSCorrelationID(</span><span class=rvts217>"ID=12345"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>msgOut.setStringProperty(</span><span class=rvts217>"Key"</span><span class=rvts113>,</span><span class=rvts217>"4711"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>msgOut.setText(</span><span class=rvts217>"Hello world!"</span><span class=rvts113>);</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>QueueSender</span><span class=rvts113> queueSender = qs.createSender(q);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// obtain a sender and submit the message</span></p>
+<p><span class=rvts113>queueSender.send(msgOut);</span></p>
+<p><span class=rvts113><br></span></p>
+<p><span class=rvts113>queueSender.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// close the sender</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection3'>Receiving messages</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233>QueueReceiver</span><span class=rvts113> queueReceiver = qs.createReceiver(q);</span><span class=rvts62>// obtain a receiver</span></p>
+<p><span class=rvts233><br></span></p>
+<p><span class=rvts233>Message</span><span class=rvts113> msgIn = queueReceiver.receive(10000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// wait for a message with a timeout</span></p>
+<p><span class=rvts64><br></span></p>
+<p><span class=rvts64>if</span><span class=rvts113> (</span><span class=rvts64>null</span><span class=rvts113> != msgIn) {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.println(</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; msgIn.getJMSCorrelationID()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// access the message properties</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + </span><span class=rvts217>": "</span><span class=rvts113> + msgIn</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; );</span></p>
+<p><span class=rvts113>} </span><span class=rvts64>else</span><span class=rvts113> {</span></p>
+<p><span class=rvts113>&nbsp;&nbsp;&nbsp; </span><span class=rvts233>System</span><span class=rvts113>.out.println(</span><span class=rvts217>"Timeout"</span><span class=rvts113>);</span></p>
+<p><span class=rvts113>}</span></p>
+<p><span class=rvts113>queueReceiver.close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts62>// close the receiver</span></p>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts233><br></span></p>
+<div id='nodeSection4'>Libraries</div>
+<p><span class=rvts61><br></span></p>
+<p><span class=rvts113>weblogic.jar</span></p>
+<p><span class=rvts113>xbean.jar</span></p>
+<p><span class=rvts113>wljmsclient.jar</span></p>
+<p><span class=rvts113>webserviceclient.jar</span></p>
+<p><span class=rvts113><br></span></p>
+<p><br></p>
+<p><br></p>
+
